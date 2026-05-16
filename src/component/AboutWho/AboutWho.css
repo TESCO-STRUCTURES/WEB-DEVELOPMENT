@@ -1,0 +1,158 @@
+/* ============================================
+   ABOUT WHO WE ARE
+============================================ */
+.ts-aw {
+  padding: clamp(80px, 10vw, 130px) 0;
+  background: #ffffff;
+}
+
+.ts-aw__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.ts-aw__copy {
+  max-width: 600px;
+}
+
+.ts-aw__eyebrow {
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: #fff;
+  border: 1px solid #4FA31E; /* Green border */
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #FF6A00; /* Orange text */
+  margin-bottom: 24px;
+}
+
+.ts-aw__desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #475569;
+  margin: 0;
+  text-align: justify;
+}
+
+.ts-aw__media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ts-aw__diamond-grid {
+  position: relative;
+  width: 440px;
+  height: 440px;
+}
+
+.ts-aw__diamond {
+  position: absolute;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.ts-aw__diamond:hover {
+  transform: scale(1.02);
+}
+
+.ts-aw__diamond--1 {
+  width: 360px;
+  height: 360px;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.ts-aw__diamond--2 {
+  width: 220px;
+  height: 220px;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  /* Overlaps bottom-right of diamond 1 */
+}
+
+.ts-aw__diamond-inner {
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  position: relative;
+}
+
+.ts-aw__diamond-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ts-aw__diamond-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #fff;
+  letter-spacing: 0.1em;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  z-index: 10;
+}
+
+.ts-aw__banner {
+  grid-column: 1 / -1;
+  margin-top: 60px;
+  background: #333333;
+  border-radius: 100px;
+  padding: 24px 40px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ts-aw__banner p {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: clamp(14px, 2vw, 18px);
+  color: #ffffff;
+  margin: 0;
+}
+
+@media (max-width: 1100px) {
+  .ts-aw__inner { 
+    grid-template-columns: 1fr; 
+    gap: 60px; 
+    justify-items: center;
+  }
+  .ts-aw__copy {
+    text-align: center;
+  }
+  .ts-aw__desc {
+    text-align: center;
+  }
+  .ts-aw__banner {
+    border-radius: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ts-aw__diamond-grid {
+    transform: scale(0.7);
+    transform-origin: top center;
+    height: 400px;
+  }
+}

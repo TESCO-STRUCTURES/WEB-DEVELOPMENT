@@ -1,0 +1,337 @@
+/* ============================================
+   HOME WORKED — dual infinite marquee
+============================================ */
+.ts-wkd {
+  position: relative;
+  padding: clamp(70px, 9vw, 110px) 0;
+  background: #ffffff;
+  color: var(--color-navy);
+  overflow: hidden;
+}
+
+/* ============================================
+   HEADING
+============================================ */
+.ts-wkd__head {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 0 20px;
+}
+
+/* ============================================
+   OUR WORKED CLIENT BUTTON
+============================================ */
+.ts-wkd__head .ts-eyebrow {
+  width: 243px;
+  height: 58px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 14px 30px;
+
+  border-radius: 60px;
+  border: 1px solid #72c043;
+
+  background: #ffffff;
+
+  color: #f97316;
+
+  opacity: 1;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  box-sizing: border-box;
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+
+  box-shadow:
+    0 4px 10px rgba(114, 192, 67, 0.12),
+    0 0 20px rgba(114, 192, 67, 0.18);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.ts-wkd__head .ts-eyebrow:hover {
+  transform: translateY(-3px);
+
+  border-color: #72c043;
+
+  box-shadow:
+    0 10px 20px rgba(114, 192, 67, 0.18),
+    0 0 26px rgba(114, 192, 67, 0.28);
+}
+
+/* ============================================
+   TITLE
+============================================ */
+.ts-wkd__head .ts-title {
+  margin-top: 26px;
+
+  color: var(--color-navy);
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(34px, 4vw, 58px);
+
+  line-height: 1.15;
+}
+
+.ts-wkd__head .ts-title span {
+  color: #f97316;
+}
+
+/* ============================================
+   PARAGRAPH
+============================================ */
+.ts-wkd__desc {
+  max-width: 760px;
+
+  margin: 22px auto 0;
+
+  color: #2d3748;
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+
+  line-height: 1.7;
+  letter-spacing: 0%;
+
+  text-align: center;
+
+  opacity: 1;
+}
+
+/* ============================================
+   ROWS WRAPPER
+============================================ */
+.ts-wkd__rows {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+
+  width: 100%;
+  overflow: hidden;
+
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+
+/* ============================================
+   TRACK
+============================================ */
+.ts-wkd__track {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ============================================
+   MOVING ROW
+============================================ */
+.ts-wkd__row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  width: max-content;
+
+  will-change: transform;
+
+  animation-duration: 38s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* LEFT */
+.ts-wkd__track--left .ts-wkd__row {
+  animation-name: ts-wkd-scroll-left;
+}
+
+/* RIGHT */
+.ts-wkd__track--right .ts-wkd__row {
+  animation-name: ts-wkd-scroll-right;
+}
+
+/* ============================================
+   ANIMATION
+============================================ */
+@keyframes ts-wkd-scroll-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes ts-wkd-scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* ============================================
+   CLIENT CARD
+============================================ */
+.ts-wkd__chip {
+  position: relative;
+  width: 170px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  border: 1.5px solid #4FA31E;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 4px 15px rgba(79, 163, 30, 0.1);
+}
+
+/* ============================================
+   IMAGE
+============================================ */
+.ts-wkd__image,
+.ts-wkd__chip img {
+  width: 82%;
+  height: 82%;
+
+  object-fit: contain;
+  object-position: center;
+
+  display: block;
+
+  padding: 0;
+}
+
+/* ============================================
+   HOVER EFFECT
+============================================ */
+.ts-wkd__chip:hover {
+  transform: translateY(-6px);
+}
+
+/* ============================================
+   REMOVE OVERLAY
+============================================ */
+.ts-wkd__chip::after {
+  display: none;
+}
+
+/* ============================================
+   PAUSE ON HOVER
+============================================ */
+.ts-wkd__rows:hover .ts-wkd__row {
+  animation-play-state: paused;
+}
+
+/* ============================================
+   TABLET
+============================================ */
+@media (max-width: 1024px) {
+  .ts-wkd__chip {
+    width: 150px;
+    height: 72px;
+  }
+
+  .ts-wkd__row {
+    gap: 18px;
+  }
+}
+
+/* ============================================
+   MOBILE
+============================================ */
+@media (max-width: 720px) {
+  .ts-wkd {
+    padding: 60px 0;
+  }
+
+  .ts-wkd__head {
+    margin-bottom: 42px;
+  }
+
+  .ts-wkd__head .ts-eyebrow {
+    width: 210px;
+    height: 52px;
+
+    padding: 12px 24px;
+
+    font-size: 16px;
+
+    white-space: nowrap;
+  }
+
+  .ts-wkd__head .ts-title {
+    margin-top: 20px;
+    font-size: 34px;
+    line-height: 1.2;
+  }
+
+  .ts-wkd__desc {
+    margin-top: 18px;
+
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .ts-wkd__rows {
+    gap: 18px;
+  }
+
+  .ts-wkd__row {
+    gap: 14px;
+    animation-duration: 28s;
+  }
+
+  .ts-wkd__chip {
+    width: 125px;
+    height: 60px;
+
+    border-radius: 10px;
+  }
+
+  .ts-wkd__image,
+  .ts-wkd__chip img {
+    width: 80%;
+    height: 80%;
+  }
+}

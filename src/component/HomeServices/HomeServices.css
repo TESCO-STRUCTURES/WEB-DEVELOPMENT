@@ -1,0 +1,252 @@
+/* ============================================
+   OUR SERVICES — SIMPLE INTRO
+============================================ */
+
+.ts-svc {
+  background: #ffffff;
+
+  /* 69px DISTANCE FROM PREVIOUS SECTION */
+  padding-top: 69px;
+
+  padding-right: 0;
+  padding-bottom: clamp(40px, 5vw, 60px);
+  padding-left: 0;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* ============================================
+   INNER
+============================================ */
+
+.ts-svc__inner {
+  max-width: 920px;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+/* ============================================
+   OUR SERVICES BUTTON
+============================================ */
+
+.ts-svc__title {
+  position: relative;
+
+  width: 186px;
+  height: 58px;
+
+  padding-top: 14px;
+  padding-right: 30px;
+  padding-bottom: 14px;
+  padding-left: 30px;
+
+  border: none;
+
+  border-radius: 60px;
+
+  background: #ffffff;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  box-sizing: border-box;
+
+  margin: 0 0 24px;
+
+  font-family: 'Poppins', sans-serif;
+
+  font-weight: 500;
+
+  font-style: normal;
+
+  font-size: 20px;
+
+  line-height: 100%;
+
+  letter-spacing: 0%;
+
+  text-align: center;
+
+  color: #FF6A00;
+
+  white-space: nowrap;
+
+  z-index: 1;
+
+  isolation: isolate;
+}
+
+/* ============================================
+   ANIMATED BORDER EFFECT
+============================================ */
+
+.ts-svc__title::before {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 60px;
+
+  padding: 1.5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #59d61d 0%,
+      #59d61d 25%,
+      #ff7a00 50%,
+      #ff7a00 75%,
+      #59d61d 100%
+    );
+
+  background-size: 300% 300%;
+
+  animation: tsSvcBorderMove 3s linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+
+  mask-composite: exclude;
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+/* ============================================
+   CLEAN GLOW EFFECT
+============================================ */
+
+.ts-svc__title::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 2px;
+
+  border-radius: 60px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(89, 214, 29, 0.10),
+      rgba(255, 122, 0, 0.10),
+      rgba(89, 214, 29, 0.10)
+    );
+
+  background-size: 300% 300%;
+
+  filter: blur(4px);
+
+  opacity: 0.25;
+
+  z-index: -1;
+
+  animation: tsSvcBorderMove 3s linear infinite;
+}
+
+/* ============================================
+   BORDER ANIMATION
+============================================ */
+
+@keyframes tsSvcBorderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+/* ============================================
+   DESCRIPTION
+============================================ */
+
+.ts-svc__desc {
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  font-family: 'Roboto', sans-serif;
+
+  font-weight: 500;
+
+  font-style: normal;
+
+  font-size: 14px;
+
+  line-height: 160%;
+
+  letter-spacing: 0%;
+
+  text-align: center;
+
+  color: #343C47;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+
+@media (max-width: 768px) {
+
+  .ts-svc {
+    padding-top: 69px;
+    padding-bottom: 40px;
+  }
+
+  .ts-svc__title {
+    width: 170px;
+    height: 54px;
+
+    font-size: 18px;
+
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .ts-svc__desc {
+    padding: 0 18px;
+
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .ts-svc__title {
+    width: 160px;
+    height: 52px;
+
+    font-size: 16px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .ts-svc__desc {
+    font-size: 13px;
+  }
+}

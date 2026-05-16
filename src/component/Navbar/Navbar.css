@@ -1,0 +1,403 @@
+/* ============================================
+   NAVBAR — sticky, premium scroll-glass effect
+============================================ */
+
+.ts-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 100;
+
+  padding: 18px 0;
+
+  background: #ffffff;
+
+  transition:
+    background 0.35s var(--ease),
+    padding 0.35s var(--ease),
+    box-shadow 0.35s var(--ease),
+    backdrop-filter 0.35s var(--ease);
+}
+
+.ts-nav--scrolled {
+  padding: 10px 0;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+
+  box-shadow: 0 8px 24px rgba(11, 31, 58, 0.06);
+}
+
+/* ============================================
+   INNER
+============================================ */
+
+.ts-nav__inner {
+  display: flex;
+  align-items: center;
+
+  justify-content: flex-start;
+
+  /* DISTANCE BETWEEN LOGO AND NAV TITLES */
+  gap: 64px;
+
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+/* ============================================
+   BRAND
+============================================ */
+
+.ts-nav__brand {
+  display: inline-flex;
+  align-items: center;
+
+  flex-shrink: 0;
+}
+
+.ts-nav__logo {
+  height: 40px;
+  width: auto;
+}
+
+/* ============================================
+   LINKS
+============================================ */
+
+.ts-nav__links {
+  display: flex;
+  align-items: center;
+
+  /* DISTANCE BETWEEN EACH TITLE */
+  gap: 50px;
+}
+
+/* ============================================
+   LINK
+============================================ */
+
+.ts-nav__link {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14.5px;
+
+  color: var(--color-navy);
+
+  position: relative;
+
+  transition: color 0.2s var(--ease);
+
+  white-space: nowrap;
+}
+
+.ts-nav__link::after {
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: -6px;
+
+  height: 2px;
+
+  background: var(--color-orange);
+
+  transform: scaleX(0);
+  transform-origin: left center;
+
+  transition: transform 0.3s var(--ease);
+}
+
+.ts-nav__link:hover {
+  color: var(--color-orange);
+}
+
+.ts-nav__link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Active page link — same orange + persistent underline */
+.ts-nav__link--active {
+  color: var(--color-orange);
+}
+.ts-nav__link--active::after {
+  transform: scaleX(1);
+}
+
+/* ============================================
+   CONTACT BUTTON
+============================================ */
+
+.ts-nav__cta {
+  /* DISTANCE BETWEEN LAST TITLE & BUTTON */
+  margin-left: 64px;
+
+  /* FIGMA SIZE */
+  width: 118px;
+  height: 47px;
+
+  padding-top: 10px;
+  padding-right: 22px;
+  padding-bottom: 10px;
+  padding-left: 22px;
+
+  gap: 10px;
+
+  border-radius: 70px;
+  background: #FF6A00;
+  color: #ffffff;
+  text-decoration: none;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  font-size: 14px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.ts-nav__cta:hover {
+  background: #E15E00;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   BURGER
+============================================ */
+
+.ts-nav__burger {
+  display: none;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  padding: 8px;
+
+  margin-left: auto;
+}
+
+.ts-nav__burger span {
+  display: block;
+
+  width: 26px;
+  height: 2.5px;
+
+  background: var(--color-navy);
+
+  border-radius: 2px;
+
+  transition:
+    transform 0.3s var(--ease),
+    opacity 0.2s var(--ease);
+}
+
+.ts-nav__burger--open span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+
+.ts-nav__burger--open span:nth-child(2) {
+  opacity: 0;
+}
+
+.ts-nav__burger--open span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+
+@media (max-width: 960px) {
+
+  .ts-nav__inner {
+    justify-content: space-between;
+
+    padding-left: 24px;
+    padding-right: 24px;
+
+    gap: 24px;
+  }
+
+  .ts-nav__links {
+    position: fixed;
+
+    inset: 76px 0 auto 0;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 0;
+
+    background: #ffffff;
+
+    padding: 20px 28px 28px;
+
+    transform: translateY(-12px);
+
+    opacity: 0;
+    pointer-events: none;
+
+    box-shadow: 0 18px 40px rgba(11, 31, 58, 0.10);
+
+    transition:
+      opacity 0.25s var(--ease),
+      transform 0.25s var(--ease);
+  }
+
+  .ts-nav__links--open {
+    transform: translateY(0);
+
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .ts-nav__link {
+    width: 100%;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid var(--color-border);
+
+    font-size: 16px;
+  }
+
+  .ts-nav__link::after {
+    display: none;
+  }
+
+  .ts-nav__cta {
+    margin-top: 14px;
+
+    margin-left: 0;
+
+    width: 118px;
+    height: 47px;
+
+    align-self: flex-start;
+    justify-content: center;
+  }
+
+  .ts-nav__burger {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .ts-nav__inner {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .ts-nav__logo {
+    height: 32px;
+  }
+}
+
+/* ============================================
+   SERVICES DROPDOWN
+============================================ */
+.ts-nav__has-dd {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.ts-nav__link--has-dd {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.ts-nav__caret {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.25s ease;
+}
+.ts-nav__has-dd--open .ts-nav__caret { transform: rotate(180deg); }
+
+.ts-nav__dd {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: -16px;
+  min-width: 320px;
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow:
+    0 22px 44px rgba(11, 31, 58, 0.14),
+    0 0 0 1px rgba(11, 31, 58, 0.06);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 20;
+}
+/* invisible bridge so hovering between trigger and panel doesn't close it */
+.ts-nav__dd::before {
+  content: '';
+  position: absolute;
+  inset: -14px 0 100% 0;
+}
+.ts-nav__has-dd--open .ts-nav__dd {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.ts-nav__dd-link {
+  display: block;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #0B1F3A;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: background 0.18s ease, color 0.18s ease, padding-left 0.18s ease;
+}
+.ts-nav__dd-link:hover {
+  background: rgba(255, 106, 0, 0.08);
+  color: #FF6A00;
+  padding-left: 20px;
+}
+.ts-nav__dd-link--active {
+  background: rgba(255, 106, 0, 0.10);
+  color: #FF6A00;
+}
+
+@media (max-width: 960px) {
+  /* On mobile the menu is a vertical panel — let the dropdown render inline */
+  .ts-nav__has-dd { width: 100%; flex-direction: column; align-items: stretch; }
+  .ts-nav__dd {
+    position: static;
+    box-shadow: none;
+    background: rgba(11, 31, 58, 0.03);
+    min-width: 0;
+    padding: 6px 0;
+    margin: 4px 0 8px;
+    border-radius: 12px;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .ts-nav__has-dd--open .ts-nav__dd { max-height: 600px; }
+  .ts-nav__dd::before { display: none; }
+  .ts-nav__dd-link { padding: 12px 18px; font-size: 14.5px; }
+}

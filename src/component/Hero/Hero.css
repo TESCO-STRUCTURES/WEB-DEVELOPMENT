@@ -1,0 +1,590 @@
+/* ============================================
+   HERO — EXACT FIGMA STYLE
+============================================ */
+
+.ts-hero {
+  position: relative;
+
+  width: 100%;
+
+  height: 100vh;
+
+  min-height: 782px;
+
+  overflow: hidden;
+
+  background: #061226;
+}
+
+/* ============================================
+   SLIDER STAGE
+============================================ */
+
+.ts-hero__stage {
+  position: absolute;
+
+  inset: 0;
+}
+
+/* ============================================
+   SLIDES
+============================================ */
+
+.ts-hero__slide {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0;
+
+  transform: scale(1.05);
+
+  transition:
+    opacity 1.2s ease,
+    transform 7s linear;
+}
+
+.ts-hero__slide--active {
+  opacity: 1;
+
+  transform: scale(1);
+}
+
+.ts-hero__img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+}
+
+/* ============================================
+   DARK OVERLAY
+============================================ */
+
+.ts-hero__scrim {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.30) 0%,
+      rgba(0, 0, 0, 0.45) 100%
+    );
+}
+
+/* ============================================
+   HERO OVERLAY
+============================================ */
+
+.ts-hero__overlay {
+  position: relative;
+
+  z-index: 5;
+
+  width: 100%;
+
+  height: 100%;
+}
+
+/* ============================================
+   CONTENT WRAPPER
+============================================ */
+
+.ts-hero__content {
+  position: absolute;
+
+  top: 243px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: flex-start;
+
+  text-align: center;
+
+  padding: 0 20px;
+
+  box-sizing: border-box;
+
+  z-index: 10;
+}
+
+/* ============================================
+   TURNING VISION BUTTON
+============================================ */
+
+.ts-hero__tag-btn {
+  position: relative;
+
+  width: 342.9067px;
+
+  height: 58px;
+
+  padding: 14px 30px;
+
+  border: none;
+
+  border-radius: 60px;
+
+  background: transparent;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  box-sizing: border-box;
+
+  margin-bottom: 36px;
+
+  overflow: hidden;
+
+  font-family: 'Poppins', sans-serif;
+
+  font-weight: 500;
+
+  font-size: 20px;
+
+  line-height: 100%;
+
+  letter-spacing: 0%;
+
+  text-align: center;
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  transition: transform 0.3s ease;
+}
+
+/* ============================================
+   ANIMATED BORDER
+============================================ */
+
+.ts-hero__tag-btn::before {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 60px;
+
+  padding: 1.5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #59d61d 0%,
+      #59d61d 25%,
+      #ff7a00 50%,
+      #ff7a00 75%,
+      #59d61d 100%
+    );
+
+  background-size: 300% 300%;
+
+  animation: tsBorderMove 3s linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+
+  mask-composite: exclude;
+
+  pointer-events: none;
+}
+
+/* ============================================
+   REMOVE GLOW
+============================================ */
+
+.ts-hero__tag-btn::after {
+  display: none;
+}
+
+/* ============================================
+   BORDER ANIMATION
+============================================ */
+
+@keyframes tsBorderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+.ts-hero__tag-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   TAG ICON
+============================================ */
+
+.ts-hero__tag-icon {
+  width: 22px;
+
+  height: 22px;
+
+  object-fit: contain;
+
+  flex-shrink: 0;
+}
+
+/* ============================================
+   TITLE
+============================================ */
+
+.ts-hero__title {
+  width: 730px;
+
+  margin: 0 auto;
+
+  font-family: 'Oswald', sans-serif;
+
+  font-weight: 600;
+
+  font-size: 48px;
+
+  line-height: 100%;
+
+  letter-spacing: 0;
+
+  text-align: center;
+
+  text-transform: uppercase;
+
+  color: #59D61D;
+
+  white-space: nowrap;
+
+  overflow: visible;
+
+  display: block;
+}
+
+/* ============================================
+   DESCRIPTION
+============================================ */
+
+.ts-hero__desc {
+  margin-top: 28px;
+
+  width: 100%;
+
+  max-width: 780px;
+
+  font-family: 'Poppins', sans-serif;
+
+  font-weight: 400;
+
+  font-size: 18px;
+
+  line-height: 160%;
+
+  text-align: center;
+
+  color: #ffffff;
+}
+
+/* ============================================
+   BUTTONS
+============================================ */
+
+.ts-hero__buttons {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 26px;
+
+  margin-top: 42px;
+
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   GET INSTANT PRICING
+============================================ */
+
+.ts-hero__pricing-btn {
+  width: 244px;
+
+  height: 74px;
+
+  border: none;
+
+  border-radius: 40px;
+
+  background: #4a4a4a;
+
+  font-family: 'Poppins', sans-serif;
+
+  font-weight: 500;
+
+  font-size: 18px;
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.ts-hero__pricing-btn:hover {
+  background: #5d5d5d;
+
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   BOOK FREE SITE INSPECTION
+============================================ */
+
+.ts-hero__inspection-btn {
+  width: 328px;
+
+  height: 74px;
+
+  border: none;
+
+  border-radius: 40px;
+
+  background: #ff7900;
+
+  font-family: 'Poppins', sans-serif;
+
+  font-weight: 500;
+
+  font-size: 18px;
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.ts-hero__inspection-btn:hover {
+  background: #ff8c1f;
+
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   RIGHT SIDE HERO IMAGE
+============================================ */
+
+.ts-hero__right-img {
+  position: absolute;
+
+  top: 343px;
+
+  left: 1330px;
+
+  width: 56px;
+
+  height: 216px;
+
+  object-fit: contain;
+
+  display: block;
+
+  z-index: 6;
+
+  pointer-events: none;
+}
+
+/* ============================================
+   REMOVE DOTS
+============================================ */
+
+.ts-hero__dots {
+  display: none;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+
+@media (max-width: 1200px) {
+
+  .ts-hero__title {
+    width: 100%;
+
+    max-width: 650px;
+
+    font-size: 40px;
+  }
+
+  .ts-hero__right-img {
+    left: auto;
+
+    right: 20px;
+
+    width: 48px;
+
+    height: 190px;
+  }
+}
+
+@media (max-width: 992px) {
+
+  .ts-hero__content {
+    top: 210px;
+  }
+
+  .ts-hero__title {
+    font-size: 38px;
+
+    white-space: normal;
+  }
+
+  .ts-hero__right-img {
+    width: 42px;
+
+    height: 170px;
+
+    top: 360px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .ts-hero {
+    min-height: 720px;
+  }
+
+  .ts-hero__content {
+    top: 180px;
+  }
+
+  .ts-hero__tag-btn {
+    width: 300px;
+
+    height: 54px;
+
+    font-size: 18px;
+  }
+
+  .ts-hero__title {
+    max-width: 95%;
+
+    font-size: 34px;
+
+    line-height: 1.1;
+  }
+
+  .ts-hero__desc {
+    margin-top: 22px;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    max-width: 92%;
+  }
+
+  .ts-hero__buttons {
+    margin-top: 34px;
+
+    gap: 18px;
+  }
+
+  .ts-hero__pricing-btn,
+  .ts-hero__inspection-btn {
+    width: 280px;
+
+    height: 64px;
+
+    font-size: 16px;
+  }
+
+  .ts-hero__right-img {
+    width: 36px;
+
+    height: 150px;
+
+    right: 14px;
+
+    top: 380px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .ts-hero__content {
+    top: 160px;
+  }
+
+  .ts-hero__tag-btn {
+    width: 260px;
+
+    height: 50px;
+
+    font-size: 16px;
+
+    padding: 12px 24px;
+  }
+
+  .ts-hero__title {
+    font-size: 28px;
+
+    line-height: 1.15;
+  }
+
+  .ts-hero__desc {
+    font-size: 14px;
+
+    line-height: 1.7;
+  }
+
+  .ts-hero__pricing-btn,
+  .ts-hero__inspection-btn {
+    width: 100%;
+
+    max-width: 300px;
+
+    height: 58px;
+
+    font-size: 15px;
+  }
+
+  .ts-hero__right-img {
+    width: 28px;
+
+    height: 120px;
+
+    right: 10px;
+
+    top: 400px;
+  }
+}

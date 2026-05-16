@@ -1,0 +1,131 @@
+.ts-ams-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 80px 0;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ts-ams-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.ts-ams__experience {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ts-ams__exp-number {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 80px;
+  color: #4FA31E;
+  line-height: 1;
+}
+
+.ts-ams__exp-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #64748B;
+  letter-spacing: 0.1em;
+  margin-top: 10px;
+}
+
+.ts-ams__exp-logos {
+  display: flex;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.ts-ams__logo-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-left: -12px;
+}
+.ts-ams__logo-circle:first-child {
+  margin-left: 0;
+}
+
+.ts-ams__exp-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #64748B;
+  margin: 0;
+}
+
+.ts-ams {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ts-ams__list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ts-ams__card {
+  display: flex;
+  gap: 20px;
+  padding: 32px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(79,163,30,0.12) 0%, rgba(255,106,0,0.08) 100%);
+  border: 1px solid rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+  align-items: flex-start;
+  transition: transform 0.3s ease;
+}
+
+.ts-ams__card:hover {
+  transform: translateY(-4px);
+}
+
+.ts-ams__icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #4FA31E;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ts-ams__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ts-ams__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ts-ams__content h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #1A1C1C;
+  margin: 0;
+}
+
+.ts-ams__content p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #64748B;
+  margin: 0;
+}

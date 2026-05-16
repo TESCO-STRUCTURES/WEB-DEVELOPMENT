@@ -1,0 +1,19 @@
+.ten-why { background: #F8FAFC; padding: clamp(70px, 9vw, 120px) 0; }
+.ten-why__inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(40px, 6vw, 90px); align-items: center; }
+
+.ten-why__copy { max-width: 600px; }
+.ten-why__eyebrow { display: inline-block; font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.20em; color: #FF6A00; text-transform: uppercase; margin-bottom: 14px; }
+.ten-why__title { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: clamp(32px, 4vw, 48px); line-height: 1.1; color: #0B1F3A; margin: 0 0 18px; }
+.ten-why__title span { color: #4FA31E; }
+.ten-why__desc { font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.7; color: #475569; margin: 0 0 28px; max-width: 540px; }
+
+.ten-why__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 20px; }
+.ten-why__row { display: grid; grid-template-columns: 56px 1fr; gap: 18px; }
+.ten-why__num { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 24px; color: #FF6A00; padding: 2px 14px 0 0; border-right: 2px solid #FF6A00; text-align: center; }
+.ten-why__row-title { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 20px; color: #0B1F3A; margin: 0 0 6px; }
+.ten-why__row-desc { font-family: 'Poppins', sans-serif; font-size: 14.5px; line-height: 1.65; color: #475569; }
+
+.ten-why__media { border-radius: 28px; overflow: hidden; box-shadow: 0 28px 60px rgba(11,31,58,0.18); }
+.ten-why__media img { width: 100%; height: clamp(420px, 58vw, 580px); object-fit: cover; display: block; }
+
+@media (max-width: 1024px) { .ten-why__inner { grid-template-columns: 1fr; } .ten-why__copy { max-width: none; } }

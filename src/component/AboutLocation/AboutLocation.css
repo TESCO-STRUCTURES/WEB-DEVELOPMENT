@@ -1,0 +1,76 @@
+.ts-aloc {
+  padding: 100px 0;
+  background: #fff;
+}
+
+.ts-aloc__head {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.ts-aloc__eyebrow {
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 50px;
+  border: 1px solid #4FA31E;
+  color: #FF6A00;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.ts-aloc__desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #343C47;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.ts-aloc__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ts-aloc__col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ts-aloc__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ts-aloc__pin {
+  color: #E11D48;
+  display: flex;
+  align-items: center;
+}
+
+.ts-aloc__pin svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.ts-aloc__city {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #1A1C1C;
+}
+
+@media (max-width: 768px) {
+  .ts-aloc__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .ts-aloc__grid { grid-template-columns: 1fr; }
+}

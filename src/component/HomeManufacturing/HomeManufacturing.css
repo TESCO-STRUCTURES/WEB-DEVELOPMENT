@@ -1,0 +1,283 @@
+/* ============================================
+   MANUFACTURING — 3-image auto-switch
+============================================ */
+
+.ts-mfg {
+  padding: clamp(80px, 10vw, 130px) 0;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+.ts-mfg__head {
+  text-align: center;
+
+  max-width: 720px;
+
+  margin: 0 auto 56px;
+}
+
+/* ============================================
+   TITLE
+============================================ */
+
+.ts-mfg__title {
+  font-family: 'Poppins', sans-serif;
+
+  font-weight: 600;
+
+  font-style: normal;
+
+  font-size: 20px;
+
+  line-height: 100%;
+
+  letter-spacing: 0%;
+
+  text-align: center;
+
+  color: #0B1F3A;
+}
+
+/* ============================================
+   DESCRIPTION
+============================================ */
+
+.ts-mfg__lede {
+  margin-top: 18px;
+
+  font-family: 'Poppins', sans-serif;
+
+  font-weight: 500;
+
+  font-style: normal;
+
+  font-size: 14px;
+
+  line-height: 100%;
+
+  letter-spacing: 0%;
+
+  text-align: center;
+
+  color: #475569;
+}
+
+/* ============================================
+   IMAGE STRIP
+============================================ */
+
+.ts-mfg__strip {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr;
+
+  gap: 12px;
+
+  align-items: center;
+}
+
+/* ============================================
+   IMAGE CARD
+============================================ */
+
+.ts-mfg__card {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+
+  height: 440px;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  background: transparent;
+
+  box-shadow: none;
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+
+  filter: saturate(0.85) brightness(0.92);
+
+  z-index: 1;
+}
+
+.ts-mfg__card:hover {
+  filter: none;
+}
+
+/* ============================================
+   ACTIVE CARD — OVERLAP REMOVED
+============================================ */
+
+.ts-mfg__card--active {
+  transform: translateY(-10px);
+
+  z-index: 2;
+
+  box-shadow: none;
+
+  filter: saturate(1.05) brightness(1.02);
+}
+
+/* ============================================
+   IMAGE
+============================================ */
+
+.ts-mfg__img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 1s ease;
+}
+
+.ts-mfg__card--active .ts-mfg__img {
+  transform: scale(1);
+}
+
+/* ============================================
+   CAPTION
+============================================ */
+
+.ts-mfg__caption {
+  position: absolute;
+
+  left: 24px;
+
+  bottom: 24px;
+
+  display: flex;
+
+  align-items: baseline;
+
+  gap: 14px;
+
+  color: #fff;
+
+  text-align: left;
+
+  opacity: 0;
+
+  transform: translateY(12px);
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.ts-mfg__card--active .ts-mfg__caption {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+/* ============================================
+   STEP NUMBER
+============================================ */
+
+.ts-mfg__step {
+  font-family: var(--font-display);
+
+  font-weight: 800;
+
+  font-size: 34px;
+
+  letter-spacing: -0.02em;
+
+  color: var(--color-orange);
+}
+
+/* ============================================
+   LABEL
+============================================ */
+
+.ts-mfg__label {
+  font-family: var(--font-display);
+
+  font-weight: 700;
+
+  font-size: 18px;
+}
+
+/* ============================================
+   PROGRESS TICKS
+============================================ */
+
+.ts-mfg__progress {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  margin-top: 56px;
+}
+
+.ts-mfg__tick {
+  width: 38px;
+
+  height: 4px;
+
+  border-radius: 4px;
+
+  background: rgba(11, 31, 58, 0.14);
+
+  transition:
+    background 0.4s ease,
+    width 0.4s ease;
+}
+
+.ts-mfg__tick--active {
+  background: var(--color-orange);
+
+  width: 64px;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+
+@media (max-width: 1024px) {
+
+  .ts-mfg__card {
+    height: 360px;
+  }
+
+  .ts-mfg__card--active {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 720px) {
+
+  .ts-mfg__strip {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .ts-mfg__card {
+    height: 280px;
+
+    filter: none;
+  }
+
+  .ts-mfg__card--active {
+    transform: none;
+  }
+
+  .ts-mfg__caption {
+    opacity: 1;
+
+    transform: none;
+  }
+}

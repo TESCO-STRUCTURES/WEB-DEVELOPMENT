@@ -1,0 +1,92 @@
+.ts-abld {
+  background: #fff;
+  width: 100%;
+}
+
+.ts-abld__inner {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+}
+
+.ts-abld__content {
+  background: #F8FAFC; 
+  padding: 120px 40px 120px 10%;
+  display: flex;
+  align-items: center;
+}
+
+.ts-abld__title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(32px, 4vw, 48px);
+  color: #1A1C1C;
+  margin: 0 0 16px;
+}
+
+.ts-abld__desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #343C47;
+  margin: 0 0 24px;
+}
+
+.ts-abld__desc::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #4FA31E;
+  margin-top: 30px;
+}
+
+.ts-abld__media {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+}
+
+.ts-abld__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.ts-btn {
+  padding: 16px 24px;
+  border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.ts-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.ts-btn--orange {
+  background: #FF6A00;
+  color: #fff;
+}
+
+.ts-btn--white {
+  background: #fff;
+  color: #1A1C1C;
+}
+
+@media (max-width: 1024px) {
+  .ts-abld__inner { grid-template-columns: 1fr; }
+  .ts-abld__content { padding: 80px 20px; }
+  .ts-abld__media { min-height: 500px; }
+}

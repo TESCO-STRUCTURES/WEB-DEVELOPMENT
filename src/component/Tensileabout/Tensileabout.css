@@ -1,0 +1,20 @@
+.ten-about { background: #ffffff; padding: clamp(70px, 9vw, 120px) 0; }
+.ten-about__inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 90px); align-items: center; }
+
+.ten-about__media { position: relative; border-radius: 28px; overflow: hidden; box-shadow: 0 28px 60px rgba(11,31,58,0.16); }
+.ten-about__media img { width: 100%; height: clamp(380px, 50vw, 560px); object-fit: cover; display: block; transition: transform 8s linear; }
+.ten-about__media:hover img { transform: scale(1.04); }
+
+.ten-about__copy { max-width: 580px; }
+.ten-about__eyebrow { display: inline-block; font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.20em; color: #FF6A00; text-transform: uppercase; margin-bottom: 14px; }
+.ten-about__title { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: clamp(32px, 4vw, 48px); line-height: 1.1; color: #0B1F3A; margin: 0 0 22px; }
+.ten-about__title span { color: #4FA31E; }
+.ten-about__desc { font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.7; color: #475569; margin: 0 0 16px; }
+
+.ten-about__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; padding-top: 28px; border-top: 1px solid #E2E8F0; }
+.ten-about__stat { display: flex; flex-direction: column; gap: 4px; }
+.ten-about__num { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 36px; color: #FF6A00; letter-spacing: -0.01em; }
+.ten-about__lbl { font-family: 'Poppins', sans-serif; font-size: 13px; color: #64748B; line-height: 1.4; }
+
+@media (max-width: 1024px) { .ten-about__inner { grid-template-columns: 1fr; } .ten-about__copy { max-width: none; } }
+@media (max-width: 560px) { .ten-about__stats { grid-template-columns: 1fr; gap: 14px; } .ten-about__num { font-size: 30px; } }

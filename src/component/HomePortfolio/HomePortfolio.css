@@ -1,0 +1,66 @@
+.ts-pfo {
+  background: #000000;
+  color: #ffffff;
+  padding: 100px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.ts-pfo__head {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.ts-pfo__eyebrow {
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 50px;
+  border: 1px solid #4FA31E;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 24px;
+  box-shadow: 0 0 15px rgba(79, 163, 30, 0.3);
+}
+
+.ts-pfo__desc {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #9CA3AF;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ts-pfo__stage {
+  position: relative;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.ts-pfo__grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.ts-pfo__item {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.ts-pfo__img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .ts-pfo__grid {
+    flex-direction: column;
+  }
+}

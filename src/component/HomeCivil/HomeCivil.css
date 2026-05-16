@@ -1,0 +1,184 @@
+/* ============================================
+   CIVIL CONSTRUCTION — mirrors HomeEngineered
+============================================ */
+.ts-civ {
+  position: relative;
+  padding: clamp(70px, 10vw, 130px) 0 clamp(60px, 8vw, 110px);
+  background: #ffffff;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.ts-civ__watermark {
+  position: absolute;
+  top: clamp(10px, 2vw, 24px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(72px, 10.5vw, 190px);
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  background: linear-gradient(180deg,
+    rgba(11, 31, 58, 0.20) 0%,
+    rgba(11, 31, 58, 0.11) 40%,
+    rgba(11, 31, 58, 0.04) 72%,
+    rgba(11, 31, 58, 0.00) 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+          color: transparent;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.ts-civ__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: start;
+  padding-top: 60px;
+}
+
+.ts-civ__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 5 / 4.6;
+  min-height: 460px;
+}
+
+.ts-civ__card {
+  position: absolute;
+  border-radius: 28px;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: none;
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+.ts-civ__card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  background: transparent;
+}
+
+.ts-civ__card--1 { top: 0; left: 0; width: 70%; height: 78%; z-index: 1; }
+.ts-civ__card--2 { top: 25px; left: 220px; width: 60%; height: 70%; z-index: 2; box-shadow: none; }
+.ts-civ__card:hover { transform: translateY(-6px); }
+
+.ts-civ__copy { max-width: 620px; margin-left: 0; }
+
+.ts-civ__title {
+  margin: 0 0 18px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-transform: capitalize;
+  color: #4FA31E;
+}
+
+.ts-civ__subtitle {
+  margin: 0 0 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #0B1F3A;
+}
+
+.ts-civ__desc {
+  margin: 0 0 16px;
+  max-width: 520px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #475569;
+}
+
+.ts-civ__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 10px;
+}
+.ts-civ__item {
+  position: relative;
+  padding-left: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #0B1F3A;
+}
+.ts-civ__item::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0.65em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0B1F3A;
+}
+
+.ts-civ__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid rgba(255, 106, 0, 0.55);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: #FF6A00;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.ts-civ__more svg { width: 16px; height: 16px; transition: transform 0.25s ease; }
+.ts-civ__more:hover { color: #C2410C; border-bottom-color: #C2410C; }
+.ts-civ__more:hover svg { transform: translateX(4px); }
+
+@media (max-width: 1100px) {
+  .ts-civ__inner { grid-template-columns: 1fr; gap: 56px; padding-top: 60px; }
+  .ts-civ__copy { max-width: none; margin-left: 0; }
+  .ts-civ__media { max-width: 620px; min-height: 420px; }
+  .ts-civ__watermark { white-space: normal; text-align: center; line-height: 0.95; }
+  .ts-civ__title { text-align: left; }
+  .ts-civ__card--2 { left: 240px; }
+}
+
+@media (max-width: 720px) {
+  .ts-civ__watermark { font-size: clamp(44px, 13vw, 88px); line-height: 1; letter-spacing: -0.03em; top: 20px; }
+  .ts-civ__inner { padding-top: 60px; }
+  .ts-civ__media { min-height: 360px; aspect-ratio: 5 / 4.4; }
+  .ts-civ__card--1 { width: 72%; height: 76%; }
+  .ts-civ__card--2 { width: 64%; height: 68%; left: 170px; top: 150px; }
+  .ts-civ__list { grid-template-columns: 1fr 1fr; column-gap: 16px; }
+  .ts-civ__title { font-size: 40px; }
+  .ts-civ__subtitle { font-size: 18px; }
+}
+
+@media (max-width: 480px) {
+  .ts-civ { padding: 60px 0 50px; }
+  .ts-civ__watermark { font-size: 42px; line-height: 1; }
+  .ts-civ__media { min-height: 280px; }
+  .ts-civ__card--1 { width: 78%; height: 72%; }
+  .ts-civ__card--2 { width: 70%; height: 64%; left: 100px; top: 120px; }
+  .ts-civ__title { font-size: 30px; }
+  .ts-civ__subtitle { font-size: 16px; }
+  .ts-civ__list { grid-template-columns: 1fr; }
+}

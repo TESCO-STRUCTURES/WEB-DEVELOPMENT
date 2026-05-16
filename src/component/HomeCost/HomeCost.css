@@ -1,0 +1,540 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* ============================================
+   COST CALCULATION — FINAL FIGMA STYLE
+============================================ */
+
+.ts-cost {
+  position: relative;
+
+  padding: clamp(64px, 8vw, 110px) 0;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+/* ============================================
+   ORANGE BLUR EFFECTS
+============================================ */
+
+/* LEFT BLUR */
+.ts-cost::before {
+  content: '';
+
+  position: absolute;
+
+  left: -120px;
+  top: 300px;
+
+  width: 350px;
+  height: 450px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 106, 0, 0.70) 140%,
+      rgba(255, 255, 255, 0.30) 100%,
+      transparent 100%
+    );
+
+  filter: blur(180px);
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+/* RIGHT BLUR */
+.ts-cost::after {
+  content: '';
+
+  position: absolute;
+
+  right: -120px;
+  top: 100px;
+
+  width: 350px;
+  height: 400px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 106, 0, 0.70) 140%,
+      rgba(255, 255, 255, 0.30) 100%,
+      transparent 100%
+    );
+
+  filter: blur(250px);
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+/* ============================================
+   CONTAINER
+============================================ */
+
+.ts-cost .container {
+  position: relative;
+
+  z-index: 1;
+}
+
+/* ============================================
+   HEADING
+============================================ */
+
+.ts-cost__head {
+  text-align: center;
+
+  max-width: 900px;
+
+  margin: 0 auto 44px;
+}
+
+/* FIRST LINE */
+.ts-cost__title {
+  margin: 0;
+
+  font-family: 'Roboto', sans-serif;
+
+  font-weight: 700;
+
+  font-size: 48px;
+
+  line-height: 48px;
+
+  letter-spacing: 0;
+
+  text-align: center;
+
+  color: #101828;
+}
+
+/* SECOND LINE */
+.ts-cost__subtitle {
+  margin-top: 18px;
+
+  font-family: 'Roboto', sans-serif;
+
+  font-weight: 400;
+
+  font-size: 20px;
+
+  line-height: 28px;
+
+  letter-spacing: 0;
+
+  text-align: center;
+
+  color: #101828;
+}
+
+/* THIRD LINE */
+.ts-cost__desc {
+  margin-top: 12px;
+
+  max-width: 760px;
+
+  margin-inline: auto;
+
+  font-family: 'Roboto', sans-serif;
+
+  font-weight: 400;
+
+  font-size: 16px;
+
+  line-height: 24px;
+
+  letter-spacing: 0;
+
+  text-align: center;
+
+  color: #101828;
+}
+
+/* ============================================
+   FORM BAR
+============================================ */
+
+.ts-cost__bar {
+  position: relative;
+
+  width: 100%;
+  max-width: 1271px;
+
+  min-height: 228px;
+
+  margin: 0 auto;
+
+  border-radius: 25px;
+
+  border: 1px solid rgba(11, 31, 58, 0.10);
+
+  background: #ffffff;
+
+  padding: 80px 30px 76px;
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  box-shadow: 0 24px 56px rgba(11, 31, 58, 0.08);
+}
+
+/* ============================================
+   BACKGROUND GRID
+============================================ */
+
+.ts-cost__bar-bg {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  opacity: 0.32;
+
+  pointer-events: none;
+
+  background:
+    repeating-linear-gradient(
+      62deg,
+      transparent 0 22px,
+      rgba(11, 31, 58, 0.05) 22px 23px
+    ),
+    repeating-linear-gradient(
+      118deg,
+      transparent 0 22px,
+      rgba(11, 31, 58, 0.05) 22px 23px
+    ),
+    radial-gradient(
+      ellipse at top,
+      #ffffff 0%,
+      transparent 70%
+    );
+}
+
+/* ============================================
+   GRID
+============================================ */
+
+.ts-cost__bar-grid {
+  position: relative;
+
+  z-index: 1;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(140px, 1.4fr)
+    minmax(140px, 1.4fr)
+    minmax(140px, 1.4fr)
+    minmax(110px, 1fr)
+    minmax(110px, 1fr)
+    auto;
+
+  gap: 30px;
+
+  align-items: end;
+}
+
+/* ============================================
+   FIELD
+============================================ */
+
+.ts-cost__field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  min-width: 0;
+}
+
+/* ============================================
+   LABEL
+============================================ */
+
+.ts-cost__lbl {
+  font-family: 'Roboto', sans-serif;
+
+  font-weight: 500;
+
+  font-size: 14px;
+
+  line-height: 20px;
+
+  color: #101828;
+}
+
+/* ============================================
+   SELECT
+============================================ */
+
+.ts-cost__select-wrap {
+  position: relative;
+}
+
+.ts-cost__select {
+  width: 100%;
+
+  height: 40px;
+
+  padding: 0 32px 0 0;
+
+  border: 0;
+
+  border-bottom: 1px solid rgba(16, 24, 40, 0.18);
+
+  background: transparent;
+
+  font-family: 'Roboto', sans-serif;
+
+  font-weight: 400;
+
+  font-size: 15px;
+
+  color: #101828;
+
+  appearance: none;
+
+  outline: none;
+
+  cursor: pointer;
+
+  transition: border-color 0.2s ease;
+}
+
+.ts-cost__select:focus {
+  border-bottom-color: #FF6A00;
+}
+
+.ts-cost__caret {
+  position: absolute;
+
+  right: 4px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 16px;
+  height: 16px;
+
+  color: rgba(16, 24, 40, 0.55);
+
+  pointer-events: none;
+}
+
+/* ============================================
+   INPUT
+============================================ */
+
+.ts-cost__input {
+  width: 100%;
+
+  height: 40px;
+
+  border: 0;
+
+  border-bottom: 1px solid rgba(16, 24, 40, 0.18);
+
+  background: transparent;
+
+  font-family: 'Roboto', sans-serif;
+
+  font-weight: 400;
+
+  font-size: 15px;
+
+  color: #101828;
+
+  outline: none;
+
+  transition: border-color 0.2s ease;
+}
+
+.ts-cost__input:focus {
+  border-bottom-color: #FF6A00;
+}
+
+/* ============================================
+   RADIO
+============================================ */
+
+.ts-cost__radio {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  height: 40px;
+
+  cursor: pointer;
+}
+
+.ts-cost__radio input {
+  position: absolute;
+
+  opacity: 0;
+}
+
+.ts-cost__radio-dot {
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  border: 1.5px solid #67BF24;
+
+  position: relative;
+}
+
+.ts-cost__radio-dot::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 3px;
+
+  border-radius: 50%;
+
+  background: #67BF24;
+}
+
+.ts-cost__radio-text {
+  font-family: 'Roboto', sans-serif;
+
+  font-size: 15px;
+
+  color: #101828;
+}
+
+/* ============================================
+   NEXT BUTTON
+============================================ */
+
+.ts-cost__field--cta {
+  align-self: end;
+}
+
+.ts-cost__next {
+  height: 56px;
+
+  padding: 0 36px;
+
+  border: none;
+
+  border-radius: 50px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 10px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #FF8A00 0%,
+      #FF6A00 100%
+    );
+
+  color: #ffffff;
+
+  font-family: 'Roboto', sans-serif;
+
+  font-weight: 700;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 22px rgba(255, 106, 0, 0.32);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ts-cost__next:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 14px 28px rgba(255, 106, 0, 0.42);
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+
+@media (max-width: 1200px) {
+  .ts-cost__bar {
+    padding: 56px 24px 52px;
+  }
+
+  .ts-cost__bar-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ts-cost__field--cta {
+    grid-column: 1 / -1;
+  }
+
+  .ts-cost__next {
+    width: 100%;
+
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .ts-cost__bar {
+    padding: 40px 20px;
+  }
+
+  .ts-cost__bar-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ts-cost__title {
+    font-size: 34px;
+
+    line-height: 40px;
+  }
+
+  .ts-cost__subtitle {
+    font-size: 18px;
+
+    line-height: 26px;
+  }
+}
+
+@media (max-width: 460px) {
+  .ts-cost__bar-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ts-cost__title {
+    font-size: 28px;
+
+    line-height: 34px;
+  }
+
+  .ts-cost__subtitle {
+    font-size: 16px;
+
+    line-height: 24px;
+  }
+
+  .ts-cost__desc {
+    font-size: 14px;
+
+    line-height: 22px;
+  }
+}

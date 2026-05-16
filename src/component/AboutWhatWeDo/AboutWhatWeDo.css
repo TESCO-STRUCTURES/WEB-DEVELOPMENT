@@ -1,0 +1,115 @@
+.ts-awd {
+  padding: 100px 0;
+  background: radial-gradient(circle at bottom right, #f4fdf0 0%, #fff 100%);
+}
+
+.ts-awd__head {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.ts-awd__eyebrow {
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 50px;
+  border: 1px solid #4FA31E;
+  color: #FF6A00;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.ts-awd__desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #343C47;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.ts-awd__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+}
+
+.ts-awd__card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+}
+
+.ts-awd__card:nth-child(1) { grid-column: span 3; }
+.ts-awd__card:nth-child(2) { grid-column: span 3; }
+.ts-awd__card:nth-child(3) { grid-column: span 2; }
+.ts-awd__card:nth-child(4) { grid-column: span 2; }
+.ts-awd__card:nth-child(5) { grid-column: span 2; }
+
+.ts-awd__bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 0;
+}
+
+.ts-awd__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.ts-awd__card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; width: 100%; height: 70%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+  z-index: 1;
+}
+
+.ts-awd__card:hover .ts-awd__bg img {
+  transform: scale(1.05);
+}
+
+.ts-awd__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.ts-awd__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: transparent;
+  color: #FF6A00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ts-awd__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.ts-awd__title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #fff;
+  margin: 0;
+  padding-bottom: 8px;
+}
+
+@media (max-width: 900px) {
+  .ts-awd__card { grid-column: span 6 !important; }
+}

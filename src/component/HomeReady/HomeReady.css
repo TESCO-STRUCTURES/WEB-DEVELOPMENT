@@ -1,0 +1,87 @@
+.ts-rdy {
+  width: 100%;
+}
+
+.ts-rdy__inner {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  height: 500px;
+}
+
+.ts-rdy__content {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.ts-rdy__copy {
+  max-width: 450px;
+}
+
+.ts-rdy__title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(32px, 4vw, 48px);
+  color: #0F172A;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.ts-rdy__title span {
+  color: #4FA31E;
+}
+
+.ts-rdy__desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.ts-rdy__media {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ts-rdy__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ts-btn {
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.ts-btn--orange {
+  background: #FF6A00;
+  color: white;
+}
+
+.ts-btn--white {
+  background: #ffffff;
+  color: #0F172A;
+}
+
+@media (max-width: 900px) {
+  .ts-rdy__inner {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .ts-rdy__media {
+    height: 400px;
+  }
+}

@@ -1,0 +1,374 @@
+/* ============================================
+   PEB HERO SECTION
+============================================ */
+.peb-hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  padding: 80px 0 100px;
+}
+
+/* ============================================
+   CONTAINER
+============================================ */
+.peb-hero__overlay {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 70px;
+}
+
+/* ============================================
+   LEFT IMAGE GRID
+============================================ */
+.peb-hero__gallery {
+  position: relative;
+
+  display: flex;
+  align-items: stretch;
+  gap: 18px;
+
+  width: fit-content;
+}
+
+/* ============================================
+   BIG LEFT IMAGE
+============================================ */
+.peb-hero__gallery-big img {
+  width: 310px;
+  height: 520px;
+
+  object-fit: cover;
+  display: block;
+
+  border-radius: 20px;
+}
+
+/* ============================================
+   RIGHT SIDE WRAPPER
+============================================ */
+.peb-hero__gallery-side {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ============================================
+   SMALL IMAGES
+============================================ */
+.peb-hero__gallery-small img {
+  width: 240px;
+  height: 254px;
+
+  object-fit: cover;
+  display: block;
+
+  border-radius: 20px;
+}
+
+/* ============================================
+   CENTER ICON
+   PERFECTLY CENTERED
+============================================ */
+.peb-hero__center-icon {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 72px;
+  height: 72px;
+
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 20;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* ICON IMAGE */
+.peb-hero__center-icon img {
+  width: 40px;
+  height: 40px;
+
+  object-fit: contain;
+  display: block;
+}
+
+/* ============================================
+   RIGHT CONTENT
+============================================ */
+.peb-hero__copy {
+  flex: 1;
+  max-width: 620px;
+}
+
+/* ============================================
+   TOP LABEL
+============================================ */
+.peb-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 22px;
+
+  border: 1px solid #9fdc7d;
+  border-radius: 100px;
+
+  background: #ffffff;
+
+  margin-bottom: 28px;
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+
+  text-transform: capitalize;
+
+  color: #ff7a00;
+}
+
+/* ============================================
+   TITLE
+============================================ */
+.peb-hero__title {
+  margin: 0;
+
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 100%;
+  letter-spacing: 0%;
+
+  color: #4CAA17;
+}
+
+/* ============================================
+   ORANGE LINE
+============================================ */
+.peb-hero__line {
+  width: 150px;
+  height: 4px;
+
+  background: #ff7a00;
+
+  border-radius: 20px;
+
+  margin-top: 20px;
+  margin-bottom: 24px;
+}
+
+/* ============================================
+   DESCRIPTION
+============================================ */
+.peb-hero__desc {
+  max-width: 560px;
+
+  margin-bottom: 38px;
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+
+  color: #555555;
+}
+
+/* ============================================
+   BUTTONS
+============================================ */
+.peb-hero__cta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  margin-bottom: 50px;
+}
+
+/* COMMON BUTTON */
+.peb-hero__btn {
+  height: 60px;
+
+  padding: 0 34px;
+
+  border-radius: 100px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+
+  transition: 0.3s ease;
+}
+
+/* PRIMARY BUTTON */
+.peb-hero__btn--primary {
+  background: #ff7a00;
+  color: #ffffff;
+}
+
+.peb-hero__btn--primary:hover {
+  transform: translateY(-2px);
+}
+
+/* GHOST BUTTON */
+.peb-hero__btn--ghost {
+  background: #ffffff;
+  color: #333333;
+
+  border: 1px solid #d8d8d8;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.peb-hero__btn--ghost:hover {
+  background: #f7f7f7;
+}
+
+/* ============================================
+   PEBlow IMAGE
+============================================ */
+.peb-hero__bottom-img {
+  width: 100%;
+  max-width: 380px;
+
+  display: block;
+}
+
+/* ============================================
+   MOBILE
+============================================ */
+@media (max-width: 1100px) {
+  .peb-hero__overlay {
+    gap: 40px;
+  }
+
+  .peb-hero__title {
+    font-size: 52px;
+  }
+
+  .peb-hero__gallery-big img {
+    width: 250px;
+    height: 450px;
+  }
+
+  .peb-hero__gallery-small img {
+    width: 200px;
+    height: 219px;
+  }
+}
+
+/* ============================================
+   TABLET & MOBILE
+============================================ */
+@media (max-width: 768px) {
+  .peb-hero {
+    padding: 60px 0 80px;
+  }
+
+  .peb-hero__overlay {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .peb-hero__gallery {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .peb-hero__gallery-big img {
+    width: 180px;
+    height: 340px;
+  }
+
+  .peb-hero__gallery-small img {
+    width: 150px;
+    height: 164px;
+  }
+
+  .peb-hero__center-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .peb-hero__center-icon img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .peb-hero__copy {
+    max-width: 100%;
+  }
+
+  .peb-hero__eyebrow {
+    font-size: 15px;
+    padding: 10px 18px;
+  }
+
+  .peb-hero__title {
+    font-size: 40px;
+    line-height: 110%;
+  }
+
+  .peb-hero__desc {
+    font-size: 15px;
+  }
+
+  .peb-hero__cta {
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 100%;
+  }
+
+  .peb-hero__btn {
+    width: 100%;
+  }
+
+  .peb-hero__bottom-img {
+    max-width: 280px;
+  }
+}
+
+/* ============================================
+   SMALL MOBILE
+============================================ */
+@media (max-width: 480px) {
+  .peb-hero__gallery {
+    gap: 12px;
+  }
+
+  .peb-hero__gallery-big img {
+    width: 150px;
+    height: 280px;
+  }
+
+  .peb-hero__gallery-small img {
+    width: 120px;
+    height: 134px;
+  }
+
+  .peb-hero__title {
+    font-size: 32px;
+  }
+
+  .peb-hero__desc {
+    font-size: 14px;
+  }
+}
