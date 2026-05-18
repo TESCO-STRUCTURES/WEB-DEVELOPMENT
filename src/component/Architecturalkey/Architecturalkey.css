@@ -1,15 +1,56 @@
-.arc-key { background: #ffffff; padding: clamp(70px, 9vw, 120px) 0; }
-.arc-key__head { text-align: center; max-width: 760px; margin: 0 auto 56px; }
-.arc-key__eyebrow { display: inline-block; font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.20em; color: #FF6A00; text-transform: uppercase; margin-bottom: 14px; }
-.arc-key__title { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: clamp(32px, 4vw, 48px); line-height: 1.1; color: #0B1F3A; margin: 0 0 18px; }
-.arc-key__title span { color: #4FA31E; }
-.arc-key__desc { font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.7; color: #475569; }
-.arc-key__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.arc-key__card { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 22px; padding: 36px 30px 32px; transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease, border-color 0.25s ease, background 0.25s ease; }
-.arc-key__card:hover { transform: translateY(-6px); background: #fff; border-color: rgba(255,106,0,0.40); box-shadow: 0 24px 48px rgba(11,31,58,0.10); }
-.arc-key__icon { width: 60px; height: 60px; border-radius: 16px; background: rgba(255,106,0,0.12); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px; }
-.arc-key__icon img { width: 32px; height: 32px; }
-.arc-key__card-title { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 20px; color: #0B1F3A; margin: 0 0 10px; }
-.arc-key__card-desc { font-family: 'Poppins', sans-serif; font-size: 14.5px; line-height: 1.65; color: #475569; }
-@media (max-width: 960px) { .arc-key__grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .arc-key__grid { grid-template-columns: 1fr; } }
+/* ── ARCHITECTURAL KEY BENEFITS ───────────────── */
+.arc-key { background: #FFFFFF; padding: clamp(60px, 8vw, 100px) 0; }
+
+.arc-key__head { text-align: center; margin-bottom: 48px; }
+
+.arc-key__eyebrow {
+  display: inline-block; padding: 8px 22px;
+  background: rgba(79, 163, 30, 0.10); border: 1px solid rgba(79, 163, 30, 0.30);
+  border-radius: 100px;
+  font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 13px;
+  color: #4FA31E; letter-spacing: 0.4px;
+}
+
+.arc-key__grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; }
+
+.arc-key__card {
+  position: relative; border-radius: 22px;
+  padding: 28px 22px 26px; min-height: 220px;
+  color: #FFFFFF; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: space-between;
+  box-shadow: 0 14px 32px rgba(11, 31, 58, 0.16);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.arc-key__card:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(11, 31, 58, 0.22); }
+
+.arc-key__card::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(0,0,0,0.18) 100%);
+  pointer-events: none;
+}
+
+.arc-key__num {
+  position: relative;
+  font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 38px;
+  line-height: 1; color: rgba(255, 255, 255, 0.95); z-index: 1;
+}
+
+.arc-key__text {
+  position: relative; margin: 0;
+  font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 14px;
+  line-height: 1.5; color: rgba(255, 255, 255, 0.95); z-index: 1;
+}
+
+.arc-key__card--red     { background: linear-gradient(160deg, #FF6B6B 0%, #E53E3E 100%); }
+.arc-key__card--pink    { background: linear-gradient(160deg, #E94B86 0%, #C0226B 100%); }
+.arc-key__card--purple  { background: linear-gradient(160deg, #7B5CFF 0%, #5B3DD6 100%); }
+.arc-key__card--blue    { background: linear-gradient(160deg, #2F8AC9 0%, #1E5F8F 100%); }
+.arc-key__card--brown   { background: linear-gradient(160deg, #9B7B2B 0%, #6E5418 100%); }
+.arc-key__card--darkred { background: linear-gradient(160deg, #9B2B3F 0%, #6E1726 100%); }
+
+@media (max-width: 1024px) { .arc-key__grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) {
+  .arc-key__grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .arc-key__card { min-height: 180px; padding: 22px 18px; }
+  .arc-key__num { font-size: 30px; }
+}

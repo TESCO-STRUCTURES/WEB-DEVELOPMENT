@@ -10,39 +10,43 @@ import a8  from '../../assets/tensileapp8.svg';
 import a9  from '../../assets/tensileapp9.svg';
 import a10 from '../../assets/tensileapp10.svg';
 
-const APPS = [
-  { icon: a1,  label: 'Stadium Roofs' },
-  { icon: a2,  label: 'Entrance Canopies' },
-  { icon: a3,  label: 'Walkways' },
-  { icon: a4,  label: 'Public Plazas' },
-  { icon: a5,  label: 'Atrium Roofs' },
-  { icon: a6,  label: 'Car Park Shades' },
-  { icon: a7,  label: 'Amphitheaters' },
-  { icon: a8,  label: 'Hospitality Decks' },
-  { icon: a9,  label: 'Mall & Retail' },
-  { icon: a10, label: 'Shade Sails' },
+const cards = [
+  { img: a1,  label: 'Parking',            cls: 'tapp--r1a' },
+  { img: a2,  label: 'Entrance Canopy',    cls: 'tapp--r1b' },
+  { img: a3,  label: 'Swimming Pool',      cls: 'tapp--r2a' },
+  { img: a4,  label: 'Shopping Mall',      cls: 'tapp--r2b' },
+  { img: a5,  label: 'Indoor Sports',      cls: 'tapp--r3a' },
+  { img: a6,  label: 'Cafes',              cls: 'tapp--r3b' },
+  { img: a7,  label: 'Convention Centres', cls: 'tapp--r3c' },
+  { img: a8,  label: 'Walkway',            cls: 'tapp--r4a' },
+  { img: a9,  label: 'Gazebo',             cls: 'tapp--r4b' },
+  { img: a10, label: 'Balconies',          cls: 'tapp--r4c' },
 ];
 
 export default function Tensileapplication() {
   return (
-    <section className="ten-app">
-      <div className="container">
-        <div className="ten-app__head">
-          <span className="ten-app__eyebrow">Applications</span>
-          <h2 className="ten-app__title">Ten ways to deploy <span>a tensile roof</span></h2>
-          <p className="ten-app__desc">
-            From compact entrance canopies to multi-thousand square-foot stadium roofs —
-            tensile structures scale to fit any architectural brief.
-          </p>
-        </div>
-        <div className="ten-app__grid">
-          {APPS.map((a) => (
-            <article key={a.label} className="ten-app__card">
-              <div className="ten-app__icon"><img src={a.icon} alt="" /></div>
-              <span className="ten-app__label">{a.label}</span>
-            </article>
-          ))}
-        </div>
+    <section className="tapp">
+      <div className="tapp__head">
+        <span className="tapp__badge">Tensile Application</span>
+        <p className="tapp__desc">
+          Tensile roofing is suitable for a wide range of applications including stadiums, walkways, parking
+          sheds, and commercial spaces, offering durable and visually appealing coverage.
+        </p>
+      </div>
+
+      <div className="tapp__grid">
+        {cards.map(({ img, label, cls }) => (
+          <div
+            key={label}
+            className={`tapp__card ${cls}`}
+            style={{ backgroundImage: `url(${img})` }}
+          >
+            <div className="tapp__overlay">
+              <span className="tapp__tag">TENSILE STRUCTURES</span>
+              <span className="tapp__label">{label}</span>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

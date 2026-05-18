@@ -1,13 +1,12 @@
 import './Civilkey.css';
-import icon from '../../assets/civilicon.svg';
 
-const FEATURES = [
-  { title: 'Earthworks & grading',  desc: 'Site clearing, levelling, cutting, and compaction with surveying logs.' },
-  { title: 'Foundation & plinth',   desc: 'Isolated, raft, or pile foundations engineered for soil type and load.' },
-  { title: 'RCC columns & slabs',   desc: 'Cube-tested concrete, IS-500 rebar, and stage-wise audit on every pour.' },
-  { title: 'Boundary & retention',  desc: 'Compound walls, retaining walls, and drainage built to last decades.' },
-  { title: 'Finishing trades',      desc: 'Plastering, flooring, tiling, painting handled by Tesco finishing crew.' },
-  { title: 'Documentation',         desc: 'BOQ trace, material vouchers, and stage-wise photo records for every site.' },
+const BENEFITS = [
+  { n: '01', text: 'Earthworks & precise site grading',      tone: 'red' },
+  { n: '02', text: 'Engineered foundations & plinth',         tone: 'pink' },
+  { n: '03', text: 'Cube-tested RCC columns & slabs',         tone: 'purple' },
+  { n: '04', text: 'Boundary, retention & drainage works',    tone: 'blue' },
+  { n: '05', text: 'In-house finishing trades',               tone: 'brown' },
+  { n: '06', text: 'Full BOQ & stage-wise documentation',     tone: 'darkred' },
 ];
 
 export default function Civilkey() {
@@ -15,16 +14,13 @@ export default function Civilkey() {
     <section className="civ-key">
       <div className="container">
         <div className="civ-key__head">
-          <span className="civ-key__eyebrow">Key Capabilities</span>
-          <h2 className="civ-key__title">Six core civil <span>capabilities under one roof</span></h2>
-          <p className="civ-key__desc">Every trade you need for a foundation-to-finish handover, delivered by a single Tesco team.</p>
+          <span className="civ-key__eyebrow">Key Benefits</span>
         </div>
         <div className="civ-key__grid">
-          {FEATURES.map((f) => (
-            <article key={f.title} className="civ-key__card">
-              <div className="civ-key__icon"><img src={icon} alt="" /></div>
-              <h3 className="civ-key__card-title">{f.title}</h3>
-              <p className="civ-key__card-desc">{f.desc}</p>
+          {BENEFITS.map((b) => (
+            <article key={b.n} className={`civ-key__card civ-key__card--${b.tone}`}>
+              <span className="civ-key__num">{b.n}</span>
+              <p className="civ-key__text">{b.text}</p>
             </article>
           ))}
         </div>

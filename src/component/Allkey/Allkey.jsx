@@ -1,13 +1,12 @@
 import './Allkey.css';
-import icon from '../../assets/allicon.svg';
 
-const FEATURES = [
-  { title: 'Trapezoidal sheets',  desc: 'Industrial-grade ribbed roofing with concealed/exposed fastening.' },
-  { title: 'Standing seam',       desc: 'Architectural concealed-fix standing-seam panels for premium builds.' },
-  { title: 'Insulated panels',    desc: 'PUF / PIR sandwich panels for thermal + acoustic-controlled interiors.' },
-  { title: 'Curved roofs',        desc: 'Site-curved metal roofing for stadium and architectural canopy spans.' },
-  { title: 'Polycarbonate',       desc: 'Transparent skylight panels for daylight infusion in industrial sheds.' },
-  { title: 'Gutter & drainage',   desc: 'Integrated gutter, downpipe, and rainwater harvesting systems.' },
+const BENEFITS = [
+  { n: '01', text: 'Trapezoidal industrial sheets',         tone: 'red' },
+  { n: '02', text: 'Standing-seam architectural panels',     tone: 'pink' },
+  { n: '03', text: 'PUF / PIR insulated sandwich panels',    tone: 'purple' },
+  { n: '04', text: 'Site-curved metal roofing',              tone: 'blue' },
+  { n: '05', text: 'Polycarbonate skylight panels',          tone: 'brown' },
+  { n: '06', text: 'Integrated gutter & drainage systems',    tone: 'darkred' },
 ];
 
 export default function Allkey() {
@@ -15,16 +14,13 @@ export default function Allkey() {
     <section className="all-key">
       <div className="container">
         <div className="all-key__head">
-          <span className="all-key__eyebrow">Key Capabilities</span>
-          <h2 className="all-key__title">Six roofing capabilities <span>under one team</span></h2>
-          <p className="all-key__desc">Every roofing system you might need on a project — picked, fabricated, and installed by Tesco.</p>
+          <span className="all-key__eyebrow">Key Benefits</span>
         </div>
         <div className="all-key__grid">
-          {FEATURES.map((f) => (
-            <article key={f.title} className="all-key__card">
-              <div className="all-key__icon"><img src={icon} alt="" /></div>
-              <h3 className="all-key__card-title">{f.title}</h3>
-              <p className="all-key__card-desc">{f.desc}</p>
+          {BENEFITS.map((b) => (
+            <article key={b.n} className={`all-key__card all-key__card--${b.tone}`}>
+              <span className="all-key__num">{b.n}</span>
+              <p className="all-key__text">{b.text}</p>
             </article>
           ))}
         </div>

@@ -3,7 +3,7 @@
 ============================================ */
 .ts-ten {
   position: relative;
-  padding: clamp(70px, 10vw, 130px) 0 clamp(60px, 8vw, 110px);
+  padding: 130px 0 clamp(60px, 8vw, 110px);
   background: #ffffff;
   overflow: hidden;
   isolation: isolate;
@@ -15,23 +15,19 @@
   top: clamp(10px, 2vw, 24px);
   left: 50%;
   transform: translateX(-50%);
-  font-family: 'Manrope', sans-serif;
-  font-weight: 800;
-  font-size: clamp(72px, 10.5vw, 190px);
-  line-height: 0.9;
-  letter-spacing: -0.045em;
-  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 128px;
+  line-height: 100%;
+  letter-spacing: 0%;
   text-align: center;
+  text-transform: uppercase;
   white-space: nowrap;
-  background: linear-gradient(180deg,
-    rgba(11, 31, 58, 0.20) 0%,
-    rgba(11, 31, 58, 0.11) 40%,
-    rgba(11, 31, 58, 0.04) 72%,
-    rgba(11, 31, 58, 0.00) 100%);
+  background: linear-gradient(180deg, rgba(11, 31, 58, 0.20) 0%, rgba(11, 31, 58, 0.11) 40%, rgba(11, 31, 58, 0.04) 72%, rgba(11, 31, 58, 0.00) 100%);
   -webkit-background-clip: text;
-          background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-          color: transparent;
+  color: transparent;
   pointer-events: none;
   user-select: none;
   z-index: 0;
@@ -42,7 +38,7 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
+  grid-template-columns: 1fr 1.05fr;
   gap: clamp(40px, 6vw, 90px);
   align-items: start;
   padding-top: 60px;
@@ -54,6 +50,8 @@
   width: 100%;
   aspect-ratio: 5 / 4.6;
   min-height: 460px;
+  margin-left: 71px;
+  order: 2;
 }
 
 .ts-ten__card {
@@ -64,6 +62,7 @@
   box-shadow: none;
   transition: transform 0.45s ease, box-shadow 0.45s ease;
 }
+
 .ts-ten__card img {
   width: 100%;
   height: 100%;
@@ -73,24 +72,35 @@
 }
 
 .ts-ten__card--1 {
-  top: 0;
-  left: 0;
-  width: 70%;
-  height: 78%;
+  width: 512px;
+  height: 504px;
+  top: -10px;
+  left: 50px;
+  opacity: 1;
+  border-radius: 40px;
   z-index: 1;
 }
+
 .ts-ten__card--2 {
-  top: 25px;
-  left: 220px;
-  width: 60%;
-  height: 70%;
+  width: 369px;
+  height: 363px;
+  top: 35px;
+  left: -120px;
+  opacity: 1;
+  border-radius: 80px;
   z-index: 2;
-  box-shadow: none;
 }
-.ts-ten__card:hover { transform: translateY(-6px); }
+
+.ts-ten__card:hover {
+  transform: translateY(-6px);
+}
 
 /* ── Copy ── */
-.ts-ten__copy { max-width: 620px; margin-left: 0; }
+.ts-ten__copy {
+  max-width: 620px;
+  margin-left: 0px;
+  order: 1;
+}
 
 .ts-ten__title {
   margin: 0 0 18px;
@@ -104,13 +114,22 @@
 }
 
 .ts-ten__subtitle {
-  margin: 0 0 18px;
+  margin-top: 35px;
+  /* move downward */
+
+  margin-bottom: 18px;
+
   font-family: 'Poppins', sans-serif;
+
   font-weight: 600;
+
   font-size: 18px;
+
   line-height: 100%;
+
   letter-spacing: 0;
-  color: #0B1F3A;
+
+  color: #343C47;
 }
 
 .ts-ten__desc {
@@ -119,9 +138,9 @@
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 16px;
-  line-height: 100%;
+  line-height: 22px;
   letter-spacing: 0;
-  color: #475569;
+  color: #343C47;
 }
 
 .ts-ten__list {
@@ -130,18 +149,30 @@
   margin: 0 0 16px;
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: 10px;
+  row-gap: -4px;
 }
+
 .ts-ten__item {
   position: relative;
-  padding-left: 20px;
+
+  padding-left: 18px;
+  /* reduced spacing between bullet and text */
+
   font-family: 'Poppins', sans-serif;
+
   font-weight: 500;
+
   font-size: 16px;
-  line-height: 100%;
+
+  line-height: 24px;
+  /* increased row spacing */
+
   letter-spacing: 0;
-  color: #0B1F3A;
+
+  color: #343C47;
+  /* updated text color */
 }
+
 .ts-ten__item::before {
   content: '';
   position: absolute;
@@ -166,38 +197,133 @@
   color: #FF6A00;
   transition: color 0.2s ease, border-color 0.2s ease;
 }
-.ts-ten__more svg { width: 16px; height: 16px; transition: transform 0.25s ease; }
-.ts-ten__more:hover { color: #C2410C; border-bottom-color: #C2410C; }
-.ts-ten__more:hover svg { transform: translateX(4px); }
+
+.ts-ten__more svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.25s ease;
+}
+
+.ts-ten__more:hover {
+  color: #C2410C;
+  border-bottom-color: #C2410C;
+}
+
+.ts-ten__more:hover svg {
+  transform: translateX(4px);
+}
 
 /* ── Responsive ── */
 @media (max-width: 1100px) {
-  .ts-ten__inner { grid-template-columns: 1fr; gap: 56px; padding-top: 60px; }
-  .ts-ten__copy { max-width: none; margin-left: 0; }
-  .ts-ten__media { max-width: 620px; min-height: 420px; }
-  .ts-ten__watermark { white-space: normal; text-align: center; line-height: 0.95; }
-  .ts-ten__title { text-align: left; }
-  .ts-ten__card--2 { left: 240px; }
+  .ts-ten__inner {
+    grid-template-columns: 1fr;
+    gap: 56px;
+    padding-top: 60px;
+  }
+
+  .ts-ten__copy {
+    max-width: none;
+    margin-left: 0;
+  }
+
+  .ts-ten__media {
+    max-width: 620px;
+    min-height: 420px;
+  }
+
+  .ts-ten__watermark {
+    white-space: normal;
+    text-align: center;
+    line-height: 0.95;
+  }
+
+  .ts-ten__title {
+    text-align: left;
+  }
+
+  .ts-ten__card--2 {
+    left: 240px;
+  }
 }
 
 @media (max-width: 720px) {
-  .ts-ten__watermark { font-size: clamp(44px, 13vw, 88px); line-height: 1; letter-spacing: -0.03em; top: 20px; }
-  .ts-ten__inner { padding-top: 60px; }
-  .ts-ten__media { min-height: 360px; aspect-ratio: 5 / 4.4; }
-  .ts-ten__card--1 { width: 72%; height: 76%; }
-  .ts-ten__card--2 { width: 64%; height: 68%; left: 170px; top: 150px; }
-  .ts-ten__list { grid-template-columns: 1fr 1fr; column-gap: 16px; }
-  .ts-ten__title { font-size: 40px; }
-  .ts-ten__subtitle { font-size: 18px; }
+  .ts-ten__watermark {
+    font-size: clamp(44px, 13vw, 88px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    top: 20px;
+  }
+
+  .ts-ten__inner {
+    padding-top: 60px;
+  }
+
+  .ts-ten__media {
+    min-height: 360px;
+    aspect-ratio: 5 / 4.4;
+  }
+
+  .ts-ten__card--1 {
+    width: 72%;
+    height: 76%;
+  }
+
+  .ts-ten__card--2 {
+    width: 64%;
+    height: 68%;
+    left: 170px;
+    top: 150px;
+  }
+
+  .ts-ten__list {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 16px;
+  }
+
+  .ts-ten__title {
+    font-size: 40px;
+  }
+
+  .ts-ten__subtitle {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 480px) {
-  .ts-ten { padding: 60px 0 50px; }
-  .ts-ten__watermark { font-size: 42px; line-height: 1; }
-  .ts-ten__media { min-height: 280px; }
-  .ts-ten__card--1 { width: 78%; height: 72%; }
-  .ts-ten__card--2 { width: 70%; height: 64%; left: 100px; top: 120px; }
-  .ts-ten__title { font-size: 30px; }
-  .ts-ten__subtitle { font-size: 16px; }
-  .ts-ten__list { grid-template-columns: 1fr; }
+  .ts-ten {
+    padding: 60px 0 50px;
+  }
+
+  .ts-ten__watermark {
+    font-size: 42px;
+    line-height: 1;
+  }
+
+  .ts-ten__media {
+    min-height: 280px;
+  }
+
+  .ts-ten__card--1 {
+    width: 78%;
+    height: 72%;
+  }
+
+  .ts-ten__card--2 {
+    width: 70%;
+    height: 64%;
+    left: 100px;
+    top: 120px;
+  }
+
+  .ts-ten__title {
+    font-size: 30px;
+  }
+
+  .ts-ten__subtitle {
+    font-size: 16px;
+  }
+
+  .ts-ten__list {
+    grid-template-columns: 1fr;
+  }
 }

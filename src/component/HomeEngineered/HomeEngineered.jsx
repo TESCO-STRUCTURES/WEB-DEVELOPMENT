@@ -28,7 +28,7 @@ export default function HomeEngineered() {
             <img src={img1} alt="Pre-engineered warehouse interior" />
           </div>
           <div className="ts-eng__card ts-eng__card--2">
-            <img src={img2} alt="Steel framework on construction site" />
+            <img src={img2} alt="Secondary view" />
           </div>
         </div>
 

@@ -68,11 +68,9 @@
   inset: 0;
 
   background:
-    linear-gradient(
-      180deg,
+    linear-gradient(180deg,
       rgba(0, 0, 0, 0.30) 0%,
-      rgba(0, 0, 0, 0.45) 100%
-    );
+      rgba(0, 0, 0, 0.45) 100%);
 }
 
 /* ============================================
@@ -96,7 +94,7 @@
 .ts-hero__content {
   position: absolute;
 
-  top: 243px;
+  top: 400px;
 
   left: 50%;
 
@@ -128,24 +126,19 @@
 .ts-hero__tag-btn {
   position: relative;
 
-  width: 342.9067px;
-
+  width: 342.91px;
   height: 58px;
 
   padding: 14px 30px;
 
-  border: none;
-
+  border: 1px solid transparent;
   border-radius: 60px;
 
   background: transparent;
 
   display: inline-flex;
-
   align-items: center;
-
   justify-content: center;
-
   gap: 10px;
 
   box-sizing: border-box;
@@ -155,20 +148,17 @@
   overflow: hidden;
 
   font-family: 'Poppins', sans-serif;
-
   font-weight: 500;
-
   font-size: 20px;
-
   line-height: 100%;
-
   letter-spacing: 0%;
-
   text-align: center;
 
   color: #ffffff;
 
   cursor: pointer;
+
+  white-space: nowrap;
 
   transition: transform 0.3s ease;
 }
@@ -189,14 +179,12 @@
   padding: 1.5px;
 
   background:
-    linear-gradient(
-      90deg,
+    linear-gradient(90deg,
       #59d61d 0%,
       #59d61d 25%,
       #ff7a00 50%,
       #ff7a00 75%,
-      #59d61d 100%
-    );
+      #59d61d 100%);
 
   background-size: 300% 300%;
 
@@ -258,7 +246,7 @@
 ============================================ */
 
 .ts-hero__title {
-  width: 730px;
+  width: max-content;
 
   margin: 0 auto;
 
@@ -300,9 +288,9 @@
 
   font-weight: 400;
 
-  font-size: 18px;
+  font-size: 16px;
 
-  line-height: 160%;
+  line-height: 1.8;
 
   text-align: center;
 
@@ -332,21 +320,36 @@
 ============================================ */
 
 .ts-hero__pricing-btn {
-  width: 244px;
+  width: 196px;
+  height: 60px;
 
-  height: 74px;
+  padding: 18px 24px;
 
   border: none;
-
-  border-radius: 40px;
+  border-radius: 30px;
 
   background: #4a4a4a;
 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  box-sizing: border-box;
+
   font-family: 'Poppins', sans-serif;
-
   font-weight: 500;
+  font-style: normal;
 
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+
+  text-align: center;
+  text-transform: capitalize;
+
+  white-space: nowrap;
+  /* keeps text in single line */
 
   color: #ffffff;
 
@@ -368,21 +371,36 @@
 ============================================ */
 
 .ts-hero__inspection-btn {
-  width: 328px;
+  width: 248px;
+  height: 60px;
 
-  height: 74px;
+  padding: 18px 24px;
 
   border: none;
-
-  border-radius: 40px;
+  border-radius: 30px;
 
   background: #ff7900;
 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  box-sizing: border-box;
+
   font-family: 'Poppins', sans-serif;
-
   font-weight: 500;
+  font-style: normal;
 
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+
+  text-align: center;
+  text-transform: capitalize;
+
+  white-space: nowrap;
+  /* single line */
 
   color: #ffffff;
 

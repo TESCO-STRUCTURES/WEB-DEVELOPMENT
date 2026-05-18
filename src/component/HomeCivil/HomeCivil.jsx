@@ -26,7 +26,7 @@ export default function HomeCivil() {
             <img src={img1} alt="Civil construction site" />
           </div>
           <div className="ts-civ__card ts-civ__card--2">
-            <img src={img2} alt="Foundation work close-up" />
+            <img src={img2} alt="Secondary view" />
           </div>
         </div>
 

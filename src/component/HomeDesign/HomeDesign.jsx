@@ -26,7 +26,7 @@ export default function HomeDesign() {
             <img src={img1} alt="Structural design rendering" />
           </div>
           <div className="ts-des__card ts-des__card--2">
-            <img src={img2} alt="Detailed engineering drawing" />
+            <img src={img2} alt="Secondary view" />
           </div>
         </div>
 

@@ -1,12 +1,12 @@
 import Navbar from '../component/Navbar/Navbar';
 import Civilhero from '../component/Civilhero/Civilhero';
 import Civilabout from '../component/Civilabout/Civilabout';
-import Civilwhy from '../component/Civilwhy/Civilwhy';
 import Civilkey from '../component/Civilkey/Civilkey';
-import Civilprojects from '../component/Civilprojects/Civilprojects';
-import Civilbuild from '../component/Civilbuild/Civilbuild';
+import Civilwhy from '../component/Civilwhy/Civilwhy';
 import Civilapplication from '../component/Civilapplication/Civilapplication';
+import Civilprojects from '../component/Civilprojects/Civilprojects';
 import Civilfaq from '../component/Civilfaq/Civilfaq';
+import Civilbuild from '../component/Civilbuild/Civilbuild';
 import Footer from '../component/Footer/Footer';
 
 export default function Civil() {
@@ -15,12 +15,12 @@ export default function Civil() {
       <Navbar />
       <Civilhero />
       <Civilabout />
-      <Civilwhy />
       <Civilkey />
-      <Civilprojects />
-      <Civilbuild />
+      <Civilwhy />
       <Civilapplication />
+      <Civilprojects />
       <Civilfaq />
+      <Civilbuild />
       <Footer />
     </>
   );

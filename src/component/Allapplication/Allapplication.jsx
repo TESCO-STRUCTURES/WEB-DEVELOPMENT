@@ -11,37 +11,45 @@ import a9  from '../../assets/allapp9.svg';
 import a10 from '../../assets/allapp10.svg';
 import a11 from '../../assets/allapp11.svg';
 
-const APPS = [
-  { icon: a1,  label: 'Trapezoidal Sheet' },
-  { icon: a2,  label: 'Standing Seam' },
-  { icon: a3,  label: 'Insulated Panel' },
-  { icon: a4,  label: 'Polycarbonate' },
-  { icon: a5,  label: 'Curved Metal Roof' },
-  { icon: a6,  label: 'Skylight Systems' },
-  { icon: a7,  label: 'Gutter & Down-take' },
-  { icon: a8,  label: 'Tiled Roofing' },
-  { icon: a9,  label: 'Aluminum Roofing' },
-  { icon: a10, label: 'Glass Atrium Roof' },
-  { icon: a11, label: 'Green Roof System' },
-];
+function Card({ img, tag, label, sub, cls }) {
+  return (
+    <div className={`allapp__card ${cls}`}>
+      <img src={img} alt={label} />
+      <div className="allapp__overlay">
+        <span className="allapp__tag">{tag}</span>
+        <span className="allapp__label">{label}</span>
+        {sub && <span className="allapp__sub">{sub}</span>}
+      </div>
+    </div>
+  );
+}
 
 export default function Allapplication() {
   return (
-    <section className="all-app">
-      <div className="container">
-        <div className="all-app__head">
-          <span className="all-app__eyebrow">Roofing Systems</span>
-          <h2 className="all-app__title">Eleven roofing systems <span>under one team</span></h2>
-          <p className="all-app__desc">Every profile and material you might specify on an industrial or architectural project.</p>
-        </div>
-        <div className="all-app__grid">
-          {APPS.map((a) => (
-            <article key={a.label} className="all-app__card">
-              <div className="all-app__icon"><img src={a.icon} alt="" /></div>
-              <span className="all-app__label">{a.label}</span>
-            </article>
-          ))}
-        </div>
+    <section className="allapp">
+      <div className="allapp__head">
+        <span className="allapp__badge">All Type Of Roofing</span>
+        <p className="allapp__desc">
+          Used in homes, commercial buildings, and industrial projects, offering durable, eco-friendly, and
+          long-lasting protection while keeping them comfortable forever.
+        </p>
+      </div>
+      <div className="allapp__grid">
+        {/* Row 1: Tensile Roofing large left, UPVC + Glass small right */}
+        <Card img={a1}  tag="ALL TYPES" label="Tensile Roofing"       sub="Many firms and solutions for tensile roofing." cls="allapp--a1" />
+        <Card img={a2}  tag="ALL TYPES" label="UPVC Roofing"          cls="allapp--a2" />
+        <Card img={a3}  tag="ALL TYPES" label="Glass Roofing"         cls="allapp--a3" />
+        {/* Row 2: Tensile continues, Polycarbonate Sheet wide */}
+        <Card img={a4}  tag="ALL TYPES" label="Polycarbonate Sheet"   cls="allapp--a4" />
+        {/* Row 3: Mangalore Tile large left, Shingles x2 small right */}
+        <Card img={a5}  tag="ALL TYPES" label="Mangalore Tile Roofing" cls="allapp--a5" />
+        <Card img={a6}  tag="ALL TYPES" label="Shingles Roofing"      cls="allapp--a6" />
+        <Card img={a7}  tag="ALL TYPES" label="Shingles Roofing"      cls="allapp--a7" />
+        {/* Row 4: Flat head + Full head small, then GI + Retractable */}
+        <Card img={a8}  tag="ALL TYPES" label="Flat Head Roofing"     cls="allapp--a8" />
+        <Card img={a9}  tag="ALL TYPES" label="Full Head Roofing"     cls="allapp--a9" />
+        <Card img={a10} tag="ALL TYPES" label="GI Roofing"            sub="Many firms and solutions for your GI Roofing." cls="allapp--a10" />
+        <Card img={a11} tag="ALL TYPES" label="Retractable Roofing"   cls="allapp--a11" />
       </div>
     </section>
   );

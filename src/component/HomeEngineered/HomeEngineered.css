@@ -20,49 +20,24 @@
 
 .ts-eng__watermark {
   position: absolute;
-
   top: clamp(10px, 2vw, 24px);
-
   left: 50%;
-
   transform: translateX(-50%);
-
-  font-family: 'Manrope', sans-serif;
-
-  font-weight: 800;
-
-  font-size: clamp(72px, 10.5vw, 190px);
-
-  line-height: 0.9;
-
-  letter-spacing: -0.045em;
-
-  text-transform: uppercase;
-
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 128px;
+  line-height: 100%;
+  letter-spacing: 0%;
   text-align: center;
-
+  text-transform: uppercase;
   white-space: nowrap;
-
-  background: linear-gradient(
-    180deg,
-    rgba(11, 31, 58, 0.20) 0%,
-    rgba(11, 31, 58, 0.11) 40%,
-    rgba(11, 31, 58, 0.04) 72%,
-    rgba(11, 31, 58, 0.00) 100%
-  );
-
+  background: linear-gradient(180deg, rgba(11, 31, 58, 0.20) 0%, rgba(11, 31, 58, 0.11) 40%, rgba(11, 31, 58, 0.04) 72%, rgba(11, 31, 58, 0.00) 100%);
   -webkit-background-clip: text;
-
   background-clip: text;
-
   -webkit-text-fill-color: transparent;
-
   color: transparent;
-
   pointer-events: none;
-
   user-select: none;
-
   z-index: 0;
 }
 
@@ -92,12 +67,10 @@
 
 .ts-eng__media {
   position: relative;
-
   width: 100%;
-
   aspect-ratio: 5 / 4.6;
-
   min-height: 460px;
+  margin-left: 47px;
 }
 
 /* ============================================
@@ -137,14 +110,12 @@
 ============================================ */
 
 .ts-eng__card--1 {
-  top: 0;
-
-  left: 0;
-
-  width: 70%;
-
-  height: 78%;
-
+  width: 512px;
+  height: 504px;
+  top: -25px;
+  left: -115px;
+  opacity: 1;
+  border-radius: 40px;
   z-index: 1;
 }
 
@@ -153,17 +124,13 @@
 ============================================ */
 
 .ts-eng__card--2 {
-  top: 25px;
-
-  left: 220px;
-
-  width: 60%;
-
-  height: 70%;
-
+  width: 369px;
+  height: 363px;
+  top: 40px;
+  left: 155px;
+  opacity: 1;
+  border-radius: 80px;
   z-index: 2;
-
-  box-shadow: none;
 }
 
 /* ============================================
@@ -181,7 +148,7 @@
 .ts-eng__copy {
   max-width: 620px;
 
-  margin-left: 0;
+  margin-left: -40px;
 }
 
 /* ============================================
@@ -197,7 +164,7 @@
 
   font-size: 48px;
 
-  line-height: 100%;
+  line-height: 80px;
 
   letter-spacing: 0%;
 
@@ -223,7 +190,7 @@
 
   letter-spacing: 0%;
 
-  color: #0B1F3A;
+  color: #343C47;
 }
 
 /* ============================================
@@ -233,21 +200,23 @@
 .ts-eng__desc {
   margin: 0 0 16px;
 
-  max-width: 520px;
+  max-width: 650px;
+  /* increased width */
 
   font-family: 'Poppins', sans-serif;
 
   font-weight: 500;
-
   font-style: normal;
 
   font-size: 16px;
 
-  line-height: 100%;
+  line-height: 22px;
 
   letter-spacing: 0%;
 
-  color: #475569;
+  text-align: left;
+
+  color: #343C47;
 }
 
 /* ============================================
@@ -261,11 +230,13 @@
 
   margin: 0 0 16px;
 
+
   display: grid;
 
   grid-template-columns: 1fr;
 
-  row-gap: -5px;
+  row-gap: 6px;
+
 }
 
 .ts-eng__item {
@@ -285,7 +256,8 @@
 
   letter-spacing: 0%;
 
-  color: #0B1F3A;
+
+  color: #343C47;
 }
 
 .ts-eng__item::before {
@@ -295,15 +267,17 @@
 
   left: 4px;
 
-  top: 0.65em;
+  top: 50%;
 
-  width: 6px;
+  transform: translateY(-50%);
 
-  height: 6px;
+  width: 4px;
+
+  height: 4px;
 
   border-radius: 50%;
 
-  background: #0B1F3A;
+  background: #343C47;
 }
 
 /* ============================================

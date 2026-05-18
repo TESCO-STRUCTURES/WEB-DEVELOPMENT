@@ -7,7 +7,7 @@
 .ts-cost {
   position: relative;
 
-  padding: clamp(64px, 8vw, 110px) 0;
+  padding: 69px 0 0;
 
   background: #ffffff;
 
@@ -25,20 +25,19 @@
   position: absolute;
 
   left: -120px;
+  bottom: -300px;
   top: 300px;
 
-  width: 350px;
-  height: 450px;
+  width: 300px;
+  height: 220px;
 
   border-radius: 50%;
 
   background:
-    radial-gradient(
-      circle,
+    radial-gradient(circle,
       rgba(255, 106, 0, 0.70) 140%,
       rgba(255, 255, 255, 0.30) 100%,
-      transparent 100%
-    );
+      transparent 100%);
 
   filter: blur(180px);
 
@@ -56,18 +55,16 @@
   right: -120px;
   top: 100px;
 
-  width: 350px;
-  height: 400px;
+  width: 300px;
+  height: 220px;
 
   border-radius: 50%;
 
   background:
-    radial-gradient(
-      circle,
+    radial-gradient(circle,
       rgba(255, 106, 0, 0.70) 140%,
       rgba(255, 255, 255, 0.30) 100%,
-      transparent 100%
-    );
+      transparent 100%);
 
   filter: blur(250px);
 
@@ -114,7 +111,7 @@
 
   text-align: center;
 
-  color: #101828;
+  color: #343C47;
 }
 
 /* SECOND LINE */
@@ -204,21 +201,15 @@
   pointer-events: none;
 
   background:
-    repeating-linear-gradient(
-      62deg,
+    repeating-linear-gradient(62deg,
       transparent 0 22px,
-      rgba(11, 31, 58, 0.05) 22px 23px
-    ),
-    repeating-linear-gradient(
-      118deg,
+      rgba(11, 31, 58, 0.05) 22px 23px),
+    repeating-linear-gradient(118deg,
       transparent 0 22px,
-      rgba(11, 31, 58, 0.05) 22px 23px
-    ),
-    radial-gradient(
-      ellipse at top,
+      rgba(11, 31, 58, 0.05) 22px 23px),
+    radial-gradient(ellipse at top,
       #ffffff 0%,
-      transparent 70%
-    );
+      transparent 70%);
 }
 
 /* ============================================
@@ -233,12 +224,7 @@
   display: grid;
 
   grid-template-columns:
-    minmax(140px, 1.4fr)
-    minmax(140px, 1.4fr)
-    minmax(140px, 1.4fr)
-    minmax(110px, 1fr)
-    minmax(110px, 1fr)
-    auto;
+    minmax(140px, 1.4fr) minmax(140px, 1.4fr) minmax(140px, 1.4fr) minmax(110px, 1fr) minmax(110px, 1fr) auto;
 
   gap: 30px;
 
@@ -440,11 +426,9 @@
   gap: 10px;
 
   background:
-    linear-gradient(
-      180deg,
+    linear-gradient(180deg,
       #FF8A00 0%,
-      #FF6A00 100%
-    );
+      #FF6A00 100%);
 
   color: #ffffff;
 

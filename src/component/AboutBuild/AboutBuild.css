@@ -4,23 +4,27 @@
 }
 
 .ts-abld__inner {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  display: flex;
+  max-width: 1250px;
+  margin: 0 auto;
+  align-items: stretch;
 }
 
 .ts-abld__content {
   background: #F8FAFC; 
-  padding: 120px 40px 120px 10%;
+  padding: 60px 40px 60px 80px;
   display: flex;
   align-items: center;
+  flex: 1;
 }
 
 .ts-abld__title {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: clamp(32px, 4vw, 48px);
-  color: #1A1C1C;
+  font-size: 40px;
+  color: #343C47;
   margin: 0 0 16px;
+  line-height: 1.2;
 }
 
 .ts-abld__desc {
@@ -34,7 +38,7 @@
 .ts-abld__desc::after {
   content: '';
   display: block;
-  width: 60px;
+  width: 111px;
   height: 4px;
   background: #4FA31E;
   margin-top: 30px;
@@ -44,21 +48,24 @@
   background-size: cover;
   background-position: center;
   position: relative;
+  width: 712px;
+  height: 410px;
+  left: -1px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 40px;
 }
 
 .ts-abld__buttons {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 16px;
   width: 100%;
-  max-width: 320px;
 }
 
 .ts-btn {
+  width: 260px;
   padding: 16px 24px;
   border-radius: 50px;
   font-family: 'Poppins', sans-serif;
@@ -86,7 +93,7 @@
 }
 
 @media (max-width: 1024px) {
-  .ts-abld__inner { grid-template-columns: 1fr; }
-  .ts-abld__content { padding: 80px 20px; }
-  .ts-abld__media { min-height: 500px; }
+  .ts-abld__inner { flex-direction: column; }
+  .ts-abld__content { padding: 60px 20px; width: 100%; }
+  .ts-abld__media { width: 100%; height: 400px; left: 0; }
 }

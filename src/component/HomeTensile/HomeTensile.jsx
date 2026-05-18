@@ -29,7 +29,7 @@ export default function HomeTensile() {
             <img src={img1} alt="Tensile canopy structure" />
           </div>
           <div className="ts-ten__card ts-ten__card--2">
-            <img src={img2} alt="Tensile membrane detail" />
+            <img src={img2} alt="Secondary view" />
           </div>
         </div>
 

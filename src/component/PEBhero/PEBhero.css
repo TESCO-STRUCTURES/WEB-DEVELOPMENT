@@ -1,374 +1,283 @@
-/* ============================================
-   PEB HERO SECTION
-============================================ */
+/* ── PEB HERO ─────────────────────────────────── */
 .peb-hero {
   position: relative;
-  width: 100%;
+  background:
+    radial-gradient(120% 80% at 100% 0%, #FFE8D0 0%, transparent 55%),
+    radial-gradient(80% 60% at 0% 100%, #F1FBE6 0%, transparent 55%),
+    linear-gradient(180deg, #FFF6EC 0%, #FFFAF2 60%, #FFFFFF 100%);
+  padding: 70px 0 200px;
   overflow: hidden;
-  background: #ffffff;
-  padding: 80px 0 100px;
 }
 
-/* ============================================
-   CONTAINER
-============================================ */
-.peb-hero__overlay {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 70px;
-}
-
-/* ============================================
-   LEFT IMAGE GRID
-============================================ */
-.peb-hero__gallery {
+.peb-hero__inner {
   position: relative;
-
-  display: flex;
-  align-items: stretch;
-  gap: 18px;
-
-  width: fit-content;
-}
-
-/* ============================================
-   BIG LEFT IMAGE
-============================================ */
-.peb-hero__gallery-big img {
-  width: 310px;
-  height: 520px;
-
-  object-fit: cover;
-  display: block;
-
-  border-radius: 20px;
-}
-
-/* ============================================
-   RIGHT SIDE WRAPPER
-============================================ */
-.peb-hero__gallery-side {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-/* ============================================
-   SMALL IMAGES
-============================================ */
-.peb-hero__gallery-small img {
-  width: 240px;
-  height: 254px;
-
-  object-fit: cover;
-  display: block;
-
-  border-radius: 20px;
-}
-
-/* ============================================
-   CENTER ICON
-   PERFECTLY CENTERED
-============================================ */
-.peb-hero__center-icon {
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-
-  width: 72px;
-  height: 72px;
-
-  background: #ffffff;
-
-  border-radius: 16px;
-
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 70px;
   align-items: center;
-  justify-content: center;
-
-  z-index: 20;
-
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* ICON IMAGE */
-.peb-hero__center-icon img {
-  width: 40px;
-  height: 40px;
+/* ──────────────────────────────────────────────
+   LEFT COLLAGE
+   layout:  [ large TL ] [ small TR ]
+            [        wide BOTTOM     ]
+   ────────────────────────────────────────────── */
+.peb-hero__collage {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  grid-template-rows: 280px 240px;
+  gap: 14px;
+}
 
-  object-fit: contain;
+.peb-hero__c-img {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(11, 31, 58, 0.10);
+  position: relative;
+}
+
+.peb-hero__c-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
+  transition: transform 0.6s ease;
 }
 
-/* ============================================
-   RIGHT CONTENT
-============================================ */
+.peb-hero__c-img:hover img {
+  transform: scale(1.05);
+}
+
+.peb-hero__c-img--tl {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
+
+.peb-hero__c-img--tr {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+}
+
+.peb-hero__c-img--b {
+  grid-row: 2 / 3;
+  grid-column: 1 / 3;
+}
+
+/* small green leaf accent on the join — like the Figma */
+.peb-hero__c-img--tl::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  width: 24px;
+  height: 24px;
+  background:
+    radial-gradient(circle at 30% 70%, #5FB934 0%, #3F8B1F 100%);
+  border-radius: 50% 0 50% 50%;
+  transform: rotate(45deg);
+  box-shadow: 0 4px 10px rgba(63, 139, 31, 0.45);
+  z-index: 5;
+}
+
+/* ──────────────────────────────────────────────
+   RIGHT COPY
+   ────────────────────────────────────────────── */
 .peb-hero__copy {
-  flex: 1;
-  max-width: 620px;
+  max-width: 580px;
 }
 
-/* ============================================
-   TOP LABEL
-============================================ */
-.peb-hero__eyebrow {
+/* ── Badge ── */
+.peb-hero__badge {
   display: inline-flex;
   align-items: center;
+  width: 352px;
+  height: 58px;
   gap: 10px;
-
-  padding: 12px 22px;
-
-  border: 1px solid #9fdc7d;
-  border-radius: 100px;
-
-  background: #ffffff;
-
-  margin-bottom: 28px;
-
+  padding: 14px 30px;
+  background: #FFFFFF;
+  border: 1px solid #FFD9B3;
+  border-radius: 60px;
+  margin-bottom: 24px;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
-
   text-transform: capitalize;
-
-  color: #ff7a00;
+  color: #FF7A00;
+  box-shadow: 0 4px 14px rgba(255, 122, 0, 0.10);
 }
 
-/* ============================================
-   TITLE
-============================================ */
-.peb-hero__title {
-  margin: 0;
+.peb-hero__badge-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
 
+/* ── Title ── */
+.peb-hero__title {
+  margin: 0 0 22px;
   font-family: 'Oswald', sans-serif;
   font-weight: 600;
-  font-size: 64px;
+  font-size: 48px;
   line-height: 100%;
   letter-spacing: 0%;
-
   color: #4CAA17;
+  text-shadow: 0 1px 0 rgba(63, 139, 31, 0.10);
+  position: relative;
+  white-space: nowrap;
 }
 
-/* ============================================
-   ORANGE LINE
-============================================ */
-.peb-hero__line {
-  width: 150px;
+.peb-hero__title::after {
+  content: '';
+  display: block;
+  width: 264px;
   height: 4px;
-
-  background: #ff7a00;
-
-  border-radius: 20px;
-
-  margin-top: 20px;
-  margin-bottom: 24px;
+  background: #FF6A00;
+  margin-top: 16px;
 }
 
-/* ============================================
-   DESCRIPTION
-============================================ */
+/* ── Description ── */
 .peb-hero__desc {
-  max-width: 560px;
-
-  margin-bottom: 38px;
-
+  margin: 0 0 32px;
   font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.7;
-
-  color: #555555;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.6;
+  letter-spacing: 0%;
+  color: #343C47;
+  max-width: 500px;
 }
 
-/* ============================================
-   BUTTONS
-============================================ */
+/* ── CTA Buttons ── */
 .peb-hero__cta {
   display: flex;
   align-items: center;
-  gap: 20px;
-
-  margin-bottom: 50px;
+  gap: 14px;
+  margin-bottom: 44px;
+  flex-wrap: wrap;
 }
 
-/* COMMON BUTTON */
 .peb-hero__btn {
-  height: 60px;
-
-  padding: 0 34px;
-
-  border-radius: 100px;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  text-decoration: none;
-
+  height: 52px;
+  padding: 0 28px;
+  border-radius: 100px;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  font-size: 16px;
-
-  transition: 0.3s ease;
+  font-size: 14.5px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
 }
 
-/* PRIMARY BUTTON */
 .peb-hero__btn--primary {
-  background: #ff7a00;
-  color: #ffffff;
+  background: linear-gradient(180deg, #FF8A1E 0%, #FF6A00 100%);
+  color: #FFFFFF;
+  box-shadow: 0 10px 22px rgba(255, 106, 0, 0.30);
 }
 
 .peb-hero__btn--primary:hover {
   transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(255, 106, 0, 0.42);
 }
 
-/* GHOST BUTTON */
 .peb-hero__btn--ghost {
-  background: #ffffff;
-  color: #333333;
-
-  border: 1px solid #d8d8d8;
-
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  background: #FFFFFF;
+  color: #0B1F3A;
+  border: 1px solid #E6EAF0;
+  box-shadow: 0 4px 12px rgba(11, 31, 58, 0.06);
 }
 
 .peb-hero__btn--ghost:hover {
-  background: #f7f7f7;
+  border-color: #FF6A00;
+  color: #FF6A00;
+  transform: translateY(-2px);
 }
 
-/* ============================================
-   PEBlow IMAGE
-============================================ */
-.peb-hero__bottom-img {
-  width: 100%;
-  max-width: 380px;
-
-  display: block;
+/* ── Stats Row ── */
+.peb-hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  column-gap: 56px;
+  row-gap: 4px;
 }
 
-/* ============================================
-   MOBILE
-============================================ */
-@media (max-width: 1100px) {
-  .peb-hero__overlay {
-    gap: 40px;
+.peb-hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.peb-hero__stat strong {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #343C47;
+}
+
+.peb-hero__stat span {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: #6B7280;
+}
+
+/* ──────────────────────────────────────────────
+   RESPONSIVE
+   ────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .peb-hero__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
   }
 
-  .peb-hero__title {
-    font-size: 52px;
-  }
-
-  .peb-hero__gallery-big img {
-    width: 250px;
-    height: 450px;
-  }
-
-  .peb-hero__gallery-small img {
-    width: 200px;
-    height: 219px;
+  .peb-hero__collage {
+    max-width: 620px;
+    grid-template-rows: 240px 200px;
   }
 }
 
-/* ============================================
-   TABLET & MOBILE
-============================================ */
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .peb-hero {
-    padding: 60px 0 80px;
+    padding: 56px 0 64px;
   }
 
-  .peb-hero__overlay {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .peb-hero__gallery {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .peb-hero__gallery-big img {
-    width: 180px;
-    height: 340px;
-  }
-
-  .peb-hero__gallery-small img {
-    width: 150px;
-    height: 164px;
-  }
-
-  .peb-hero__center-icon {
-    width: 60px;
-    height: 60px;
-  }
-
-  .peb-hero__center-icon img {
-    width: 32px;
-    height: 32px;
-  }
-
-  .peb-hero__copy {
-    max-width: 100%;
-  }
-
-  .peb-hero__eyebrow {
-    font-size: 15px;
-    padding: 10px 18px;
-  }
-
-  .peb-hero__title {
-    font-size: 40px;
-    line-height: 110%;
-  }
-
-  .peb-hero__desc {
-    font-size: 15px;
+  .peb-hero__collage {
+    grid-template-rows: 180px 160px;
+    gap: 10px;
   }
 
   .peb-hero__cta {
     flex-direction: column;
-    align-items: flex-start;
-
-    width: 100%;
+    align-items: stretch;
   }
 
   .peb-hero__btn {
     width: 100%;
   }
 
-  .peb-hero__bottom-img {
-    max-width: 280px;
+  .peb-hero__stats {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 16px;
+  }
+
+  .peb-hero__stat strong {
+    font-size: 26px;
+  }
+
+  .peb-hero__stat span {
+    font-size: 11px;
   }
 }
 
-/* ============================================
-   SMALL MOBILE
-============================================ */
-@media (max-width: 480px) {
-  .peb-hero__gallery {
-    gap: 12px;
-  }
-
-  .peb-hero__gallery-big img {
-    width: 150px;
-    height: 280px;
-  }
-
-  .peb-hero__gallery-small img {
-    width: 120px;
-    height: 134px;
-  }
-
-  .peb-hero__title {
-    font-size: 32px;
-  }
-
-  .peb-hero__desc {
-    font-size: 14px;
+@media (max-width: 380px) {
+  .peb-hero__stats {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 }

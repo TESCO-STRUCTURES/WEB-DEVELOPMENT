@@ -1,12 +1,12 @@
 import Navbar from '../component/Navbar/Navbar';
 import Allhero from '../component/Allhero/Allhero';
 import Allabout from '../component/Allabout/Allabout';
-import Allwhy from '../component/Allwhy/Allwhy';
 import Allkey from '../component/Allkey/Allkey';
-import Allprojects from '../component/Allprojects/Allprojects';
-import Allbuild from '../component/Allbuild/Allbuild';
+import Allwhy from '../component/Allwhy/Allwhy';
 import Allapplication from '../component/Allapplication/Allapplication';
+import Allprojects from '../component/Allprojects/Allprojects';
 import Allfaq from '../component/Allfaq/Allfaq';
+import Allbuild from '../component/Allbuild/Allbuild';
 import Footer from '../component/Footer/Footer';
 
 export default function All() {
@@ -15,12 +15,12 @@ export default function All() {
       <Navbar />
       <Allhero />
       <Allabout />
-      <Allwhy />
       <Allkey />
-      <Allprojects />
-      <Allbuild />
+      <Allwhy />
       <Allapplication />
+      <Allprojects />
       <Allfaq />
+      <Allbuild />
       <Footer />
     </>
   );

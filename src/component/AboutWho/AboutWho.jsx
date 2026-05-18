@@ -5,13 +5,12 @@ import img2 from '../../assets/about who2.svg';
 export default function AboutWho() {
   return (
     <section className="ts-aw">
-      <div className="container ts-aw__inner">
+      <div className="ts-aw__inner">
 
         <div className="ts-aw__copy">
           <span className="ts-aw__eyebrow">Who We Are</span>
           <p className="ts-aw__desc">
-            Tesco Structure LLP is a trusted construction company with over 15 years of
-            experience in delivering high-quality projects across industrial, commercial,
+            Tesco Structure LLP is a trusted construction company with over 15 years of            experience in delivering high-quality projects across industrial, commercial,
             and residential sectors. We specialize in Pre-Engineered Buildings (PEB),
             structural steel solutions, roofing systems, multi-storey construction,
             civil works, and architectural and structural consultancy. With a strong

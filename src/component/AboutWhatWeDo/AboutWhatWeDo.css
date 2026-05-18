@@ -31,26 +31,28 @@
 
 .ts-awd__grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1216px;
+  margin: 0 auto;
 }
 
 .ts-awd__card {
   position: relative;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
-  height: 240px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 24px;
 }
 
-.ts-awd__card:nth-child(1) { grid-column: span 3; }
-.ts-awd__card:nth-child(2) { grid-column: span 3; }
-.ts-awd__card:nth-child(3) { grid-column: span 2; }
-.ts-awd__card:nth-child(4) { grid-column: span 2; }
-.ts-awd__card:nth-child(5) { grid-column: span 2; }
+.ts-awd__card:nth-child(1) { grid-column: span 1; }
+.ts-awd__card:nth-child(2) { grid-column: span 2; }
+.ts-awd__card:nth-child(3) { grid-column: span 1; }
+.ts-awd__card:nth-child(4) { grid-column: span 1; }
+.ts-awd__card:nth-child(5) { grid-column: span 1; }
 
 .ts-awd__bg {
   position: absolute;

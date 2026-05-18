@@ -1,16 +1,102 @@
-.civ-app { background: #ffffff; padding: clamp(70px, 9vw, 120px) 0; }
-.civ-app__head { text-align: center; max-width: 760px; margin: 0 auto 56px; }
-.civ-app__eyebrow { display: inline-block; font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.20em; color: #FF6A00; text-transform: uppercase; margin-bottom: 14px; }
-.civ-app__title { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: clamp(32px, 4vw, 48px); line-height: 1.1; color: #0B1F3A; margin: 0 0 18px; }
-.civ-app__title span { color: #4FA31E; }
-.civ-app__desc { font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.7; color: #475569; }
-.civ-app__grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-.civ-app__card { background: #fff; border: 1px solid #E2E8F0; border-radius: 20px; padding: 26px 16px 22px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.25s ease, box-shadow 0.3s ease; }
-.civ-app__card:hover { transform: translateY(-6px); border-color: rgba(255,106,0,0.40); box-shadow: 0 18px 36px rgba(11,31,58,0.08); }
-.civ-app__icon { width: 72px; height: 72px; border-radius: 18px; background: rgba(79,163,30,0.10); display: inline-flex; align-items: center; justify-content: center; transition: background 0.25s ease; }
-.civ-app__card:hover .civ-app__icon { background: rgba(255,106,0,0.12); }
-.civ-app__icon img { width: 44px; height: 44px; object-fit: contain; }
-.civ-app__label { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 14px; color: #0B1F3A; line-height: 1.35; }
-@media (max-width: 1200px) { .civ-app__grid { grid-template-columns: repeat(4, 1fr); } }
-@media (max-width: 800px)  { .civ-app__grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 520px)  { .civ-app__grid { grid-template-columns: repeat(2, 1fr); } .civ-app__icon { width: 60px; height: 60px; } .civ-app__icon img { width: 36px; height: 36px; } }
+/* ── Civil Application Section ── */
+.civapp { background: #fff; padding: 80px 0; }
+
+.civapp__head { text-align: center; max-width: 820px; margin: 0 auto 48px; padding: 0 20px; }
+
+.civapp__badge {
+  display: inline-block;
+  padding: 7px 26px;
+  border: 1.5px solid #4CAF50;
+  border-radius: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px; font-weight: 500;
+  color: #4CAF50;
+  margin-bottom: 18px;
+}
+
+.civapp__desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px; line-height: 1.75; color: #555;
+}
+
+/* ── Grid ── */
+.civapp__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 220px 220px 180px;
+  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Row 1-2: Apartments tall left (6/12), Industrial top-right (6/12), Hospitals bottom-right (6/12) */
+.civapp--a1 { grid-column: 1 / 7;  grid-row: 1 / 3; }
+.civapp--a2 { grid-column: 7 / 13; grid-row: 1; }
+.civapp--a3 { grid-column: 7 / 13; grid-row: 2; }
+
+/* Row 3-4: Office tall left (5/12), Malls+Restaurants+Warehouses (3×2.33/12), Villas+Roads */
+.civapp--a4 { grid-column: 1 / 5;  grid-row: 3 / 5; }
+.civapp--a5 { grid-column: 5 / 8;  grid-row: 3; }
+.civapp--a6 { grid-column: 8 / 10; grid-row: 3; }
+.civapp--a7 { grid-column: 10 / 13; grid-row: 3; }
+.civapp--a8 { grid-column: 5 / 9;  grid-row: 4; }
+.civapp--a9 { grid-column: 9 / 13; grid-row: 4; }
+
+/* Row 5 */
+.civapp--a10 { grid-column: 1 / 7;  grid-row: 5; }
+.civapp--a11 { grid-column: 7 / 13; grid-row: 5; }
+
+/* Add rows 4 and 5 to auto */
+.civapp__grid {
+  grid-template-rows: 220px 220px 180px 180px 180px;
+}
+
+/* ── Card ── */
+.civapp__card {
+  position: relative; overflow: hidden;
+  border-radius: 10px;
+}
+.civapp__card img {
+  width: 100%; height: 100%; object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.civapp__card:hover img { transform: scale(1.04); }
+
+.civapp__overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 40px 14px 14px;
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%);
+  display: flex; flex-direction: column; gap: 4px;
+}
+
+.civapp__tag {
+  display: inline-block;
+  background: #FF6B00;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 9px; font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 2px 8px;
+  border-radius: 3px;
+  width: fit-content;
+}
+
+.civapp__label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px; font-weight: 600;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+@media (max-width: 900px) {
+  .civapp__grid { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
+  .civapp--a1,.civapp--a2,.civapp--a3,.civapp--a4,.civapp--a5,
+  .civapp--a6,.civapp--a7,.civapp--a8,.civapp--a9,.civapp--a10,.civapp--a11 {
+    grid-column: auto; grid-row: auto; min-height: 200px;
+  }
+}
+@media (max-width: 560px) {
+  .civapp__grid { grid-template-columns: 1fr; }
+}

@@ -1,16 +1,89 @@
-.civ-about { background: #ffffff; padding: clamp(70px, 9vw, 120px) 0; }
-.civ-about__inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 90px); align-items: center; }
-.civ-about__media { border-radius: 28px; overflow: hidden; box-shadow: 0 28px 60px rgba(11,31,58,0.16); }
-.civ-about__media img { width: 100%; height: clamp(380px, 50vw, 560px); object-fit: cover; display: block; transition: transform 8s linear; }
-.civ-about__media:hover img { transform: scale(1.04); }
-.civ-about__copy { max-width: 580px; }
-.civ-about__eyebrow { display: inline-block; font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.20em; color: #FF6A00; text-transform: uppercase; margin-bottom: 14px; }
-.civ-about__title { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: clamp(32px, 4vw, 48px); line-height: 1.1; color: #0B1F3A; margin: 0 0 22px; }
-.civ-about__title span { color: #4FA31E; }
-.civ-about__desc { font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.7; color: #475569; margin: 0 0 16px; }
-.civ-about__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; padding-top: 28px; border-top: 1px solid #E2E8F0; }
-.civ-about__stat { display: flex; flex-direction: column; gap: 4px; }
-.civ-about__num { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 36px; color: #FF6A00; letter-spacing: -0.01em; }
-.civ-about__lbl { font-family: 'Poppins', sans-serif; font-size: 13px; color: #64748B; line-height: 1.4; }
-@media (max-width: 1024px) { .civ-about__inner { grid-template-columns: 1fr; } .civ-about__copy { max-width: none; } }
-@media (max-width: 560px) { .civ-about__stats { grid-template-columns: 1fr; gap: 14px; } .civ-about__num { font-size: 30px; } }
+/* ── CIVIL ABOUT ──────────────────────────────── */
+.civ-about { background: #FFFFFF; padding: clamp(70px, 9vw, 120px) 0; }
+
+.civ-about__inner {
+  display: grid; grid-template-columns: 1.05fr 1fr;
+  gap: clamp(40px, 6vw, 80px); align-items: center;
+}
+
+.civ-about__copy { max-width: 560px; }
+
+.civ-about__eyebrow {
+  display: inline-block; padding: 8px 18px;
+  background: rgba(255, 122, 0, 0.08);
+  border: 1px solid rgba(255, 122, 0, 0.25); border-radius: 100px;
+  margin-bottom: 20px;
+  font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 13px;
+  color: #FF6A00; letter-spacing: 0.4px;
+}
+
+.civ-about__title {
+  margin: 0 0 22px;
+  font-family: 'Oswald', sans-serif; font-weight: 600;
+  font-size: clamp(30px, 3.5vw, 44px); line-height: 1.1;
+  color: #4FA31E; letter-spacing: 0.3px;
+}
+
+.civ-about__desc {
+  margin: 0 0 16px;
+  font-family: 'Poppins', sans-serif; font-size: 15px;
+  line-height: 1.75; color: #475569;
+}
+
+.civ-about__features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+
+.civ-about__feature {
+  background: #FFFFFF; border: 1px solid #E8EEF5;
+  border-radius: 14px; padding: 18px 16px;
+  box-shadow: 0 8px 20px rgba(11, 31, 58, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.civ-about__feature:hover { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(11, 31, 58, 0.08); }
+
+.civ-about__feature-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, #6BC23A 0%, #4FA31E 100%);
+  border-radius: 8px; margin-bottom: 12px;
+}
+.civ-about__feature-icon svg { width: 18px; height: 18px; }
+
+.civ-about__feature-body h4 {
+  margin: 0 0 6px;
+  font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px; color: #0B1F3A;
+}
+.civ-about__feature-body p {
+  margin: 0;
+  font-family: 'Inter', sans-serif; font-size: 12px;
+  line-height: 1.5; color: #64748B;
+}
+
+.civ-about__media {
+  position: relative; border-radius: 24px; overflow: hidden;
+  box-shadow: 0 24px 50px rgba(11, 31, 58, 0.14);
+  aspect-ratio: 1 / 1; max-height: 520px;
+}
+.civ-about__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.civ-about__stripes {
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.55) 0,
+    rgba(255, 255, 255, 0.55) 28px,
+    transparent 28px,
+    transparent 90px
+  );
+  mix-blend-mode: overlay; pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+  .civ-about__inner { grid-template-columns: 1fr; }
+  .civ-about__copy { max-width: none; }
+  .civ-about__media { max-width: 600px; margin: 0 auto; }
+}
+
+@media (max-width: 640px) {
+  .civ-about__features { grid-template-columns: 1fr; }
+  .civ-about__title { font-size: 28px; }
+}

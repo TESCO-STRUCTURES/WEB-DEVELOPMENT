@@ -1,12 +1,12 @@
 import Navbar from '../component/Navbar/Navbar';
 import Tensilehero from '../component/Tensilehero/Tensilehero';
 import Tensileabout from '../component/Tensileabout/Tensileabout';
-import Tensilewhy from '../component/Tensilewhy/Tensilewhy';
 import Tensilekey from '../component/Tensilekey/Tensilekey';
-import Tensileprojects from '../component/Tensileprojects/Tensileprojects';
-import Tensilebuild from '../component/Tensilebuild/Tensilebuild';
+import Tensilewhy from '../component/Tensilewhy/Tensilewhy';
 import Tensileapplication from '../component/Tensileapplication/Tensileapplication';
+import Tensileprojects from '../component/Tensileprojects/Tensileprojects';
 import Tensilefaq from '../component/Tensilefaq/Tensilefaq';
+import Tensilebuild from '../component/Tensilebuild/Tensilebuild';
 import Footer from '../component/Footer/Footer';
 
 export default function Tensile() {
@@ -15,12 +15,12 @@ export default function Tensile() {
       <Navbar />
       <Tensilehero />
       <Tensileabout />
-      <Tensilewhy />
       <Tensilekey />
-      <Tensileprojects />
-      <Tensilebuild />
+      <Tensilewhy />
       <Tensileapplication />
+      <Tensileprojects />
       <Tensilefaq />
+      <Tensilebuild />
       <Footer />
     </>
   );

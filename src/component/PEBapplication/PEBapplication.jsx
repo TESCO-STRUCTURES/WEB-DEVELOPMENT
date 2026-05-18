@@ -1,26 +1,26 @@
 import './PEBapplication.css';
-import warehouse   from '../../assets/PEBWarehouse.svg';
-import multi       from '../../assets/PEBMulti.svg';
-import university  from '../../assets/PEBUniversity.svg';
-import marriage    from '../../assets/PEBMarriage.svg';
-import commercial  from '../../assets/PEBCommercial.svg';
-import educational from '../../assets/PEBEducational.svg';
-import hospitals   from '../../assets/PEBHospitals.svg';
-import industrial  from '../../assets/PEBIndustrial.svg';
-import auditorium  from '../../assets/PEBAuditorium.svg';
 import cold        from '../../assets/PEBCold.svg';
+import university  from '../../assets/PEBUniversity.svg';
+import educational from '../../assets/PEBEducational.svg';
+import auditorium  from '../../assets/PEBAuditorium.svg';
+import warehouse   from '../../assets/PEBWarehouse.svg';
+import marriage    from '../../assets/PEBMarriage.svg';
+import hospitals   from '../../assets/PEBHospitals.svg';
+import multi       from '../../assets/PEBMulti.svg';
+import commercial  from '../../assets/PEBCommercial.svg';
+import industrial  from '../../assets/PEBIndustrial.svg';
 
 const APPS = [
-  { icon: warehouse,   label: 'Warehouse' },
-  { icon: multi,       label: 'Multi-story Steel Building' },
-  { icon: university,  label: 'University & Turnkey' },
-  { icon: marriage,    label: 'Marriage Hall' },
-  { icon: commercial,  label: 'Commercial Spaces' },
-  { icon: educational, label: 'Educational Institutions' },
-  { icon: hospitals,   label: 'Hospitals' },
-  { icon: industrial,  label: 'Industrial Sheds' },
-  { icon: auditorium,  label: 'Auditorium' },
-  { icon: cold,        label: 'Cold Storage' },
+  { img: cold,        label: 'Cold Storage', className: 'peb-app__card--wide' },
+  { img: university,  label: 'University Turnkey Construction', className: '' },
+  { img: educational, label: 'Educational Institutions', className: '' },
+  { img: auditorium,  label: 'Auditorium', className: '' },
+  { img: warehouse,   label: 'Warehouse', className: 'peb-app__card--wide' },
+  { img: marriage,    label: 'Marriage Hall', className: '' },
+  { img: hospitals,   label: 'Hospitals', className: '' },
+  { img: multi,       label: 'Multi-story Steel Building', className: 'peb-app__card--wide' },
+  { img: commercial,  label: 'Commercial Spaces', className: '' },
+  { img: industrial,  label: 'Industrial Sheds', className: '' },
 ];
 
 export default function PEBapplication() {
@@ -29,22 +29,16 @@ export default function PEBapplication() {
       <div className="container">
 
         <div className="peb-app__head">
-          <span className="peb-app__eyebrow">Applications</span>
-          <h2 className="peb-app__title">Ten industries. <span>One steel system.</span></h2>
+          <span className="peb-app__eyebrow">PEB Application</span>
           <p className="peb-app__desc">
-            From a 600 sq.ft. roadside cold-store to a 5-lakh sq.ft. logistics
-            campus — Tesco PEB serves the full range of industrial and
-            institutional briefs across India.
+            Pre-Engineered Buildings (PEB) offer fast, durable, and cost-effective construction for industrial and commercial spaces.
           </p>
         </div>
 
         <div className="peb-app__grid">
-          {APPS.map((a) => (
-            <article key={a.label} className="peb-app__card">
-              <div className="peb-app__icon">
-                <img src={a.icon} alt="" />
-              </div>
-              <span className="peb-app__label">{a.label}</span>
+          {APPS.map((a, i) => (
+            <article key={i} className={`peb-app__card ${a.className}`}>
+              <img src={a.img} alt={a.label} className="peb-app__img" />
             </article>
           ))}
         </div>

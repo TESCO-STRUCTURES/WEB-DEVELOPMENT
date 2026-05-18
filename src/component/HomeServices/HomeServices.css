@@ -108,14 +108,12 @@
   padding: 1.5px;
 
   background:
-    linear-gradient(
-      90deg,
+    linear-gradient(90deg,
       #59d61d 0%,
       #59d61d 25%,
       #ff7a00 50%,
       #ff7a00 75%,
-      #59d61d 100%
-    );
+      #59d61d 100%);
 
   background-size: 300% 300%;
 
@@ -148,12 +146,10 @@
   border-radius: 60px;
 
   background:
-    linear-gradient(
-      90deg,
+    linear-gradient(90deg,
       rgba(89, 214, 29, 0.10),
       rgba(255, 122, 0, 0.10),
-      rgba(89, 214, 29, 0.10)
-    );
+      rgba(89, 214, 29, 0.10));
 
   background-size: 300% 300%;
 
@@ -185,25 +181,17 @@
 ============================================ */
 
 .ts-svc__desc {
-  max-width: 760px;
+  font-family: 'Poppins', sans-serif;
 
-  margin: 0 auto;
+  font-weight: 400;
 
-  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
 
-  font-weight: 500;
-
-  font-style: normal;
-
-  font-size: 14px;
-
-  line-height: 160%;
-
+  line-height: 100%;
   letter-spacing: 0%;
-
   text-align: center;
 
-  color: #343C47;
+  color: #101828;
 }
 
 /* ============================================

@@ -26,7 +26,7 @@ export default function HomeAll() {
             <img src={img1} alt="Industrial roofing system" />
           </div>
           <div className="ts-all__card ts-all__card--2">
-            <img src={img2} alt="Curved metal roof detail" />
+            <img src={img2} alt="Secondary view" />
           </div>
         </div>
 

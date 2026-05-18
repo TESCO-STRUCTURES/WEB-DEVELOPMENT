@@ -11,37 +11,43 @@ import a9  from '../../assets/civilapp9.svg';
 import a10 from '../../assets/civilapp10.svg';
 import a11 from '../../assets/civilapp11.svg';
 
-const APPS = [
-  { icon: a1,  label: 'Earthworks' },
-  { icon: a2,  label: 'Foundation' },
-  { icon: a3,  label: 'RCC Columns' },
-  { icon: a4,  label: 'Concrete Slabs' },
-  { icon: a5,  label: 'Boundary Walls' },
-  { icon: a6,  label: 'Drainage' },
-  { icon: a7,  label: 'Plinth' },
-  { icon: a8,  label: 'Reinforcement' },
-  { icon: a9,  label: 'Plastering' },
-  { icon: a10, label: 'Tiling & Flooring' },
-  { icon: a11, label: 'Site Preparation' },
-];
+function Card({ img, tag, label, cls }) {
+  return (
+    <div className={`civapp__card ${cls}`}>
+      <img src={img} alt={label} />
+      <div className="civapp__overlay">
+        <span className="civapp__tag">{tag}</span>
+        <span className="civapp__label">{label}</span>
+      </div>
+    </div>
+  );
+}
 
 export default function Civilapplication() {
   return (
-    <section className="civ-app">
-      <div className="container">
-        <div className="civ-app__head">
-          <span className="civ-app__eyebrow">Applications</span>
-          <h2 className="civ-app__title">Eleven civil <span>capabilities under one team</span></h2>
-          <p className="civ-app__desc">From earthworks to finishing, every civil trade you need on site is staffed by Tesco.</p>
-        </div>
-        <div className="civ-app__grid">
-          {APPS.map((a) => (
-            <article key={a.label} className="civ-app__card">
-              <div className="civ-app__icon"><img src={a.icon} alt="" /></div>
-              <span className="civ-app__label">{a.label}</span>
-            </article>
-          ))}
-        </div>
+    <section className="civapp">
+      <div className="civapp__head">
+        <span className="civapp__badge">Civil Application</span>
+        <p className="civapp__desc">
+          Civil construction is used in buildings, roads, bridges, and industrial projects, delivering strong,
+          reliable, and long-lasting structures.
+        </p>
+      </div>
+      <div className="civapp__grid">
+        {/* Block 1: Apartments (tall left) + Industrial + Hospitals */}
+        <Card img={a1}  tag="CIVIL WORKS" label="Apartments"          cls="civapp--a1" />
+        <Card img={a2}  tag="CIVIL WORKS" label="Industrial Buildings" cls="civapp--a2" />
+        <Card img={a3}  tag="CIVIL WORKS" label="Hospitals"            cls="civapp--a3" />
+        {/* Block 2: Office (tall left) + 3 small + Villas + Roads */}
+        <Card img={a4}  tag="CIVIL WORKS" label="Office Buildings"    cls="civapp--a4" />
+        <Card img={a5}  tag="CIVIL WORKS" label="Malls"               cls="civapp--a5" />
+        <Card img={a6}  tag="CIVIL WORKS" label="Restaurants"         cls="civapp--a6" />
+        <Card img={a7}  tag="CIVIL WORKS" label="Warehouses"          cls="civapp--a7" />
+        <Card img={a8}  tag="CIVIL WORKS" label="Villas"              cls="civapp--a8" />
+        <Card img={a9}  tag="CIVIL WORKS" label="Concrete Roads"      cls="civapp--a9" />
+        {/* Row 3 */}
+        <Card img={a10} tag="CIVIL WORKS" label="Retail Shops"        cls="civapp--a10" />
+        <Card img={a11} tag="CIVIL WORKS" label="Institutions"        cls="civapp--a11" />
       </div>
     </section>
   );

@@ -9,35 +9,44 @@ import a7 from '../../assets/architecturalapp7.svg';
 import a8 from '../../assets/architecturalapp8.svg';
 import a9 from '../../assets/architecturalapp9.svg';
 
-const APPS = [
-  { icon: a1, label: 'Structural Design' },
-  { icon: a2, label: '3D Visualization' },
-  { icon: a3, label: 'Drafting & Detailing' },
-  { icon: a4, label: 'Load Analysis' },
-  { icon: a5, label: 'BOQ Preparation' },
-  { icon: a6, label: 'Code Compliance' },
-  { icon: a7, label: 'Feasibility Studies' },
-  { icon: a8, label: 'Project Estimation' },
-  { icon: a9, label: 'Architectural Consulting' },
-];
+function Card({ img, tag, label, sub, cls }) {
+  return (
+    <div className={`arcapp__card ${cls}`}>
+      <img src={img} alt={label} />
+      <div className="arcapp__overlay">
+        <span className="arcapp__tag">{tag}</span>
+        <span className="arcapp__label">{label}</span>
+        {sub && <span className="arcapp__sub">{sub}</span>}
+      </div>
+    </div>
+  );
+}
 
 export default function Architecturalapplication() {
   return (
-    <section className="arc-app">
-      <div className="container">
-        <div className="arc-app__head">
-          <span className="arc-app__eyebrow">Applications</span>
-          <h2 className="arc-app__title">Nine design services <span>under one studio</span></h2>
-          <p className="arc-app__desc">From feasibility studies to BOQ-backed drawings — every design service you need.</p>
-        </div>
-        <div className="arc-app__grid">
-          {APPS.map((a) => (
-            <article key={a.label} className="arc-app__card">
-              <div className="arc-app__icon"><img src={a.icon} alt="" /></div>
-              <span className="arc-app__label">{a.label}</span>
-            </article>
-          ))}
-        </div>
+    <section className="arcapp">
+      <div className="arcapp__head">
+        <span className="arcapp__badge">Architectural Design &amp; Structural Consultancy Application</span>
+        <p className="arcapp__desc">
+          Used in homes, commercial buildings, and industrial projects, this service ensures smart design,
+          structural stability, and efficient space utilization.
+        </p>
+      </div>
+      <div className="arcapp__grid">
+        {/* Large left */}
+        <Card img={a1} tag="CONSULTANCY SERVICES" label="Architecture Design" sub="Conceptualizing spaces with structural elegance." cls="arcapp--a1" />
+        {/* Top right 2 */}
+        <Card img={a2} tag="CONSULTANCY SERVICES" label="Structural Engineering" cls="arcapp--a2" />
+        <Card img={a3} tag="CONSULTANCY SERVICES" label="PEB Services"           cls="arcapp--a3" />
+        {/* Wide right */}
+        <Card img={a4} tag="CONSULTANCY SERVICES" label="3D Exterior Views"      cls="arcapp--a4" />
+        {/* Row 3: 3 equal */}
+        <Card img={a5} tag="CONSULTANCY SERVICES" label="3D Interior Views"      cls="arcapp--a5" />
+        <Card img={a6} tag="CONSULTANCY SERVICES" label="Walk-through & Animation" cls="arcapp--a6" />
+        <Card img={a7} tag="CONSULTANCY SERVICES" label="2D Detailing"           cls="arcapp--a7" />
+        {/* Row 4 */}
+        <Card img={a8} tag="CONSULTANCY SERVICES" label="Interior Design"        cls="arcapp--a8" />
+        <Card img={a9} tag="CONSULTANCY SERVICES" label="MEP Services"           cls="arcapp--a9" />
       </div>
     </section>
   );

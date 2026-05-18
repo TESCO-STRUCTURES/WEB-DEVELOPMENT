@@ -1,134 +1,68 @@
-import React from "react";
-import "./PEBHero.css";
+import './PEBhero.css';
+import pebhero1 from '../../assets/PEBhero1.svg';
+import pebhero2 from '../../assets/PEBhero2.svg';
+import pebhero3 from '../../assets/PEBhero3.svg';
+import PEBlow from '../../assets/PEBlow.svg';
 
-/* ============================================
-   SVG IMAGES
-============================================ */
-import pebhero1 from "../../assets/pebhero1.svg";
-import pebhero2 from "../../assets/pebhero2.svg";
-import pebhero3 from "../../assets/pebhero3.svg";
-
-/* ============================================
-   CENTER ICON
-============================================ */
-import PEBicon from "../../assets/PEBicon.svg";
-
-/* ============================================
-   PEBlow SVG
-============================================ */
-import PEBlow from "../../assets/PEBlow.svg";
-
-const PEBHero = () => {
+export default function PEBhero() {
   return (
     <section className="peb-hero">
+      <div className="container peb-hero__inner">
 
-      <div className="container peb-hero__overlay">
-
-        {/* ============================================
-            LEFT IMAGE GRID
-        ============================================ */}
-        <div className="peb-hero__gallery">
-
-          {/* BIG LEFT IMAGE */}
-          <div className="peb-hero__gallery-big">
-            <img
-              src={pebhero1}
-              alt="PEB Main"
-            />
+        {/* LEFT — image collage:  [large TL] [small TR] / [wide BOTTOM] */}
+        <div className="peb-hero__collage">
+          <div className="peb-hero__c-img peb-hero__c-img--tl">
+            <img src={pebhero1} alt="PEB steel structure exterior" />
           </div>
-
-          {/* RIGHT SIDE IMAGES */}
-          <div className="peb-hero__gallery-side">
-
-            {/* TOP IMAGE */}
-            <div className="peb-hero__gallery-small">
-              <img
-                src={pebhero2}
-                alt="PEB Top"
-              />
-            </div>
-
-            {/* BOTTOM IMAGE */}
-            <div className="peb-hero__gallery-small">
-              <img
-                src={pebhero3}
-                alt="PEB Bottom"
-              />
-            </div>
-
+          <div className="peb-hero__c-img peb-hero__c-img--tr">
+            <img src={pebhero2} alt="PEB framework detail" />
           </div>
-
-          {/* ============================================
-              CENTER PEB ICON
-          ============================================ */}
-          <div className="peb-hero__center-icon">
-            <img
-              src={PEBicon}
-              alt="PEB Icon"
-            />
+          <div className="peb-hero__c-img peb-hero__c-img--b">
+            <img src={pebhero3} alt="PEB warehouse interior" />
           </div>
-
         </div>
 
-        {/* ============================================
-            RIGHT CONTENT
-        ============================================ */}
+        {/* RIGHT — copy */}
         <div className="peb-hero__copy">
+          <span className="peb-hero__badge">
+            <span>⚡ India&apos;s Trusted PEB Builder</span>
+          </span>
 
-          {/* SMALL TITLE */}
-          <div className="peb-hero__eyebrow">
-            ⚡ India's Trusted PEB Builder
-          </div>
-
-          {/* MAIN TITLE */}
           <h1 className="peb-hero__title">
             Pre-Engineered Building Solutions
           </h1>
 
-          {/* ORANGE LINE */}
-          <div className="peb-hero__line"></div>
-
-          {/* DESCRIPTION */}
           <p className="peb-hero__desc">
-            Delivering durable, cost-effective steel structures
-            designed for speed, strength, and long-term value.
+            Delivering durable, cost-effective steel structures designed for speed,
+            strength, and long-term value.
           </p>
 
-          {/* ============================================
-              BUTTONS
-          ============================================ */}
           <div className="peb-hero__cta">
-
-            <a
-              href="/contact"
-              className="peb-hero__btn peb-hero__btn--primary"
-            >
+            <a href="/contact" className="peb-hero__btn peb-hero__btn--primary">
               Book Free Site Inspection
             </a>
-
-            <a
-              href="/pricing"
-              className="peb-hero__btn peb-hero__btn--ghost"
-            >
+            <a href="#peb-build" className="peb-hero__btn peb-hero__btn--ghost">
               Get Instant Pricing
             </a>
-
           </div>
 
-          {/* ============================================
-              PEBlow SVG
-          ============================================ */}
-          <img
-            src={PEBlow}
-            alt="PEB Bottom Design"
-            className="peb-hero__bottom-img"
-          />
-
+          <div className="peb-hero__stats">
+            <div className="peb-hero__stat">
+              <strong>500+</strong>
+              <span>Projects Done</span>
+            </div>
+            <div className="peb-hero__stat">
+              <strong>15+</strong>
+              <span>Years Experience</span>
+            </div>
+            <div className="peb-hero__stat">
+              <strong>98%</strong>
+              <span>Client Satisfaction</span>
+            </div>
+          </div>
         </div>
 
       </div>
     </section>
   );
-};
-
-export default PEBHero;
+}

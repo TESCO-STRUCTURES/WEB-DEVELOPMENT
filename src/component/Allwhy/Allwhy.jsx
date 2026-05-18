@@ -2,33 +2,35 @@ import './Allwhy.css';
 import whyImg from '../../assets/allwhy.svg';
 
 const REASONS = [
-  { n: '01', title: 'Profile match',         desc: 'Right gauge, right profile, right finish for your span and load.' },
-  { n: '02', title: 'In-house roll-forming', desc: 'Sheets rolled to length on-site — zero transit damage, zero wastage.' },
-  { n: '03', title: 'Anti-corrosion',        desc: 'AZ-150 / GP-275 zinc-aluminium coatings tested for 20+ years.' },
-  { n: '04', title: 'Weather-tight',         desc: 'Monsoon-grade overlaps, butyl tape sealing, and ridge cap finishes.' },
+  '700+ Roofs Installed across industrial, architectural and commercial projects',
+  'Pan India Project Network with on-site roll-forming capability',
+  'In-House Fabrication in our 80,000 sq.ft. factory — zero transit damage',
+  'AZ-150 / GP-275 Anti-Corrosion Coatings with 20-year material warranty',
+  'Profile-Match Engineering — right gauge, profile, finish for your span',
+  'End-to-End Roofing — substructure prep, install, gutter & QA in one team',
 ];
 
 export default function Allwhy() {
   return (
     <section className="all-why">
       <div className="container all-why__inner">
+
         <div className="all-why__copy">
-          <span className="all-why__eyebrow">Why Tesco Roofing</span>
-          <h2 className="all-why__title">Four reasons builders <span>pick us for roofing</span></h2>
-          <p className="all-why__desc">A single-vendor roofing partner with on-site roll-forming, certified coatings, and a 20-year anti-corrosion warranty.</p>
+          <h2 className="all-why__title">Why Choose Tesco Structure for Roofing?</h2>
           <ul className="all-why__list">
-            {REASONS.map((r) => (
-              <li key={r.n} className="all-why__row">
-                <span className="all-why__num">{r.n}</span>
-                <div>
-                  <h3 className="all-why__row-title">{r.title}</h3>
-                  <p className="all-why__row-desc">{r.desc}</p>
-                </div>
+            {REASONS.map((r, i) => (
+              <li key={i} className="all-why__row">
+                <span className="all-why__dot" aria-hidden />
+                <p>{r}</p>
               </li>
             ))}
           </ul>
         </div>
-        <div className="all-why__media"><img src={whyImg} alt="Roofing benefits illustration" /></div>
+
+        <div className="all-why__media">
+          <img src={whyImg} alt="Tesco Structure roofing project" />
+        </div>
+
       </div>
     </section>
   );
