@@ -1,6 +1,6 @@
 import Navbar from '../component/Navbar/Navbar';
 import Hero from '../component/Hero/Hero';
-import HomeCost from '../component/HomeCost/HomeCost';
+import HomeCost from '../component/HomeCost/Homecost';
 import HomeServices from '../component/HomeServices/HomeServices';
 import HomeEngineered from '../component/HomeEngineered/HomeEngineered';
 import HomeTensile from '../component/HomeTensile/HomeTensile';
