@@ -14,109 +14,130 @@ import b11 from '../../assets/blog11.svg';
 import b12 from '../../assets/blog12.svg';
 
 const POSTS = [
-  { src: b1,  cat: 'Engineering',    date: 'Apr 22, 2025', title: 'How modern PEB design cuts erection time by 40%' },
-  { src: b2,  cat: 'Materials',      date: 'Apr 14, 2025', title: 'Choosing the right roofing system for industrial India' },
-  { src: b3,  cat: 'Case Study',     date: 'Apr 02, 2025', title: 'Inside our Reliance warehouse delivery' },
-  { src: b4,  cat: 'Sustainability', date: 'Mar 21, 2025', title: 'Lower-carbon steel: what changes for builders' },
-  { src: b5,  cat: 'Civil',          date: 'Mar 12, 2025', title: 'Foundation engineering for monsoon-zone projects' },
-  { src: b6,  cat: 'Tensile',        date: 'Feb 28, 2025', title: 'Why tensile roofing wins on large public spans' },
-  { src: b7,  cat: 'Project Mgmt',   date: 'Feb 14, 2025', title: 'How we deliver multi-acre sites on schedule' },
-  { src: b8,  cat: 'Design',         date: 'Feb 02, 2025', title: '3D walkthroughs that get clients to sign-off faster' },
-  { src: b9,  cat: 'Materials',      date: 'Jan 24, 2025', title: 'AZ-150 vs PVDF: choosing the right roof coating' },
-  { src: b10, cat: 'Architecture',   date: 'Jan 10, 2025', title: 'Form follows engineering: lessons from stadium roofs' },
-  { src: b11, cat: 'Civil',          date: 'Dec 18, 2024', title: 'RCC pours during peak monsoon — what works' },
-  { src: b12, cat: 'Engineering',    date: 'Dec 04, 2024', title: 'Cyclonic-zone PEB: wind-load engineering primer' },
+  { src: b1,  cat: 'CIVIL ENGINEERING',    date: 'May 20, 2024', title: 'Concrete Durability in Coastal...', desc: 'Technical analysis of salt-resistant concrete mixtures for coastal infrastructure projects.' },
+  { src: b2,  cat: 'TENSILE STRUCTURES',   date: 'May 18, 2024', title: 'The Aesthetics of Fabric Structures', desc: 'How high-tension fabric roofs are transforming sports arenas and public spaces.' },
+  { src: b3,  cat: 'SUSTAINABILITY',       date: 'May 17, 2024', title: 'Green Certifications in 2024', desc: 'A guide to LEED and BREEAM standards for modern construction projects.' },
+  { src: b4,  cat: 'ROOFING',             date: 'May 15, 2024', title: 'Advanced Insulation Systems', desc: 'New materials and layering techniques for thermal efficiency in industrial roofing.' },
+  { src: b5,  cat: 'PROCESS',             date: 'Apr 24, 2024', title: 'BIM Integration in Site Planning', desc: 'How Building Information Modelling is reducing site errors and improving coordination.' },
+  { src: b6,  cat: 'SAFETY',              date: 'Apr 15, 2024', title: 'Zero-Harm Initiatives in 2024', desc: 'Our commitment to safety excellence through AI-powered site monitoring systems.' },
+  { src: b7,  cat: 'CIVIL ENGINEERING',   date: 'Apr 10, 2024', title: 'Concrete Durability in Coastal...', desc: 'Technical analysis of salt-resistant concrete mixtures for coastal infrastructure projects.' },
+  { src: b8,  cat: 'TENSILE STRUCTURES',  date: 'Apr 05, 2024', title: 'The Aesthetics of Fabric Structures', desc: 'How high-tension fabric roofs are transforming sports arenas and public spaces.' },
+  { src: b9,  cat: 'SUSTAINABILITY',      date: 'Mar 28, 2024', title: 'Green Certifications in 2024', desc: 'A guide to LEED and BREEAM standards for modern construction projects.' },
+  { src: b10, cat: 'ROOFING',            date: 'Mar 20, 2024', title: 'Advanced Insulation Systems', desc: 'New materials and layering techniques for thermal efficiency in industrial roofing.' },
+  { src: b11, cat: 'PROCESS',            date: 'Mar 12, 2024', title: 'BIM Integration in Site Planning', desc: 'How Building Information Modelling is reducing site errors and improving coordination.' },
+  { src: b12, cat: 'SAFETY',             date: 'Mar 05, 2024', title: 'Zero-Harm Initiatives in 2024', desc: 'Our commitment to safety excellence through AI-powered site monitoring systems.' },
 ];
 
-const CATEGORIES = ['All', 'Engineering', 'Materials', 'Case Study', 'Sustainability', 'Civil', 'Tensile', 'Project Mgmt', 'Design', 'Architecture'];
+const TABS = ['All', 'PEB', 'Civil', 'Roofing', 'Tensile'];
 
-/* Mirror grid — first two rows of the main list (6 posts) duplicated below.
-   Always shows the same six posts, independent of the active filter above. */
-const MIRROR_POSTS = POSTS.slice(0, 6);
+const SIDEBAR_CATEGORIES = [
+  { label: 'PEB Structures',  count: 24 },
+  { label: 'Civil Works',     count: 15 },
+  { label: 'Roofing Systems', count: 11 },
+  { label: 'Tensile Design',  count: 28 },
+];
 
 export default function BlogPortfolio() {
-  const [filter, setFilter] = useState('All');
-  const visible = filter === 'All' ? POSTS : POSTS.filter((p) => p.cat === filter);
+  const [activeTab, setActiveTab] = useState('All');
+  const [search, setSearch] = useState('');
+
+  const visible = POSTS.filter((p) => {
+    const matchTab =
+      activeTab === 'All' ||
+      p.cat.toLowerCase().includes(activeTab.toLowerCase());
+    const matchSearch =
+      search === '' ||
+      p.title.toLowerCase().includes(search.toLowerCase()) ||
+      p.desc.toLowerCase().includes(search.toLowerCase());
+    return matchTab && matchSearch;
+  });
 
   return (
-    <section className="blg-grid">
-      <div className="container">
+    <section className="bp-section">
+      <div className="bp-container">
 
-        <div className="blg-grid__head">
-          <div>
-            <span className="blg-grid__eyebrow">Latest Posts</span>
-            <h2 className="blg-grid__title">All <span>articles</span></h2>
-          </div>
-          <div className="blg-grid__filters" role="tablist" aria-label="Filter by category">
-            {CATEGORIES.map((c) => (
-              <button
-                key={c}
-                type="button"
-                role="tab"
-                aria-selected={filter === c}
-                className={`blg-grid__chip ${filter === c ? 'blg-grid__chip--active' : ''}`}
-                onClick={() => setFilter(c)}
-              >
-                {c}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="blg-grid__list">
-          {visible.map((p, i) => (
-            <article key={i} className="blg-grid__card">
-              <div className="blg-grid__media">
-                <img src={p.src} alt={p.title} loading="lazy" />
-                <span className="blg-grid__tag">{p.cat}</span>
-              </div>
-              <div className="blg-grid__body">
-                <span className="blg-grid__date">{p.date}</span>
-                <h3 className="blg-grid__post-title">{p.title}</h3>
-                <a href="#" className="blg-grid__read">
-                  Read article
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                    <line x1="5" y1="12" x2="19" y2="12"/>
-                    <polyline points="13 5 19 12 13 19"/>
-                  </svg>
-                </a>
-              </div>
-            </article>
+        {/* ── Filter Tabs ── */}
+        <div className="bp-tabs">
+          {TABS.map((tab) => (
+            <button
+              key={tab}
+              className={`bp-tab ${activeTab === tab ? 'bp-tab--active' : ''}`}
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab}
+            </button>
           ))}
         </div>
 
-        {visible.length === 0 && (
-          <p className="blg-grid__empty">No posts in “{filter}” yet — check back soon.</p>
-        )}
+        {/* ── Body: grid + sidebar ── */}
+        <div className="bp-body">
 
-        {/* ── MIRROR SECTION — first two rows (same images, same content) ── */}
-        <div className="blg-grid__mirror-divider" aria-hidden />
+          {/* ── Blog Card Grid ── */}
+          <div className="bp-grid">
+            {visible.length === 0 ? (
+              <p className="bp-empty">No articles found.</p>
+            ) : (
+              visible.map((p, i) => (
+                <article key={i} className="bp-card">
+                  <div className="bp-card__media">
+                    <img src={p.src} alt={p.title} loading="lazy" />
+                  </div>
+                  <div className="bp-card__body">
+                    <span className="bp-card__cat">{p.cat}</span>
+                    <h3 className="bp-card__title">{p.title}</h3>
+                    <p className="bp-card__desc">{p.desc}</p>
+                    <div className="bp-card__footer">
+                      <span className="bp-card__date">{p.date}</span>
+                      <a href="#" className="bp-card__read">
+                        Read More
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                          <line x1="5" y1="12" x2="19" y2="12"/>
+                          <polyline points="13 5 19 12 13 19"/>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              ))
+            )}
+          </div>
 
-        <div className="blg-grid__mirror-head">
-          <span className="blg-grid__eyebrow">More to read</span>
-          <h2 className="blg-grid__title">Editor&apos;s <span>picks</span></h2>
-        </div>
+          {/* ── Sidebar ── */}
+          <aside className="bp-sidebar">
 
-        <div className="blg-grid__list blg-grid__list--mirror">
-          {MIRROR_POSTS.map((p, i) => (
-            <article key={`m-${i}`} className="blg-grid__card">
-              <div className="blg-grid__media">
-                <img src={p.src} alt={p.title} loading="lazy" />
-                <span className="blg-grid__tag">{p.cat}</span>
-              </div>
-              <div className="blg-grid__body">
-                <span className="blg-grid__date">{p.date}</span>
-                <h3 className="blg-grid__post-title">{p.title}</h3>
-                <a href="#" className="blg-grid__read">
-                  Read article
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                    <line x1="5" y1="12" x2="19" y2="12"/>
-                    <polyline points="13 5 19 12 13 19"/>
+            {/* Search */}
+            <div className="bp-sidebar__widget bp-sidebar__widget--search">
+              <h4 className="bp-sidebar__widget-title">Search</h4>
+              <div className="bp-sidebar__search">
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+                <button aria-label="Search">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
                   </svg>
-                </a>
+                </button>
               </div>
-            </article>
-          ))}
+            </div>
+
+            {/* Categories */}
+            <div className="bp-sidebar__widget">
+              <h4 className="bp-sidebar__widget-title">Categories</h4>
+              <ul className="bp-sidebar__cat-list">
+                {SIDEBAR_CATEGORIES.map((c) => (
+                  <li key={c.label} className="bp-sidebar__cat-item">
+                    <span className="bp-sidebar__cat-label">{c.label}</span>
+                    <span className="bp-sidebar__cat-count">{c.count}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+          </aside>
         </div>
 
       </div>

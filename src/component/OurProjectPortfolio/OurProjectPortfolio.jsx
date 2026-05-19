@@ -9,6 +9,9 @@ import p6  from '../../assets/OurProjects6.svg';
 import p7  from '../../assets/OurProjects7.svg';
 import p8  from '../../assets/OurProjects8.svg';
 import p9  from '../../assets/OurProjects9.svg';
+import p10 from '../../assets/OurProjects10.svg';
+import p11 from '../../assets/OurProjects11.svg';
+import p12 from '../../assets/OurProjects12.svg';
 
 const PROJECTS = [
   { src: p1 },
@@ -20,6 +23,9 @@ const PROJECTS = [
   { src: p7 },
   { src: p8 },
   { src: p9 },
+  { src: p10 },
+  { src: p11 },
+  { src: p12 },
 ];
 
 const CATEGORIES = ['All', 'PEB', 'Civil', 'Tensile', 'Design', 'Roofing'];

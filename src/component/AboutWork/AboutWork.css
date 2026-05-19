@@ -29,21 +29,28 @@
   line-height: 1.6;
 }
 
+/* ── Timeline wrapper ── */
 .ts-awk__timeline {
   position: relative;
-  max-width: 1100px;
+  max-width: 1101.5px;
   margin: 0 auto;
+  /* padding-top creates room for the upward-arching orange curves */
+  padding-top: 90px;
 }
 
+/* ── SVG connector — 1101.5 × 179.15px, sits behind the boxes ── */
 .ts-awk__line {
   position: absolute;
-  top: 36px;
+  /* top: align SVG centre (y=90 of 180) with icon centre (90px + 36px half-icon) */
+  top: 54px;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 179.15px;
   z-index: 0;
+  overflow: visible;
 }
 
+/* ── Step row — all five in a straight horizontal line ── */
 .ts-awk__steps {
   display: flex;
   justify-content: space-between;
@@ -59,16 +66,10 @@
   align-items: center;
   gap: 16px;
   padding: 0 10px;
+  /* NO margin-top — all five boxes sit on the same horizontal line */
 }
 
-.ts-awk__step:nth-child(odd) {
-  margin-top: 60px;
-}
-
-.ts-awk__step:nth-child(even) {
-  margin-top: 0;
-}
-
+/* ── Icon wrapper & box ── */
 .ts-awk__icon-wrap {
   position: relative;
 }
@@ -118,6 +119,7 @@
   justify-content: center;
 }
 
+/* ── Text ── */
 .ts-awk__title {
   font-family: 'Poppins', sans-serif;
   font-size: 13px;
@@ -135,9 +137,10 @@
   margin: 0;
 }
 
+/* ── Responsive ── */
 @media (max-width: 900px) {
   .ts-awk__line { display: none; }
   .ts-awk__steps { flex-direction: column; gap: 40px; align-items: center; }
-  .ts-awk__step:nth-child(odd), .ts-awk__step:nth-child(even) { margin-top: 0; }
   .ts-awk__step { max-width: 300px; }
+  .ts-awk__timeline { padding-top: 0; }
 }

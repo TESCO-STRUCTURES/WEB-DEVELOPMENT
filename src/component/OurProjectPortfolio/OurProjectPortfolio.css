@@ -11,6 +11,7 @@
   filter: blur(80px);
   z-index: 0;
 }
+
 .op-grid__blob--1 {
   width: 400px;
   height: 400px;
@@ -18,6 +19,7 @@
   top: -100px;
   left: -100px;
 }
+
 .op-grid__blob--2 {
   width: 500px;
   height: 500px;
@@ -43,6 +45,7 @@
 .op-grid__eyebrow-wrapper {
   margin-bottom: 12px;
 }
+
 .op-grid__eyebrow {
   display: inline-block;
   padding: 6px 20px;
@@ -90,9 +93,11 @@
   cursor: pointer;
   transition: all 0.2s ease;
 }
+
 .op-grid__chip:hover {
   border-color: rgba(255, 106, 0, 0.4);
 }
+
 .op-grid__chip.active {
   background: #FF6A00;
   border-color: #FF6A00;
@@ -101,25 +106,35 @@
 
 .op-grid__list {
   display: grid;
-  grid-template-columns: repeat(3, 250px);
+  grid-template-columns: repeat(3, 384px);
   justify-content: center;
-  gap: 30px;
+  gap: 6px;
   margin: 0 auto;
 }
 
 .op-grid__card {
-  width: 250px;
-  height: 250px;
+  width: 384px;
+
+  height: 450px;
+
+  padding: 0;
+
   background: transparent;
+
   overflow: hidden;
+
   border-radius: 20px;
+
   cursor: pointer;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+  transition: none;
+
+  box-sizing: border-box;
 }
 
 .op-grid__card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 32px rgba(0,0,0,0.15);
+  transform: none;
+  box-shadow: none;
 }
 
 .op-grid__media {
@@ -136,7 +151,7 @@
   object-fit: cover;
   display: block;
   /* Scale up heavily to hide SVG internal background/padding */
-  transform: scale(1.2); 
+  transform: scale(1.2);
   transition: transform 0.5s ease;
 }
 
@@ -144,9 +159,20 @@
   transform: scale(1.25);
 }
 
+@media (max-width: 1280px) {
+  .op-grid__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .op-grid__card {
+    width: 100%;
+    height: 450px;
+  }
+}
+
 @media (max-width: 820px) {
   .op-grid__list {
-    grid-template-columns: repeat(2, 250px);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -155,10 +181,10 @@
     grid-template-columns: 1fr;
     justify-items: center;
   }
+
   .op-grid__card {
     width: 100%;
-    max-width: 280px;
     height: auto;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 384 / 450;
   }
 }
