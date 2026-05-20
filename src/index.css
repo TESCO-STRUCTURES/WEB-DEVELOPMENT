@@ -120,10 +120,443 @@ ul { list-style: none; padding: 0; margin: 0; }
   color: var(--color-text);
 }
 
+/* ============================================================
+   ANIMATED PILL EFFECT
+   Same moving green → orange border + soft glow used on the
+   "Our Services" pill on the home page, applied site-wide to
+   every eyebrow / badge / pill so they share one identity.
+============================================================ */
+.ts-mfg__pill,
+.ts-wkd__pill,
+.ts-aw__eyebrow,
+.ts-awd__eyebrow,
+.ts-awk__eyebrow,
+.ts-awy__eyebrow,
+.ts-aloc__eyebrow,
+.peb-hero__badge,
+.peb-about__eyebrow,
+.peb-key__eyebrow,
+.peb-pro__eyebrow,
+.ten-hero__badge,
+.ten-about__eyebrow,
+.ten-key__eyebrow,
+.ten-pro__eyebrow,
+.civ-hero__badge,
+.civ-about__eyebrow,
+.civ-key__eyebrow,
+.civ-pro__eyebrow,
+.arc-hero__badge,
+.arc-about__eyebrow,
+.arc-key__eyebrow,
+.arc-pro__eyebrow,
+.all-hero__badge,
+.all-about__eyebrow,
+.all-key__eyebrow,
+.all-pro__eyebrow,
+.op-grid__eyebrow,
+.blg-grid__eyebrow,
+.blg-hero__eyebrow {
+  position: relative;
+  border: none;
+  isolation: isolate;
+  z-index: 1;
+  overflow: visible;
+}
+
+/* Moving rainbow border — green → orange sweep, looped */
+.ts-mfg__pill::before,
+.ts-wkd__pill::before,
+.ts-aw__eyebrow::before,
+.ts-awd__eyebrow::before,
+.ts-awk__eyebrow::before,
+.ts-awy__eyebrow::before,
+.ts-aloc__eyebrow::before,
+.peb-hero__badge::before,
+.peb-about__eyebrow::before,
+.peb-key__eyebrow::before,
+.peb-pro__eyebrow::before,
+.ten-hero__badge::before,
+.ten-about__eyebrow::before,
+.ten-key__eyebrow::before,
+.ten-pro__eyebrow::before,
+.civ-hero__badge::before,
+.civ-about__eyebrow::before,
+.civ-key__eyebrow::before,
+.civ-pro__eyebrow::before,
+.arc-hero__badge::before,
+.arc-about__eyebrow::before,
+.arc-key__eyebrow::before,
+.arc-pro__eyebrow::before,
+.all-hero__badge::before,
+.all-about__eyebrow::before,
+.all-key__eyebrow::before,
+.all-pro__eyebrow::before,
+.op-grid__eyebrow::before,
+.blg-grid__eyebrow::before,
+.blg-hero__eyebrow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(
+    90deg,
+    #59d61d 0%,
+    #59d61d 25%,
+    #ff7a00 50%,
+    #ff7a00 75%,
+    #59d61d 100%
+  );
+  background-size: 300% 300%;
+  animation: tsAnimPill 3s linear infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Soft glow underneath the pill — matches the home "Our Services" feel */
+.ts-mfg__pill::after,
+.ts-wkd__pill::after,
+.ts-aw__eyebrow::after,
+.ts-awd__eyebrow::after,
+.ts-awk__eyebrow::after,
+.ts-awy__eyebrow::after,
+.ts-aloc__eyebrow::after,
+.peb-hero__badge::after,
+.peb-about__eyebrow::after,
+.peb-key__eyebrow::after,
+.peb-pro__eyebrow::after,
+.ten-hero__badge::after,
+.ten-about__eyebrow::after,
+.ten-key__eyebrow::after,
+.ten-pro__eyebrow::after,
+.civ-hero__badge::after,
+.civ-about__eyebrow::after,
+.civ-key__eyebrow::after,
+.civ-pro__eyebrow::after,
+.arc-hero__badge::after,
+.arc-about__eyebrow::after,
+.arc-key__eyebrow::after,
+.arc-pro__eyebrow::after,
+.all-hero__badge::after,
+.all-about__eyebrow::after,
+.all-key__eyebrow::after,
+.all-pro__eyebrow::after,
+.op-grid__eyebrow::after,
+.blg-grid__eyebrow::after,
+.blg-hero__eyebrow::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    rgba(89, 214, 29, 0.10),
+    rgba(255, 122, 0, 0.10),
+    rgba(89, 214, 29, 0.10)
+  );
+  background-size: 300% 300%;
+  filter: blur(4px);
+  opacity: 0.25;
+  z-index: -1;
+  pointer-events: none;
+  animation: tsAnimPill 3s linear infinite;
+}
+
+@keyframes tsAnimPill {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   GLOBAL RESPONSIVE OVERRIDES
+   These rules sit at the end of the cascade and catch the
+   fixed-pixel widths / heights / grid templates that were
+   sprinkled across component CSS files. They guarantee every
+   page collapses gracefully on iOS / Android / iPad / small
+   Windows screens without per-component edits.
+============================================================ */
+
+/* Stop horizontal scroll on iOS Safari when long content overflows */
+html, body {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Every fixed-pixel width and height becomes flexible on small screens */
+@media (max-width: 1280px) {
+  .op-grid__list { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  .op-grid__card { width: 100% !important; height: auto !important; aspect-ratio: 384 / 450; }
+  .ts-ams__card  { width: 100% !important; height: auto !important; min-height: 196px; }
+  .ct-map__card  { width: 100% !important; height: auto !important; margin-left: 0 !important; }
+  .ct-map__visual,
+  .ct-map__address-card { width: 100% !important; }
+}
+
+/* ── TABLET — 1024px and below ─────────────────────────────── */
+@media (max-width: 1024px) {
+  /* Hero collages — let them shrink and stack vertically inside their parent */
+  .peb-hero__inner,
+  .ten-hero__inner,
+  .civ-hero__inner,
+  .arc-hero__inner,
+  .all-hero__inner {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    padding-top: 40px;
+  }
+  .peb-hero__collage,
+  .ten-hero__collage,
+  .civ-hero__collage,
+  .arc-hero__collage,
+  .all-hero__collage {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    height: 460px;
+  }
+  /* Fixed-width hero badges become responsive */
+  .peb-hero__badge,
+  .ten-hero__badge,
+  .civ-hero__badge,
+  .arc-hero__badge,
+  .all-hero__badge {
+    width: auto !important;
+    max-width: 100%;
+    height: auto;
+    padding: 10px 22px;
+    font-size: 15px;
+  }
+  /* About / why / build / faq all stack to single column */
+  .peb-about__inner,
+  .peb-why__inner,
+  .peb-bld__inner,
+  .peb-faq__inner,
+  .ten-about__inner,
+  .ten-why__inner,
+  .ten-bld__inner,
+  .ten-faq__inner,
+  .civ-about__inner,
+  .civ-why__inner,
+  .civ-bld__inner,
+  .civ-faq__inner,
+  .arc-about__inner,
+  .arc-why__inner,
+  .arc-bld__inner,
+  .arc-faq__inner,
+  .all-about__inner,
+  .all-why__inner,
+  .all-bld__inner,
+  .all-faq__inner {
+    grid-template-columns: 1fr !important;
+    gap: 32px;
+  }
+  /* Key Benefits 6-col → 3-col */
+  .peb-key__grid,
+  .ten-key__grid,
+  .civ-key__grid,
+  .arc-key__grid,
+  .all-key__grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  /* HomeManufacturing 3 → 2 + 1 */
+  .ts-mfg__grid { grid-template-columns: 1fr 1fr !important; }
+  .ts-mfg__card--feature { grid-column: 1 / -1; }
+  /* HomeWorked logo chips shrink */
+  .ts-wkd__chip { width: 140px !important; height: 54px !important; }
+  /* About diamond grid scales down */
+  .ts-aw__inner { grid-template-columns: 1fr !important; padding-left: 32px; padding-right: 32px; }
+  .ts-aw__copy  { max-width: none !important; }
+  /* Mission cards shrink to fit */
+  .ts-ams-wrapper { flex-direction: column !important; gap: 40px; padding: 60px 24px !important; }
+  .ts-ams__card   { padding: 24px !important; }
+}
+
+/* ── PHONE — 768px and below ───────────────────────────────── */
+@media (max-width: 768px) {
+  /* Section padding tightens up */
+  section { padding-left: 0; padding-right: 0; }
+  .container { padding-inline: 18px; }
+
+  /* Titles never exceed comfortable mobile size */
+  h1 { font-size: clamp(28px, 7vw, 40px); }
+  h2 { font-size: clamp(24px, 6vw, 32px); }
+  h3 { font-size: clamp(18px, 4.8vw, 22px); }
+
+  /* Hero collages stay visible but smaller */
+  .peb-hero__collage,
+  .ten-hero__collage,
+  .civ-hero__collage,
+  .arc-hero__collage,
+  .all-hero__collage {
+    height: 360px;
+    gap: 10px;
+  }
+  /* Stats rows wrap nicely */
+  .peb-hero__stats,
+  .ten-hero__stats,
+  .civ-hero__stats,
+  .arc-hero__stats,
+  .all-hero__stats {
+    grid-template-columns: repeat(3, 1fr) !important;
+    column-gap: 12px !important;
+  }
+  .peb-hero__stat strong,
+  .ten-hero__stat strong,
+  .civ-hero__stat strong,
+  .arc-hero__stat strong,
+  .all-hero__stat strong { font-size: 22px !important; }
+
+  /* Key Benefits 3 → 2 */
+  .peb-key__grid,
+  .ten-key__grid,
+  .civ-key__grid,
+  .arc-key__grid,
+  .all-key__grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px;
+  }
+  /* About 3-feature mini cards stack */
+  .peb-about__features,
+  .ten-about__features,
+  .civ-about__features,
+  .arc-about__features,
+  .all-about__features { grid-template-columns: 1fr !important; }
+
+  /* CTAs become full-width stacks */
+  .peb-hero__cta,
+  .ten-hero__cta,
+  .civ-hero__cta,
+  .arc-hero__cta,
+  .all-hero__cta { flex-direction: column !important; align-items: stretch !important; }
+  .peb-hero__btn,
+  .ten-hero__btn,
+  .civ-hero__btn,
+  .arc-hero__btn,
+  .all-hero__btn { width: 100% !important; }
+
+  /* Build-form rows stack */
+  .peb-bld__row--two,
+  .ten-bld__row--two,
+  .civ-bld__row--two,
+  .arc-bld__row--two,
+  .all-bld__row--two { flex-direction: column !important; gap: 0 !important; }
+
+  /* Projects + Blog grids → 1 col */
+  .peb-pro__grid,
+  .ten-pro__grid,
+  .civ-pro__grid,
+  .arc-pro__grid,
+  .all-pro__grid { grid-template-columns: 1fr !important; }
+  .blg-grid__list { grid-template-columns: 1fr !important; }
+
+  /* OurProjectStats pill stacks vertically */
+  .op-stats__pill { flex-direction: column !important; height: auto !important; padding: 40px 24px !important; gap: 32px !important; }
+  .op-stats__divider { display: none !important; }
+
+  /* OurProjects portfolio grid → 2 then 1 */
+  .op-grid__list { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+
+  /* HomeManufacturing → single column */
+  .ts-mfg__grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+
+  /* HomeWorked marquee tightens */
+  .ts-wkd__chip { width: 120px !important; height: 50px !important; }
+
+  /* About diamond grid scales down further */
+  .ts-aw__diamond-grid { transform: scale(0.85); transform-origin: top center; }
+
+  /* Mission digit number won't overflow */
+  .ts-ams__exp-number { font-size: clamp(72px, 18vw, 110px) !important; }
+
+  /* Navbar contact button — keep size but slightly smaller */
+  .ts-nav__cta { width: auto !important; padding: 10px 18px !important; height: 42px !important; font-size: 13px !important; }
+}
+
+/* ── SMALL PHONE — 480px and below ─────────────────────────── */
+@media (max-width: 480px) {
+  .container { padding-inline: 14px; }
+
+  /* Hero collage even smaller */
+  .peb-hero__collage,
+  .ten-hero__collage,
+  .civ-hero__collage,
+  .arc-hero__collage,
+  .all-hero__collage {
+    height: 280px;
+  }
+
+  /* Key Benefits → 1 col on tiny screens */
+  .peb-key__grid,
+  .ten-key__grid,
+  .civ-key__grid,
+  .arc-key__grid,
+  .all-key__grid { grid-template-columns: 1fr !important; }
+
+  /* OurProjects portfolio → 1 col */
+  .op-grid__list { grid-template-columns: 1fr !important; }
+  .op-grid__card { max-width: 360px; margin: 0 auto; }
+
+  /* Mission number compact */
+  .ts-ams__exp-number { font-size: 72px !important; }
+  .ts-ams__exp-text   { font-size: 13px !important; }
+
+  /* HomeWorked chips even smaller */
+  .ts-wkd__chip { width: 110px !important; height: 46px !important; }
+
+  /* About diamond grid */
+  .ts-aw__diamond-grid { transform: scale(0.62); height: 380px; }
+
+  /* Stats numbers shrink */
+  .op-stats__num { font-size: clamp(32px, 9vw, 44px) !important; }
+
+  /* Buttons inside hero stack tight */
+  .ts-ah__btn { padding: 12px 22px; font-size: 13px; }
+}
+
+/* ── EXTRA-SMALL / OLDER ANDROID — 360px and below ─────────── */
+@media (max-width: 360px) {
+  .container { padding-inline: 10px; }
+  .peb-hero__collage,
+  .ten-hero__collage,
+  .civ-hero__collage,
+  .arc-hero__collage,
+  .all-hero__collage { height: 240px; }
+  .ts-aw__diamond-grid { transform: scale(0.5); height: 320px; }
+}
+
+/* ── TOUCH DEVICE TAP TARGETS ──────────────────────────────── */
+@media (hover: none) and (pointer: coarse) {
+  /* All interactive elements honour the 44×44 iOS HIG minimum */
+  a, button, input[type="submit"], .ts-btn, .peb-hero__btn,
+  .ten-hero__btn, .civ-hero__btn, .arc-hero__btn, .all-hero__btn,
+  .ts-nav__cta, .op-grid__chip, .blg-grid__chip,
+  .peb-bld__btn, .ten-bld__btn, .civ-bld__btn, .arc-bld__btn, .all-bld__btn {
+    min-height: 44px;
+  }
+  /* Hover transforms feel wrong on touch — neutralize subtly */
+  *:hover { transform: none !important; }
+}
+
+/* ── IPHONE NOTCH / DYNAMIC ISLAND SAFE AREAS ──────────────── */
+@supports (padding: max(0px)) {
+  .container {
+    padding-left: max(var(--gutter), env(safe-area-inset-left));
+    padding-right: max(var(--gutter), env(safe-area-inset-right));
+  }
+  .ts-nav {
+    padding-top: max(18px, env(safe-area-inset-top));
   }
 }

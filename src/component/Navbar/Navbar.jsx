@@ -5,38 +5,38 @@ import logo from '../../assets/tesco structures.svg';
 
 /* ── Services dropdown items ───────────────────────────── */
 const SERVICES_CHILDREN = [
-  { label: 'Pre-Engineered Building (PEB)',                  to: '/peb'           },
-  { label: 'Tensile Roofing',                                to: '/tensile'       },
-  { label: 'Civil Construction',                             to: '/civil'         },
-  { label: 'Architectural Design & Structural Consultancy',  to: '/architectural' },
-  { label: 'All Type of Roofing',                            to: '/all'           },
+  { label: 'Pre-Engineered Building (PEB)', to: '/peb' },
+  { label: 'Tensile Roofing', to: '/tensile' },
+  { label: 'Civil Construction', to: '/civil' },
+  { label: 'Architectural Design & Structural Consultancy', to: '/architectural' },
+  { label: 'All Type of Roofing', to: '/all' },
 ];
 
 /* ── Top-level nav items ───────────────────────────────── */
 const LINKS = [
-  { label: 'Home',      to: '/'         },
-  { label: 'About Us',  to: '/about'    },
-  { label: 'Services',  dropdown: SERVICES_CHILDREN },
-  { label: 'Pricing',  to: '/pricing' },
-  { label: 'Projects',  to: '/projects' },
-  { label: 'Brochure',  to: '/brochure' },
-  { label: 'Blog',      to: '/blog'     },
-  { label: 'Careers',   to: '/career'   },
-  { label: 'Contact',   to: '/contact'  },
+  { label: 'Home', to: '/' },
+  { label: 'About Us', to: '/about' },
+  { label: 'Services', dropdown: SERVICES_CHILDREN },
+  { label: 'Projects', to: '/projects' },
+
+  // Brochure single downloadable PDF (place file at `public/brochures/tesco-brochure.pdf`)
+  { label: 'Brochure', dropdown: [ { label: 'Download PDF', to: '/brochures/tesco-brochure.pdf' } ] },
+  { label: 'Blog', to: '/blog' },
+  { label: 'Careers', to: '/career' },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [openDD, setOpenDD]     = useState(null);
-  const ddCloseTimer            = useRef(null);
+  const [openDD, setOpenDD] = useState(null);
+  const ddCloseTimer = useRef(null);
 
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
-    const onEsc    = (e) => { if (e.key === 'Escape') setOpenDD(null); };
+    const onEsc = (e) => { if (e.key === 'Escape') setOpenDD(null); };
     const onDocClick = (e) => {
       if (!e.target.closest('.ts-nav__has-dd')) setOpenDD(null);
     };
@@ -74,11 +74,23 @@ export default function Navbar() {
      - On mobile (menu open / no hover), the click just toggles the panel. */
   const onDropdownTriggerClick = (e, link) => {
     e.preventDefault();
+    // mobile — toggle the panel when menu (burger) is open
     if (menuOpen) {
-      // mobile — toggle the panel
       setOpenDD((cur) => (cur === link.label ? null : link.label));
-    } else {
-      // desktop fallback for touch — go to first item
+      return;
+    }
+
+    // Desktop: prefer opening the dropdown for links that expose a downloadable
+    // resource (e.g. Brochure). If the dropdown only contains navigational
+    // children, fall back to navigating to the first child for touch devices.
+    const hasDownloadChild = !!(link.dropdown && link.dropdown.some((c) => typeof c.to === 'string' && c.to.endsWith('.pdf')));
+    if (hasDownloadChild) {
+      setOpenDD((cur) => (cur === link.label ? null : link.label));
+      return;
+    }
+
+    // Fallback for dropdowns without downloadable items: navigate to first child
+    if (link.dropdown && link.dropdown[0]) {
       navigate(link.dropdown[0].to);
       setOpenDD(null);
     }
@@ -95,7 +107,7 @@ export default function Navbar() {
         <nav className={`ts-nav__links ${menuOpen ? 'ts-nav__links--open' : ''}`}>
           {LINKS.map((l) => {
             if (l.dropdown) {
-              const open   = openDD === l.label;
+              const open = openDD === l.label;
               const active = isDDActive(l);
               return (
                 <div
@@ -120,19 +132,53 @@ export default function Navbar() {
                   <ul className="ts-nav__dd" role="menu" aria-label={`${l.label} submenu`}>
                     {l.dropdown.map((child) => (
                       <li key={child.to} role="none">
-                        <NavLink
-                          to={child.to}
-                          role="menuitem"
-                          className={({ isActive }) =>
-                            `ts-nav__dd-link ${isActive ? 'ts-nav__dd-link--active' : ''}`
-                          }
-                        >
-                          {child.label}
-                        </NavLink>
+                        {typeof child.to === 'string' && (child.to.endsWith('.pdf') || child.to.startsWith('http')) ? (
+                          <a
+                            href={child.to}
+                            role="menuitem"
+                            className="ts-nav__dd-link"
+                            download
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {child.label}
+                          </a>
+                        ) : (
+                          <NavLink
+                            to={child.to}
+                            role="menuitem"
+                            className={({ isActive }) =>
+                              `ts-nav__dd-link ${isActive ? 'ts-nav__dd-link--active' : ''}`
+                            }
+                          >
+                            {child.label}
+                          </NavLink>
+                        )}
                       </li>
                     ))}
                   </ul>
                 </div>
+              );
+            }
+
+            // If link points to a PDF or external URL, render as downloadable anchor
+            if (typeof l.to === 'string' && (l.to.endsWith('.pdf') || l.to.startsWith('http'))) {
+              return (
+                <a
+                  key={l.to}
+                  href={l.to}
+                  className={`ts-nav__link`}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {l.label}
+                  <svg className="ts-nav__dd-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                </a>
               );
             }
 
@@ -150,7 +196,7 @@ export default function Navbar() {
             );
           })}
 
-          <Link to="/contact" className="ts-btn ts-nav__cta">Contact</Link>
+          <Link to="/contact" className="ts-nav__cta">Contact</Link>
         </nav>
 
         <button

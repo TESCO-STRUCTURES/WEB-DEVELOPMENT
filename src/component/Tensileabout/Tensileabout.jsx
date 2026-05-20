@@ -48,7 +48,6 @@ export default function Tensileabout() {
 
         <div className="ten-about__media">
           <img src={aboutImg} alt="Tensile fabric structure" />
-          <span className="ten-about__stripes" aria-hidden />
         </div>
 
       </div>

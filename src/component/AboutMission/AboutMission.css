@@ -1,17 +1,26 @@
+/* AboutMission — 00+ Years of Experience + Mission / Vision / Quality
+   (Figma pixel match) */
+
 .ts-ams-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 60px;
-  padding: 80px 0;
-  max-width: 1100px;
+  gap: 40px;
+  padding: 90px 40px;
+  max-width: 1200px;
   margin: 0 auto;
+  background: transparent;
+  border-radius: 0;
+  margin-top: -110px;
 }
 
+/* ============================================================
+   LEFT COLUMN — "00+ YEARS OF EXPERIENCE"
+   ============================================================ */
 .ts-ams-left {
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .ts-ams__experience {
@@ -23,109 +32,328 @@
 .ts-ams__exp-number {
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
-  font-size: 80px;
-  color: #4FA31E;
-  line-height: 1;
+  font-size: clamp(96px, 13vw, 160px);
+  color: #2E5F1A;
+  /* deep green like Figma */
+  line-height: 0.95;
+  letter-spacing: -6px;
+  margin: 0;
+
+  display: inline-flex;
+  align-items: baseline;
+
+  position: relative;
+}
+/* MOVE 5 LEFT */
+.ts-ams__reel:nth-child(2) {
+  position: relative;
+  left: -38px;
+}
+/* MOVE + LEFT */
+.ts-ams__exp-plus {
+  position: relative;
+  left: -34px;
+}
+
+.ts-ams__exp-plus {
+  color: #2E5F1A;
+  font-weight: 800;
+  margin-left: -6px;
+}
+
+/* ── Digit reel — one window per digit, vertical strip scrolls inside ── */
+.ts-ams__reel {
+  display: inline-block;
+  height: 0.95em;
+  line-height: 0.95;
+  overflow: hidden;
+  vertical-align: top;
+  /* width auto-sizes to the widest digit so 8 / 9 don't get clipped */
+}
+
+.ts-ams__reel-strip {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.ts-ams__reel-d {
+  display: block;
+  height: 0.95em;
+  line-height: 0.95;
+  font-variant-numeric: tabular-nums;
 }
 
 .ts-ams__exp-text {
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  color: #64748B;
-  letter-spacing: 0.1em;
-  margin-top: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(18px, 1.8vw, 24px);
+  color: #5B7AAB;
+  letter-spacing: 0.12em;
+  margin-top: 14px;
 }
 
 .ts-ams__exp-logos {
   display: flex;
-  margin-top: 16px;
+  align-items: center;
+  margin-top: 22px;
   margin-bottom: 16px;
 }
 
 .ts-ams__logo-circle {
-  width: 40px;
-  height: 40px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  border: 2px solid white;
-  margin-left: -12px;
-}
-.ts-ams__logo-circle:first-child {
-  margin-left: 0;
-}
-
-.ts-ams__exp-desc {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  color: #64748B;
-  margin: 0;
-}
-
-.ts-ams {
-  flex: 1.2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.ts-ams__list {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.ts-ams__card {
-  display: flex;
-  gap: 20px;
-  padding: 32px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(79,163,30,0.12) 0%, rgba(255,106,0,0.08) 100%);
-  border: 1px solid rgba(255,255,255,0.6);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-  align-items: flex-start;
-  transition: transform 0.3s ease;
-}
-
-.ts-ams__card:hover {
-  transform: translateY(-4px);
-}
-
-.ts-ams__icon {
-  flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: #4FA31E;
-  color: white;
+  background: #fff;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10);
+  margin-left: -10px;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.ts-ams__logo-circle:first-child {
+  margin-left: 0;
+}
+
+.ts-ams__logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* "+2k" badge — blue-grey pill */
+.ts-ams__logo-circle--badge {
+  background: #DFE8F4;
+  color: #1E3A8A;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+.ts-ams__exp-desc {
+  font-family: 'Inter', 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #6B7280;
+  margin: 4px 0 0 0;
+  line-height: 1.5;
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* ============================================================
+   RIGHT COLUMN — Mission / Vision / Quality cards
+   ============================================================ */
+.ts-ams {
+  flex: 1.15;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+.ts-ams__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ts-ams__card {
+  width: 682.999px;
+  height: 196px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 24px;
+
+  padding: 32px;
+
+  border-radius: 8px;
+
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    95deg,
+    rgba(79, 163, 30, 0.22) 0%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 106, 0, 0.22) 100%
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.03),
+    0 12px 28px rgba(20, 30, 20, 0.06);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.ts-ams__card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 18px 36px rgba(20, 30, 20, 0.10);
+}
+
+.ts-ams__icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: #4FA31E;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 14px rgba(79, 163, 30, 0.28);
+}
+
 .ts-ams__icon svg {
-  width: 20px;
-  height: 20px;
+  width: 26px;
+  height: 26px;
 }
 
 .ts-ams__content {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .ts-ams__content h3 {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: 20px;
-  color: #1A1C1C;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #1B232E;
   margin: 0;
+  letter-spacing: -0.2px;
 }
 
 .ts-ams__content p {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #64748B;
+  font-family: 'Inter', 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #475569;
   margin: 0;
+  max-width: 540px;
+}
+
+/* ===========================================================
+   Responsive
+   =========================================================== */
+
+@media (max-width: 1100px) {
+  .ts-ams-wrapper {
+    gap: 40px;
+    padding: 80px 32px;
+  }
+
+  .ts-ams__exp-number {
+    font-size: clamp(90px, 12vw, 130px);
+  }
+
+  .ts-ams__card {
+    padding: 24px 26px;
+  }
+
+  .ts-ams__content h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .ts-ams-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 50px;
+    padding: 60px 24px;
+  }
+
+  .ts-ams-left,
+  .ts-ams {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .ts-ams__experience {
+    align-items: center;
+    text-align: center;
+  }
+
+  .ts-ams__exp-logos {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .ts-ams__exp-number {
+    font-size: clamp(80px, 16vw, 120px);
+  }
+
+  .ts-ams__list {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ts-ams-wrapper {
+    padding: 50px 16px;
+    gap: 36px;
+  }
+
+  .ts-ams__exp-number {
+    font-size: 84px;
+    letter-spacing: -2px;
+  }
+
+  .ts-ams__exp-text {
+    font-size: 14px;
+  }
+
+  .ts-ams__card {
+    padding: 20px;
+    gap: 14px;
+  }
+
+  .ts-ams__icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .ts-ams__icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .ts-ams__content h3 {
+    font-size: 18px;
+  }
+
+  .ts-ams__content p {
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .ts-ams__card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .ts-ams__exp-number {
+    font-size: 72px;
+  }
+
+  .ts-ams__logo-circle {
+    width: 40px;
+    height: 40px;
+  }
 }

@@ -47,7 +47,6 @@ export default function Architecturalabout() {
 
         <div className="arc-about__media">
           <img src={aboutImg} alt="Architectural design studio" />
-          <span className="arc-about__stripes" aria-hidden />
         </div>
 
       </div>

@@ -31,7 +31,8 @@ export default function HomeDesign() {
         </div>
 
         <div className="ts-des__copy">
-          <h2 className="ts-des__title">Design &amp; Consultant</h2>
+          <div className="ts-des__glow" aria-hidden />
+          <h2 className="ts-des__title">Architectural design &amp; Consultant</h2>
           <h3 className="ts-des__subtitle">Engineering-First Architectural Thinking</h3>
 
           <p className="ts-des__desc">

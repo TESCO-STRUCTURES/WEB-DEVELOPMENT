@@ -93,9 +93,26 @@
 }
 
 .ts-des__copy {
+  position: relative;
   max-width: 620px;
   margin-left: 0;
   order: 1;
+}
+
+/* ============================================
+   BACKGROUND GLOW (GREEN - FIGMA SPEC)
+============================================ */
+.ts-des__glow {
+  position: absolute;
+  top: 80px;
+  left: -40px;
+  width: 320px;
+  height: 560px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(76, 170, 23, 0.28) 0%, rgba(76, 170, 23, 0) 70%);
+  filter: blur(50px);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .ts-des__title {

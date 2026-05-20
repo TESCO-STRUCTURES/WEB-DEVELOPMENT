@@ -2,14 +2,20 @@ import './PEBhero.css';
 import pebhero1 from '../../assets/PEBhero1.svg';
 import pebhero2 from '../../assets/PEBhero2.svg';
 import pebhero3 from '../../assets/PEBhero3.svg';
-import PEBlow from '../../assets/PEBlow.svg';
+import logoicon from '../../assets/logoicon.svg';
 
 export default function PEBhero() {
   return (
     <section className="peb-hero">
       <div className="container peb-hero__inner">
 
-        {/* LEFT — image collage:  [large TL] [small TR] / [wide BOTTOM] */}
+        {/* LEFT — image collage:
+            ┌──────────────┬──────────────┐
+            │              │   TR image   │
+            │   TL image   ├──────────────┤
+            │  (full ht)   │   BR image   │
+            └──────────────┴──────────────┘
+            with a circular logo overlay at the intersection */}
         <div className="peb-hero__collage">
           <div className="peb-hero__c-img peb-hero__c-img--tl">
             <img src={pebhero1} alt="PEB steel structure exterior" />
@@ -17,15 +23,21 @@ export default function PEBhero() {
           <div className="peb-hero__c-img peb-hero__c-img--tr">
             <img src={pebhero2} alt="PEB framework detail" />
           </div>
-          <div className="peb-hero__c-img peb-hero__c-img--b">
+          <div className="peb-hero__c-img peb-hero__c-img--br">
             <img src={pebhero3} alt="PEB warehouse interior" />
+          </div>
+
+          {/* Center logo medallion */}
+          <div className="peb-hero__medallion" aria-hidden="true">
+            <img src={logoicon} alt="" />
           </div>
         </div>
 
         {/* RIGHT — copy */}
         <div className="peb-hero__copy">
           <span className="peb-hero__badge">
-            <span>⚡ India&apos;s Trusted PEB Builder</span>
+            <span className="peb-hero__badge-bolt">⚡</span>
+            <span>India&apos;s Trusted PEB Builder</span>
           </span>
 
           <h1 className="peb-hero__title">
@@ -33,8 +45,8 @@ export default function PEBhero() {
           </h1>
 
           <p className="peb-hero__desc">
-            Delivering durable, cost-effective steel structures designed for speed,
-            strength, and long-term value.
+            Delivering durable, cost-effective steel structures<br />
+            designed for speed, strength, and long-term value.
           </p>
 
           <div className="peb-hero__cta">
@@ -44,21 +56,6 @@ export default function PEBhero() {
             <a href="#peb-build" className="peb-hero__btn peb-hero__btn--ghost">
               Get Instant Pricing
             </a>
-          </div>
-
-          <div className="peb-hero__stats">
-            <div className="peb-hero__stat">
-              <strong>500+</strong>
-              <span>Projects Done</span>
-            </div>
-            <div className="peb-hero__stat">
-              <strong>15+</strong>
-              <span>Years Experience</span>
-            </div>
-            <div className="peb-hero__stat">
-              <strong>98%</strong>
-              <span>Client Satisfaction</span>
-            </div>
           </div>
         </div>
 

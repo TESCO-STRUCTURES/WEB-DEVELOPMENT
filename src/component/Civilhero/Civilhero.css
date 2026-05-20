@@ -1,103 +1,317 @@
-/* ── CIVIL HERO ───────────────────────────────── */
+/* ── PEB HERO ─────────────────────────────────── */
+
 .civ-hero {
   position: relative;
   background:
-    radial-gradient(120% 80% at 100% 0%, #FFE8D0 0%, transparent 55%),
-    radial-gradient(80% 60% at 0% 100%, #F1FBE6 0%, transparent 55%),
-    linear-gradient(180deg, #FFF6EC 0%, #FFFAF2 60%, #FFFFFF 100%);
-  padding: 70px 0 200px;
+    radial-gradient(60% 50% at 100% 0%, #FFF6EB 0%, transparent 70%),
+    #ffffff;
+  padding: 0 0 80px;
+  margin-top: 73px;
   overflow: hidden;
 }
 
-.civ-hero__inner { position: relative; display: grid; grid-template-columns: 1.05fr 1fr; gap: 70px; align-items: center; }
+.civ-hero__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 600px) 1fr;
+  gap: 60px;
+  align-items: center;
+  padding-top: 64px;
+}
 
-.civ-hero__collage { display: grid; grid-template-columns: 1.45fr 1fr; grid-template-rows: 280px 240px; gap: 14px; }
+/* ══════════════════════════════════════════════
+   LEFT COLLAGE — TL spans full height (wider),
+   TR & BR stack in the right column, center logo
+   ══════════════════════════════════════════════ */
+.civ-hero__collage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  height: 540px;
+}
 
-.civ-hero__c-img { border-radius: 16px; overflow: hidden; box-shadow: 0 14px 30px rgba(11, 31, 58, 0.10); position: relative; }
-.civ-hero__c-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+.civ-hero__c-img {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(11, 31, 58, 0.10);
+  position: relative;
+}
+
+.civ-hero__c-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
 .civ-hero__c-img:hover img { transform: scale(1.05); }
 
-.civ-hero__c-img--tl { grid-row: 1 / 2; grid-column: 1 / 2; }
-.civ-hero__c-img--tr { grid-row: 1 / 2; grid-column: 2 / 3; }
-.civ-hero__c-img--b  { grid-row: 2 / 3; grid-column: 1 / 3; }
+.civ-hero__c-img--tl { grid-column: 1; grid-row: 1 / span 2; }
+.civ-hero__c-img--tr { grid-column: 2; grid-row: 1; }
+.civ-hero__c-img--br { grid-column: 2; grid-row: 2; }
 
-.civ-hero__c-img--tl::after {
-  content: ""; position: absolute; bottom: -6px; right: -6px;
-  width: 24px; height: 24px;
-  background: radial-gradient(circle at 30% 70%, #5FB934 0%, #3F8B1F 100%);
-  border-radius: 50% 0 50% 50%; transform: rotate(45deg);
-  box-shadow: 0 4px 10px rgba(63, 139, 31, 0.45); z-index: 5;
+/* Center medallion — frosted glass (backdrop blur) */
+.civ-hero__medallion {
+  position: absolute;
+  top: 50%;
+  /* Anchor at the column boundary (1.35fr / 1fr grid → ~57%) */
+  left: 57%;
+  transform: translate(-50%, -50%);
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(18px) saturate(170%);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  box-shadow:
+    0 12px 28px rgba(63, 139, 31, 0.16),
+    0 4px 12px rgba(20, 30, 20, 0.10),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.50);
 }
 
-.civ-hero__copy { max-width: 580px; }
+.civ-hero__medallion img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  display: block;
+}
 
+/* ══════════════════════════════════════════════
+   RIGHT COPY
+   ══════════════════════════════════════════════ */
+.civ-hero__copy {
+  max-width: 600px;
+}
+
+/* ── Badge ── */
 .civ-hero__badge {
-  display: inline-flex; align-items: center;
-  width: 352px; height: 58px; gap: 10px;
-  padding: 14px 30px;
-  background: #FFFFFF; border: 1px solid #FFD9B3; border-radius: 60px;
-  margin-bottom: 24px;
-  font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 20px;
-  line-height: 100%; text-transform: capitalize; color: #FF7A00;
-  box-shadow: 0 4px 14px rgba(255, 122, 0, 0.10);
+  width: 425px;
+  height: 58px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding-top: 14px;
+  padding-right: 30px;
+  padding-bottom: 14px;
+  padding-left: 30px;
+
+  border-radius: 60px;
+
+  border: 1px solid #4FA31E;
+
+  background: #ffffff;
+
+  box-sizing: border-box;
+
+  white-space: nowrap;
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+
+  color: #FF6A00;
+
+  position: relative;
+  top: -10px;
+
+  box-shadow:
+    0 4px 14px rgba(79, 163, 30, 0.18),
+    0 0 24px rgba(79, 163, 30, 0.10);
+    position: relative;
+top: -30px;
 }
 
+.civ-hero__badge-bolt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #FF7A00;
+  font-size: 17px;
+  line-height: 1;
+}
+
+/* ── Title — SINGLE LINE ── */
 .civ-hero__title {
   margin: 0 0 22px;
-  font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 48px;
-  line-height: 100%; color: #4CAA17;
-  text-shadow: 0 1px 0 rgba(63, 139, 31, 0.10);
-  position: relative; white-space: nowrap;
+  font-family: 'Oswald', 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: 0;
+  color: #4CAA17;
+  white-space: nowrap;
+  position: relative;
 }
 
 .civ-hero__title::after {
-  content: ''; display: block; width: 264px; height: 4px;
-  background: #FF6A00; margin-top: 16px;
+  content: '';
+  display: block;
+  width: 260px;
+  height: 4px;
+  background: #FF6A00;
+  border-radius: 2px;
+  margin-top: 14px;
 }
 
+/* ── Description ── */
 .civ-hero__desc {
   margin: 0 0 32px;
-  font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 17px;
-  line-height: 1.6; color: #343C47; max-width: 500px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #343C47;
+  max-width: 560px;
 }
 
-.civ-hero__cta { display: flex; align-items: center; gap: 14px; margin-bottom: 44px; flex-wrap: wrap; }
+/* ── CTA Buttons ── */
+.civ-hero__cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 38px;
+  flex-wrap: wrap;
+}
 
 .civ-hero__btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  height: 52px; padding: 0 28px; border-radius: 100px;
-  font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 14.5px;
-  text-decoration: none; transition: all 0.25s ease; white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  padding: 0 28px;
+  border-radius: 100px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 14.5px;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  white-space: nowrap;
 }
 
 .civ-hero__btn--primary {
   background: linear-gradient(180deg, #FF8A1E 0%, #FF6A00 100%);
-  color: #FFFFFF; box-shadow: 0 10px 22px rgba(255, 106, 0, 0.30);
+  color: #FFFFFF;
+  box-shadow: 0 10px 22px rgba(255, 106, 0, 0.30);
 }
-.civ-hero__btn--primary:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(255, 106, 0, 0.42); }
+.civ-hero__btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(255, 106, 0, 0.42);
+}
 
 .civ-hero__btn--ghost {
-  background: #FFFFFF; color: #0B1F3A;
-  border: 1px solid #E6EAF0; box-shadow: 0 4px 12px rgba(11, 31, 58, 0.06);
+  background: #FFFFFF;
+  color: #0B1F3A;
+  border: 1px solid #E6EAF0;
+  box-shadow: 0 4px 12px rgba(11, 31, 58, 0.06);
 }
-.civ-hero__btn--ghost:hover { border-color: #FF6A00; color: #FF6A00; transform: translateY(-2px); }
+.civ-hero__btn--ghost:hover {
+  border-color: #FF6A00;
+  color: #FF6A00;
+  transform: translateY(-2px);
+}
 
-.civ-hero__stats { display: grid; grid-template-columns: repeat(3, auto); column-gap: 56px; row-gap: 4px; }
-.civ-hero__stat { display: flex; flex-direction: column; gap: 4px; }
-.civ-hero__stat strong { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 28px; color: #343C47; }
-.civ-hero__stat span { font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 13px; color: #6B7280; }
+/* ── Stats Row — lighter weight + vertical dividers ── */
+.civ-hero__stats {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+.civ-hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 28px;
+  position: relative;
+}
+
+.civ-hero__stat:first-child { padding-left: 0; }
+.civ-hero__stat:last-child  { padding-right: 0; }
+
+/* Vertical divider line between adjacent stats */
+.civ-hero__stat + .civ-hero__stat::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: #D8DEE6;
+}
+
+.civ-hero__stat strong {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 1;
+  color: #1B232E;
+  letter-spacing: -0.3px;
+}
+
+.civ-hero__stat span {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 12.5px;
+  color: #6B7280;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════ */
+
+@media (max-width: 1180px) {
+  .civ-hero__inner { gap: 40px; }
+  .civ-hero__title { font-size: 36px; }
+  .civ-hero__title::after { width: 230px; }
+}
 
 @media (max-width: 1024px) {
   .civ-hero__inner { grid-template-columns: 1fr; gap: 48px; }
-  .civ-hero__collage { max-width: 620px; grid-template-rows: 240px 200px; }
+  .civ-hero__collage { max-width: 620px; margin: 0 auto; height: 460px; }
+  .civ-hero__title { white-space: normal; font-size: 40px; }
 }
 
-@media (max-width: 640px) {
-  .civ-hero { padding: 56px 0 64px; }
-  .civ-hero__collage { grid-template-rows: 180px 160px; gap: 10px; }
-  .civ-hero__cta { flex-direction: column; align-items: stretch; }
+@media (max-width: 768px) {
+  .civ-hero { padding: 24px 0 70px; margin-top: 60px; }
+  .civ-hero__collage { height: 400px; gap: 12px; }
+  .civ-hero__medallion { width: 110px; height: 110px; }
+  .civ-hero__title { font-size: 32px; }
+  .civ-hero__title::after { width: 200px; height: 3px; margin-top: 12px; }
+  .civ-hero__desc { font-size: 15px; }
+  .civ-hero__stat { padding: 0 20px; }
+  .civ-hero__stat strong { font-size: 24px; }
+  .civ-hero__desc br { display: none; }
+}
+
+@media (max-width: 560px) {
+  .civ-hero__collage { height: 340px; }
+  .civ-hero__medallion { width: 92px; height: 92px; }
+  .civ-hero__badge { font-size: 14px; padding: 9px 18px; }
+  .civ-hero__title { font-size: 26px; }
+  .civ-hero__title::after { width: 160px; }
+  .civ-hero__cta { flex-direction: column; align-items: stretch; gap: 12px; }
   .civ-hero__btn { width: 100%; }
-  .civ-hero__stats { grid-template-columns: repeat(3, 1fr); column-gap: 16px; }
-  .civ-hero__stat strong { font-size: 26px; }
-  .civ-hero__stat span { font-size: 11px; }
+  .civ-hero__stat { padding: 0 14px; }
+  .civ-hero__stat strong { font-size: 22px; }
+  .civ-hero__stat span { font-size: 11.5px; }
+}
+
+@media (max-width: 380px) {
+  .civ-hero__stats { flex-direction: column; gap: 14px; align-items: flex-start; }
+  .civ-hero__stat + .civ-hero__stat::before { display: none; }
+  .civ-hero__stat { padding: 0; }
 }

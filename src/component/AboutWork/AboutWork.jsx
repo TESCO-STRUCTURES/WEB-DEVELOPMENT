@@ -20,33 +20,49 @@ export default function AboutWork() {
         </div>
 
         <div className="ts-awk__timeline">
-          {/* Curved connector — 1101.5 × 179.15 px, 4px stroke */}
+          {/* Curved connector — orange + gray arches */}
           <svg
             className="ts-awk__line"
-            viewBox="0 0 1100 180"
+            viewBox="0 0 1100 220"
             preserveAspectRatio="none"
             aria-hidden
           >
-            {/* Arc 1: box1 → box2 — orange, arches UP */}
-            <path
-              d="M 110,90 C 170,5 270,5 330,90"
-              fill="none" stroke="#FF6A00" strokeWidth="4" strokeLinecap="round"
-            />
-            {/* Arc 2: box2 → box3 — gray, arches DOWN */}
-            <path
-              d="M 330,90 C 390,175 490,175 550,90"
-              fill="none" stroke="#A3A3A3" strokeWidth="4" strokeLinecap="round" strokeOpacity="0.8"
-            />
-            {/* Arc 3: box3 → box4 — orange, arches UP */}
-            <path
-              d="M 550,90 C 610,5 710,5 770,90"
-              fill="none" stroke="#FF6A00" strokeWidth="4" strokeLinecap="round"
-            />
-            {/* Arc 4: box4 → box5 — gray, arches DOWN */}
-            <path
-              d="M 770,90 C 830,175 930,175 990,90"
-              fill="none" stroke="#A3A3A3" strokeWidth="4" strokeLinecap="round" strokeOpacity="0.8"
-            />
+            
+           <path
+  className="ts-awk__wave ts-awk__wave--1"
+  d="M 140 110 C 210 18 310 18 380 110"
+  fill="none"
+  stroke="#FF6A00"
+  strokeWidth="4"
+  strokeLinecap="round"
+/>
+
+<path
+  className="ts-awk__wave ts-awk__wave--2"
+  d="M 380 110 C 450 202 550 202 620 110"
+  fill="none"
+  stroke="#CBD5E1"
+  strokeWidth="4"
+  strokeLinecap="round"
+/>
+
+<path
+  className="ts-awk__wave ts-awk__wave--3"
+  d="M 620 110 C 690 18 790 18 860 110"
+  fill="none"
+  stroke="#FF6A00"
+  strokeWidth="4"
+  strokeLinecap="round"
+/>
+
+<path
+  className="ts-awk__wave ts-awk__wave--4"
+  d="M 860 110 C 930 202 1010 202 1060 110"
+  fill="none"
+  stroke="#CBD5E1"
+  strokeWidth="4"
+  strokeLinecap="round"
+/>
           </svg>
 
           <div className="ts-awk__steps">
@@ -54,7 +70,6 @@ export default function AboutWork() {
               <div key={s.n} className="ts-awk__step">
                 <div className="ts-awk__icon-wrap">
                   <div className="ts-awk__icon-box">
-                    <span className="ts-awk__red-dot"></span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       {s.icon}
                     </svg>

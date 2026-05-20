@@ -89,12 +89,30 @@
 .ts-wkd__row {
   display: flex;
   align-items: center;
-  gap: 80px;
+  gap: 0;
   width: max-content;
   will-change: transform;
   animation-duration: 38s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+}
+
+.ts-wkd__image-card {
+  flex-shrink: 0;
+  display: inline-flex;
+  width: auto;
+  min-width: auto;
+  height: 73px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.ts-wkd__image {
+  display: block;
+  width: auto;
+  height: 100%;
 }
 
 .ts-wkd__track--left .ts-wkd__row {
@@ -298,10 +316,6 @@
     width: 150px;
     height: 56px;
   }
-
-  .ts-wkd__row {
-    gap: 14px;
-  }
 }
 
 @media (max-width: 640px) {
@@ -328,7 +342,6 @@
   }
 
   .ts-wkd__row {
-    gap: 12px;
     animation-duration: 28s;
   }
 

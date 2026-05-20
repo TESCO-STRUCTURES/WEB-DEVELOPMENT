@@ -23,7 +23,9 @@
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
-  background: linear-gradient(180deg, rgba(11, 31, 58, 0.20) 0%, rgba(11, 31, 58, 0.11) 40%, rgba(11, 31, 58, 0.04) 72%, rgba(11, 31, 58, 0.00) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 24.93%, rgba(102, 102, 102, 0) 80.53%);
+
+  /* background: linear-gradient(180deg, rgba(11, 31, 58, 0.20) 0%, rgba(11, 31, 58, 0.11) 40%, rgba(11, 31, 58, 0.04) 72%, rgba(11, 31, 58, 0.00) 100%); */
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -41,7 +43,10 @@
   grid-template-columns: 1fr 1.05fr;
   gap: clamp(40px, 6vw, 90px);
   align-items: start;
-  padding-top: 60px;
+  padding-top: 50px;
+  width: 1291px;
+  height: 694px;
+  left: 72px;
 }
 
 /* ── Media ── */
@@ -49,14 +54,11 @@
   position: relative;
   width: 100%;
   aspect-ratio: 5 / 4.6;
-  min-height: 460px;
-  margin-left: 71px;
   order: 2;
 }
 
 .ts-ten__card {
   position: absolute;
-  border-radius: 28px;
   overflow: hidden;
   background: transparent;
   box-shadow: none;
@@ -72,11 +74,12 @@
 }
 
 .ts-ten__card--1 {
-  width: 512px;
-  height: 504px;
+  max-width: 500px;
+  max-height: 504px;
   top: -10px;
   left: 50px;
   opacity: 1;
+  box-shadow: 0px 0px 27.22px 0px #4CAA1780;
   border-radius: 40px;
   z-index: 1;
 }
@@ -84,8 +87,8 @@
 .ts-ten__card--2 {
   width: 369px;
   height: 363px;
-  top: 35px;
-  left: -120px;
+  top: 60px;
+  left: -150px;
   opacity: 1;
   border-radius: 80px;
   z-index: 2;
@@ -97,9 +100,26 @@
 
 /* ── Copy ── */
 .ts-ten__copy {
+  position: relative;
   max-width: 620px;
-  margin-left: 0px;
+  margin-left: -122px;
   order: 1;
+}
+
+/* ============================================
+   BACKGROUND GLOW (GREEN - FIGMA SPEC)
+============================================ */
+.ts-ten__glow {
+  position: absolute;
+  top: 80px;
+  left: -40px;
+  width: 320px;
+  height: 560px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(76, 170, 23, 0.28) 0%, rgba(76, 170, 23, 0) 70%);
+  filter: blur(50px);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .ts-ten__title {
@@ -110,7 +130,7 @@
   line-height: 100%;
   letter-spacing: 0;
   text-transform: capitalize;
-  color: #4FA31E;
+  color: #4CAA17;
 }
 
 .ts-ten__subtitle {

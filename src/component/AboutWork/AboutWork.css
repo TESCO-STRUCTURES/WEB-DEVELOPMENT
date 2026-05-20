@@ -9,15 +9,45 @@
 }
 
 .ts-awk__eyebrow {
-  display: inline-block;
-  padding: 8px 24px;
-  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 237px;
+  height: 58px;
+
+  padding-top: 14px;
+  padding-right: 30px;
+  padding-bottom: 14px;
+  padding-left: 30px;
+
+  gap: 10px;
+
+  border-radius: 60px;
+
   border: 1px solid #4FA31E;
+
+  background: #ffffff;
+
   color: #FF6A00;
+
   font-family: 'Poppins', sans-serif;
+
   font-weight: 600;
-  font-size: 14px;
+
+  font-size: 19px;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  box-sizing: border-box;
+
   margin-bottom: 24px;
+
+  box-shadow:
+    0 4px 14px rgba(79, 163, 30, 0.18),
+    0 0 24px rgba(79, 163, 30, 0.10);
 }
 
 .ts-awk__desc {
@@ -32,30 +62,29 @@
 /* ── Timeline wrapper ── */
 .ts-awk__timeline {
   position: relative;
-  max-width: 1101.5px;
+  max-width: 1100px;
   margin: 0 auto;
-  /* padding-top creates room for the upward-arching orange curves */
-  padding-top: 90px;
+  padding-top: 100px;
 }
 
-/* ── SVG connector — 1101.5 × 179.15px, sits behind the boxes ── */
+/* ── SVG connector ── */
 .ts-awk__line {
   position: absolute;
-  /* top: align SVG centre (y=90 of 180) with icon centre (90px + 36px half-icon) */
-  top: 54px;
-  left: 0;
+  top: -5px;
+  left: -45px;
   width: 100%;
-  height: 179.15px;
+  height: 220px;
   z-index: 0;
   overflow: visible;
 }
 
-/* ── Step row — all five in a straight horizontal line ── */
+/* ── Step row ── */
 .ts-awk__steps {
   display: flex;
   justify-content: space-between;
   position: relative;
   z-index: 1;
+  
 }
 
 .ts-awk__step {
@@ -64,83 +93,116 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  padding: 0 10px;
-  /* NO margin-top — all five boxes sit on the same horizontal line */
+  gap: 18px;
+  padding: 0 14px;
 }
 
 /* ── Icon wrapper & box ── */
 .ts-awk__icon-wrap {
   position: relative;
+  width: 72px;
+  height: 72px;
 }
 
 .ts-awk__icon-box {
-  position: relative;
   width: 72px;
   height: 72px;
-  background: #4FA31E;
-  border-radius: 12px;
+  background: linear-gradient(135deg, #5FB934 0%, #3F8B1F 100%);
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  box-shadow: 0 8px 24px rgba(79, 163, 30, 0.25);
-}
-
-.ts-awk__red-dot {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  width: 8px;
-  height: 8px;
-  background: #E11D48;
-  border-radius: 50%;
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(63, 139, 31, 0.30);
 }
 
 .ts-awk__icon-box svg {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
 }
 
 .ts-awk__badge {
   position: absolute;
-  top: -8px;
-  right: -8px;
-  width: 24px;
-  height: 24px;
-  background: #111;
+  top: -10px;
+  right: -10px;
+  width: 28px;
+  height: 28px;
+  background: #0B1F3A;
   color: #fff;
   border-radius: 50%;
+  border: 2px solid #fff;
   font-family: 'Poppins', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 10px rgba(11, 31, 58, 0.18);
 }
 
 /* ── Text ── */
 .ts-awk__title {
   font-family: 'Poppins', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: #111;
+
+  font-weight: 600;
+
+  font-size: 16px;
+
+  line-height: 28px;
+
+  letter-spacing: -0.9px;
+
+  text-align: center;
+
+  vertical-align: middle;
+
   text-transform: uppercase;
+
+  color: #0B1F3A;
+
   margin: 0;
+
+  max-width: 220px;
 }
 
 .ts-awk__step-desc {
   font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  line-height: 1.5;
-  color: #666;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #64748B;
   margin: 0;
+  max-width: 200px;
 }
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .ts-awk__line { display: none; }
   .ts-awk__steps { flex-direction: column; gap: 40px; align-items: center; }
-  .ts-awk__step { max-width: 300px; }
+  .ts-awk__step { max-width: 320px; padding: 0; }
   .ts-awk__timeline { padding-top: 0; }
+}
+/* ALL WAVES */
+.ts-awk__wave {
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+/* WAVE 1 */
+.ts-awk__wave--1 {
+  transform: translate(-29px, -7px) scaleX(0.9);
+}
+
+/* WAVE 2 */
+.ts-awk__wave--2 {
+  transform: translate(-10px, 15px) scaleY(1.1);
+}
+
+/* WAVE 3 */
+.ts-awk__wave--3 {
+  transform: translate(-29px, -7px) scaleX(1.03);
+}
+
+/* WAVE 4 */
+.ts-awk__wave--4 {
+  transform: translate(-30px, 10px) scale(1.05);
 }

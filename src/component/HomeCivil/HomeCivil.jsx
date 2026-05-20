@@ -31,6 +31,7 @@ export default function HomeCivil() {
         </div>
 
         <div className="ts-civ__copy">
+          <div className="ts-civ__glow" aria-hidden />
           <h2 className="ts-civ__title">Civil Construction</h2>
           <h3 className="ts-civ__subtitle">Solid Foundations for Lasting Structures</h3>
 

@@ -1,7 +1,5 @@
 import './Careerhero.css';
-import img1 from '../../assets/careerhero1.svg';
-import img2 from '../../assets/careerhero2.svg';
-import img3 from '../../assets/careerhero3.svg';
+import heroImg from '../../assets/Careerhero.svg';
 import icon1 from '../../assets/careericon1.svg';
 import icon2 from '../../assets/careericon2.svg';
 import icon3 from '../../assets/careericon3.svg';
@@ -23,33 +21,11 @@ export default function Careerhero() {
         </div>
 
         <div className="cr-hero__collage">
-          <img src={img1} alt="Team member" className="cr-img-1" />
-          <img src={img2} alt="Construction" className="cr-img-2" />
-          <img src={img3} alt="Engineers" className="cr-img-3" />
+          <img src={heroImg} alt="Tesco Career" className="cr-hero__main-img" />
 
-          <div className="cr-badge cr-badge-1">
-            <img src={icon1} alt="" className="cr-badge-icon" />
-            <div className="cr-badge-text">
-              <strong>30+</strong>
-              <span>Team Members</span>
-            </div>
-          </div>
-
-          <div className="cr-badge cr-badge-2">
-            <div className="cr-badge-text">
-              <strong>10+</strong>
-              <span>Departments</span>
-            </div>
-            <img src={icon2} alt="" className="cr-badge-icon" />
-          </div>
-
-          <div className="cr-badge cr-badge-3">
-            <div className="cr-badge-text">
-              <span>Projects</span>
-              <strong>50+</strong>
-            </div>
-            <img src={icon3} alt="" className="cr-badge-icon" />
-          </div>
+          <img src={icon1} alt="30+ Team Members" className="cr-badge cr-badge-1" />
+          <img src={icon2} alt="10+ Departments" className="cr-badge cr-badge-2" />
+          <img src={icon3} alt="50+ Projects" className="cr-badge cr-badge-3" />
         </div>
 
       </div>

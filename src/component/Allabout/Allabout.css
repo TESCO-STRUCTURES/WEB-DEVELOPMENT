@@ -1,78 +1,205 @@
-/* ── ALL ROOFING ABOUT ────────────────────────── */
-.all-about { background: #FFFFFF; padding: clamp(70px, 9vw, 120px) 0; }
+/* ── PEB ABOUT  (Figma pixel match) ────────────────────── */
 
-.all-about__inner { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
+.all-about {
+  background: #ffffff;
+  padding: 90px 0 110px;
+}
 
-.all-about__copy { max-width: 560px; }
+.all-about__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
 
+/* ── COPY (LEFT) ──────────────────────────────── */
+.all-about__copy {
+  max-width: 720px;
+}
+
+/* "About PEB" pill — peach fill, orange text, static green border */
 .all-about__eyebrow {
-  display: inline-block; padding: 8px 18px;
-  background: rgba(255, 122, 0, 0.08);
-  border: 1px solid rgba(255, 122, 0, 0.25); border-radius: 100px;
-  margin-bottom: 20px;
-  font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 13px;
-  color: #FF6A00; letter-spacing: 0.4px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 36px;
+  background: #ffffff;
+  border: none;
+  border-radius: 999px;
+  margin-bottom: 32px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #FF6A00;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(79, 163, 30, 0.10);
+  isolation: isolate;
+}
+
+@property --all-eyebrow-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.all-about__eyebrow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--all-eyebrow-angle),
+    rgba(79, 163, 30, 0) 0deg,
+    rgba(79, 163, 30, 0) 240deg,
+    rgba(79, 163, 30, 0.18) 265deg,
+    rgba(79, 163, 30, 0.55) 295deg,
+    #4FA31E 325deg,
+    #4FA31E 355deg,
+    rgba(79, 163, 30, 0.4) 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+  animation: all-eyebrow-spin 3s linear infinite;
+}
+
+@keyframes all-eyebrow-spin {
+  to { --all-eyebrow-angle: 360deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .all-about__eyebrow::before { animation: none; }
+}
+
+.all-about__eyebrow-text {
+  position: relative;
 }
 
 .all-about__title {
-  margin: 0 0 22px;
-  font-family: 'Oswald', sans-serif; font-weight: 600;
-  font-size: clamp(30px, 3.5vw, 44px); line-height: 1.1;
-  color: #4FA31E; letter-spacing: 0.3px;
+  margin: 0 0 24px;
+  font-family: 'Oswald', 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(32px, 3.4vw, 44px);
+  line-height: 1.1;
+  color: #4CAA17;
+  letter-spacing: 0;
 }
 
 .all-about__desc {
-  margin: 0 0 16px;
-  font-family: 'Poppins', sans-serif; font-size: 15px;
-  line-height: 1.75; color: #475569;
+  margin: 0 0 14px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #000000;
 }
+.all-about__desc:last-of-type { margin-bottom: 0; }
 
-.all-about__features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+/* ── FEATURE CARDS ────────────────────────────── */
+.all-about__features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 32px;
+}
 
 .all-about__feature {
-  background: #FFFFFF; border: 1px solid #E8EEF5;
-  border-radius: 14px; padding: 18px 16px;
-  box-shadow: 0 8px 20px rgba(11, 31, 58, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #FFFFFF;
+  border: 1px solid rgba(11, 31, 58, 0.05);
+  border-top: 3px solid #4FA31E;
+  border-radius: 12px;
+  padding: 16px 12px 14px;
+  box-shadow: 0 6px 18px rgba(11, 31, 58, 0.06);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.all-about__feature:hover { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(11, 31, 58, 0.08); }
+.all-about__feature:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 26px rgba(11, 31, 58, 0.08);
+}
 
 .all-about__feature-icon {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 36px; height: 36px;
-  background: linear-gradient(135deg, #6BC23A 0%, #4FA31E 100%);
-  border-radius: 8px; margin-bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #4FA31E;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(79, 163, 30, 0.22);
 }
-.all-about__feature-icon svg { width: 18px; height: 18px; }
+.all-about__feature-icon svg {
+  width: 22px;
+  height: 22px;
+}
 
-.all-about__feature-body h4 { margin: 0 0 6px; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px; color: #0B1F3A; }
-.all-about__feature-body p  { margin: 0; font-family: 'Inter', sans-serif; font-size: 12px; line-height: 1.5; color: #64748B; }
+.all-about__feature-body h4 {
+  margin: 0 0 4px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: #1B232E;
+  letter-spacing: -0.25px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.all-about__feature-body p {
+  margin: 0;
+  font-family: 'Inter', 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.45;
+  letter-spacing: -0.1px;
+  color: #000000;
+}
 
+/* ── MEDIA (RIGHT) — pebabout.png + 3 white Tesco-logo stripes ── */
 .all-about__media {
-  position: relative; border-radius: 24px; overflow: hidden;
-  box-shadow: 0 24px 50px rgba(11, 31, 58, 0.14);
-  aspect-ratio: 1 / 1; max-height: 520px;
-}
-.all-about__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-.all-about__stripes {
-  position: absolute; inset: 0;
-  background-image: repeating-linear-gradient(
-    115deg,
-    rgba(255, 255, 255, 0.55) 0,
-    rgba(255, 255, 255, 0.55) 28px,
-    transparent 28px,
-    transparent 90px
-  );
-  mix-blend-mode: overlay; pointer-events: none;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 -4px 0px 0px #4CAA17, 0 24px 50px rgba(11, 31, 58, 0.12);
 }
 
+.all-about__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* White geometric overlay — top-left angular + 3 diagonal bars (Figma) */
+.all-about__cut {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.92;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.10));
+}
+
+/* ── RESPONSIVE ───────────────────────────────── */
 @media (max-width: 1024px) {
-  .all-about__inner { grid-template-columns: 1fr; }
-  .all-about__copy { max-width: none; }
-  .all-about__media { max-width: 600px; margin: 0 auto; }
+  .all-about        { padding: 70px 0 90px; }
+  .all-about__inner { grid-template-columns: 1fr; gap: 50px; }
+  .all-about__copy  { max-width: none; }
+  .all-about__media { max-width: 620px; margin: 0 auto; }
 }
+
 @media (max-width: 640px) {
+  .all-about           { padding: 50px 0 70px; }
   .all-about__features { grid-template-columns: 1fr; }
-  .all-about__title { font-size: 28px; }
+  .all-about__title    { font-size: 28px; }
+  .all-about__eyebrow  { font-size: 15px; padding: 9px 22px; margin-bottom: 24px; }
+  .all-about__desc     { font-size: 14px; }
 }

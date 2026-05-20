@@ -13,19 +13,39 @@
 }
 
 .peb-app__eyebrow {
+  width: 216px;
+  height: 58px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  gap: 10px;
+
   padding: 14px 30px;
-  background: transparent;
-  border: 1px solid rgba(255, 106, 0, 0.30);
+
   border-radius: 60px;
+
+  border: 1px solid #4FA31E;
+
+  background: #ffffff;
+
+  box-sizing: border-box;
+
+  white-space: nowrap;
+
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
+
   color: #FF6A00;
-  margin-bottom: 24px;
+
+  box-shadow:
+    0 4px 14px rgba(79, 163, 30, 0.18),
+    0 0 24px rgba(79, 163, 30, 0.10);
+    position: relative;
+top: -30px;
 }
 
 .peb-app__desc {

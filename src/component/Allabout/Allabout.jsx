@@ -48,7 +48,6 @@ export default function Allabout() {
 
         <div className="all-about__media">
           <img src={aboutImg} alt="Industrial roofing project" />
-          <span className="all-about__stripes" aria-hidden />
         </div>
 
       </div>

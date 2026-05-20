@@ -2,6 +2,7 @@ import './Tensilehero.css';
 import h1 from '../../assets/tensilehero1.svg';
 import h2 from '../../assets/tensilehero2.svg';
 import h3 from '../../assets/tensilehero3.svg';
+import logoicon from '../../assets/logoicon.svg';
 
 export default function Tensilehero() {
   return (
@@ -15,21 +16,27 @@ export default function Tensilehero() {
           <div className="ten-hero__c-img ten-hero__c-img--tr">
             <img src={h2} alt="Tensile structure detail" />
           </div>
-          <div className="ten-hero__c-img ten-hero__c-img--b">
+          <div className="ten-hero__c-img ten-hero__c-img--br">
             <img src={h3} alt="Tensile canopy installation" />
+          </div>
+
+          <div className="ten-hero__medallion" aria-hidden="true">
+            <img src={logoicon} alt="" />
           </div>
         </div>
 
         <div className="ten-hero__copy">
           <span className="ten-hero__badge">
-            <span>⚡ India&apos;s Tensile Roofing Experts</span>
+            <span className="ten-hero__badge-bolt">⚡</span>
+            <span> Modern & Durable Tensile Structures</span>
           </span>
 
-          <h1 className="ten-hero__title">Tensile Roofing Solutions</h1>
+          <h1 className="ten-hero__title">
+            Tensile Roofing Solutions
+          </h1>
 
           <p className="ten-hero__desc">
-            Sculptural fabric roofs engineered for stadiums, atriums and public
-            spaces — lightweight, free-form, and built to last 20+ years.
+            Delivering lightweight, flexible, and visually striking<br></br> tensile structures designed for durability, weather<br></br> resistance, and modern architectural appeal.
           </p>
 
           <div className="ten-hero__cta">
@@ -39,12 +46,6 @@ export default function Tensilehero() {
             <a href="#ten-build" className="ten-hero__btn ten-hero__btn--ghost">
               Get Instant Pricing
             </a>
-          </div>
-
-          <div className="ten-hero__stats">
-            <div className="ten-hero__stat"><strong>200+</strong><span>Projects Done</span></div>
-            <div className="ten-hero__stat"><strong>15+</strong><span>Years Experience</span></div>
-            <div className="ten-hero__stat"><strong>97%</strong><span>Client Satisfaction</span></div>
           </div>
         </div>
 

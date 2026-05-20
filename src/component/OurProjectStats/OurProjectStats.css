@@ -26,13 +26,41 @@
   flex: 1;
 }
 
-.op-stats__num { 
-  font-family: 'Oswald', sans-serif; 
-  font-weight: 700; 
-  font-size: clamp(40px, 5vw, 56px); 
-  color: #ffffff; 
-  line-height: 1; 
+.op-stats__num {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(40px, 5vw, 56px);
+  color: #ffffff;
+  line-height: 1;
   margin-bottom: 16px;
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.op-stats__suffix {
+  display: inline-block;
+}
+
+/* ── Digit reel — one window per digit, vertical strip scrolls inside ── */
+.op-stats__reel {
+  display: inline-block;
+  height: 0.95em;
+  line-height: 0.95;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.op-stats__reel-strip {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.op-stats__reel-d {
+  display: block;
+  height: 0.95em;
+  line-height: 0.95;
+  font-variant-numeric: tabular-nums;
 }
 
 .op-stats__orange-line {

@@ -1,21 +1,23 @@
 import './ContactMap.css';
 import mapImg from '../../assets/contactenquiry.svg';
-
+import Contactap from '../../assets/contactmaplogo.svg';
 export default function ContactMap() {
   return (
     <section id="contact-map" className="ct-map">
       <div className="container">
-        
+
         <div className="ct-map__card">
           <div className="ct-map__visual">
             <img src={mapImg} alt="Tesco Location Map" className="ct-map__img" />
-            
+
             <div className="ct-map__floating-card">
               <div className="ct-map__fc-brand">
                 <span className="ct-map__fc-brand-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="#4FA31E">
-                    <polygon points="2 22 12 2 22 22" />
-                  </svg>
+                  <img
+                    src={Contactap}
+                    alt="Tesco Structure Logo"
+                    className="ct-map__fc-logo"
+                  />
                 </span>
                 <div className="ct-map__fc-brand-text">
                   <span className="ct-map__fc-brand-title">TESCO</span>
@@ -23,12 +25,12 @@ export default function ContactMap() {
                 </div>
               </div>
               <p className="ct-map__fc-addr">
-                37, 15th St, Gandhi Nagar, Ashok Nagar,<br/>
+                37, 15th St, Gandhi Nagar, Ashok Nagar,<br />
                 Chennai, Tamil Nadu 600083
               </p>
             </div>
           </div>
-          
+
           <div className="ct-map__info">
             <span className="ct-map__eyebrow">OUR LOCATION</span>
             <h2 className="ct-map__title">Visit Our Office</h2>
@@ -55,7 +57,7 @@ export default function ContactMap() {
               <div className="ct-map__ac-details">
                 <h4 className="ct-map__ac-title">Tesco Headquarters</h4>
                 <p className="ct-map__ac-text">
-                  500 Market Street, Suite 1200<br/>
+                  500 Market Street, Suite 1200<br />
                   Ashok Nagar, Chennai, TN 600083
                 </p>
               </div>

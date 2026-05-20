@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Tensilebuild.css';
-/* Tensile asset set has no dedicated build image, so we use one of the projects images */
-import buildImg from '../../assets/tensileprojects1.svg';
+/* Reusing the working PEBbuild.svg image for the tensile build section */
+import buildImg from '../../assets/PEBbuild.svg';
 
 const PROJECT_TYPES = [
   'Tensile Structure',
@@ -22,36 +22,13 @@ export default function Tensilebuild() {
 
         <div className="ten-bld__visual">
           <img src={buildImg} alt="Tesco Structure tensile install" className="ten-bld__visual-img" />
-
-          <div className="ten-bld__badge ten-bld__badge--top">
-            <span className="ten-bld__badge-icon" aria-hidden>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#FF8A1E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="8" r="6"/><path d="M9 14v7l3-2 3 2v-7"/>
-              </svg>
-            </span>
-            <div className="ten-bld__badge-body">
-              <strong>25+ Years Experience</strong>
-              <span>GLOBAL INDUSTRY LEADER</span>
-            </div>
-          </div>
-
-          <div className="ten-bld__badge ten-bld__badge--bottom">
-            <span className="ten-bld__badge-icon" aria-hidden>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#FF8A1E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M3 21h18M5 21V8l7-5 7 5v13M9 9h.01M15 9h.01M9 13h.01M15 13h.01M9 17h.01M15 17h.01"/>
-              </svg>
-            </span>
-            <div className="ten-bld__badge-body">
-              <strong>200+ Tensile Projects</strong>
-              <span>ACROSS 4 CITIES (INDIA)</span>
-            </div>
-          </div>
         </div>
 
         <form className="ten-bld__form" onSubmit={onSubmit}>
           <h2 className="ten-bld__title">Let&apos;s Build Your Project</h2>
           <p className="ten-bld__desc">
-            Connect with our tensile experts for customized fabric structure solutions.
+            Connect with our engineering experts for customized steel
+structure solutions.
           </p>
 
           <div className="ten-bld__row ten-bld__row--two">

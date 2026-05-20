@@ -48,7 +48,6 @@ export default function Civilabout() {
 
         <div className="civ-about__media">
           <img src={aboutImg} alt="Civil construction site" />
-          <span className="civ-about__stripes" aria-hidden />
         </div>
 
       </div>

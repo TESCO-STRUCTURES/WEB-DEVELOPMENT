@@ -1,161 +1,279 @@
+/* ============================================================
+   FOOTER
+============================================================ */
+
 .ts-footer {
   position: relative;
-  background: #000000; /* Dark background from screenshot */
-  color: #fff;
-  padding: 80px 0 20px;
+  width: 100%;
+
+  background: #000000;
+
   overflow: hidden;
+
+  padding-top: 70px;
 }
 
-.ts-footer__bg-text {
+/* ============================================================
+   WATERMARK
+============================================================ */
+
+.ts-footer__watermark {
   position: absolute;
-  top: 40%;
+
+  width: 1019px;
+  height: 190px;
+
   left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  font-size: clamp(80px, 12vw, 180px);
-  color: rgba(255, 255, 255, 0.04);
-  white-space: nowrap;
-  pointer-events: none;
+  top: 0;
+
+  transform: translateX(-50%);
+
+  opacity: 0.7;
+
   z-index: 0;
-  letter-spacing: -0.02em;
+
+  pointer-events: none;
+  user-select: none;
+
+  white-space: nowrap;
+
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 128px;
+
+  line-height: 100%;
+  letter-spacing: 0;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.22) 20%,
+    rgba(255,255,255,0.10) 48%,
+    rgba(102,102,102,0) 82%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
+/* ============================================================
+   MAIN CONTENT
+============================================================ */
 
 .ts-footer__inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+
+  width: 1129px;
+
+  margin: 72px auto 0;
+
   display: grid;
-  grid-template-columns: 2fr 1fr 2fr auto;
-  gap: 40px;
-  align-items: flex-start;
+
+  grid-template-columns:
+    320px
+    170px
+    340px
+    42px;
+
+  justify-content: space-between;
+
+  align-items: start;
+
+  column-gap: 66px;
 }
+
+/* ============================================================
+   BRAND
+============================================================ */
 
 .ts-footer__brand {
-  max-width: 320px;
+  width: 320px;
 }
+
+/* ============================================================
+   LOGO
+============================================================ */
+
+.ts-footer__logo-mark {
+  margin-bottom: 22px;
+}
+
+.ts-footer__logo-icon {
+  width: 201px;
+  height: 90px;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+/* ============================================================
+   DESCRIPTION
+============================================================ */
 
 .ts-footer__desc {
+  margin: 0;
+
+  width: 310px;
+
   font-family: 'Poppins', sans-serif;
-  font-size: 13px;
-  line-height: 1.8;
-  color: #d1d5db;
+  font-weight: 400;
+
+  font-size: 16px;
+  line-height: 1.65;
+
+  color: #FFFFFF;
 }
 
-.ts-footer__col {
-  display: flex;
-  flex-direction: column;
-}
+/* ============================================================
+   TITLES
+============================================================ */
 
 .ts-footer__title {
-  color: #fff;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 700;
-  font-size: 15px;
-  margin-bottom: 24px;
+  margin: 0 0 24px;
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+
+  font-size: 18px;
+  line-height: 100%;
+
+  color: #ffffff;
 }
+
+/* ============================================================
+   LIST
+============================================================ */
 
 .ts-footer__list {
   list-style: none;
-  padding: 0;
+
   margin: 0;
+  padding: 0;
+
   display: flex;
   flex-direction: column;
-  gap: 14px;
+
+  gap: 16px;
 }
 
+/* ============================================================
+   LINKS
+============================================================ */
+
 .ts-footer__link {
-  color: #d1d5db;
-  font-family: 'Poppins', sans-serif;
-  font-size: 13px;
-  transition: color 0.2s;
   text-decoration: none;
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+
+  font-size: 16px;
+  line-height: 100%;
+
+  color: #FFFFFF;
+
+  transition: 0.3s ease;
 }
+
 .ts-footer__link:hover {
-  color: #4FA31E;
+  color: #58B81D;
+}
+
+/* ============================================================
+   CONTACT
+============================================================ */
+
+.ts-footer__contact-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 22px;
 }
 
 .ts-footer__contact-list li {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  color: #d1d5db;
+
+  gap: 14px;
+
+  color: #FFFFFF;
+
   font-family: 'Poppins', sans-serif;
-  font-size: 13px;
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.45;
 }
 
-.ts-footer__contact-list svg {
-  flex-shrink: 0;
-  margin-top: 2px;
-  color: #fff;
-}
+/* ============================================================
+   SOCIAL
+============================================================ */
 
 .ts-footer__social-col {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+
+  align-items: center;
+
+  gap: 22px;
 }
 
-.ts-footer__soc-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 4px;
+.ts-footer__soc-wrap {
+  width: 32px;
+  height: 32px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s;
+
+  transition: 0.3s ease;
 }
-.ts-footer__soc-icon:hover {
-  transform: scale(1.1);
+
+.ts-footer__soc-wrap:hover {
+  transform: translateY(-3px);
 }
+
+.ts-footer__soc-img {
+  width: 32px;
+  height: 32px;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+/* ============================================================
+   BOTTOM BAR
+============================================================ */
 
 .ts-footer__bottom {
   position: relative;
-  z-index: 1;
-  margin-top: 60px;
-  padding-top: 24px;
+  z-index: 2;
+
+  width: 1129px;
+
+  margin: 50px auto 0;
+
+  padding: 18px 0 20px;
+
+  border-top: 1px solid rgba(255,255,255,0.12);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid rgba(255,255,255,0.1);
+
   font-family: 'Poppins', sans-serif;
   font-size: 11px;
-  color: #9ca3af;
+
+  color: #8e8e8e;
 }
 
-.ts-footer__legal {
-  display: flex;
-  align-items: center;
-}
 .ts-footer__legal a {
-  color: #9ca3af;
+  color: #8e8e8e;
   text-decoration: none;
 }
+
 .ts-footer__legal a:hover {
-  color: #fff;
-}
-
-@media (max-width: 1024px) {
-  .ts-footer__inner {
-    grid-template-columns: 1fr 1fr;
-    row-gap: 50px;
-  }
-  .ts-footer__social-col {
-    flex-direction: row;
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 600px) {
-  .ts-footer__inner {
-    grid-template-columns: 1fr;
-  }
-  .ts-footer__bg-text {
-    font-size: 20vw;
-  }
-  .ts-footer__bottom {
-    flex-direction: column;
-    gap: 16px;
-    text-align: center;
-  }
+  color: #ffffff;
 }

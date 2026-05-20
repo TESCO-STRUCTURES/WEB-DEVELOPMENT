@@ -92,8 +92,25 @@
 }
 
 .ts-all__copy {
+  position: relative;
   max-width: 620px;
   margin-left: 0;
+}
+
+/* ============================================
+   BACKGROUND GLOW
+============================================ */
+.ts-all__glow {
+  position: absolute;
+  top: -40px;
+  right: -130px;
+  width: 320px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(255, 106, 0, 0.28) 0%, rgba(255, 106, 0, 0) 70%);
+  filter: blur(50px);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .ts-all__title {

@@ -1,38 +1,92 @@
-/* ── ARCHITECTURAL OUR PROJECTS ───────────────── */
-.arc-pro { background: #F4F6F9; padding: clamp(60px, 8vw, 100px) 0; }
+/* ── ARCHITECTURAL OUR PROJECTS — INFINITE-LOOP CURVED TV ── */
+.arc-pro {
+  background: #000000;
+  padding: 60px 0 90px;
+}
 
-.arc-pro__head { text-align: center; max-width: 760px; margin: 0 auto 48px; }
+.arc-pro__head { text-align: center; max-width: 760px; margin: 0 auto 28px; }
 
 .arc-pro__eyebrow {
-  display: inline-block; padding: 8px 22px;
-  background: rgba(79, 163, 30, 0.10); border: 1px solid rgba(79, 163, 30, 0.30);
-  border-radius: 100px; margin-bottom: 18px;
-  font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 13px;
-  color: #4FA31E; letter-spacing: 0.4px;
+  display: inline-block;
+  padding: 10px 30px;
+  background: transparent;
+  border: 1px solid rgba(79, 163, 30, 0.7);
+  border-radius: 100px;
+  margin-bottom: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  color: #FFFFFF;
+  letter-spacing: 0.2px;
+  text-transform: capitalize;
+  box-shadow: 0 0 28px rgba(79, 163, 30, 0.55),
+              inset 0 0 14px rgba(79, 163, 30, 0.20);
 }
 
-.arc-pro__desc { margin: 0; font-family: 'Poppins', sans-serif; font-size: 15px; line-height: 1.7; color: #475569; }
+.arc-pro__desc {
+  margin: 0; font-family: 'Poppins', sans-serif;
+  font-size: 15px; line-height: 1.7; color: #CBD5E0;
+}
 
-.arc-pro__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.arc-pro__grid {
+  position: relative;
+  display: block;
+  width: 1276.8px;
+  max-width: 100%;
+  height: 532px;
+  margin: 50px auto 90px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  clip-path: path('M 0 0 Q 638.4 160 1276.8 0 L 1276.8 532 Q 638.4 372 0 532 Z');
+}
+
+.arc-pro__grid::-webkit-scrollbar { display: none; }
+
+.arc-pro__screen {
+  display: flex;
+  gap: 0;
+  flex-shrink: 0;
+  width: max-content;
+  height: 532px;
+}
 
 .arc-pro__card {
-  margin: 0; border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 3;
-  box-shadow: 0 14px 32px rgba(11, 31, 58, 0.10);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  flex: 0 0 425.6px;
+  width: 425.6px;
+  height: 532px;
+  margin: 0;
+  overflow: hidden;
+  background: #111;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
-.arc-pro__card:hover { transform: translateY(-4px); box-shadow: 0 22px 44px rgba(11, 31, 58, 0.14); }
 
 .arc-pro__card img {
   width: 100%; height: 100%; object-fit: cover; display: block;
-  transition: transform 0.6s ease;
+  pointer-events: none;
 }
-.arc-pro__card:hover img { transform: scale(1.06); }
 
 @media (max-width: 900px) {
-  .arc-pro__grid { grid-template-columns: 1fr 1fr; }
-  .arc-pro__card:nth-child(3) { grid-column: 1 / -1; aspect-ratio: 16 / 7; }
+  .arc-pro__grid {
+    width: 960px; height: 400px;
+    clip-path: path('M 0 0 Q 480 120 960 0 L 960 400 Q 480 280 0 400 Z');
+  }
+  .arc-pro__screen { height: 400px; }
+  .arc-pro__card { flex: 0 0 320px; width: 320px; height: 400px; }
 }
+
 @media (max-width: 560px) {
-  .arc-pro__grid { grid-template-columns: 1fr; }
-  .arc-pro__card:nth-child(3) { aspect-ratio: 4 / 3; }
+  .arc-pro__grid {
+    width: 780px; height: 325px;
+    clip-path: path('M 0 0 Q 390 96 780 0 L 780 325 Q 390 229 0 325 Z');
+  }
+  .arc-pro__screen { height: 325px; }
+  .arc-pro__card { flex: 0 0 260px; width: 260px; height: 325px; }
 }

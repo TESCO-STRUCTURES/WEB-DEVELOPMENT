@@ -16,9 +16,9 @@
   gap: 16px; padding: 18px 4px;
   background: transparent; border: none; text-align: left;
   font-family: 'Inter', sans-serif; font-weight: 500; font-size: 15px;
-  color: #1F2937; cursor: pointer; transition: color 0.2s ease;
+  color: #000000; cursor: pointer; transition: color 0.2s ease;
 }
-.arc-faq__q:hover { color: #4FA31E; }
+.arc-faq__q:hover { color: #000000; }
 
 .arc-faq__icon {
   flex-shrink: 0; width: 24px; height: 24px;
@@ -28,14 +28,14 @@
 .arc-faq__icon svg { width: 18px; height: 18px; }
 .arc-faq__icon-v { transform-origin: center; transition: transform 0.3s ease, opacity 0.3s ease; }
 
-.arc-faq__item--open .arc-faq__q { color: #4FA31E; }
-.arc-faq__item--open .arc-faq__icon { color: #4FA31E; }
+.arc-faq__item--open .arc-faq__q { color: #000000; }
+.arc-faq__item--open .arc-faq__icon { color: #000000; }
 .arc-faq__item--open .arc-faq__icon-v { transform: rotate(90deg); opacity: 0; }
 
 .arc-faq__a { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
 .arc-faq__item--open .arc-faq__a { max-height: 360px; }
 
-.arc-faq__a p { margin: 0; padding: 0 4px 18px; font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.7; color: #64748B; }
+.arc-faq__a p { margin: 0; padding: 0 4px 18px; font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.7; color: #000000; }
 
 @media (max-width: 1024px) {
   .arc-faq__inner { grid-template-columns: 1fr; }

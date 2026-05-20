@@ -1,0 +1,10 @@
+/* ── CONTACT PAGE — soft peach + green-tinted background ── */
+.ct-page {
+  position: relative;
+  background:
+    radial-gradient(60% 50% at 0% 10%, rgba(150, 220, 110, 0.22) 0%, transparent 60%),
+    radial-gradient(70% 60% at 100% 35%, rgba(255, 200, 150, 0.38) 0%, transparent 60%),
+    radial-gradient(70% 50% at 50% 95%, rgba(255, 215, 175, 0.45) 0%, transparent 65%),
+    linear-gradient(180deg, #FFF6EC 0%, #FFFBF3 100%);
+  overflow: hidden;
+}

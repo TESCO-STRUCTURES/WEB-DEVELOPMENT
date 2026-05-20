@@ -8,14 +8,14 @@ export default function AboutWho() {
       <div className="ts-aw__inner">
 
         <div className="ts-aw__copy">
-          <span className="ts-aw__eyebrow">Who We Are</span>
+          <span className="ts-aw__eyebrow"><span className="ts-aw__eyebrow-text">Who We Are</span></span>
           <p className="ts-aw__desc">
             Tesco Structure LLP is a trusted construction company with over 15 years of            experience in delivering high-quality projects across industrial, commercial,
             and residential sectors. We specialize in Pre-Engineered Buildings (PEB),
             structural steel solutions, roofing systems, multi-storey construction,
             civil works, and architectural and structural consultancy. With a strong
             focus on engineering excellence and innovation, our team ensures every project
-            is designed with precision and executed using modern construction methods.
+            is designed with precision and executed using modern construction methods.<br />
             We are committed to delivering safe, durable, and cost-effective structures
             while maintaining the highest standards of quality and professionalism. By
             using premium materials and following industry best practices, we ensure
@@ -30,13 +30,11 @@ export default function AboutWho() {
             <div className="ts-aw__diamond ts-aw__diamond--1">
               <div className="ts-aw__diamond-inner">
                 <img src={img1} alt="Tensile Structure" />
-                <div className="ts-aw__diamond-overlay">TENSILE</div>
               </div>
             </div>
             <div className="ts-aw__diamond ts-aw__diamond--2">
               <div className="ts-aw__diamond-inner">
                 <img src={img2} alt="PEB Structure" />
-                <div className="ts-aw__diamond-overlay ts-aw__diamond-overlay--peb">PEB</div>
               </div>
             </div>
           </div>

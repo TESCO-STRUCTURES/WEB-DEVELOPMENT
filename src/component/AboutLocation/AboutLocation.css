@@ -1,76 +1,169 @@
+/* AboutLocation — Our Location  (Figma pixel match) */
+
 .ts-aloc {
-  padding: 100px 0;
-  background: #fff;
+  padding: 90px 24px 100px;
+  background: #FFFFFF;
 }
 
 .ts-aloc__head {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 56px;
 }
 
 .ts-aloc__eyebrow {
-  display: inline-block;
-  padding: 8px 24px;
-  border-radius: 50px;
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 188px;
+  height: 58px;
+
+  padding-top: 14px;
+  padding-right: 30px;
+  padding-bottom: 14px;
+  padding-left: 30px;
+
+  gap: 10px;
+
+  border-radius: 60px;
+
   border: 1px solid #4FA31E;
+
+  background: #ffffff;
+
   color: #FF6A00;
+
   font-family: 'Poppins', sans-serif;
+
   font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 24px;
+
+  font-size: 19px;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  box-sizing: border-box;
+
+  margin-bottom: 22px;
+
+  box-shadow:
+    0 4px 14px rgba(79, 163, 30, 0.18),
+    0 0 24px rgba(79, 163, 30, 0.10);
+}
+
+
+
+.ts-aloc__eyebrow-text {
+  position: relative;
+  z-index: 1;
 }
 
 .ts-aloc__desc {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', 'Poppins', sans-serif;
   font-size: 16px;
   color: #343C47;
-  max-width: 600px;
+  max-width: 720px;
   margin: 0 auto;
   line-height: 1.6;
+  font-weight: 500;
 }
 
 .ts-aloc__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  max-width: 800px;
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  grid-template-rows: repeat(4, auto);
+  gap: 26px 60px;
+  max-width: 900px;
   margin: 0 auto;
-}
-
-.ts-aloc__col {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  justify-content: center;
 }
 
 .ts-aloc__item {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
+  font-family: 'Inter', 'Poppins', sans-serif;
 }
 
+
 .ts-aloc__pin {
-  color: #E11D48;
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .ts-aloc__pin svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
+  width: 24px;
+  height: 24px;
+  display: block;
+  filter: drop-shadow(0 2px 3px rgba(225, 29, 72, 0.28));
 }
 
 .ts-aloc__city {
-  font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-size: 16px;
-  color: #1A1C1C;
+  font-size: 17px;
+  color: #1B232E;
+}
+
+@media (max-width: 1024px) {
+  .ts-aloc {
+    padding: 80px 20px;
+  }
+
+  .ts-aloc__grid {
+    gap: 22px 40px;
+    max-width: 760px;
+  }
 }
 
 @media (max-width: 768px) {
-  .ts-aloc__grid { grid-template-columns: repeat(2, 1fr); }
+  .ts-aloc__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 30px;
+    max-width: 520px;
+  }
+
+  .ts-aloc__item {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  .ts-aloc__city {
+    font-size: 16px;
+  }
 }
+
 @media (max-width: 480px) {
-  .ts-aloc__grid { grid-template-columns: 1fr; }
+  .ts-aloc {
+    padding: 60px 16px;
+  }
+
+  .ts-aloc__head {
+    margin-bottom: 36px;
+  }
+
+  .ts-aloc__eyebrow {
+    font-size: 17px;
+    padding: 9px 26px;
+  }
+
+  .ts-aloc__desc {
+    font-size: 14px;
+  }
+
+  .ts-aloc__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 20px;
+  }
+
+  .ts-aloc__pin svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .ts-aloc__city {
+    font-size: 15px;
+  }
 }

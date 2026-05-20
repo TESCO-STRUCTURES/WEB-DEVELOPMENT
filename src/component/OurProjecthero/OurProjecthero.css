@@ -6,7 +6,7 @@
 
   overflow: hidden;
 
-  background: #ffffff;
+  background: transparent;
 
   isolation: isolate;
 
@@ -51,45 +51,25 @@
 
   gap: 10px;
 
-  padding: 14px 30px;
+  padding-top: 14px;
+  padding-right: 30px;
+  padding-bottom: 14px;
+  padding-left: 30px;
 
   border-radius: 60px;
 
-  /* FULL GREEN OUTLINE */
   border: 1px solid #4CAA17;
-
-  background: #ffffff;
 
   opacity: 1;
 
-  color: #FF6A00;
-
-  white-space: nowrap;
-
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  font-style: normal;
-
-  font-size: 20px;
-
-  line-height: 100%;
-  letter-spacing: 0%;
-
-  text-transform: capitalize;
-
   box-sizing: border-box;
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    background 0.3s ease;
 }
 
 .op-hero__eyebrow:hover {
   transform: translateY(-2px);
 
   box-shadow:
-    0 10px 20px rgba(76,170,23,0.16);
+    0 10px 20px rgba(76, 170, 23, 0.16);
 }
 
 /* ============================================
@@ -129,7 +109,7 @@
 
   margin: 0 0 32px;
 
-  color: rgba(6,18,38,0.78);
+  color: rgba(6, 18, 38, 0.78);
 
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
@@ -178,7 +158,7 @@
 
   background: #ffffff;
 
-  border: 1px solid rgba(6,18,38,0.12);
+  border: 1px solid rgba(6, 18, 38, 0.12);
 
   color: #061226;
 
@@ -196,7 +176,7 @@
     box-shadow 0.2s ease;
 
   box-shadow:
-    0 4px 12px rgba(6,18,38,0.06);
+    0 4px 12px rgba(6, 18, 38, 0.06);
 }
 
 .op-hero__chip:hover {
@@ -209,7 +189,7 @@
   transform: translateY(-2px);
 
   box-shadow:
-    0 10px 20px rgba(255,106,0,0.18);
+    0 10px 20px rgba(255, 106, 0, 0.18);
 }
 
 /* ============================================

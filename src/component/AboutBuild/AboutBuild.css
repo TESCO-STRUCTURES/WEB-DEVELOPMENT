@@ -1,99 +1,215 @@
+/* AboutBuild — Let's Build Together  (Figma pixel match) */
+
 .ts-abld {
-  background: #fff;
+  background: #ffffff;
   width: 100%;
 }
 
 .ts-abld__inner {
   display: flex;
-  max-width: 1250px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   align-items: stretch;
+  min-height: 410px;
 }
 
+/* ---------- LEFT panel: gray copy block ---------- */
 .ts-abld__content {
-  background: #F8FAFC; 
-  padding: 60px 40px 60px 80px;
+  flex: 1 1 50%;
+  background: #F1F4F8;
+  padding: 70px 56px;
   display: flex;
   align-items: center;
-  flex: 1;
+  justify-content: flex-start;
+}
+
+.ts-abld__copy {
+  max-width: 440px;
 }
 
 .ts-abld__title {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 40px;
-  color: #343C47;
-  margin: 0 0 16px;
-  line-height: 1.2;
+  line-height: 1.15;
+  color: #1B232E;
+  margin: 0 0 18px;
+  letter-spacing: -0.5px;
 }
 
 .ts-abld__desc {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', 'Poppins', sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  color: #343C47;
-  margin: 0 0 24px;
+  color: #4B5563;
+  margin: 0;
 }
 
+/* Green accent bar under the description */
 .ts-abld__desc::after {
   content: '';
   display: block;
-  width: 111px;
+  width: 110px;
   height: 4px;
   background: #4FA31E;
-  margin-top: 30px;
+  border-radius: 2px;
+  margin-top: 28px;
 }
 
+/* ---------- RIGHT panel: photo with overlaid buttons ---------- */
 .ts-abld__media {
+  flex: 1 1 50%;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   position: relative;
-  width: 712px;
-  height: 410px;
-  left: -1px;
+  min-height: 410px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Subtle dark scrim so the buttons stand out on the photo */
+.ts-abld__media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.25) 100%);
+  pointer-events: none;
+}
+
 .ts-abld__buttons {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  width: 100%;
 }
 
+/* ---------- Buttons ---------- */
 .ts-btn {
-  width: 260px;
-  padding: 16px 24px;
-  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  padding: 15px 26px;
+  border-radius: 999px;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 16px;
   border: none;
   cursor: pointer;
   text-align: center;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.ts-btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .ts-btn--orange {
   background: #FF6A00;
-  color: #fff;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(255, 106, 0, 0.35);
 }
 
-.ts-btn--white {
-  background: #fff;
-  color: #1A1C1C;
+.ts-btn--orange:hover {
+  background: #E65A00;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(255, 106, 0, 0.40);
 }
+
+/* Solid white pill */
+.ts-btn--ghost {
+  background: #ffffff;
+  color: #1B232E;
+  border: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.ts-btn--ghost:hover {
+  background: #F3F4F6;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+}
+
+/* ===========================================================
+   Responsive
+   =========================================================== */
 
 @media (max-width: 1024px) {
-  .ts-abld__inner { flex-direction: column; }
-  .ts-abld__content { padding: 60px 20px; width: 100%; }
-  .ts-abld__media { width: 100%; height: 400px; left: 0; }
+  .ts-abld__inner {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .ts-abld__content {
+    flex: 1 1 auto;
+    padding: 60px 32px;
+  }
+
+  .ts-abld__media {
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ts-abld__content {
+    padding: 50px 24px;
+  }
+
+  .ts-abld__title {
+    font-size: 32px;
+  }
+
+  .ts-abld__desc {
+    font-size: 15px;
+  }
+
+  .ts-abld__desc::after {
+    width: 90px;
+    height: 3px;
+    margin-top: 22px;
+  }
+
+  .ts-abld__media {
+    min-height: 360px;
+  }
+
+  .ts-btn {
+    width: 240px;
+    padding: 13px 22px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  .ts-abld__content {
+    padding: 40px 20px;
+  }
+
+  .ts-abld__title {
+    font-size: 26px;
+    line-height: 1.25;
+  }
+
+  .ts-abld__desc {
+    font-size: 14px;
+  }
+
+  .ts-abld__desc::after {
+    width: 80px;
+    margin-top: 20px;
+  }
+
+  .ts-abld__media {
+    min-height: 300px;
+  }
+
+  .ts-btn {
+    width: 100%;
+    max-width: 260px;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
 }

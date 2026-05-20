@@ -34,6 +34,7 @@ export default function HomeEngineered() {
 
         {/* ── RIGHT: copy ── */}
         <div className="ts-eng__copy">
+          <div className="ts-eng__glow" aria-hidden />
           <h2 className="ts-eng__title">Pre  Engineering Building</h2>
           <h3 className="ts-eng__subtitle">Fast, Cost-Effective Industrial Solutions</h3>
 

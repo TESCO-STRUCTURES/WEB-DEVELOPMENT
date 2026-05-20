@@ -36,12 +36,12 @@
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 15px;
-  color: #1F2937;
+  color: #000000;
   cursor: pointer;
   transition: color 0.2s ease;
 }
 
-.ten-faq__q:hover { color: #4FA31E; }
+.ten-faq__q:hover { color: #343C47; }
 
 .ten-faq__icon {
   flex-shrink: 0;
@@ -60,8 +60,8 @@
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.ten-faq__item--open .ten-faq__q { color: #4FA31E; }
-.ten-faq__item--open .ten-faq__icon { color: #4FA31E; }
+.ten-faq__item--open .ten-faq__q { color: #343C47; }
+.ten-faq__item--open .ten-faq__icon { color: #343C47; }
 .ten-faq__item--open .ten-faq__icon-v {
   transform: rotate(90deg);
   opacity: 0;
@@ -81,7 +81,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   line-height: 1.7;
-  color: #64748B;
+  color: #343C47;
 }
 
 @media (max-width: 1024px) {

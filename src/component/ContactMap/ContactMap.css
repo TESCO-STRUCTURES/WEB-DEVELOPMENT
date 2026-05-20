@@ -1,56 +1,100 @@
-.ct-map { 
-  background: transparent; 
-  padding: 0 0 clamp(80px, 10vw, 140px); 
+.ct-map {
+  background: transparent;
+  padding: 0 0 clamp(80px, 10vw, 140px);
   font-family: 'Inter', sans-serif;
 }
 
+/* ============================================
+   MAIN CARD
+============================================ */
+
 .ct-map__card {
-  background: #ffffff;
-  border-radius: 40px;
-  border: 1px solid rgba(79, 163, 30, 0.2);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.04);
-  max-width: 1280px;
+  width: 1280px;
   height: 610px;
+
   margin: 0 auto;
+  margin-left: -40px;
+
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
+
   padding: 32px;
   gap: 60px;
+
+  background: #ffffff;
+
+  border-radius: 40px;
+
+  border: 1.5px solid rgba(79, 163, 30, 0.55);
+
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.04),
+    0 0 32px rgba(79, 163, 30, 0.12);
+
   box-sizing: border-box;
+
+  overflow: hidden;
 }
+
+/* ============================================
+   MAP VISUAL
+============================================ */
 
 .ct-map__visual {
   position: relative;
+
   width: 568px;
   height: 450px;
+
   border-radius: 28px;
+
   overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .ct-map__img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
+
   display: block;
 }
 
+/* ============================================
+   FLOATING CARD
+============================================ */
+
 .ct-map__floating-card {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
+  position: relative;
+
+  margin-top: 20px;
+
+  width: 100%;
+  max-width: 100%;
+
   background: #09131C;
+
   padding: 28px 32px;
+
   border-radius: 16px;
-  max-width: calc(100% - 48px);
-  z-index: 2;
-  box-shadow: 0 16px 32px rgba(0,0,0,0.4);
+
+  box-sizing: border-box;
 }
+
+/* ============================================
+   BRAND
+============================================ */
 
 .ct-map__fc-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+
+  gap: 14px;
+
   margin-bottom: 14px;
 }
 
@@ -58,6 +102,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.ct-map__fc-logo {
+  width: 140px;
+  height: auto;
+
+  object-fit: contain;
+
+  display: block;
 }
 
 .ct-map__fc-brand-text {
@@ -67,134 +122,255 @@
 
 .ct-map__fc-brand-title {
   font-family: 'Inter', sans-serif;
+
   font-weight: 800;
+
   font-size: 18px;
+
   letter-spacing: 0.15em;
+
   color: #ffffff;
+
   line-height: 1;
 }
 
 .ct-map__fc-brand-sub {
   font-family: 'Inter', sans-serif;
+
   font-weight: 600;
+
   font-size: 9px;
+
   letter-spacing: 0.3em;
+
   color: #ffffff;
+
   line-height: 1.2;
 }
 
 .ct-map__fc-addr {
   font-family: 'Inter', sans-serif;
+
   font-size: 13px;
+
   line-height: 1.6;
+
   color: #d1d5db;
+
   margin: 0;
 }
+
+/* ============================================
+   RIGHT CONTENT
+============================================ */
 
 .ct-map__info {
   display: flex;
   flex-direction: column;
+
   justify-content: center;
+
+  align-items: flex-start;
+
   padding-right: 32px;
 }
 
 .ct-map__eyebrow {
   font-family: 'Inter', sans-serif;
+
   font-weight: 700;
+
   font-size: 13px;
+
   letter-spacing: 0.1em;
+
   color: #4FA31E;
+
   text-transform: uppercase;
+
   margin-bottom: 14px;
 }
 
 .ct-map__title {
   font-family: 'Oswald', sans-serif;
+
   font-weight: 600;
+
   font-size: 40px;
+
   line-height: 60px;
+
   letter-spacing: -0.96px;
+
   color: #1e293b;
+
   margin: 0 0 18px;
 }
 
 .ct-map__desc {
   font-family: 'Inter', sans-serif;
+
+  font-weight: 400;
+
   font-size: 16px;
-  line-height: 1.6;
+
+  line-height: 1.8;
+
+  letter-spacing: 0;
+
   color: #475569;
+
   margin: 0 0 40px;
-  max-width: 95%;
+
+  max-width: 540px;
+
+  text-align: left;
 }
 
+/* ============================================
+   ADDRESS CARD
+============================================ */
+
 .ct-map__address-card {
+  width: 568px;
+  height: 172px;
+
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 24px;
-  border-radius: 16px;
+
+  gap: 24px;
+
+  padding: 48px;
+
+  border-radius: 22px;
+
   border: 1px solid #e2e8f0;
+
   background: #ffffff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-  width: max-content;
-  max-width: 100%;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+
+  box-sizing: border-box;
 }
 
 .ct-map__ac-icon {
   width: 48px;
   height: 48px;
+
   border-radius: 12px;
+
   background: rgba(79, 163, 30, 0.1);
+
   color: #4FA31E;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   flex-shrink: 0;
 }
 
 .ct-map__ac-details {
   display: flex;
   flex-direction: column;
+
   gap: 6px;
 }
 
 .ct-map__ac-title {
   font-family: 'Inter', sans-serif;
+
   font-weight: 700;
+
   font-size: 16px;
+
   color: #1e293b;
+
   margin: 0;
 }
 
 .ct-map__ac-text {
   font-family: 'Inter', sans-serif;
+
   font-size: 14.5px;
+
   line-height: 1.5;
+
   color: #64748B;
+
   margin: 0;
 }
 
-@media (max-width: 1100px) {
+/* ============================================
+   RESPONSIVE
+============================================ */
+
+@media (max-width: 1320px) {
+
   .ct-map__card {
-    grid-template-columns: 1fr;
-    height: auto;
-    min-height: auto;
-    padding: 24px;
-  }
-  .ct-map__visual {
-    height: 400px;
     width: 100%;
-  }
-  .ct-map__info {
-    padding-right: 0;
-    padding: 24px 0;
+    height: auto;
+
+    margin-left: 0;
   }
 }
-@media (max-width: 500px) {
+
+@media (max-width: 1100px) {
+
+  .ct-map__card {
+    grid-template-columns: 1fr;
+
+    padding: 24px;
+  }
+
+  .ct-map__visual {
+    width: 100%;
+    height: auto;
+  }
+
+  .ct-map__img {
+    height: 400px;
+  }
+
+  .ct-map__info {
+    padding-right: 0;
+    padding-top: 24px;
+  }
+
+  .ct-map__address-card {
+    width: 100%;
+    height: auto;
+
+    padding: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+
+  .ct-map__title {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+
+  .ct-map__desc {
+    font-size: 15px;
+  }
+
   .ct-map__floating-card {
-    left: 16px;
-    bottom: 16px;
-    padding: 16px;
-    max-width: calc(100% - 32px);
+    padding: 20px;
+  }
+
+  .ct-map__fc-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ct-map__address-card {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 18px;
+
+    padding: 24px;
   }
 }

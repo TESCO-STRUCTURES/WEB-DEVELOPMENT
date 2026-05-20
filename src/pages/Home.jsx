@@ -1,6 +1,6 @@
 import Navbar from '../component/Navbar/Navbar';
 import Hero from '../component/Hero/Hero';
-import HomeCost from '../component/HomeCost/Homecost';
+
 import HomeServices from '../component/HomeServices/HomeServices';
 import HomeEngineered from '../component/HomeEngineered/HomeEngineered';
 import HomeTensile from '../component/HomeTensile/HomeTensile';
@@ -28,30 +28,30 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
-       <HomeCost />
-        <HomeServices />
-           <HomeEngineered />
-             <HomeTensile />
-              <HomeCivil />
-              
+
+      <HomeServices />
+      <HomeEngineered />
+      <HomeTensile />
+      <HomeCivil />
+
       <HomeDesign />
       <HomeAll />
       <HomeManufacturing />
-       <HomeWorked />
-          <HomePortfolio />
-              <HomeBlogs />
-      
-     
-  
-     
-     
-   
-   
-   
+      <HomeWorked />
+      <HomePortfolio />
+      <HomeBlogs />
+
+
+
+
+
+
+
+
       <HomeReady />
-     
-    
-     
+
+
+
       <Footer />
     </>
   );

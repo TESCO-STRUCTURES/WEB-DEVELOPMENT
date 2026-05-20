@@ -20,24 +20,14 @@ export default function AboutWhatWeDo() {
         <div className="ts-awd__head">
           <span className="ts-awd__eyebrow">What We Do</span>
           <p className="ts-awd__desc">
-            We provide complete construction solutions, combining innovative design, strong engineering, and high-quality execution across all types of building projects.
+            We provide complete construction solutions, combining innovative design, strong engineering,             and high-quality execution across all types of building projects.
           </p>
         </div>
 
         <div className="ts-awd__grid">
           {SERVICES.map((s, i) => (
             <article key={i} className="ts-awd__card">
-              <div className="ts-awd__bg">
-                <img src={s.img} alt={s.title} />
-              </div>
-              <div className="ts-awd__content">
-                <div className="ts-awd__icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    {s.icon}
-                  </svg>
-                </div>
-                <h3 className="ts-awd__title">{s.title}</h3>
-              </div>
+              <img className="ts-awd__image" src={s.img} alt="" />
             </article>
           ))}
         </div>

@@ -31,6 +31,7 @@ export default function HomeAll() {
         </div>
 
         <div className="ts-all__copy">
+          <div className="ts-all__glow" aria-hidden />
           <h2 className="ts-all__title">All Type of Roofing</h2>
           <h3 className="ts-all__subtitle">Every Profile, Every Material, One Source</h3>
 

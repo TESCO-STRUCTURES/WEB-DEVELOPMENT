@@ -126,8 +126,17 @@
 .ts-nav__link--active {
   color: var(--color-orange);
 }
+
 .ts-nav__link--active::after {
   transform: scaleX(1);
+}
+
+/* small download icon next to Brochure link */
+.ts-nav__dd-icon {
+  margin-left: 8px;
+  display: inline-block;
+  vertical-align: middle;
+  color: inherit;
 }
 
 /* ============================================
@@ -136,18 +145,15 @@
 
 .ts-nav__cta {
   /* DISTANCE BETWEEN LAST TITLE & BUTTON */
-  margin-left: 64px;
+  margin-left: 24px;
 
-  /* FIGMA SIZE */
-  width: 118px;
-  height: 47px;
+  /* Compact width — sized to text + tight padding */
+  width: auto;
+  min-width: 0;
+  height: 36px;
 
-  padding-top: 10px;
-  padding-right: 22px;
-  padding-bottom: 10px;
-  padding-left: 22px;
-
-  gap: 10px;
+  padding: 6px 14px;
+  gap: 6px;
 
   border-radius: 70px;
   background: #FF6A00;
@@ -159,8 +165,10 @@
   justify-content: center;
 
   box-sizing: border-box;
+  white-space: nowrap;
 
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 600;
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
@@ -319,12 +327,16 @@
   gap: 6px;
   cursor: pointer;
 }
+
 .ts-nav__caret {
   width: 14px;
   height: 14px;
   transition: transform 0.25s ease;
 }
-.ts-nav__has-dd--open .ts-nav__caret { transform: rotate(180deg); }
+
+.ts-nav__has-dd--open .ts-nav__caret {
+  transform: rotate(180deg);
+}
 
 .ts-nav__dd {
   position: absolute;
@@ -345,12 +357,14 @@
   transition: opacity 0.2s ease, transform 0.2s ease;
   z-index: 20;
 }
+
 /* invisible bridge so hovering between trigger and panel doesn't close it */
 .ts-nav__dd::before {
   content: '';
   position: absolute;
   inset: -14px 0 100% 0;
 }
+
 .ts-nav__has-dd--open .ts-nav__dd {
   opacity: 1;
   transform: translateY(0);
@@ -369,19 +383,27 @@
   text-decoration: none;
   transition: background 0.18s ease, color 0.18s ease, padding-left 0.18s ease;
 }
+
 .ts-nav__dd-link:hover {
   background: rgba(255, 106, 0, 0.08);
   color: #FF6A00;
   padding-left: 20px;
 }
+
 .ts-nav__dd-link--active {
   background: rgba(255, 106, 0, 0.10);
   color: #FF6A00;
 }
 
 @media (max-width: 960px) {
+
   /* On mobile the menu is a vertical panel — let the dropdown render inline */
-  .ts-nav__has-dd { width: 100%; flex-direction: column; align-items: stretch; }
+  .ts-nav__has-dd {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
   .ts-nav__dd {
     position: static;
     box-shadow: none;
@@ -397,7 +419,17 @@
     overflow: hidden;
     transition: max-height 0.3s ease;
   }
-  .ts-nav__has-dd--open .ts-nav__dd { max-height: 600px; }
-  .ts-nav__dd::before { display: none; }
-  .ts-nav__dd-link { padding: 12px 18px; font-size: 14.5px; }
+
+  .ts-nav__has-dd--open .ts-nav__dd {
+    max-height: 600px;
+  }
+
+  .ts-nav__dd::before {
+    display: none;
+  }
+
+  .ts-nav__dd-link {
+    padding: 12px 18px;
+    font-size: 14.5px;
+  }
 }

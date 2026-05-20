@@ -48,10 +48,9 @@ export default function PEBabout() {
           </div>
         </div>
 
-        {/* RIGHT — image with diagonal stripes overlay */}
+        {/* RIGHT — clean image on white background */}
         <div className="peb-about__media">
           <img src={aboutImg} alt="Pre-engineered building structure" />
-          <span className="peb-about__stripes" aria-hidden />
         </div>
 
       </div>

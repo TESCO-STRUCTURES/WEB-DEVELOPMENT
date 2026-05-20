@@ -4,26 +4,48 @@
 .ts-ah {
   position: relative;
   width: 100%;
-  max-width: 1440px;
+  max-width: 100%;
   height: 815px;
-  margin: 73px auto 0 auto; /* top: 73px */
+  margin: 73px 0 0 0;
+  /* top: 73px */
   overflow: hidden;
   background: var(--color-navy-deep);
 }
 
-.ts-ah__bg { position: absolute; inset: 0; z-index: 0; }
+.ts-ah__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
 .ts-ah__bg-img {
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   animation: tsAhZoom 12s var(--ease-out) infinite alternate;
+  /* The green decorative arc is baked into the SVG asset — desaturate it out
+     so only the navy building photo reads through the scrim. */
+  filter: saturate(0.25) brightness(0.85) contrast(1.05);
 }
+
 @keyframes tsAhZoom {
-  from { transform: scale(1); }
-  to   { transform: scale(1.06); }
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.06);
+  }
 }
+
 .ts-ah__scrim {
-  position: absolute; inset: 0;
-  background: rgba(11, 31, 58, 0.5); /* opacity: 0.5 */
+  position: absolute;
+  inset: 0;
+  /* Heavier left-side wash to hide the green arc that's baked into the SVG */
+  background:
+    linear-gradient(90deg, rgba(11, 31, 58, 0.55) 0%, rgba(11, 31, 58, 0.25) 28%, transparent 55%),
+    linear-gradient(180deg, rgba(11, 31, 58, 0.95) 0%, rgba(11, 31, 58, 0.75) 18%, rgba(11, 31, 58, 0.55) 100%);
 }
 
 .ts-ah__inner {
@@ -74,7 +96,7 @@
   line-height: 1;
   color: #E2E8F0;
   letter-spacing: 0.05em;
-  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .ts-ah__logo-structures {
@@ -95,7 +117,7 @@
   color: #4FA31E;
   text-transform: uppercase;
   margin: 0;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .ts-ah__desc {
@@ -129,13 +151,16 @@
 }
 
 .ts-ah__btn--outline {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  color: #ffffff;
+  background: #E5E7EB;
+  border: 1px solid #D1D5DB;
+  color: #1B232E;
 }
+
 .ts-ah__btn--outline:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: #ffffff;
+  background: #D1D5DB;
+  border-color: #9CA3AF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .ts-ah__btn--solid {
@@ -143,6 +168,7 @@
   border: 1px solid #FF6A00;
   color: #ffffff;
 }
+
 .ts-ah__btn--solid:hover {
   background: #E65A00;
   border-color: #E65A00;
@@ -151,14 +177,118 @@
 }
 
 @keyframes tsAhFadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 640px) {
-  .ts-ah { height: auto; min-height: 60vh; }
-  .ts-ah__logo-mark { flex-direction: column; gap: 10px; align-items: center; }
-  .ts-ah__logo-text { align-items: center; }
-  .ts-ah__actions { flex-direction: column; width: 100%; max-width: 300px; }
-  .ts-ah__btn { width: 100%; }
+  .ts-ah {
+    height: auto;
+    min-height: 60vh;
+  }
+
+  .ts-ah__logo-mark {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .ts-ah__logo-text {
+    align-items: center;
+  }
+
+  .ts-ah__actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .ts-ah__btn {
+    width: 100%;
+  }
+}
+
+/* ===========================================================
+   Tablet/Mobile additions
+   =========================================================== */
+
+@media (max-width: 1024px) {
+  .ts-ah {
+    height: auto;
+    min-height: 90vh;
+    margin-top: 60px;
+  }
+
+  .ts-ah__inner {
+    padding-top: 60vh;
+    padding-bottom: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ts-ah {
+    min-height: 80vh;
+  }
+
+  .ts-ah__inner {
+    padding-top: 50vh;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .ts-ah__logo-container {
+    margin-bottom: 18px;
+  }
+
+  .ts-ah__desc {
+    margin-bottom: 24px;
+    padding: 0 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ts-ah {
+    min-height: 70vh;
+    margin-top: 56px;
+  }
+
+  .ts-ah__inner {
+    padding-top: 45vh;
+    padding-bottom: 32px;
+  }
+
+  .ts-ah__logo-mark {
+    gap: 6px;
+  }
+
+  .ts-ah__logo-tesco {
+    font-size: clamp(36px, 9vw, 48px);
+  }
+
+  .ts-ah__logo-structures {
+    font-size: 13px;
+    letter-spacing: 0.3em;
+  }
+
+  .ts-ah__title {
+    font-size: clamp(20px, 5.5vw, 26px);
+  }
+
+  .ts-ah__desc {
+    font-size: 13px;
+    padding: 0 4px;
+  }
+
+  .ts-ah__btn {
+    padding: 12px 22px;
+    font-size: 13px;
+  }
 }

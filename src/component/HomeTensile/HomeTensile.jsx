@@ -35,6 +35,7 @@ export default function HomeTensile() {
 
         {/* ── RIGHT: copy ── */}
         <div className="ts-ten__copy">
+          <div className="ts-ten__glow" aria-hidden />
           <h2 className="ts-ten__title">Tensile Roofing</h2>
           <h3 className="ts-ten__subtitle">Architectural Excellence with Lightweight Design</h3>
 

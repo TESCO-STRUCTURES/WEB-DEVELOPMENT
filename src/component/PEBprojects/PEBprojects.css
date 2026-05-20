@@ -1,27 +1,31 @@
-/* ── PEB OUR PROJECTS ─────────────────────────── */
+/* ── PEB OUR PROJECTS — INFINITE-LOOP CURVED TV ── */
 .peb-pro {
-  background: #ffffff;
-  padding: 0 0 120px 0;
+  background: #000000;
+  padding: 60px 0 90px;
 }
 
 .peb-pro__head {
   text-align: center;
   max-width: 760px;
-  margin: 0 auto 48px;
+  margin: 0 auto 28px;
 }
 
 .peb-pro__eyebrow {
   display: inline-block;
-  padding: 8px 22px;
-  background: rgba(79, 163, 30, 0.10);
-  border: 1px solid rgba(79, 163, 30, 0.30);
+  padding: 10px 30px;
+  background: transparent;
+  border: 1px solid rgba(79, 163, 30, 0.7);
   border-radius: 100px;
-  margin-bottom: 18px;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 600;
-  font-size: 13px;
-  color: #4FA31E;
-  letter-spacing: 0.4px;
+  margin-bottom: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  color: #FFFFFF;
+  letter-spacing: 0.2px;
+  text-transform: capitalize;
+  box-shadow: 0 0 28px rgba(79, 163, 30, 0.55),
+              inset 0 0 14px rgba(79, 163, 30, 0.20);
 }
 
 .peb-pro__desc {
@@ -29,28 +33,50 @@
   font-family: 'Poppins', sans-serif;
   font-size: 15px;
   line-height: 1.7;
-  color: #475569;
+  color: #CBD5E0;
 }
 
-/* ── 3-IMAGE GRID ─────────────────────────────── */
+/* ── VIEWPORT — fixed size, holds the curve clip-path ── */
 .peb-pro__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  position: relative;
+  display: block;
+  width: 1276.8px;
+  max-width: 100%;
+  height: 532px;
+  margin: 50px auto 90px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  /* Inward curve fixed on the viewport — content scrolls behind it */
+  clip-path: path('M 0 0 Q 638.4 160 1276.8 0 L 1276.8 532 Q 638.4 372 0 532 Z');
 }
 
+.peb-pro__grid::-webkit-scrollbar { display: none; }
+
+/* ── RAIL — wide content area that scrolls inside the viewport ── */
+.peb-pro__screen {
+  display: flex;
+  gap: 0;
+  flex-shrink: 0;
+  width: max-content;
+  height: 532px;
+}
+
+/* ── INDIVIDUAL CARDS — sharp edges, fixed size ── */
 .peb-pro__card {
+  flex: 0 0 425.6px;
+  width: 425.6px;
+  height: 532px;
   margin: 0;
-  border-radius: 16px;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
-  box-shadow: 0 14px 32px rgba(11, 31, 58, 0.10);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.peb-pro__card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 22px 44px rgba(11, 31, 58, 0.14);
+  background: #111;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .peb-pro__card img {
@@ -58,29 +84,34 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.6s ease;
-}
-
-.peb-pro__card:hover img {
-  transform: scale(1.06);
+  pointer-events: none;
 }
 
 /* ── RESPONSIVE ───────────────────────────────── */
+@media (max-width: 1300px) {
+  .peb-pro__grid {
+    width: 100%;
+    /* On narrower viewports the curve still fits because clip-path uses fixed coords;
+       force the viewport to its design width via overflow on container */
+  }
+}
+
 @media (max-width: 900px) {
   .peb-pro__grid {
-    grid-template-columns: 1fr 1fr;
+    width: 960px;
+    height: 400px;
+    clip-path: path('M 0 0 Q 480 120 960 0 L 960 400 Q 480 280 0 400 Z');
   }
-  .peb-pro__card:nth-child(3) {
-    grid-column: 1 / -1;
-    aspect-ratio: 16 / 7;
-  }
+  .peb-pro__screen { height: 400px; }
+  .peb-pro__card { flex: 0 0 320px; width: 320px; height: 400px; }
 }
 
 @media (max-width: 560px) {
   .peb-pro__grid {
-    grid-template-columns: 1fr;
+    width: 780px;
+    height: 325px;
+    clip-path: path('M 0 0 Q 390 96 780 0 L 780 325 Q 390 229 0 325 Z');
   }
-  .peb-pro__card:nth-child(3) {
-    aspect-ratio: 4 / 3;
-  }
+  .peb-pro__screen { height: 325px; }
+  .peb-pro__card { flex: 0 0 260px; width: 260px; height: 325px; }
 }

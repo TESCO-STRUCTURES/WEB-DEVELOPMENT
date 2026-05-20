@@ -21,36 +21,13 @@ export default function Allbuild() {
 
         <div className="all-bld__visual">
           <img src={buildImg} alt="Tesco Structure roofing install" className="all-bld__visual-img" />
-
-          <div className="all-bld__badge all-bld__badge--top">
-            <span className="all-bld__badge-icon" aria-hidden>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#FF8A1E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="8" r="6"/><path d="M9 14v7l3-2 3 2v-7"/>
-              </svg>
-            </span>
-            <div className="all-bld__badge-body">
-              <strong>25+ Years Experience</strong>
-              <span>GLOBAL INDUSTRY LEADER</span>
-            </div>
-          </div>
-
-          <div className="all-bld__badge all-bld__badge--bottom">
-            <span className="all-bld__badge-icon" aria-hidden>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#FF8A1E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M3 21h18M5 21V8l7-5 7 5v13M9 9h.01M15 9h.01M9 13h.01M15 13h.01M9 17h.01M15 17h.01"/>
-              </svg>
-            </span>
-            <div className="all-bld__badge-body">
-              <strong>700+ Roofs Installed</strong>
-              <span>ACROSS 4 CITIES (INDIA)</span>
-            </div>
-          </div>
         </div>
 
         <form className="all-bld__form" onSubmit={onSubmit}>
           <h2 className="all-bld__title">Let&apos;s Build Your Project</h2>
           <p className="all-bld__desc">
-            Connect with our roofing experts for customized roofing system solutions.
+            Connect with our engineering experts for customized steel
+structure solutions.
           </p>
 
           <div className="all-bld__row all-bld__row--two">
