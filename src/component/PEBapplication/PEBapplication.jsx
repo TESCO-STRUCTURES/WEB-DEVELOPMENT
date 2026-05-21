@@ -8,7 +8,7 @@ import marriage    from '../../assets/PEBMarriage.svg';
 import hospitals   from '../../assets/PEBHospitals.svg';
 import multi       from '../../assets/PEBMulti.svg';
 import commercial  from '../../assets/PEBCommercial.svg';
-import industrial  from '../../assets/PEBIndustrial.svg';
+/*import industrial  from '../../assets/PEBIndustrial.svg';*/
 
 const APPS = [
   { img: cold,        label: 'Cold Storage', className: 'peb-app__card--wide' },
@@ -20,7 +20,7 @@ const APPS = [
   { img: hospitals,   label: 'Hospitals', className: '' },
   { img: multi,       label: 'Multi-story Steel Building', className: 'peb-app__card--wide' },
   { img: commercial,  label: 'Commercial Spaces', className: '' },
-  { img: industrial,  label: 'Industrial Sheds', className: '' },
+  /*{ img: industrial,  label: 'Industrial Sheds', className: '' },*/
 ];
 
 export default function PEBapplication() {

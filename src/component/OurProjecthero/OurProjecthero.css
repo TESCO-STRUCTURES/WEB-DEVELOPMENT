@@ -42,34 +42,87 @@
    PORTFOLIO BUTTON
 ============================================ */
 .op-hero__eyebrow {
-  width: 143px;
-  height: 58px;
+  width: 143px !important;
+  min-width: 143px !important;
+  max-width: 143px !important;
 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  height: 58px !important;
+  min-height: 58px !important;
+  max-height: 58px !important;
 
-  gap: 10px;
+  padding: 14px 30px !important;
 
-  padding-top: 14px;
-  padding-right: 30px;
-  padding-bottom: 14px;
-  padding-left: 30px;
+  display: flex !important;
 
-  border-radius: 60px;
+  flex: 0 0 143px !important;
 
-  border: 1px solid #4CAA17;
+  border-radius: 60px !important;
 
-  opacity: 1;
+  border: 3px solid red !important;
 
-  box-sizing: border-box;
+  background: yellow !important;
+
+  font-size: 20px !important;
+
+  box-sizing: border-box !important;
+}
+/* ── Soft Green Glow ── */
+
+.op-hero__eyebrow::after {
+  content: '';
+
+  position: absolute;
+
+  inset: -8px;
+
+  border-radius: inherit;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(79,163,30,0.18) 0%,
+      rgba(79,163,30,0.08) 45%,
+      transparent 75%
+    );
+
+  opacity: .7;
+
+  z-index: -1;
+
+  filter: blur(14px);
+
+  animation: opHeroGlowPulse 3s ease-in-out infinite;
 }
 
+/* ── Hover ── */
+
 .op-hero__eyebrow:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px) scale(1.02);
 
   box-shadow:
-    0 10px 20px rgba(76, 170, 23, 0.16);
+    0 16px 32px rgba(79, 163, 30, 0.18),
+    0 8px 20px rgba(79, 163, 30, 0.12);
+}
+
+/* ── Glow Animation ── */
+
+@keyframes opHeroGlowPulse {
+
+  0% {
+    opacity: .55;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: .95;
+    transform: scale(1.05);
+  }
+
+  100% {
+    opacity: .55;
+    transform: scale(1);
+  }
+
 }
 
 /* ============================================

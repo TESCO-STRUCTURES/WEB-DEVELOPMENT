@@ -19,7 +19,8 @@ export default function Architecturalabout() {
       <div className="container arc-about__inner">
 
         <div className="arc-about__copy">
-          <span className="arc-about__eyebrow">About Design</span>
+          <span className="arc-about__eyebrow">About Design & consultantcy
+          </span>
           <h2 className="arc-about__title">What is Architectural Design?</h2>
 
           <p className="arc-about__desc">

@@ -19,7 +19,7 @@ export default function Tensileabout() {
       <div className="container ten-about__inner">
 
         <div className="ten-about__copy">
-          <span className="ten-about__eyebrow">About Tensile</span>
+          <span className="ten-about__eyebrow">About Tensile roofing</span>
           <h2 className="ten-about__title">What is Tensile Roofing?</h2>
 
           <p className="ten-about__desc">

@@ -1,8 +1,79 @@
 /* ── PEB ABOUT  (Figma pixel match) ────────────────────── */
 
+/* ============================================
+   SECTION GLOW EFFECTS
+============================================ */
+
 .all-about {
+  position: relative;
+
   background: #ffffff;
+
   padding: 90px 0 110px;
+
+  overflow: visible;
+
+  isolation: isolate;
+}
+
+/* LEFT GREEN GLOW */
+
+.all-about::before {
+  content: '';
+
+  position: absolute;
+
+  top: -120px;
+  left: -220px;
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(76, 170, 23, 0.22) 0%,
+      rgba(76, 170, 23, 0.10) 35%,
+      rgba(76, 170, 23, 0) 72%
+    );
+
+  filter: blur(90px);
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+/* RIGHT ORANGE GLOW */
+
+.all-about::after {
+  content: '';
+
+  position: absolute;
+
+  top: -120px;
+  right: -220px;
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 122, 0, 0.22) 0%,
+      rgba(255, 122, 0, 0.10) 35%,
+      rgba(255, 122, 0, 0) 72%
+    );
+
+  filter: blur(90px);
+
+  z-index: 0;
+
+  pointer-events: none;
 }
 
 .all-about__inner {
@@ -18,62 +89,85 @@
 }
 
 /* "About PEB" pill — peach fill, orange text, static green border */
-.all-about__eyebrow {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 36px;
-  background: #ffffff;
-  border: none;
-  border-radius: 999px;
-  margin-bottom: 32px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 1.2;
-  color: #FF6A00;
-  white-space: nowrap;
-  box-shadow: 0 6px 18px rgba(79, 163, 30, 0.10);
-  isolation: isolate;
+.roof-about__eyebrow {
+  width: 203px !important;
+  min-width: 203px !important;
+  max-width: 203px !important;
+
+  height: 58px !important;
+  min-height: 58px !important;
+  max-height: 58px !important;
+
+  padding: 14px 30px !important;
+
+  display: flex !important;
+
+  flex: 0 0 203px !important;
+
+  border-radius: 60px !important;
+
+  box-sizing: border-box !important;
+
+  font-size: 20px !important;
 }
 
-@property --all-eyebrow-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
+/* ── Soft Green Glow ── */
 
-.all-about__eyebrow::before {
+.roof-about__eyebrow::after {
   content: '';
+
   position: absolute;
-  inset: 0;
-  border-radius: 999px;
-  padding: 2px;
-  background: conic-gradient(
-    from var(--all-eyebrow-angle),
-    rgba(79, 163, 30, 0) 0deg,
-    rgba(79, 163, 30, 0) 240deg,
-    rgba(79, 163, 30, 0.18) 265deg,
-    rgba(79, 163, 30, 0.55) 295deg,
-    #4FA31E 325deg,
-    #4FA31E 355deg,
-    rgba(79, 163, 30, 0.4) 360deg
-  );
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  pointer-events: none;
+
+  inset: -8px;
+
+  border-radius: inherit;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(79,163,30,0.18) 0%,
+      rgba(79,163,30,0.08) 45%,
+      transparent 75%
+    );
+
+  opacity: .7;
+
   z-index: -1;
-  animation: all-eyebrow-spin 3s linear infinite;
+
+  filter: blur(14px);
+
+  animation: roofGlowPulse 3s ease-in-out infinite;
 }
 
-@keyframes all-eyebrow-spin {
-  to { --all-eyebrow-angle: 360deg; }
+/* ── Hover ── */
+
+.roof-about__eyebrow:hover {
+  transform: translateY(-4px) scale(1.02);
+
+  box-shadow:
+    0 16px 32px rgba(79, 163, 30, 0.18),
+    0 8px 20px rgba(79, 163, 30, 0.12);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .all-about__eyebrow::before { animation: none; }
+/* ── Glow Animation ── */
+
+@keyframes roofGlowPulse {
+
+  0% {
+    opacity: .55;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: .95;
+    transform: scale(1.05);
+  }
+
+  100% {
+    opacity: .55;
+    transform: scale(1);
+  }
+
 }
 
 .all-about__eyebrow-text {
@@ -161,39 +255,11 @@
   color: #000000;
 }
 
-/* ── MEDIA (RIGHT) — pebabout.png + 3 white Tesco-logo stripes ── */
-.all-about__media {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-  box-shadow: 0 -4px 0px 0px #4CAA17, 0 24px 50px rgba(11, 31, 58, 0.12);
-}
-
-.all-about__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-/* White geometric overlay — top-left angular + 3 diagonal bars (Figma) */
-.all-about__cut {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 2;
-  opacity: 0.92;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.10));
-}
-
 /* ── RESPONSIVE ───────────────────────────────── */
 @media (max-width: 1024px) {
   .all-about        { padding: 70px 0 90px; }
   .all-about__inner { grid-template-columns: 1fr; gap: 50px; }
   .all-about__copy  { max-width: none; }
-  .all-about__media { max-width: 620px; margin: 0 auto; }
 }
 
 @media (max-width: 640px) {

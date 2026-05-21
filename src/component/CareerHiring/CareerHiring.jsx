@@ -1,4 +1,13 @@
 import './CareerHiring.css';
+import execIcon from '../../assets/car1.svg';
+import engIcon  from '../../assets/car2.svg';
+import mgmtIcon from '../../assets/car3.svg';
+
+const DEPT_ICON = {
+  Executive:   execIcon,
+  Engineering: engIcon,
+  Management:  mgmtIcon,
+};
 
 const ROLES = [
   { title: 'Business Development Manager',  dept: 'Executive',    loc: 'London',    type: 'Full-time', desc: 'Lead the vision and strategic direction of Tesco Structure as we expand our footprint into global markets.' },
@@ -26,9 +35,7 @@ export default function CareerHiring() {
             <div key={i} className="cr-jobs__card">
               <div className="cr-jobs__card-head">
                 <span className="cr-jobs__card-icon" aria-hidden>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline>
-                  </svg>
+                  <img src={DEPT_ICON[r.dept]} alt="" />
                 </span>
                 <span className="cr-jobs__card-dept">{r.dept}</span>
               </div>
@@ -51,10 +58,6 @@ export default function CareerHiring() {
               </div>
               
               <p className="cr-jobs__card-desc">{r.desc}</p>
-              
-              <a href="#cr-resume" className="cr-jobs__card-btn">
-                View Details
-              </a>
             </div>
           ))}
         </div>

@@ -9,7 +9,61 @@
   margin-top: 73px;
   overflow: hidden;
 }
+/* ============================================
+   HERO GLOW EFFECTS
+============================================ */
 
+.peb-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.peb-hero::before,
+.peb-hero::after {
+  content: '';
+
+  position: absolute;
+
+  width: 390px;
+  height: 390px;
+
+  border-radius: 50%;
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+/* LEFT GREEN GLOW */
+
+.peb-hero::before {
+  left: -100px;
+  top: 120px;
+
+  background: rgba(76, 170, 23, 0.18);
+
+  filter: blur(90px);
+}
+
+/* RIGHT ORANGE GLOW */
+
+.peb-hero::after {
+  right: -100px;
+  top: 120px;
+
+  background: rgba(255, 122, 0, 0.18);
+
+  filter: blur(90px);
+}
+
+/* ============================================
+   HERO SECTION
+============================================ */
+
+.peb-hero__inner {
+  position: relative;
+  z-index: 1;
+}
 .peb-hero__inner {
   position: relative;
   display: grid;
@@ -94,7 +148,7 @@
 
 /* ── Badge ── */
 .peb-hero__badge {
-  width: 352px;
+  width: 425px;
   height: 58px;
 
   display: inline-flex;

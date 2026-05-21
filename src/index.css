@@ -153,6 +153,11 @@ ul { list-style: none; padding: 0; margin: 0; }
 .all-about__eyebrow,
 .all-key__eyebrow,
 .all-pro__eyebrow,
+.peb-app__eyebrow,
+.tapp__badge,
+.civapp__badge,
+.arcapp__badge,
+.allapp__badge,
 .op-grid__eyebrow,
 .blg-grid__eyebrow,
 .blg-hero__eyebrow {
@@ -191,6 +196,11 @@ ul { list-style: none; padding: 0; margin: 0; }
 .all-about__eyebrow::before,
 .all-key__eyebrow::before,
 .all-pro__eyebrow::before,
+.peb-app__eyebrow::before,
+.tapp__badge::before,
+.civapp__badge::before,
+.arcapp__badge::before,
+.allapp__badge::before,
 .op-grid__eyebrow::before,
 .blg-grid__eyebrow::before,
 .blg-hero__eyebrow::before {
@@ -246,6 +256,11 @@ ul { list-style: none; padding: 0; margin: 0; }
 .all-about__eyebrow::after,
 .all-key__eyebrow::after,
 .all-pro__eyebrow::after,
+.peb-app__eyebrow::after,
+.tapp__badge::after,
+.civapp__badge::after,
+.arcapp__badge::after,
+.allapp__badge::after,
 .op-grid__eyebrow::after,
 .blg-grid__eyebrow::after,
 .blg-hero__eyebrow::after {
@@ -537,6 +552,106 @@ html, body {
   .ts-aw__diamond-grid { transform: scale(0.5); height: 320px; }
 }
 
+/* Shift service about section images 65px to the right */
+.peb-about__media,
+.ten-about__media,
+.civ-about__media,
+.arc-about__media,
+.all-about__media {
+  transform: translateX(65px);
+}
+
+/* Shift the whole service about section 65px to the right */
+.peb-about,
+.ten-about,
+.civ-about,
+.arc-about,
+.all-about {
+  transform: translateX(65px);
+}
+
+/* Shared hero + about glow effect for service pages */
+.ten-hero,
+.civ-hero,
+.arc-hero,
+.all-hero,
+.ten-about,
+.civ-about,
+.arc-about,
+.all-about {
+  position: relative;
+  overflow: hidden;
+}
+
+.ten-hero::before,
+.civ-hero::before,
+.arc-hero::before,
+.all-hero::before,
+.ten-about::before,
+.civ-about::before,
+.arc-about::before,
+.all-about::before,
+.ten-hero::after,
+.civ-hero::after,
+.arc-hero::after,
+.all-hero::after,
+.ten-about::after,
+.civ-about::after,
+.arc-about::after,
+.all-about::after {
+  content: '';
+  position: absolute;
+  width: 390px;
+  height: 390px;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* LEFT GREEN GLOW */
+.ten-hero::before,
+.civ-hero::before,
+.arc-hero::before,
+.all-hero::before,
+.ten-about::before,
+.civ-about::before,
+.arc-about::before,
+.all-about::before {
+  left: -100px;
+  top: 120px;
+  background: rgba(76, 170, 23, 0.18);
+  filter: blur(90px);
+}
+
+/* Ensure the same PEB green glow is visible on service about sections */
+.ten-about::before,
+.civ-about::before,
+.arc-about::before,
+.all-about::before {
+  content: '';
+  position: absolute;
+  width: 390px;
+  height: 390px;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* RIGHT ORANGE GLOW */
+.ten-hero::after,
+.civ-hero::after,
+.arc-hero::after,
+.all-hero::after,
+.ten-about::after,
+.civ-about::after,
+.arc-about::after,
+.all-about::after {
+  right: -100px;
+  top: 120px;
+  background: rgba(255, 122, 0, 0.18);
+  filter: blur(90px);
+}
+
 /* ── TOUCH DEVICE TAP TARGETS ──────────────────────────────── */
 @media (hover: none) and (pointer: coarse) {
   /* All interactive elements honour the 44×44 iOS HIG minimum */
@@ -559,4 +674,38 @@ html, body {
   .ts-nav {
     padding-top: max(18px, env(safe-area-inset-top));
   }
+}
+
+/* Disable click / active effects on project cards to avoid
+   visual jumps when users click cards on Projects pages */
+.op-grid__card:active,
+.allapp__card:active,
+.civapp__card:active,
+.peb-app__card:active,
+.tapp__card:active,
+.arcapp__card:active,
+.op-grid__card:focus,
+.allapp__card:focus,
+.civapp__card:focus,
+.peb-app__card:focus,
+.tapp__card:focus,
+.arcapp__card:focus,
+.op-grid__card:focus-visible,
+.allapp__card:focus-visible,
+.civapp__card:focus-visible,
+.peb-app__card:focus-visible,
+.tapp__card:focus-visible,
+.arcapp__card:focus-visible {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Also prevent images inside cards from scaling on active */
+.op-grid__card:active img,
+.allapp__card:active img,
+.civapp__card:active img,
+.peb-app__card:active img,
+.tapp__card:active img,
+.arcapp__card:active img {
+  transform: none !important;
 }

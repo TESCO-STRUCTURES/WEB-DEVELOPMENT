@@ -1,10 +1,80 @@
 /* ── PEB ABOUT  (Figma pixel match) ────────────────────── */
 
+/* ============================================
+   SECTION GLOW EFFECTS
+============================================ */
+
 .ten-about {
+  position: relative;
+
   background: #ffffff;
+
   padding: 90px 0 110px;
+
+  overflow: visible;
+
+  isolation: isolate;
 }
 
+/* LEFT GREEN GLOW */
+
+.ten-about::before {
+  content: '';
+
+  position: absolute;
+
+  top: -120px;
+  left: -220px;
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(76, 170, 23, 0.22) 0%,
+      rgba(76, 170, 23, 0.10) 35%,
+      rgba(76, 170, 23, 0) 72%
+    );
+
+  filter: blur(90px);
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+/* RIGHT ORANGE GLOW */
+
+.ten-about::after {
+  content: '';
+
+  position: absolute;
+
+  top: -120px;
+  right: -220px;
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 122, 0, 0.22) 0%,
+      rgba(255, 122, 0, 0.10) 35%,
+      rgba(255, 122, 0, 0) 72%
+    );
+
+  filter: blur(90px);
+
+  z-index: 0;
+
+  pointer-events: none;
+}
 .ten-about__inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -20,62 +90,109 @@
 /* "About PEB" pill — peach fill, orange text, static green border */
 .ten-about__eyebrow {
   position: relative;
+  top: -30px;
+
+  width: 278px;
+  height: 58px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 36px;
+
+  gap: 10px;
+
+  padding: 14px 30px;
+
+  border-radius: 60px;
+
+  border: 1px solid #4FA31E;
+
+  box-sizing: border-box;
+
   background: #ffffff;
-  border: none;
-  border-radius: 999px;
-  margin-bottom: 32px;
+
   font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 1.2;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-transform: capitalize;
+
   color: #FF6A00;
+
   white-space: nowrap;
-  box-shadow: 0 6px 18px rgba(79, 163, 30, 0.10);
+
+  overflow: hidden;
+
   isolation: isolate;
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+
+  box-shadow:
+    0 8px 22px rgba(79, 163, 30, 0.12),
+    0 2px 8px rgba(0,0,0,0.05);
 }
 
-@property --ten-eyebrow-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
+/* ── Soft Green Glow ── */
 
-.ten-about__eyebrow::before {
+.ten-about__eyebrow::after {
   content: '';
+
   position: absolute;
-  inset: 0;
-  border-radius: 999px;
-  padding: 2px;
-  background: conic-gradient(
-    from var(--ten-eyebrow-angle),
-    rgba(79, 163, 30, 0) 0deg,
-    rgba(79, 163, 30, 0) 240deg,
-    rgba(79, 163, 30, 0.18) 265deg,
-    rgba(79, 163, 30, 0.55) 295deg,
-    #4FA31E 325deg,
-    #4FA31E 355deg,
-    rgba(79, 163, 30, 0.4) 360deg
-  );
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  pointer-events: none;
+
+  inset: -8px;
+
+  border-radius: inherit;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(79,163,30,0.18) 0%,
+      rgba(79,163,30,0.08) 45%,
+      transparent 75%
+    );
+
+  opacity: .7;
+
   z-index: -1;
-  animation: ten-eyebrow-spin 3s linear infinite;
+
+  filter: blur(14px);
+
+  animation: tenGlowPulse 3s ease-in-out infinite;
 }
 
-@keyframes ten-eyebrow-spin {
-  to { --ten-eyebrow-angle: 360deg; }
+/* ── Hover ── */
+
+.ten-about__eyebrow:hover {
+  transform: translateY(-4px) scale(1.02);
+
+  box-shadow:
+    0 16px 32px rgba(79, 163, 30, 0.18),
+    0 8px 20px rgba(79, 163, 30, 0.12);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .ten-about__eyebrow::before { animation: none; }
-}
+/* ── Glow Animation ── */
 
+@keyframes tenGlowPulse {
+
+  0% {
+    opacity: .55;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: .95;
+    transform: scale(1.05);
+  }
+
+  100% {
+    opacity: .55;
+    transform: scale(1);
+  }
+
+}
 .ten-about__eyebrow-text {
   position: relative;
 }
@@ -161,40 +278,11 @@
   color: #000000;
 }
 
-/* ── MEDIA (RIGHT) — pebabout.png + 3 white Tesco-logo stripes ── */
-.ten-about__media {
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-  box-shadow: 0 24px 50px rgba(11, 31, 58, 0.12);
-}
-
-.ten-about__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* White geometric overlay — top-left angular + 3 diagonal bars (Figma) */
-.ten-about__cut {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 2;
-  opacity: 0.92;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.10));
-}
-
 /* ── RESPONSIVE ───────────────────────────────── */
 @media (max-width: 1024px) {
   .ten-about        { padding: 70px 0 90px; }
   .ten-about__inner { grid-template-columns: 1fr; gap: 50px; }
   .ten-about__copy  { max-width: none; }
-  .ten-about__media { max-width: 620px; margin: 0 auto; }
 }
 
 @media (max-width: 640px) {

@@ -1,6 +1,337 @@
+/* =========================================
+   PEB APPLICATIONS
+========================================= */
+
 .peb-app {
   background: #ffffff;
-  padding: 0 0 264.16px 0;
+  padding: 0 0 80px 0;
+  overflow: hidden;
+
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.peb-app__head {
+  text-align: center;
+
+  max-width: 800px;
+
+  margin: 0 auto 56px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.peb-app__eyebrow {
+  position: relative;
+  top: -30px;
+
+  width: 216px;
+  height: 58px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 14px 30px;
+
+  border-radius: 60px;
+
+  background: #ffffff;
+
+  border-top: 1px solid #FF6A00;
+  border-left: 1px solid #FF6A00;
+
+  border-right: 1px solid #4FA31E;
+  border-bottom: 1px solid #4FA31E;
+
+  box-sizing: border-box;
+
+  white-space: nowrap;
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+
+  color: #FF6A00;
+
+  isolation: isolate;
+
+  overflow: visible;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.6),
+    0 8px 22px rgba(79,163,30,0.10),
+    0 4px 10px rgba(255,122,0,0.06);
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+/* =========================================
+   BUTTON GLOW
+========================================= */
+
+.peb-app__eyebrow::after {
+  content: '';
+
+  position: absolute;
+
+  inset: -8px;
+
+  border-radius: inherit;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(79,163,30,0.18) 0%,
+      rgba(255,122,0,0.10) 45%,
+      transparent 75%
+    );
+
+  opacity: .7;
+
+  z-index: -1;
+
+  filter: blur(14px);
+
+  animation: pebGlowPulse 3s ease-in-out infinite;
+}
+
+.peb-app__eyebrow:hover {
+  transform: translateY(-4px) scale(1.02);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.7),
+    0 16px 32px rgba(79,163,30,0.16),
+    0 8px 20px rgba(255,122,0,0.10);
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.peb-app__desc {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.6;
+
+  color: #343C47;
+
+  margin: 0;
+}
+
+/* =========================================
+   GRID
+========================================= */
+
+.peb-app__grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+/* =========================================
+   CARD
+========================================= */
+
+.peb-app__card {
+  position: relative;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  height: 280px;
+
+  display: flex;
+  align-items: flex-end;
+
+  cursor: pointer;
+
+  opacity: 0;
+
+  transform: translateY(40px) scale(0.96);
+
+  animation: pebCardEnter 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+
+  box-shadow:
+    0 2px 8px rgba(15, 23, 42, 0.06),
+    0 14px 32px rgba(15, 23, 42, 0.10);
+
+  will-change: transform, opacity;
+}
+
+/* =========================================
+   WIDE CARD
+========================================= */
+
+.peb-app__card--wide {
+  grid-column: span 2;
+}
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.peb-app__img {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s ease;
+
+  will-change: transform;
+}
+
+/* =========================================
+   IMAGE HOVER
+========================================= */
+
+.peb-app__card:hover .peb-app__img {
+  transform: scale(1.08);
+}
+
+/* =========================================
+   CARD HOVER
+========================================= */
+
+.peb-app__card:hover {
+  transform: translateY(-10px) scale(1.02);
+
+  box-shadow:
+    0 4px 12px rgba(15, 23, 42, 0.08),
+    0 26px 54px rgba(15, 23, 42, 0.16);
+}
+
+/* =========================================
+   SHINE EFFECT
+========================================= */
+
+.peb-app__card::before {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255,255,255,0) 20%,
+      rgba(255,255,255,0.12) 48%,
+      rgba(255,255,255,0) 75%
+    );
+
+  transform: translateX(-120%);
+
+  transition: transform 0.9s ease;
+
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+.peb-app__card:hover::before {
+  transform: translateX(120%);
+}
+
+/* =========================================
+   ENTRY ANIMATION
+========================================= */
+
+@keyframes pebCardEnter {
+
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.94);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================
+   BUTTON GLOW ANIMATION
+========================================= */
+
+@keyframes pebGlowPulse {
+
+  0% {
+    opacity: .55;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: .95;
+    transform: scale(1.05);
+  }
+
+  100% {
+    opacity: .55;
+    transform: scale(1);
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+
+  .peb-app__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 640px) {
+
+  .peb-app__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .peb-app__card--wide {
+    grid-column: span 1;
+  }
+
+  .peb-app__card:hover {
+    transform: none;
+  }
+
+  .peb-app__card:hover .peb-app__img {
+    transform: none;
+  }
 }
 
 .peb-app__head {

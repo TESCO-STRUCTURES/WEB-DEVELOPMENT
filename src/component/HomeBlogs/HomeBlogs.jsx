@@ -4,12 +4,14 @@ import b1 from '../../assets/homeblog1.svg';
 import b2 from '../../assets/homeblog2.svg';
 import b3 from '../../assets/homeblog3.svg';
 import b4 from '../../assets/homeblog4.svg';
+import b5 from '../../assets/homeblog5.svg';
 
 const POSTS = [
   { src: b1, alt: 'Smarter Construction with Pre-Engineered Buildings' },
   { src: b2, alt: 'Building Strong Foundations for Every Project' },
   { src: b3, alt: 'Modern Tensile Designs for Flexible Architecture' },
   { src: b4, alt: 'Designing Spaces with Precision and Purpose' },
+  { src: b5, alt: 'Reliable Roofing Solutions for Every Need' }
 ];
 
 const LOOPED = [...POSTS, ...POSTS, ...POSTS];

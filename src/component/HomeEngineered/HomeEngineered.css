@@ -8,10 +8,8 @@
   padding: clamp(70px, 10vw, 130px) 0 clamp(60px, 8vw, 110px);
 
   background: #ffffff;
-  width: 1358px;
-  height: 694px;
-  left: 25px;
-  overflow: hidden;
+
+  overflow: visible;
 
   isolation: isolate;
 }
@@ -161,7 +159,7 @@
 ============================================ */
 
 .ts-eng__glow {
-  position: absolute;
+   position: absolute;
   top: -40px;
   right: -130px;
   width: 320px;

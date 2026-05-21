@@ -39,31 +39,45 @@
 }
 
 /* ============================================
-   OUR BLOG
+   OUR BLOG BUTTON
 ============================================ */
 .blg-hero__eyebrow {
+  width: 146px;
+  height: 58px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
   margin-bottom: 22px;
 
-  padding: 9px 23px; /* Adjusted slightly to account for the 1px border */
+  padding: 14px 30px;
+  gap: 10px;
 
-  border-radius: 50px;
+  border-radius: 60px;
+  border: 1px solid #4FA31E;
 
   background: #ffffff;
-  border: 1px solid #4FA31E;
 
   color: #FF6A00;
 
-  font-family: 'Manrope', sans-serif;
-  font-weight: 700;
-  font-size: 13px;
+  /* UPDATED TEXT STYLE */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-transform: capitalize;
 
-  letter-spacing: 0.20em;
+  opacity: 1;
 
-  text-transform: uppercase;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.blg-hero__eyebrow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(79, 163, 30, 0.18);
 }
 
 /* ============================================
@@ -114,14 +128,18 @@
 ============================================ */
 @media (max-width: 768px) {
   .blg-hero {
-    padding:
-      100px 0 0;
+    padding: 100px 0 0;
   }
 
   .blg-hero__eyebrow {
+    width: auto;
+    min-width: 146px;
+
+    height: 54px;
+
     font-size: 12px;
 
-    padding: 8px 20px;
+    padding: 12px 24px;
 
     margin-bottom: 18px;
   }

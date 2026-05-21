@@ -4,11 +4,99 @@
   background: #ffffff;
   padding: 90px 0 110px;
 }
+/* ============================================
+   SECTION GLOW EFFECTS
+============================================ */
+
+/* ============================================
+   SECTION GLOW EFFECTS
+============================================ */
+
+.peb-about {
+  position: relative;
+
+  background: #ffffff;
+
+  padding: 90px 0 110px;
+
+  overflow: visible;
+
+  isolation: isolate;
+}
+
+/* LEFT GREEN GLOW */
+
+.peb-about::before {
+  content: '';
+
+  position: absolute;
+
+  top: -120px;
+  left: -220px;
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(76, 170, 23, 0.22) 0%,
+      rgba(76, 170, 23, 0.10) 35%,
+      rgba(76, 170, 23, 0) 72%
+    );
+
+  filter: blur(90px);
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+/* RIGHT ORANGE GLOW */
+
+.peb-about::after {
+  content: '';
+
+  position: absolute;
+
+  top: -120px;
+  right: -220px;
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 122, 0, 0.22) 0%,
+      rgba(255, 122, 0, 0.10) 35%,
+      rgba(255, 122, 0, 0) 72%
+    );
+
+  filter: blur(90px);
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+/* CONTENT ABOVE GLOW */
 
 .peb-about__inner {
+  position: relative;
+
+  z-index: 1;
+
   display: grid;
+
   grid-template-columns: 1fr 1fr;
+
   gap: 80px;
+
   align-items: center;
 }
 
@@ -18,56 +106,132 @@
 }
 
 /* Eyebrow pill — white fill, orange text, green left-arc border fading right */
+/* ══════════════════════════════════════════════
+   PREMIUM ABOUT BUTTON
+══════════════════════════════════════════════ */
+
 .peb-about__eyebrow {
   position: relative;
+  top: -30px;
+
+  width: 161px;
+  height: 58px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 36px;
+
+  gap: 10px;
+
+  padding: 14px 30px;
+
+  border-radius: 60px;
+
+  border: 1px solid #4FA31E;
+
+  box-sizing: border-box;
+
   background: #ffffff;
-  border: none;
-  border-radius: 999px;
-  margin-bottom: 32px;
+
   font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 1.2;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-transform: capitalize;
+
   color: #FF6A00;
+
   white-space: nowrap;
-  box-shadow: 0 6px 18px rgba(79, 163, 30, 0.10);
+
+  overflow: hidden;
+
   isolation: isolate;
 }
 
-@property --peb-eyebrow-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
+/* ── Animated Gradient Border ── */
 
-.peb-about__eyebrow::before {
+
+
+/* ── Glow Layer ── */
+
+.peb-about__eyebrow::after {
   content: '';
+
   position: absolute;
-  inset: 0;
-  border-radius: 999px;
-  padding: 2px;
-  background: conic-gradient(
-    from var(--peb-eyebrow-angle),
-    rgba(79, 163, 30, 0) 0deg,
-    rgba(79, 163, 30, 0) 240deg,
-    rgba(79, 163, 30, 0.18) 265deg,
-    rgba(79, 163, 30, 0.55) 295deg,
-    #4FA31E 325deg,
-    #4FA31E 355deg,
-    rgba(79, 163, 30, 0.4) 360deg
-  );
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  pointer-events: none;
-  z-index: -1;
-  animation: peb-eyebrow-spin 3s linear infinite;
+
+  inset: -8px;
+
+  border-radius: inherit;
+
+  background:
+    radial-gradient(
+      circle,
+     
+     
+      transparent 75%
+    );
+
+  opacity: .7;
+
+  z-index: -2;
+
+  filter: blur(14px);
+
+  animation: pebGlowPulse 3s ease-in-out infinite;
 }
 
+/* ── Hover Effect ── */
+
+.peb-about__eyebrow:hover {
+  transform: translateY(-4px) scale(1.02);
+
+  box-shadow:
+    0 16px 32px rgba(79, 163, 30, 0.18),
+    0 8px 20px rgba(255, 122, 0, 0.16);
+}
+
+/* ── Moving Border Animation ── */
+
+@keyframes pebBorderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+/* ── Glow Pulse ── */
+
+@keyframes pebGlowPulse {
+  0% {
+    opacity: .55;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: .95;
+    transform: scale(1.05);
+  }
+
+  100% {
+    opacity: .55;
+    transform: scale(1);
+  }
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 640px) {
+
+  .peb-about__eyebrow {
+    font-size: 15px;
+    padding: 10px 24px;
+  }
+
+}
 @keyframes peb-eyebrow-spin {
   to { --peb-eyebrow-angle: 360deg; }
 }
@@ -160,40 +324,11 @@
   color: #000000;
 }
 
-/* ── MEDIA (RIGHT) — pebabout.png + 3 white Tesco-logo stripes ── */
-.peb-about__media {
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-  box-shadow: 0 24px 50px rgba(11, 31, 58, 0.12);
-}
-
-.peb-about__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* White geometric overlay — top-left angular + 3 diagonal bars (Figma) */
-.peb-about__cut {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 2;
-  opacity: 0.92;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.10));
-}
-
 /* ── RESPONSIVE ───────────────────────────────── */
 @media (max-width: 1024px) {
   .peb-about        { padding: 70px 0 90px; }
   .peb-about__inner { grid-template-columns: 1fr; gap: 50px; }
   .peb-about__copy  { max-width: none; }
-  .peb-about__media { max-width: 620px; margin: 0 auto; }
 }
 
 @media (max-width: 640px) {

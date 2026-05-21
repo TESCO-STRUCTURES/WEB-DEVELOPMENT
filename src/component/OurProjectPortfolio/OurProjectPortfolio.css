@@ -1,36 +1,58 @@
-/* =========================================
-   OUR PROJECT PORTFOLIO
-========================================= */
+/* ╔══════════════════════════════════════════════════════════════
+   ║  PROJECT PORTFOLIO — animated filterable showcase
+   ║
+   ║  • "All"  → compact 4×2 centred grid of 8 smaller cards
+   ║  • Category tabs → 3 standard-size cards in a row
+   ║  • Smooth stagger fade-up on filter change (key remount)
+   ║  • Glassmorphism caption + hover scale + soft shadow
+   ╚══════════════════════════════════════════════════════════════ */
 
 .op-grid {
   position: relative;
-  background: radial-gradient(circle at 20% 10%, rgba(255, 186, 0, 0.12), transparent 24%),
-    radial-gradient(circle at 80% 18%, rgba(79, 163, 30, 0.10), transparent 22%),
-    linear-gradient(180deg, #F8FBF6 0%, #F5F5F5 100%);
+  background: transparent;
   padding: 80px 0;
   overflow: hidden;
-  animation: op-grid-background-pulse 18s ease-in-out infinite;
 }
 
-/* =========================================
-   CONTAINER
-========================================= */
+/* Subtle ambient colour blobs */
+.op-grid__blob {
+  position: absolute;
+  width: 460px;
+  height: 460px;
+  border-radius: 50%;
+  filter: blur(140px);
+  z-index: 0;
+  pointer-events: none;
+  animation: opBlobPulse 12s ease-in-out infinite;
+}
+.op-grid__blob--1 { background: rgba(79, 163, 30, 0.10); top: 8%;  left: -160px; }
+.op-grid__blob--2 { background: rgba(255, 106, 0, 0.10); bottom: 8%; right: -160px; }
 
 .op-grid__inner {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 32px;
 }
 
-/* =========================================
-   HEADER
-========================================= */
 
+
+.op-grid__list--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.op-grid__list {
+  transition: opacity 0.9s ease;
+}
+
+/* ── HEADER ─────────────────────────────────────── */
 .op-grid__header {
   text-align: center;
   max-width: 760px;
-  margin: 0 auto 56px;
+  margin: 0 auto 48px;
 }
 
 .op-grid__eyebrow-wrapper {
@@ -41,52 +63,39 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   height: 34px;
   padding: 0 18px;
-
   border-radius: 999px;
-
   background: rgba(255, 106, 0, 0.08);
   border: 1px solid rgba(255, 106, 0, 0.15);
-
   font-family: 'Manrope', sans-serif;
   font-size: 12px;
   font-weight: 700;
-
   letter-spacing: 0.08em;
   text-transform: uppercase;
-
   color: #FF6A00;
 }
 
 .op-grid__title {
   margin: 0 0 16px;
-
   font-family: 'Oswald', sans-serif;
-  font-size: clamp(38px, 5vw, 52px);
+  font-size: clamp(34px, 4.6vw, 52px);
   font-weight: 700;
-  line-height: 100%;
-
+  line-height: 1.05;
   color: #4FA31E;
+  letter-spacing: 0.3px;
 }
 
 .op-grid__desc {
   max-width: 680px;
-
   margin: 0 auto 34px;
-
   font-family: 'Poppins', sans-serif;
   font-size: 15px;
   line-height: 1.7;
-
   color: #64748B;
 }
 
-/* =========================================
-   FILTERS
-========================================= */
-
+/* ── FILTER CHIPS ───────────────────────────────── */
 .op-grid__filters {
   display: flex;
   justify-content: center;
@@ -97,244 +106,332 @@
 .op-grid__chip {
   height: 40px;
   padding: 0 22px;
-
   border-radius: 999px;
-
   border: 1px solid #E2E8F0;
   background: #FFFFFF;
-
   font-family: 'Manrope', sans-serif;
   font-size: 13px;
   font-weight: 600;
-
   color: #64748B;
-
   cursor: pointer;
-
-  transition: all 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .op-grid__chip:hover {
-  border-color: rgba(255, 106, 0, 0.3);
+  border-color: rgba(255, 106, 0, 0.40);
+  color: #FF6A00;
+  transform: translateY(-1px);
 }
 
 .op-grid__chip.active {
   background: #FF6A00;
   border-color: #FF6A00;
   color: #ffffff;
+  box-shadow: 0 8px 20px rgba(255, 106, 0, 0.28);
 }
 
-/* =========================================
-   GRID LAYOUT
-========================================= */
+/* ╔══════════════════════════════════════════════
+   ║ GRID LAYOUTS
+   ║ Two distinct grids: compact for "All", standard for categories.
+   ╚══════════════════════════════════════════════ */
 
 .op-grid__list {
-  width: 100%;
-  max-width: 1216px;
-
-  margin: 0 auto;
-
   display: grid;
-
-  grid-template-columns: repeat(3, 384px);
-
+  margin: 0 auto;
   justify-content: center;
-
-  column-gap: 32px;
-  row-gap: 32px;
 }
 
-/* =========================================
-   CARD
-========================================= */
+/* COMPACT — 4 cards across × 2 rows = 8 visible, smaller cards */
+.op-grid__list--compact {
+  grid-template-columns: repeat(4, 232px);
+  column-gap: 22px;
+  row-gap: 22px;
+  max-width: 1040px;
+}
 
+/* STANDARD — 3 larger cards per row for each category */
+.op-grid__list--standard {
+  grid-template-columns: repeat(3, 360px);
+  column-gap: 28px;
+  row-gap: 28px;
+  max-width: 1140px;
+}
+
+/* ╔══════════════════════════════════════════════
+   ║ CARD
+   ╚══════════════════════════════════════════════ */
 .op-grid__card {
   position: relative;
-
-  width: 384px;
-  height: 450px;
-
-  border-radius: 24px;
-
+  margin: 0;
+  border-radius: 20px;
   overflow: hidden;
-
-  background: transparent;
-
-  box-sizing: border-box;
-
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
+  background: #ffffff;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 12px 30px rgba(15, 23, 42, 0.08);
+  /* Stagger fade-up — JS sets per-card delay via inline style */
+  --enter-x: 0px;
+  --enter-y: 24px;
   opacity: 0;
-  transform: translateY(16px);
-  animation: op-grid-card-fade 0.8s ease forwards;
+  transform: translate(var(--enter-x), var(--enter-y)) scale(0.92);
+  animation:
+    opCardEnter 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    opCardGlow 10s ease-in-out 1s infinite alternate;
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
 }
 
-.op-grid__card:nth-child(1) { animation-delay: 0.06s; }
-.op-grid__card:nth-child(2) { animation-delay: 0.08s; }
-.op-grid__card:nth-child(3) { animation-delay: 0.10s; }
-.op-grid__card:nth-child(4) { animation-delay: 0.12s; }
-.op-grid__card:nth-child(5) { animation-delay: 0.14s; }
-.op-grid__card:nth-child(6) { animation-delay: 0.16s; }
-.op-grid__card:nth-child(7) { animation-delay: 0.18s; }
-.op-grid__card:nth-child(8) { animation-delay: 0.20s; }
-.op-grid__card:nth-child(9) { animation-delay: 0.22s; }
-.op-grid__card:nth-child(10) { animation-delay: 0.24s; }
-.op-grid__card:nth-child(11) { animation-delay: 0.26s; }
-.op-grid__card:nth-child(12) { animation-delay: 0.28s; }
-.op-grid__card:nth-child(13) { animation-delay: 0.30s; }
-.op-grid__card:nth-child(14) { animation-delay: 0.32s; }
-.op-grid__card:nth-child(15) { animation-delay: 0.34s; }
+/* COMPACT cards are a fixed smaller aspect */
+.op-grid__list--compact .op-grid__card {
+  aspect-ratio: 4 / 5;
+}
+
+/* STANDARD cards are a taller portrait ratio */
+.op-grid__list--standard .op-grid__card {
+  aspect-ratio: 384 / 450;
+}
 
 .op-grid__card:hover {
-  transform: translateY(-8px);
-
+  transform: translateY(-6px) scale(1.01);
   box-shadow:
-    0px 24px 50px rgba(15, 23, 42, 0.08);
+    0 2px 4px rgba(15, 23, 42, 0.06),
+    0 24px 48px rgba(15, 23, 42, 0.14);
 }
 
-/* =========================================
-   IMAGE WRAPPER
-========================================= */
-
+/* ── IMAGE / MEDIA ──────────────────────────── */
 .op-grid__media {
+  position: relative;
   width: 100%;
   height: 100%;
-
+  border-radius: 20px;
   overflow: hidden;
-
-  border-radius: 24px;
 }
 
-/* =========================================
-   IMAGE FULL SIZE
-========================================= */
+.op-grid__media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.18), transparent 45%);
+  opacity: 0.6;
+  pointer-events: none;
+  transform: translateX(-10%) scale(0.95);
+  animation: opMediaGlow 12s ease-in-out infinite;
+}
 
 .op-grid__media img {
   width: 100%;
   height: 100%;
-
   display: block;
-
   object-fit: cover;
   object-position: center;
-
-  border-radius: 24px;
-
-  transition: transform 0.45s ease;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
 }
 
 .op-grid__card:hover .op-grid__media img {
-  transform: scale(1.08);
+  transform: scale(1.07);
 }
 
-@keyframes op-grid-background-pulse {
-  0%, 100% {
-    background-position: 20% 10%, 80% 18%;
-  }
-
-  50% {
-    background-position: 22% 8%, 78% 22%;
-  }
+/* Bottom-gradient scrim so caption text reads on any image */
+.op-grid__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 31, 58, 0.00) 45%,
+    rgba(11, 31, 58, 0.55) 100%
+  );
+  opacity: 0.85;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
 }
 
-@keyframes op-grid-card-fade {
-  to {
+.op-grid__card:hover .op-grid__scrim {
+  opacity: 1;
+}
+
+/* ── CAPTION (glassmorphism) ────────────────── */
+.op-grid__caption {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transform: translateY(8px);
+  opacity: 0.92;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.45s ease;
+  pointer-events: none;
+}
+
+.op-grid__card:hover .op-grid__caption {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.op-grid__cat {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #FFB37A;
+}
+
+.op-grid__pname {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #ffffff;
+  letter-spacing: -0.1px;
+}
+
+/* Compact cards use slightly smaller title text */
+.op-grid__list--compact .op-grid__pname {
+  font-size: 13px;
+}
+
+/* ╔══════════════════════════════════════════════
+   ║ KEYFRAMES — stagger fade-up
+   ╚══════════════════════════════════════════════ */
+@keyframes opCardEnter {
+  0% {
+    opacity: 0;
+    transform: translate(var(--enter-x), var(--enter-y)) scale(0.92);
+  }
+  100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(0, 0) scale(1);
   }
 }
 
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 1280px) {
-
-  .op-grid__list {
-    grid-template-columns: repeat(3, 1fr);
-
-    column-gap: 24px;
-    row-gap: 24px;
+@keyframes opCardGlow {
+  0%, 100% {
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.04),
+      0 12px 30px rgba(15, 23, 42, 0.08);
   }
-
-  .op-grid__card {
-    width: 100%;
-    height: auto;
-
-    aspect-ratio: 384 / 450;
+  50% {
+    box-shadow:
+      0 2px 6px rgba(15, 23, 42, 0.06),
+      0 18px 46px rgba(15, 23, 42, 0.10);
   }
 }
 
-/* =========================================
-   SMALL TABLET
-========================================= */
-
-@media (max-width: 991px) {
-
-  .op-grid {
-    padding: 70px 0;
+@keyframes opBlobPulse {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
   }
-
-  .op-grid__list {
-    grid-template-columns: repeat(2, 1fr);
-
-    column-gap: 22px;
-    row-gap: 22px;
-  }
-
-  .op-grid__card {
-    width: 100%;
-    aspect-ratio: 384 / 450;
+  50% {
+    transform: translateY(-8px) scale(1.05);
+    opacity: 0.8;
   }
 }
 
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 640px) {
-
-  .op-grid {
-    padding: 56px 0;
+@keyframes opMediaGlow {
+  0%, 100% {
+    transform: translateX(-10%) scale(0.95);
+    opacity: 0.55;
   }
-
-  .op-grid__inner {
-    padding: 0 18px;
+  50% {
+    transform: translateX(10%) scale(1);
+    opacity: 0.9;
   }
+}
 
-  .op-grid__title {
-    font-size: 34px;
+/* ╔══════════════════════════════════════════════
+   ║ RESPONSIVE
+   ╚══════════════════════════════════════════════ */
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .op-grid__list--compact {
+    grid-template-columns: repeat(3, minmax(0, 232px));
   }
-
-  .op-grid__desc {
-    font-size: 14px;
-    line-height: 1.65;
+  .op-grid__list--standard {
+    grid-template-columns: repeat(3, minmax(0, 320px));
   }
+}
 
-  .op-grid__filters {
-    gap: 10px;
+/* Smaller tablet */
+@media (max-width: 900px) {
+  .op-grid__list--compact {
+    grid-template-columns: repeat(2, minmax(0, 260px));
+    column-gap: 18px;
+    row-gap: 18px;
   }
+  .op-grid__list--standard {
+    grid-template-columns: repeat(2, minmax(0, 320px));
+    column-gap: 18px;
+    row-gap: 18px;
+  }
+}
 
+/* Phone */
+@media (max-width: 600px) {
+  .op-grid { padding: 60px 0; }
+  .op-grid__inner { padding: 0 18px; }
+  .op-grid__header { margin-bottom: 36px; }
+  .op-grid__filters { gap: 8px; }
   .op-grid__chip {
-    height: 38px;
-    padding: 0 18px;
+    height: 36px;
+    padding: 0 14px;
     font-size: 12px;
   }
-
-  .op-grid__list {
-    grid-template-columns: 1fr;
-
-    row-gap: 20px;
+  .op-grid__list--compact,
+  .op-grid__list--standard {
+    grid-template-columns: minmax(0, 320px);
+    column-gap: 0;
+    row-gap: 18px;
   }
+  .op-grid__list--compact .op-grid__card,
+  .op-grid__list--standard .op-grid__card {
+    aspect-ratio: 4 / 5;
+  }
+}
 
+/* Reduce motion — honour OS preference */
+@media (prefers-reduced-motion: reduce) {
   .op-grid__card {
-    width: 100%;
-    max-width: 384px;
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .op-grid__card,
+  .op-grid__media img,
+  .op-grid__caption,
+  .op-grid__chip {
+    transition: none;
+  }
+  .op-grid__card:hover {
+    transform: none;
+  }
+}
 
-    margin: 0 auto;
-
-    aspect-ratio: 384 / 450;
+/* Touch — disable hover lifts so tap doesn't freeze the card mid-state */
+@media (hover: none) and (pointer: coarse) {
+  .op-grid__card:hover {
+    transform: none;
+  }
+  .op-grid__card:hover .op-grid__media img {
+    transform: none;
+  }
+  .op-grid__caption {
+    transform: none;
+    opacity: 1;
   }
 }

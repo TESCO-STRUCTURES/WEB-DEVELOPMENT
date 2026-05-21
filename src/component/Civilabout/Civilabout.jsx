@@ -19,7 +19,7 @@ export default function Civilabout() {
       <div className="container civ-about__inner">
 
         <div className="civ-about__copy">
-          <span className="civ-about__eyebrow">About Civil</span>
+          <span className="civ-about__eyebrow">About Civil Construction</span>
           <h2 className="civ-about__title">What is Civil Construction?</h2>
 
           <p className="civ-about__desc">
