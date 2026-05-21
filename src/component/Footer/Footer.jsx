@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Footer.css';
 import footerLogo from '../../assets/fLogo.png';
 
@@ -9,15 +10,18 @@ import instagramIcon from '../../assets/fl I.png';
 import pinterestIcon from '../../assets/fl P.png';
 import twitterIcon from '../../assets/fl X.png';
 
+/* Each footer Quick Link matches its navbar destination.
+   `to`   → react-router internal route (instant SPA navigation)
+   `href` → external/file link (used for the Brochure PDF download) */
 const QUICK_LINKS = [
-  'Home',
-  'About us',
-  'Services',
-  'Project',
-  'Brochure',
-  'Blogs',
-  'Career',
-  'Contact'
+  { label: 'Home',     to: '/' },
+  { label: 'About us', to: '/about' },
+  { label: 'Services', to: '/peb' },          // matches navbar Services → first dropdown item
+  { label: 'Project',  to: '/projects' },
+  { label: 'Brochure', href: '/brochure.pdf', download: 'Tesco-Structures-Brochure.pdf' },
+  { label: 'Blogs',    to: '/blog' },
+  { label: 'Career',   to: '/career' },
+  { label: 'Contact',  to: '/contact' },
 ];
 
 export default function Footer() {
@@ -77,10 +81,22 @@ export default function Footer() {
           <ul className="ts-footer__list">
 
             {QUICK_LINKS.map((link) => (
-              <li key={link}>
-                <a href="#" className="ts-footer__link">
-                  {link}
-                </a>
+              <li key={link.label}>
+                {link.href ? (
+                  <a
+                    href={link.href}
+                    download={link.download}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ts-footer__link"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link to={link.to} className="ts-footer__link">
+                    {link.label}
+                  </Link>
+                )}
               </li>
             ))}
 
