@@ -7,11 +7,16 @@
 .arc-pro__head { text-align: center; max-width: 760px; margin: 0 auto 28px; }
 
 .arc-pro__eyebrow {
-  display: inline-block;
-  padding: 10px 30px;
+  width: 182px;
+  height: 58px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 30px;
   background: transparent;
   border: 1px solid rgba(79, 163, 30, 0.7);
-  border-radius: 100px;
+  border-radius: 60px;
   margin-bottom: 16px;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
@@ -20,8 +25,11 @@
   color: #FFFFFF;
   letter-spacing: 0.2px;
   text-transform: capitalize;
+  white-space: nowrap; /* — keep title in single line — */
+  opacity: 1;
   box-shadow: 0 0 28px rgba(79, 163, 30, 0.55),
               inset 0 0 14px rgba(79, 163, 30, 0.20);
+  box-sizing: border-box;
 }
 
 .arc-pro__desc {

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './AboutBuild.css';
 import img from '../../assets/about build.svg';
 
@@ -22,7 +23,7 @@ export default function AboutBuild() {
         >
           <div className="ts-abld__buttons">
             <a href="#book" className="ts-btn ts-btn--orange">Book Free Site Inspection</a>
-            <a href="#pricing" className="ts-btn ts-btn--ghost">Get Instant Pricing</a>
+            <Link to="/projects" className="ts-btn ts-btn--ghost">View Our Projects</Link>
           </div>
         </div>
       </div>

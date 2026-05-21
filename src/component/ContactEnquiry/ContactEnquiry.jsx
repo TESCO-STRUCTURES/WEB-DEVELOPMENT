@@ -11,14 +11,50 @@ const SERVICES = [
   'Other / Not sure',
 ];
 
+/* Delivery endpoint — FormSubmit relays the POST body to this address.
+   First submission triggers a one-off activation email to the inbox;
+   every submission after that arrives directly. No backend / API key. */
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/tescostructure@gmail.com';
+
 export default function ContactEnquiry() {
-  const [submitted, setSubmitted] = useState(false);
-  const onSubmit = (e) => { e.preventDefault(); setSubmitted(true); };
+  const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'sent' | 'error'
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    if (status === 'sending') return;
+    setStatus('sending');
+
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        setStatus('sent');
+        form.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  };
+
+  const btnLabel = {
+    idle: 'Send message',
+    sending: 'Sending…',
+    sent: "Thanks — we'll be in touch!",
+    error: "Couldn't send — please retry",
+  }[status];
 
   return (
     <section id="contact-enquiry" className="ct-enq">
       <div className="container ct-enq__inner">
-        
+
         <div className="ct-enq__info">
           <h2 className="ct-enq__title">Let's Build Something<br/>Strong Together</h2>
           <p className="ct-enq__desc">
@@ -74,7 +110,7 @@ export default function ContactEnquiry() {
         <div className="ct-enq__panel">
           <h3 className="ct-enq__panel-title">Send Inquiry</h3>
 
-          {submitted ? (
+          {status === 'sent' ? (
             <div className="ct-enq__thanks">
               <div className="ct-enq__thanks-icon" aria-hidden>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -83,7 +119,15 @@ export default function ContactEnquiry() {
               <p>Thanks — a Tesco engineer will reach out within one working day.</p>
             </div>
           ) : (
-            <form className="ct-enq__form" onSubmit={onSubmit}>
+            <form className="ct-enq__form" onSubmit={onSubmit} noValidate>
+              {/* FormSubmit configuration — hidden fields */}
+              <input type="hidden" name="_subject" value="New Contact enquiry — Tesco Structures website" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_source" value="Contact page" />
+              {/* Honeypot — bots fill this, humans don't see it */}
+              <input type="text" name="_honey" tabIndex="-1" autoComplete="off" style={{ display: 'none' }} />
+
               <label className="ct-enq__field">
                 <span>FIRST NAME</span>
                 <input type="text" name="name" required placeholder="First name" />
@@ -111,10 +155,17 @@ export default function ContactEnquiry() {
                 <textarea name="brief" rows={4} placeholder="Briefly describe your project requirements..." />
               </label>
 
-              <button type="submit" className="ct-enq__submit">
-                Send message
+              <button type="submit" className="ct-enq__submit" disabled={status === 'sending'}>
+                {btnLabel}
               </button>
-              <p className="ct-enq__note">By submitting this form, you agree to our privacy policy.</p>
+              {status === 'error' && (
+                <p className="ct-enq__note" style={{ color: '#c0392b' }}>
+                  Something went wrong. Please try again or email tescostructure@gmail.com directly.
+                </p>
+              )}
+              {status !== 'error' && (
+                <p className="ct-enq__note">By submitting this form, you agree to our privacy policy.</p>
+              )}
             </form>
           )}
         </div>

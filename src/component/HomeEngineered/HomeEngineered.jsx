@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './HomeEngineered.css';
 import img1 from '../../assets/homeservice1.svg';
 import img2 from '../../assets/homeservice2.svg';
@@ -50,13 +51,13 @@ export default function HomeEngineered() {
             ))}
           </ul>
 
-          <a href="#contact" className="ts-eng__more">
+          <Link to="/peb" className="ts-eng__more">
             Explore more
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <line x1="5" y1="12" x2="19" y2="12"/>
               <polyline points="13 5 19 12 13 19"/>
             </svg>
-          </a>
+          </Link>
         </div>
 
       </div>

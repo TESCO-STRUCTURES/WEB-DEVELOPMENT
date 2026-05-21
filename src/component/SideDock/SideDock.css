@@ -1,0 +1,199 @@
+/* ============================================================
+   SIDE DOCK — fixed floating quick-contact column
+   Visible on every page (mounted globally in App.jsx).
+============================================================ */
+
+.ts-dock {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  z-index: 95;          /* below navbar (100), above page content */
+
+  pointer-events: none;  /* the wrapper is transparent to clicks */
+}
+
+.ts-dock__btn {
+  pointer-events: auto;  /* re-enable clicks on the actual buttons */
+
+  width: 52px;
+  height: 52px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  position: relative;
+
+  box-shadow:
+    0 6px 18px rgba(11, 31, 58, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s ease,
+              background 0.25s ease;
+
+  animation: tsDockIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.ts-dock__btn:nth-child(1) { animation-delay: 0.15s; }
+.ts-dock__btn:nth-child(2) { animation-delay: 0.30s; }
+.ts-dock__btn:nth-child(3) { animation-delay: 0.45s; }
+
+.ts-dock__btn:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow:
+    0 12px 26px rgba(11, 31, 58, 0.22),
+    0 0 0 1px rgba(255, 255, 255, 0.10) inset;
+}
+
+.ts-dock__btn svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+/* Brand colours per channel */
+.ts-dock__btn--mail { background: #FF6A00; }
+.ts-dock__btn--mail:hover { background: #E15E00; }
+
+.ts-dock__btn--wa   { background: #25D366; }   /* WhatsApp official green */
+.ts-dock__btn--wa:hover { background: #1FB958; }
+
+.ts-dock__btn--call { background: #0B1F3A; }   /* Brand navy */
+.ts-dock__btn--call:hover { background: #06152A; }
+
+/* Subtle continuous pulse on WhatsApp button to draw attention */
+.ts-dock__btn--wa::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55);
+  animation: tsDockPulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------
+   Tooltip — slides in to the left on hover (desktop only)
+------------------------------------------------------------ */
+.ts-dock__tip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(8px);
+
+  padding: 7px 12px;
+
+  background: #0B1F3A;
+  color: #ffffff;
+
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(11, 31, 58, 0.20);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.ts-dock__tip::after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: #0B1F3A;
+}
+
+.ts-dock__btn:hover .ts-dock__tip,
+.ts-dock__btn:focus-visible .ts-dock__tip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ------------------------------------------------------------
+   Keyframes
+------------------------------------------------------------ */
+@keyframes tsDockIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px) scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes tsDockPulse {
+  0%   { box-shadow: 0 0 0 0    rgba(37, 211, 102, 0.55); }
+  70%  { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0    rgba(37, 211, 102, 0); }
+}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+/* Tablet — slightly smaller, still vertically centered */
+@media (max-width: 1024px) {
+  .ts-dock { right: 14px; gap: 12px; }
+  .ts-dock__btn { width: 48px; height: 48px; }
+  .ts-dock__btn svg { width: 20px; height: 20px; }
+}
+
+/* Phone — anchor to bottom-right corner, hide tooltip, keep tappable */
+@media (max-width: 768px) {
+  .ts-dock {
+    right: 14px;
+    top: auto;
+    bottom: 18px;
+    transform: none;
+    gap: 10px;
+  }
+  .ts-dock__btn { width: 46px; height: 46px; }
+  .ts-dock__tip { display: none; }
+}
+
+/* Sit above iPhone home-indicator safe area */
+@supports (padding: max(0px)) {
+  @media (max-width: 768px) {
+    .ts-dock { bottom: max(18px, env(safe-area-inset-bottom, 18px)); }
+  }
+}
+
+/* Small phone — keep at least 44×44 (iOS HIG min) */
+@media (max-width: 380px) {
+  .ts-dock { right: 12px; gap: 9px; }
+  .ts-dock__btn { width: 44px; height: 44px; }
+  .ts-dock__btn svg { width: 19px; height: 19px; }
+}
+
+/* Honour reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .ts-dock__btn,
+  .ts-dock__btn--wa::after,
+  .ts-dock__btn:hover {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

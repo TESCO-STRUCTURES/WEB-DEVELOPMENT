@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Allhero.css';
 import h1 from '../../assets/allhero1.svg';
 import h2 from '../../assets/allhero2.svg';
@@ -43,9 +44,9 @@ export default function Allhero() {
             <a href="/contact" className="all-hero__btn all-hero__btn--primary">
               Book Free Site Inspection
             </a>
-            <a href="#all-build" className="all-hero__btn all-hero__btn--ghost">
-              Get Instant Pricing
-            </a>
+            <Link to="/projects" className="all-hero__btn all-hero__btn--ghost">
+              View Our Projects
+            </Link>
           </div>
         </div>
 

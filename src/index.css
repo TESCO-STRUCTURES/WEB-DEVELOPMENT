@@ -676,6 +676,159 @@ html, body {
   }
 }
 
+/* ============================================================
+   GLOBAL RESPONSIVE PATCHES — added after the desktop rules
+   so they override `transform`, fixed widths, and oversized
+   glows on tablets and phones. These exist so every page
+   renders correctly on Windows, iOS, Android, iPhone, iPad
+   without per-component edits.
+============================================================ */
+
+/* The desktop `translateX(65px)` shift on service About sections
+   pushes content off the right edge on screens narrower than the
+   container. Neutralize it everywhere except wide desktop. */
+@media (max-width: 1280px) {
+  .peb-about,
+  .ten-about,
+  .civ-about,
+  .arc-about,
+  .all-about,
+  .peb-about__media,
+  .ten-about__media,
+  .civ-about__media,
+  .arc-about__media,
+  .all-about__media {
+    transform: none !important;
+  }
+}
+
+/* Scale the big 390px service glows down so they don't overflow */
+@media (max-width: 900px) {
+  .peb-hero::before, .peb-hero::after,
+  .ten-hero::before, .ten-hero::after,
+  .civ-hero::before, .civ-hero::after,
+  .arc-hero::before, .arc-hero::after,
+  .all-hero::before, .all-hero::after,
+  .peb-about::before, .peb-about::after,
+  .ten-about::before, .ten-about::after,
+  .civ-about::before, .civ-about::after,
+  .arc-about::before, .arc-about::after,
+  .all-about::before, .all-about::after {
+    width: 240px !important;
+    height: 240px !important;
+    filter: blur(60px) !important;
+  }
+}
+@media (max-width: 480px) {
+  .peb-hero::before, .peb-hero::after,
+  .ten-hero::before, .ten-hero::after,
+  .civ-hero::before, .civ-hero::after,
+  .arc-hero::before, .arc-hero::after,
+  .all-hero::before, .all-hero::after,
+  .peb-about::before, .peb-about::after,
+  .ten-about::before, .ten-about::after,
+  .civ-about::before, .civ-about::after,
+  .arc-about::before, .arc-about::after,
+  .all-about::before, .all-about::after {
+    width: 160px !important;
+    height: 160px !important;
+    filter: blur(40px) !important;
+  }
+}
+
+/* Contact form panel stacks below info column on tablets */
+@media (max-width: 1024px) {
+  .ct-enq__inner { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .ct-enq__title { font-size: clamp(28px, 4vw, 40px) !important; }
+  .ct-enq__stats { flex-wrap: wrap; gap: 18px !important; }
+}
+@media (max-width: 600px) {
+  .ct-enq { padding: 60px 0 !important; }
+  .ct-enq__panel { padding: 22px !important; }
+  .ct-enq__panel-title { font-size: 22px !important; }
+  .ct-enq__field input,
+  .ct-enq__field select,
+  .ct-enq__field textarea {
+    font-size: 16px !important; /* prevents iOS zoom-on-focus */
+  }
+  .ct-enq__submit { width: 100%; }
+}
+
+/* Career resume dropzone shrinks to fit any viewport */
+@media (max-width: 960px) {
+  .cr-resume { padding: 80px 0 !important; }
+  .cr-resume__inner {
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 18px !important;
+  }
+  .cr-resume__dropzone-wrapper {
+    width: 100% !important;
+    max-width: 720px;
+  }
+  .cr-resume__dropzone {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 280px !important;
+    padding: 32px 20px !important;
+  }
+}
+@media (max-width: 480px) {
+  .cr-resume__dz-icon svg { width: 48px !important; height: 48px !important; }
+  .cr-resume__dz-title { font-size: 18px !important; }
+  .cr-resume__dz-sub { font-size: 13px !important; }
+  .cr-resume__dz-btn { padding: 12px 22px !important; font-size: 14px !important; }
+}
+
+/* Service-page build forms — make the two-column visual+form layout
+   stack cleanly on tablet, and shrink the visual on phone */
+@media (max-width: 1024px) {
+  .peb-bld__inner,
+  .ten-bld__inner,
+  .civ-bld__inner,
+  .arc-bld__inner,
+  .all-bld__inner {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  .peb-bld__visual,
+  .ten-bld__visual,
+  .civ-bld__visual,
+  .arc-bld__visual,
+  .all-bld__visual {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+}
+
+/* Universal — prevent iOS zoom on focus by enforcing 16px input text */
+@media (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="search"],
+  input[type="url"],
+  input[type="password"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Force every section / image / svg / iframe inside the page to
+   never exceed the viewport width — the strongest defence against
+   horizontal scroll on weird Android browsers. */
+section, img, svg, iframe, video, table {
+  max-width: 100%;
+}
+
+/* iOS momentum scroll for any horizontal scroller (logo marquees, etc.) */
+.ts-wkd__track,
+.op-grid__filters {
+  -webkit-overflow-scrolling: touch;
+}
+
 /* Disable click / active effects on project cards to avoid
    visual jumps when users click cards on Projects pages */
 .op-grid__card:active,

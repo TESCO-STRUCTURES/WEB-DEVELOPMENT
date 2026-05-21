@@ -89,14 +89,19 @@
 .ts-wkd__row {
   display: flex;
   align-items: center;
-  gap: 0;
+
+  gap: 54px; /* SPACE BETWEEN LOGOS */
+
   width: max-content;
+
   will-change: transform;
-  animation-duration: 38s;
+
+  animation-duration: 66s; /* SCROLL SPEED */
+
   animation-timing-function: linear;
+
   animation-iteration-count: infinite;
 }
-
 .ts-wkd__image-card {
   flex-shrink: 0;
   display: inline-flex;

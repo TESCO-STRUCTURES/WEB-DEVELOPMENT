@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './HomeReady.css';
 import ready from '../../assets/homeready.svg';
 
@@ -19,7 +20,7 @@ export default function HomeReady() {
         <div className="ts-rdy__media" style={{ backgroundImage: `url("${ready}")` }}>
            <div className="ts-rdy__buttons">
               <button className="ts-btn ts-btn--orange">Book Free Site Inspection</button>
-              <button className="ts-btn ts-btn--white">Get Instant Pricing</button>
+              <Link to="/projects" className="ts-btn ts-btn--white">View Our Projects</Link>
            </div>
         </div>
       </div>

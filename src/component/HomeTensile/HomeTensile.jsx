@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './HomeTensile.css';
 import img1 from '../../assets/hometensile1.svg';
 import img2 from '../../assets/hometensile2.svg';
@@ -51,13 +52,13 @@ export default function HomeTensile() {
             ))}
           </ul>
 
-          <a href="#contact" className="ts-ten__more">
+          <Link to="/tensile" className="ts-ten__more">
             Explore more
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <line x1="5" y1="12" x2="19" y2="12"/>
               <polyline points="13 5 19 12 13 19"/>
             </svg>
-          </a>
+          </Link>
         </div>
 
       </div>

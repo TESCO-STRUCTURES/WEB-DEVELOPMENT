@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './AboutHero.css';
 import heroBg from '../../assets/abouthero.svg';
 
@@ -19,9 +20,9 @@ export default function AboutHero() {
         </p>
 
         <div className="ts-ah__actions">
-          <a href="#pricing" className="ts-ah__btn ts-ah__btn--outline">
-            Get Instant Pricing
-          </a>
+          <Link to="/projects" className="ts-ah__btn ts-ah__btn--outline">
+            View Our Projects
+          </Link>
           <a href="#contact" className="ts-ah__btn ts-ah__btn--solid">
             Book free Site Inspection
           </a>

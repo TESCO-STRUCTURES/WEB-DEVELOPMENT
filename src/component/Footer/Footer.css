@@ -277,3 +277,91 @@
 .ts-footer__legal a:hover {
   color: #ffffff;
 }
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+/* Tablet — collapse from 4-col to 2-col, shrink the watermark */
+@media (max-width: 1200px) {
+  .ts-footer__inner,
+  .ts-footer__bottom {
+    width: 100%;
+    max-width: 1129px;
+    padding-inline: 32px;
+    box-sizing: border-box;
+  }
+  .ts-footer__watermark {
+    width: 100%;
+    font-size: clamp(60px, 12vw, 110px);
+  }
+}
+
+@media (max-width: 960px) {
+  .ts-footer { padding-top: 56px; }
+
+  .ts-footer__inner {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+    row-gap: 44px;
+    margin-top: 60px;
+  }
+
+  /* Brand block + Social block span full row width */
+  .ts-footer__brand,
+  .ts-footer__social-col {
+    grid-column: 1 / -1;
+  }
+  .ts-footer__social-col {
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .ts-footer__brand { width: 100%; }
+  .ts-footer__desc  { width: 100%; max-width: 540px; }
+
+  .ts-footer__watermark {
+    height: auto;
+    font-size: clamp(48px, 11vw, 96px);
+  }
+
+  .ts-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+/* Phone — single column, smaller logo, looser spacing */
+@media (max-width: 600px) {
+  .ts-footer { padding-top: 48px; }
+
+  .ts-footer__inner {
+    grid-template-columns: 1fr;
+    row-gap: 36px;
+    margin-top: 48px;
+    padding-inline: 20px;
+  }
+  .ts-footer__bottom {
+    padding-inline: 20px;
+    text-align: center;
+    align-items: flex-start;
+  }
+
+  .ts-footer__logo-icon { width: 160px; height: auto; }
+  .ts-footer__desc      { font-size: 15px; line-height: 1.6; }
+  .ts-footer__title     { font-size: 16px; margin-bottom: 18px; }
+  .ts-footer__link,
+  .ts-footer__contact-list li { font-size: 14px; }
+
+  .ts-footer__watermark { font-size: clamp(40px, 14vw, 64px); }
+
+  .ts-footer__contact-list { gap: 16px; }
+}
+
+@media (max-width: 380px) {
+  .ts-footer__inner,
+  .ts-footer__bottom { padding-inline: 16px; }
+  .ts-footer__watermark { font-size: 36px; opacity: 0.5; }
+}

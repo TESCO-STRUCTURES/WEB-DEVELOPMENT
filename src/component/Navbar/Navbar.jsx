@@ -19,8 +19,8 @@ const LINKS = [
   { label: 'Services', dropdown: SERVICES_CHILDREN },
   { label: 'Projects', to: '/projects' },
 
-  // Brochure single downloadable PDF (place file at `public/brochures/tesco-brochure.pdf`)
-  { label: 'Brochure', dropdown: [ { label: 'Download PDF', to: '/brochures/tesco-brochure.pdf' } ] },
+  // Brochure single downloadable PDF (file lives at `public/brochure.pdf` — served from site root as `/brochure.pdf`)
+  { label: 'Brochure', dropdown: [ { label: 'Download PDF', to: '/brochure.pdf', filename: 'Tesco-Structures-Brochure.pdf' } ] },
   { label: 'Blog', to: '/blog' },
   { label: 'Careers', to: '/career' },
 ];
@@ -137,7 +137,7 @@ export default function Navbar() {
                             href={child.to}
                             role="menuitem"
                             className="ts-nav__dd-link"
-                            download
+                            download={child.filename || true}
                             target="_blank"
                             rel="noopener noreferrer"
                           >

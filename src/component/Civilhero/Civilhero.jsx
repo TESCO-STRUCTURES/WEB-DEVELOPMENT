@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Civilhero.css';
 import h1 from '../../assets/civilhero1.svg';
 import h2 from '../../assets/civilhero2.svg';
@@ -43,9 +44,9 @@ export default function Civilhero() {
             <a href="/contact" className="civ-hero__btn civ-hero__btn--primary">
               Book Free Site Inspection
             </a>
-            <a href="#civ-build" className="civ-hero__btn civ-hero__btn--ghost">
-              Get Instant Pricing
-            </a>
+            <Link to="/projects" className="civ-hero__btn civ-hero__btn--ghost">
+              View Our Projects
+            </Link>
           </div>
         </div>
 

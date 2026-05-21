@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Tensilehero.css';
 import h1 from '../../assets/tensilehero1.svg';
 import h2 from '../../assets/tensilehero2.svg';
@@ -43,9 +44,9 @@ export default function Tensilehero() {
             <a href="/contact" className="ten-hero__btn ten-hero__btn--primary">
               Book Free Site Inspection
             </a>
-            <a href="#ten-build" className="ten-hero__btn ten-hero__btn--ghost">
-              Get Instant Pricing
-            </a>
+            <Link to="/projects" className="ten-hero__btn ten-hero__btn--ghost">
+              View Our Projects
+            </Link>
           </div>
         </div>
 

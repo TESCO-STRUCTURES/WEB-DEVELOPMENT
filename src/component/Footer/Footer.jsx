@@ -13,7 +13,6 @@ const QUICK_LINKS = [
   'Home',
   'About us',
   'Services',
-  'Pricing',
   'Project',
   'Brochure',
   'Blogs',
@@ -182,7 +181,13 @@ export default function Footer() {
         ========================= */}
         <div className="ts-footer__social-col">
 
-          <a href="#" className="ts-footer__soc-wrap">
+          <a
+            href="https://www.linkedin.com/company/tesco-structures/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Tesco Structures on LinkedIn"
+            className="ts-footer__soc-wrap"
+          >
             <img
               src={linkedinIcon}
               alt="LinkedIn"
@@ -190,7 +195,11 @@ export default function Footer() {
             />
           </a>
 
-          <a href="#" className="ts-footer__soc-wrap">
+          <a
+            href="#"
+            aria-label="YouTube (coming soon)"
+            className="ts-footer__soc-wrap"
+          >
             <img
               src={youtubeIcon}
               alt="YouTube"
@@ -198,7 +207,13 @@ export default function Footer() {
             />
           </a>
 
-          <a href="#" className="ts-footer__soc-wrap">
+          <a
+            href="https://www.facebook.com/tescostructures/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Tesco Structures on Facebook"
+            className="ts-footer__soc-wrap"
+          >
             <img
               src={facebookIcon}
               alt="Facebook"
@@ -206,7 +221,13 @@ export default function Footer() {
             />
           </a>
 
-          <a href="#" className="ts-footer__soc-wrap">
+          <a
+            href="https://www.instagram.com/tesco_structures/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Tesco Structures on Instagram"
+            className="ts-footer__soc-wrap"
+          >
             <img
               src={instagramIcon}
               alt="Instagram"
@@ -214,7 +235,11 @@ export default function Footer() {
             />
           </a>
 
-          <a href="#" className="ts-footer__soc-wrap">
+          <a
+            href="#"
+            aria-label="Pinterest (coming soon)"
+            className="ts-footer__soc-wrap"
+          >
             <img
               src={pinterestIcon}
               alt="Pinterest"
@@ -222,7 +247,11 @@ export default function Footer() {
             />
           </a>
 
-          <a href="#" className="ts-footer__soc-wrap">
+          <a
+            href="#"
+            aria-label="Twitter / X (coming soon)"
+            className="ts-footer__soc-wrap"
+          >
             <img
               src={twitterIcon}
               alt="Twitter"

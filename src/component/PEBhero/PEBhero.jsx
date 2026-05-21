@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './PEBhero.css';
 import pebhero1 from '../../assets/PEBhero1.svg';
 import pebhero2 from '../../assets/PEBhero2.svg';
@@ -53,9 +54,9 @@ export default function PEBhero() {
             <a href="/contact" className="peb-hero__btn peb-hero__btn--primary">
               Book Free Site Inspection
             </a>
-            <a href="#peb-build" className="peb-hero__btn peb-hero__btn--ghost">
-              Get Instant Pricing
-            </a>
+            <Link to="/projects" className="peb-hero__btn peb-hero__btn--ghost">
+              View Our Projects
+            </Link>
           </div>
         </div>
 

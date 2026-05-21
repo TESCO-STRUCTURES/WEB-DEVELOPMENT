@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Hero.css';
 
 import hero1 from '../../assets/homehero1.svg';
@@ -98,12 +99,12 @@ export default function Hero() {
           {/* BUTTONS */}
           <div className="ts-hero__buttons">
 
-            <button
-              type="button"
+            <Link
+              to="/projects"
               className="ts-hero__pricing-btn"
             >
-              Get Instant Pricing
-            </button>
+              View Our Projects
+            </Link>
 
             <button
               type="button"
@@ -116,12 +117,36 @@ export default function Hero() {
 
         </div>
 
-        {/* RIGHT SIDE IMAGE */}
-        <img
-          src={heroright}
-          alt=""
-          className="ts-hero__right-img"
-        />
+        {/* RIGHT SIDE FLOATING ICONS — mail / WhatsApp / phone.
+            Image is heroright.svg (74×234 viewBox, 3 icons stacked).
+            Each icon is overlaid with a transparent <a> hotspot
+            sized as a % of the wrapper so the click area scales
+            with responsive sizing. */}
+        <div className="ts-hero__right-img" aria-label="Quick contact">
+          <img
+            src={heroright}
+            alt=""
+            className="ts-hero__right-img-pic"
+            aria-hidden="true"
+          />
+          <a
+            href="mailto:tescostructure@gmail.com"
+            className="ts-hero__right-hot ts-hero__right-hot--mail"
+            aria-label="Email Tesco Structures"
+          />
+          <a
+            href="https://wa.me/919600652424"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ts-hero__right-hot ts-hero__right-hot--wa"
+            aria-label="WhatsApp Tesco Structures"
+          />
+          <a
+            href="tel:+919600652424"
+            className="ts-hero__right-hot ts-hero__right-hot--call"
+            aria-label="Call Tesco Structures"
+          />
+        </div>
 
       </div>
 

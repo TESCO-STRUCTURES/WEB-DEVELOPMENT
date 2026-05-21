@@ -11,23 +11,33 @@
 }
 
 .peb-pro__eyebrow {
-  display: inline-block;
-  padding: 10px 30px;
+  width: 182px;
+  height: 58px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 30px;
+  border-radius: 60px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(79, 163, 30, 0.7);
+  box-sizing: border-box;
   background: transparent;
-  border: 1px solid rgba(79, 163, 30, 0.7);
-  border-radius: 100px;
-  margin-bottom: 16px;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
-  color: #FFFFFF;
-  letter-spacing: 0.2px;
+  letter-spacing: 0;
   text-transform: capitalize;
-  box-shadow: 0 0 28px rgba(79, 163, 30, 0.55),
-              inset 0 0 14px rgba(79, 163, 30, 0.20);
+  color: #FFFFFF;
+  white-space: nowrap; /* — keep title in single line — */
+  margin-bottom: 16px;
+  opacity: 1;
+  box-shadow:
+    0 0 28px rgba(79, 163, 30, 0.55),
+    inset 0 0 14px rgba(79, 163, 30, 0.20);
 }
-
 .peb-pro__desc {
   margin: 0;
   font-family: 'Poppins', sans-serif;

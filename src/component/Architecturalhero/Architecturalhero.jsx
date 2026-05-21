@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Architecturalhero.css';
 import h1 from '../../assets/architecturalhero1.svg';
 import h2 from '../../assets/architecturalhero2.svg';
@@ -43,9 +44,9 @@ export default function Architecturalhero() {
             <a href="/contact" className="arc-hero__btn arc-hero__btn--primary">
               Book Free Site Inspection
             </a>
-            <a href="#arc-build" className="arc-hero__btn arc-hero__btn--ghost">
-              Get Instant Pricing
-            </a>
+            <Link to="/projects" className="arc-hero__btn arc-hero__btn--ghost">
+              View Our Projects
+            </Link>
           </div>
         </div>
 

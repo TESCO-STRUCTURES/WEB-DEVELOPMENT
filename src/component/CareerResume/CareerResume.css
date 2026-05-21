@@ -5,13 +5,12 @@
   text-align: center;
 }
 
-.cr-resume__inner { 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  width: 904px;
-  height: 484px;
-  top: 2352px;
+.cr-resume__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 904px;
 }
 
 .cr-resume__title { 
@@ -32,11 +31,10 @@
 .cr-resume__dropzone-wrapper {
   width: 100%;
   max-width: 904px;
-  height: 372px;
+  min-height: 372px;
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
               linear-gradient(180deg, rgba(27, 43, 72, 0.03) 2.5%, rgba(27, 43, 72, 0) 2.5%),
               linear-gradient(90deg, rgba(27, 43, 72, 0.03) 2.5%, rgba(27, 43, 72, 0) 2.5%);
-
 }
 
 .cr-resume__dropzone {
@@ -129,4 +127,41 @@
 .cr-resume__send:hover{
   transform:translateY(-2px);
   opacity:0.9;
+}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 1024px) {
+  .cr-resume { padding: 96px 0; }
+  .cr-resume__dropzone { padding: 60px 28px; }
+}
+
+@media (max-width: 768px) {
+  .cr-resume { padding: 72px 0; }
+  .cr-resume__title { font-size: clamp(24px, 6vw, 32px); }
+  .cr-resume__desc  { font-size: 15px; margin: 0 0 32px; padding: 0 18px; }
+  .cr-resume__dropzone {
+    padding: 44px 20px;
+    border-radius: 18px;
+  }
+  .cr-resume__dz-icon { margin-bottom: 16px; }
+  .cr-resume__dz-icon svg { width: 56px; height: 56px; }
+  .cr-resume__dz-title { font-size: 20px; }
+  .cr-resume__dz-sub   { margin: 0 0 22px; }
+}
+
+@media (max-width: 480px) {
+  .cr-resume { padding: 56px 0; }
+  .cr-resume__dropzone {
+    padding: 32px 16px;
+    border-radius: 14px;
+    min-height: 240px;
+  }
+  .cr-resume__dropzone-wrapper { min-height: 0; }
+  .cr-resume__dz-icon svg { width: 44px; height: 44px; }
+  .cr-resume__dz-title { font-size: 17px; }
+  .cr-resume__dz-sub   { font-size: 12px; }
+  .cr-resume__dz-btn   { padding: 12px 24px; font-size: 14px; }
+  .cr-resume__dz-file  { font-size: 13px; word-break: break-word; }
 }

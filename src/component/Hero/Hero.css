@@ -430,17 +430,60 @@
 
   transform: translateY(-50%);
 
+  /* Width × height matches the SVG's natural ratio (74:234)
+     so the hotspot percentages line up exactly with the icons. */
   width: 56px;
 
-  height: 216px;
-
-  object-fit: contain;
+  height: 177px;
 
   display: block;
 
   z-index: 9999;
+}
 
+/* The actual image inside the wrapper — clicks pass through to the
+   transparent <a> hotspots layered above. */
+.ts-hero__right-img-pic {
+  width: 100%;
+  height: 100%;
+  display: block;
   pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Transparent click areas overlaid on top of each icon.
+   Percentages are calculated against the SVG's 74×234 viewBox:
+     left   =  9 / 74  = 12.16%
+     width  = 56 / 74  = 75.68%
+     height = 56 / 234 = 23.93%
+     mail   top = 9   / 234 =  3.85%
+     wa     top = 89  / 234 = 38.03%
+     call   top = 169 / 234 = 72.22%
+*/
+.ts-hero__right-hot {
+  position: absolute;
+  left: 12.16%;
+  width: 75.68%;
+  height: 23.93%;
+  border-radius: 50%;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ts-hero__right-hot--mail { top:  3.85%; }
+.ts-hero__right-hot--wa   { top: 38.03%; }
+.ts-hero__right-hot--call { top: 72.22%; }
+
+.ts-hero__right-hot:hover  { transform: scale(1.08); }
+.ts-hero__right-hot:active { transform: scale(0.96); }
+
+/* Don't show a focus ring that breaks the icon look — keep keyboard
+   accessibility via a subtle outline instead. */
+.ts-hero__right-hot:focus-visible {
+  outline: 2px solid #FF6A00;
+  outline-offset: 3px;
 }
 
 /* ============================================
@@ -470,7 +513,7 @@
 
     width: 48px;
 
-    height: 190px;
+    height: 152px;
   }
 }
 
@@ -489,7 +532,7 @@
   .ts-hero__right-img {
     width: 42px;
 
-    height: 170px;
+    height: 133px;
   }
 }
 
@@ -545,9 +588,9 @@
   }
 
   .ts-hero__right-img {
-    width: 36px;
+    width: 44px;
 
-    height: 150px;
+    height: 139px;
 
     right: 14px;
   }
@@ -593,9 +636,9 @@
   }
 
   .ts-hero__right-img {
-    width: 28px;
+    width: 40px;
 
-    height: 120px;
+    height: 126px;
 
     right: 10px;
   }
