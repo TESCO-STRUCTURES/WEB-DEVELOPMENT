@@ -41,9 +41,9 @@ export default function Civilhero() {
           </p>
 
           <div className="civ-hero__cta">
-            <a href="/contact" className="civ-hero__btn civ-hero__btn--primary">
+            <Link to="/contact" className="civ-hero__btn civ-hero__btn--primary">
               Book Free Site Inspection
-            </a>
+            </Link>
             <Link to="/projects" className="civ-hero__btn civ-hero__btn--ghost">
               View Our Projects
             </Link>

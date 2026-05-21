@@ -106,12 +106,12 @@ export default function Hero() {
               View Our Projects
             </Link>
 
-            <button
-              type="button"
+            <Link
+              to="/contact"
               className="ts-hero__inspection-btn"
             >
               Book Free Site Inspection
-            </button>
+            </Link>
 
           </div>
 

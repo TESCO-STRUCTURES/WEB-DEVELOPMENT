@@ -15,8 +15,8 @@ export default function Careerhero() {
             Join a team of visionary engineers and project managers shaping the skylines of tomorrow with structural integrity and sustainable innovation.
           </p>
           <div className="cr-hero__cta">
-            <a href="#cr-jobs" className="cr-hero__btn cr-hero__btn--primary">Apply Now</a>
-            <a href="#cr-resume" className="cr-hero__btn cr-hero__btn--ghost">Explore Jobs</a>
+            <a href="#cr-resume" className="cr-hero__btn cr-hero__btn--primary">Apply Now</a>
+            <a href="#cr-jobs" className="cr-hero__btn cr-hero__btn--ghost">Explore Jobs</a>
           </div>
         </div>
 

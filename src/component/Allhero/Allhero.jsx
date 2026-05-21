@@ -41,9 +41,9 @@ export default function Allhero() {
           </p>
 
           <div className="all-hero__cta">
-            <a href="/contact" className="all-hero__btn all-hero__btn--primary">
+            <Link to="/contact" className="all-hero__btn all-hero__btn--primary">
               Book Free Site Inspection
-            </a>
+            </Link>
             <Link to="/projects" className="all-hero__btn all-hero__btn--ghost">
               View Our Projects
             </Link>

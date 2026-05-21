@@ -22,7 +22,7 @@ export default function AboutBuild() {
           style={{ backgroundImage: `url("${img}")` }}
         >
           <div className="ts-abld__buttons">
-            <a href="#book" className="ts-btn ts-btn--orange">Book Free Site Inspection</a>
+            <Link to="/contact" className="ts-btn ts-btn--orange">Book Free Site Inspection</Link>
             <Link to="/projects" className="ts-btn ts-btn--ghost">View Our Projects</Link>
           </div>
         </div>

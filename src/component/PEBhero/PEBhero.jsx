@@ -51,9 +51,9 @@ export default function PEBhero() {
           </p>
 
           <div className="peb-hero__cta">
-            <a href="/contact" className="peb-hero__btn peb-hero__btn--primary">
+            <Link to="/contact" className="peb-hero__btn peb-hero__btn--primary">
               Book Free Site Inspection
-            </a>
+            </Link>
             <Link to="/projects" className="peb-hero__btn peb-hero__btn--ghost">
               View Our Projects
             </Link>

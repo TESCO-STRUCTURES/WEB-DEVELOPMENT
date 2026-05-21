@@ -19,7 +19,7 @@ export default function HomeReady() {
         </div>
         <div className="ts-rdy__media" style={{ backgroundImage: `url("${ready}")` }}>
            <div className="ts-rdy__buttons">
-              <button className="ts-btn ts-btn--orange">Book Free Site Inspection</button>
+              <Link to="/contact" className="ts-btn ts-btn--orange">Book Free Site Inspection</Link>
               <Link to="/projects" className="ts-btn ts-btn--white">View Our Projects</Link>
            </div>
         </div>

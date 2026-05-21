@@ -23,9 +23,9 @@ export default function AboutHero() {
           <Link to="/projects" className="ts-ah__btn ts-ah__btn--outline">
             View Our Projects
           </Link>
-          <a href="#contact" className="ts-ah__btn ts-ah__btn--solid">
+          <Link to="/contact" className="ts-ah__btn ts-ah__btn--solid">
             Book free Site Inspection
-          </a>
+          </Link>
         </div>
       </div>
     </section>

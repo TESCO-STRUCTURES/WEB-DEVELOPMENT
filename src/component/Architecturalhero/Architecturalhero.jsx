@@ -41,9 +41,9 @@ export default function Architecturalhero() {
           </p>
 
           <div className="arc-hero__cta">
-            <a href="/contact" className="arc-hero__btn arc-hero__btn--primary">
+            <Link to="/contact" className="arc-hero__btn arc-hero__btn--primary">
               Book Free Site Inspection
-            </a>
+            </Link>
             <Link to="/projects" className="arc-hero__btn arc-hero__btn--ghost">
               View Our Projects
             </Link>
