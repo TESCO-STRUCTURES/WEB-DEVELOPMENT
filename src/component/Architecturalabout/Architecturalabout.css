@@ -88,7 +88,7 @@
 }
 
 /* Eyebrow pill — white fill, orange text, green left-arc border fading right */
-.des-about__eyebrow {
+.arc-about__eyebrow {
   width: 349px !important;
   height: 58px !important;
 
@@ -113,11 +113,24 @@
   overflow: hidden;
 
   isolation: isolate;
+
+  position: relative;
+  top: -30px;
+
+  /* TEXT SIZE INSIDE BUTTON */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-transform: capitalize;
 }
 
 /* ── Soft Green Glow ── */
 
-.des-about__eyebrow::after {
+/* ── Soft Green Glow ── */
+
+.arc-about__eyebrow::after {
   content: '';
 
   position: absolute;
@@ -145,33 +158,12 @@
 
 /* ── Hover ── */
 
-.des-about__eyebrow:hover {
+.arc-about__eyebrow:hover {
   transform: translateY(-4px) scale(1.02);
 
   box-shadow:
     0 16px 32px rgba(79, 163, 30, 0.18),
     0 8px 20px rgba(79, 163, 30, 0.12);
-}
-
-/* ── Glow Animation ── */
-
-@keyframes desGlowPulse {
-
-  0% {
-    opacity: .55;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: .95;
-    transform: scale(1.05);
-  }
-
-  100% {
-    opacity: .55;
-    transform: scale(1);
-  }
-
 }
 .arc-about__eyebrow-text {
   position: relative;

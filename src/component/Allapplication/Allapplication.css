@@ -30,7 +30,8 @@
 .allapp__badge {
   position: relative;
 
-  width: 203px;
+  /* UPDATED FIGMA SIZE */
+  width: 248px;
   height: 58px;
 
   display: inline-flex;
@@ -53,11 +54,16 @@
 
   box-sizing: border-box;
 
+  /* TEXT SIZE OF "All type of roofing" */
   font-family: 'Poppins', sans-serif;
-  font-size: 20px;
   font-weight: 500;
+  font-size: 20px;
 
   line-height: 100%;
+
+  letter-spacing: 0;
+
+  text-transform: capitalize;
 
   color: #FF6A00;
 
@@ -492,16 +498,7 @@
 
 .allapp__head { text-align: center; max-width: 820px; margin: 0 auto 48px; padding: 0 20px; }
 
-.allapp__badge {
-  display: inline-block;
-  padding: 7px 26px;
-  border: 1.5px solid #FF6B00;
-  border-radius: 30px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px; font-weight: 500;
-  color: #FF6B00;
-  margin-bottom: 18px;
-}
+
 
 .allapp__desc {
   font-family: 'Poppins', sans-serif;

@@ -89,7 +89,7 @@
 }
 
 /* "About PEB" pill — peach fill, orange text, static green border */
-.roof-about__eyebrow {
+.all-about__eyebrow {
   width: 203px !important;
   min-width: 203px !important;
   max-width: 203px !important;
@@ -102,13 +102,24 @@
 
   display: flex !important;
 
+  align-items: center !important;
+  justify-content: center !important;
+
   flex: 0 0 203px !important;
 
   border-radius: 60px !important;
 
   box-sizing: border-box !important;
 
+  /* TEXT SIZE OF "About Roofing" */
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 500 !important;
   font-size: 20px !important;
+  line-height: 100% !important;
+  letter-spacing: 0 !important;
+  text-transform: capitalize !important;
+  position: relative;
+  top: -30px;
 }
 
 /* ── Soft Green Glow ── */
