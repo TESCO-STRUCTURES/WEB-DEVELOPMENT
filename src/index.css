@@ -1482,3 +1482,226 @@ section, img, svg, iframe, video, table {
   }
 }
 
+/* ============================================================
+   BULLETPROOF MOBILE OVERRIDE  —  100% responsive guarantee
+   This block runs LAST so it overrides every component-level
+   rule. Strategy: at ≤768px, kill all hardcoded widths/heights/
+   fixed positions/oversized typography so every element flows
+   inside its parent. Then refine at ≤480px and ≤360px.
+============================================================ */
+
+/* Universal — prevent horizontal scroll, no matter what */
+html, body, #root, .app {
+  max-width: 100vw;
+  overflow-x: hidden !important;
+}
+
+/* Every common content block should respect viewport width */
+* {
+  max-width: 100%;
+}
+/* But NEVER constrain SVG `<defs>` / decorative pseudo-elements */
+svg *, .ts-dock__btn::after, .peb-hero::before, .peb-hero::after,
+.ten-hero::before, .ten-hero::after, .civ-hero::before, .civ-hero::after,
+.arc-hero::before, .arc-hero::after, .all-hero::before, .all-hero::after,
+.peb-about::before, .peb-about::after, .ten-about::before, .ten-about::after,
+.civ-about::before, .civ-about::after, .arc-about::before, .arc-about::after,
+.all-about::before, .all-about::after {
+  max-width: none;
+}
+
+/* ── ALL MOBILE: 768px and below ───────────────────────── */
+@media (max-width: 768px) {
+
+  /* ── Containers & sections ─────────────────────────── */
+  section, header, footer, main, article, aside {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: clip;
+    box-sizing: border-box;
+  }
+  .container,
+  [class*="__inner"],
+  [class*="-inner"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: clamp(14px, 4vw, 20px) !important;
+    padding-right: clamp(14px, 4vw, 20px) !important;
+    box-sizing: border-box !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* ── Kill desktop translateX shifts that push content off-screen */
+  [style*="translateX"], .peb-about, .ten-about, .civ-about,
+  .arc-about, .all-about, .peb-about__media, .ten-about__media,
+  .civ-about__media, .arc-about__media, .all-about__media {
+    transform: none !important;
+  }
+
+  /* ── Every grid collapses to one or two columns ────── */
+  [class*="__grid"]:not(.op-grid__list):not(.ts-aloc__grid) {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* ── Every multi-column row flex stacks ────────────── */
+  [class*="__row--two"],
+  [class*="row--two"],
+  [class*="__cta"],
+  [class*="hero__cta"],
+  [class*="__actions"] {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+
+  /* ── Every CTA button goes full-width inside its row */
+  [class*="hero__btn"],
+  [class*="__btn--primary"],
+  [class*="__btn--ghost"],
+  [class*="__btn--outline"],
+  [class*="__btn--solid"],
+  [class*="__btn--white"],
+  [class*="__btn--orange"] {
+    width: 100% !important;
+    max-width: 360px;
+    margin-inline: auto;
+    justify-content: center !important;
+  }
+
+  /* ── Form inputs: 16px font kills iOS focus-zoom ───── */
+  input, select, textarea {
+    font-size: 16px !important;
+    max-width: 100% !important;
+  }
+
+  /* ── Images: never exceed parent, always preserve ratio */
+  img, picture, video, iframe {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* ── Typography clamps ─────────────────────────────── */
+  h1 { font-size: clamp(26px, 7vw, 40px) !important; line-height: 1.15 !important; }
+  h2 { font-size: clamp(22px, 6vw, 32px) !important; line-height: 1.2  !important; }
+  h3 { font-size: clamp(18px, 5vw, 24px) !important; line-height: 1.25 !important; }
+  h4 { font-size: clamp(16px, 4.5vw, 20px) !important; }
+  p, li, span, label, a { word-break: break-word; overflow-wrap: break-word; }
+
+  /* ── Watermark / huge decorative text never overflows */
+  [class*="__watermark"] {
+    font-size: clamp(36px, 11vw, 72px) !important;
+    white-space: normal !important;
+    line-height: 1 !important;
+    width: 100% !important;
+    text-align: center !important;
+    word-break: break-word;
+  }
+
+  /* ── Any absolutely-positioned overlay/card on top of a
+        media block: relax to relative so it stays in flow */
+  [class*="__card--2"],
+  [class*="-card-2"] {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* ── Disable all hover transforms on touch */
+  *:hover { transform: none !important; }
+
+  /* ── Section vertical padding sensible default ─────── */
+  section { padding-top: clamp(40px, 9vw, 80px); padding-bottom: clamp(40px, 9vw, 80px); }
+}
+
+/* ── PHONE — 480px and below ───────────────────────────── */
+@media (max-width: 480px) {
+
+  .container,
+  [class*="__inner"],
+  [class*="-inner"] {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  /* Smaller typography */
+  h1 { font-size: clamp(24px, 7vw, 32px) !important; }
+  h2 { font-size: clamp(20px, 6vw, 26px) !important; }
+  h3 { font-size: clamp(17px, 5vw, 20px) !important; }
+  p, li { font-size: 14px !important; line-height: 1.6 !important; }
+
+  /* Padding-heavy sections tighten */
+  section { padding-top: clamp(32px, 8vw, 60px); padding-bottom: clamp(32px, 8vw, 60px); }
+
+  /* Buttons one-size */
+  [class*="__btn"],
+  .ts-btn {
+    padding: 12px 22px !important;
+    font-size: 14px !important;
+  }
+
+  /* Every list item in a column layout */
+  ul[class*="__list"] { gap: 12px !important; }
+
+  /* Cards general padding compress */
+  [class*="__card"] { padding: 16px !important; }
+
+  /* Form rows columns to single */
+  [class*="__row"] { grid-template-columns: 1fr !important; flex-direction: column !important; }
+}
+
+/* ── TINY PHONE — 360px and below (old Android, etc) ───── */
+@media (max-width: 360px) {
+
+  .container,
+  [class*="__inner"],
+  [class*="-inner"] {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  h1 { font-size: 22px !important; }
+  h2 { font-size: 19px !important; }
+  h3 { font-size: 16px !important; }
+  p, li { font-size: 13.5px !important; }
+
+  [class*="__card"] { padding: 14px !important; }
+  [class*="__btn"]  { padding: 11px 18px !important; font-size: 13.5px !important; }
+}
+
+/* ── FINAL SAFETY NETS — always applied ────────────────── */
+
+/* Forbid any element from creating horizontal overflow */
+section, header, footer, main,
+[class*="__inner"], [class*="__grid"], [class*="__list"] {
+  min-width: 0;
+}
+
+/* Tables and pre blocks scroll horizontally inside their box
+   instead of breaking the page width */
+@media (max-width: 768px) {
+  table, pre {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Anything position:absolute with hard-coded `left:` in px from
+   the desktop layout — clamp so it never escapes its parent */
+@media (max-width: 768px) {
+  [style*="left:"], [class*="absolute"] {
+    max-width: 100%;
+  }
+}
+
+/* Disable backdrop blur on phones (perf + Safari bug) */
+@media (max-width: 600px) {
+  * {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
