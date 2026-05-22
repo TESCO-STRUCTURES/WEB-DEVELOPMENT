@@ -92,10 +92,22 @@
     padding: 56px 18px;
   }
   .arc-bld__visual {
-    min-height: 360px;
-    max-width: 520px;
-    margin: 0 auto;
-    width: 100%;
+    position: relative !important;
+    min-height: 0 !important;
+    width: 100% !important;
+    max-width: 520px !important;
+    margin: 0 auto !important;
+    aspect-ratio: 4 / 5 !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+  }
+  .arc-bld__visual-img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
   }
   .arc-bld__form {
     width: 100%;
@@ -105,6 +117,7 @@
 }
 
 @media (max-width: 640px) {
+  .arc-bld__visual { aspect-ratio: 4 / 4 !important; max-width: 100% !important; }
   .arc-bld__row--two {
     grid-template-columns: 1fr;
     flex-direction: column;

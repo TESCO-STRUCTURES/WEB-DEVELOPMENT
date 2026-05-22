@@ -10,7 +10,7 @@
 .op-grid {
   position: relative;
   background: transparent;
-  padding: 140px 0 80px 0;
+  padding: 160px 0 80px 0;
   overflow: hidden;
 }
 
@@ -383,13 +383,13 @@
 
 /* Phone */
 @media (max-width: 768px) {
-  .op-grid { padding: 110px 0 60px 0; }
+  .op-grid { padding: 130px 0 60px 0; }
   .op-grid__inner { padding-left: 18px; padding-right: 18px; }
   .op-grid__title { font-size: clamp(26px, 7vw, 36px); }
 }
 
 @media (max-width: 600px) {
-  .op-grid { padding: 110px 0 60px 0; }
+  .op-grid { padding: 130px 0 60px 0; }
   .op-grid__inner { padding-left: 18px; padding-right: 18px; }
   .op-grid__header { margin-bottom: 36px; }
   .op-grid__title { font-size: clamp(26px, 7vw, 36px); }
@@ -412,7 +412,7 @@
 }
 
 @media (max-width: 480px) {
-  .op-grid { padding: 96px 0 48px 0; }
+  .op-grid { padding: 120px 0 48px 0; }
   .op-grid__inner { padding-left: 18px; padding-right: 18px; }
   .op-grid__title { font-size: clamp(26px, 7vw, 36px); }
 }

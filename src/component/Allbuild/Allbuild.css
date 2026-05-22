@@ -87,10 +87,28 @@
 
 @media (max-width: 1024px) {
   .all-bld__inner { grid-template-columns: 1fr; }
-  .all-bld__visual { min-height: 360px; }
+  .all-bld__visual {
+    position: relative !important;
+    min-height: 0 !important;
+    width: 100% !important;
+    max-width: 520px !important;
+    margin: 0 auto !important;
+    aspect-ratio: 4 / 5 !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+  }
+  .all-bld__visual-img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
 }
 
 @media (max-width: 640px) {
+  .all-bld__visual { aspect-ratio: 4 / 4 !important; max-width: 100% !important; }
   .all-bld__row--two { flex-direction: column; gap: 0; }
   .all-bld__badge { padding: 10px 14px; gap: 10px; }
   .all-bld__badge--top    { top: 16px;    right: 16px; }

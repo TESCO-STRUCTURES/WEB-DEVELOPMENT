@@ -325,7 +325,9 @@
   }
 
   .bp-sidebar {
-    position: static;
+    position: static !important;
+    margin-top: 0 !important;
+    top: auto !important;
   }
 }
 

@@ -241,34 +241,39 @@
 }
 
 @media (max-width: 720px) {
-  .ts-des__watermark {
-    font-size: clamp(44px, 13vw, 88px);
-    line-height: 1;
-    letter-spacing: -0.03em;
-    top: 20px;
-  }
+  .ts-des__watermark { display: none !important; }
 
   .ts-des__inner {
-    padding-top: 60px;
+    padding-top: 24px !important;
   }
 
   .ts-des__media {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    aspect-ratio: 5 / 4.2;
-    min-height: 0;
-    margin-left: 0;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+    aspect-ratio: auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin-left: 0 !important;
   }
 
   .ts-des__card--1,
   .ts-des__card--2 {
-    position: relative;
+    position: relative !important;
+    inset: auto !important;
     left: 0 !important;
     top: 0 !important;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+    border-radius: 18px !important;
+  }
+
+  .ts-des__card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
   }
 
   .ts-des__list {
@@ -277,7 +282,9 @@
   }
 
   .ts-des__title {
-    font-size: 40px;
+    font-size: clamp(26px, 7vw, 36px) !important;
+    line-height: 1.15 !important;
+    text-align: left !important;
   }
 
   .ts-des__subtitle {
@@ -296,7 +303,7 @@
   }
 
   .ts-des__media {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     min-height: 0;
   }
 
