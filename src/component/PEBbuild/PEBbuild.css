@@ -240,16 +240,38 @@
 @media (max-width: 1024px) {
   .peb-bld__inner {
     grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 56px 18px;
   }
   .peb-bld__visual {
     min-height: 360px;
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .peb-bld__form {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
   }
 }
 
 @media (max-width: 640px) {
   .peb-bld__row--two {
+    grid-template-columns: 1fr;
     flex-direction: column;
-    gap: 0;
+    gap: 12px;
+  }
+  .peb-bld__field input,
+  .peb-bld__field select,
+  .peb-bld__field textarea {
+    font-size: 16px;
+    padding: 12px 14px 12px 42px;
+  }
+  .peb-bld__btn {
+    width: 100%;
+    padding: 14px 22px;
+    font-size: 15px;
   }
   .peb-bld__badge {
     padding: 10px 14px;

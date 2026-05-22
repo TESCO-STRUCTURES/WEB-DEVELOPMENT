@@ -86,12 +86,41 @@
 .arc-bld__btn:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(255, 106, 0, 0.42); }
 
 @media (max-width: 1024px) {
-  .arc-bld__inner { grid-template-columns: 1fr; }
-  .arc-bld__visual { min-height: 360px; }
+  .arc-bld__inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 56px 18px;
+  }
+  .arc-bld__visual {
+    min-height: 360px;
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .arc-bld__form {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 640px) {
-  .arc-bld__row--two { flex-direction: column; gap: 0; }
+  .arc-bld__row--two {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .arc-bld__field input,
+  .arc-bld__field select,
+  .arc-bld__field textarea {
+    font-size: 16px;
+    padding: 12px 14px 12px 42px;
+  }
+  .arc-bld__btn {
+    width: 100%;
+    padding: 14px 22px;
+    font-size: 15px;
+  }
   .arc-bld__badge { padding: 10px 14px; gap: 10px; }
   .arc-bld__badge--top    { top: 16px;    right: 16px; }
   .arc-bld__badge--bottom { bottom: 16px; left: 16px; }

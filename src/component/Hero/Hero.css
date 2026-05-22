@@ -560,6 +560,8 @@
     font-size: 34px;
 
     line-height: 1.1;
+
+    padding-right: 70px;
   }
 
   .ts-hero__desc {
@@ -570,12 +572,16 @@
     line-height: 1.7;
 
     max-width: 92%;
+
+    padding-right: 70px;
   }
 
   .ts-hero__buttons {
     margin-top: 34px;
 
     gap: 18px;
+
+    padding-right: 60px;
   }
 
   .ts-hero__pricing-btn,
@@ -616,12 +622,20 @@
     font-size: 28px;
 
     line-height: 1.15;
+
+    padding-right: 56px;
   }
 
   .ts-hero__desc {
     font-size: 14px;
 
     line-height: 1.7;
+
+    padding-right: 56px;
+  }
+
+  .ts-hero__buttons {
+    padding-right: 56px;
   }
 
   .ts-hero__pricing-btn,

@@ -36,7 +36,7 @@
   color: #2E5F1A;
   /* deep green like Figma */
   line-height: 0.95;
-  letter-spacing: -6px;
+  letter-spacing: -0.04em;
   margin: 0;
 
   display: inline-flex;
@@ -47,12 +47,12 @@
 /* MOVE 5 LEFT */
 .ts-ams__reel:nth-child(2) {
   position: relative;
-  left: -38px;
+  left: -0.24em;
 }
 /* MOVE + LEFT */
 .ts-ams__exp-plus {
   position: relative;
-  left: -34px;
+  left: -0.22em;
 }
 
 .ts-ams__exp-plus {

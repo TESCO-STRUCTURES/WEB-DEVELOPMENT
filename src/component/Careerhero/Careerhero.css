@@ -10,17 +10,18 @@
   grid-template-columns: 1fr 1fr;
   gap: 28px;
   align-items: center;
-  width: 1183px;
-  height: 490px;
-  top: 173px;
-  left: 129px;
+  width: 100%;
+  max-width: 1183px;
+  height: auto;
+  margin: 0 auto;
 }
 
 .cr-hero__content {
   display: flex;
   flex-direction: column;
-  width: 595px;
-  height: 432px;
+  width: 100%;
+  max-width: 595px;
+  height: auto;
 }
 
 .cr-hero__title {
@@ -88,8 +89,9 @@
 
 .cr-hero__collage {
   position: relative;
-  width: 560px;
-  height: 558px;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
 }
 
 .cr-hero__main-img {
@@ -141,10 +143,21 @@
     max-width: 600px;
     margin: 0 auto;
   }
+
+  .cr-badge {
+    width: 120px;
+    height: auto;
+    padding: 12px;
+    font-size: 11px;
+  }
 }
 
 @media (max-width: 600px) {
-  .cr-badge {
-    width: 120px;
-  }
+  .cr-hero { padding: 110px 14px 60px; }
+  .cr-hero__title { font-size: clamp(28px, 8vw, 40px); line-height: 1.15; }
+  .cr-hero__cta { flex-direction: column; align-items: stretch; gap: 12px; }
+  .cr-hero__btn { width: 100%; padding: 14px 24px; font-size: 15px; }
+  .cr-badge { width: 86px; padding: 10px; font-size: 10px; }
+  .cr-badge-1 { top: -10px; left: -10px; }
+  .cr-badge-3 { bottom: 40px; right: -10px; }
 }

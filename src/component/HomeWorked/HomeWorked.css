@@ -323,7 +323,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .ts-wkd {
     padding: 60px 0;
   }
@@ -342,8 +342,12 @@
   }
 
   .ts-wkd__chip {
-    width: 130px;
-    height: 52px;
+    width: 100px;
+    height: 42px;
+  }
+
+  .ts-wkd__image-card {
+    height: 42px;
   }
 
   .ts-wkd__row {
@@ -352,5 +356,20 @@
 
   .ts-wkd__rows {
     gap: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ts-wkd__chip {
+    width: 90px;
+    height: 38px;
+  }
+
+  .ts-wkd__image-card {
+    height: 38px;
+  }
+
+  .ts-wkd__image {
+    max-width: 70%;
   }
 }

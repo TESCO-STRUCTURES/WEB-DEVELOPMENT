@@ -83,12 +83,29 @@
 
 /* ── RESPONSIVE ───────────────────────────────── */
 @media (max-width: 1024px) {
+  .peb-why {
+    padding: 0 0 80px 0;
+  }
+
   .peb-why__inner {
     grid-template-columns: 1fr;
   }
 
   .peb-why__copy {
-    max-width: none;
+    margin-left: 0 !important;
+    max-width: 100% !important;
+    text-align: center;
+  }
+
+  .peb-why__row p {
+    white-space: normal !important;
+    line-height: 1.5;
+  }
+
+  .peb-why__media img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 560px;
   }
 }
 

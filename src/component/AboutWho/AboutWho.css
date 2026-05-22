@@ -251,9 +251,33 @@
   }
 
   .ts-aw__diamond-grid {
-    transform: scale(0.85);
-    transform-origin: top center;
-    height: 510px;
+    transform: none;
+    height: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .ts-aw__diamond,
+  .ts-aw__diamond--1,
+  .ts-aw__diamond--2 {
+    position: relative;
+    inset: auto;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    transform: none;
+  }
+
+  .ts-aw__diamond:hover {
+    transform: scale(1.02);
   }
 
   .ts-aw__diamond-overlay {
@@ -274,8 +298,8 @@
   }
 
   .ts-aw__diamond-grid {
-    transform: scale(0.55);
-    height: 340px;
+    grid-template-columns: 1fr;
+    max-width: 320px;
   }
 
   .ts-aw__diamond-overlay {

@@ -279,20 +279,21 @@
   }
 
   .ts-ten__media {
-    min-height: 360px;
-    aspect-ratio: 5 / 4.4;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    aspect-ratio: 5 / 4.2;
+    min-height: 0;
   }
 
-  .ts-ten__card--1 {
-    width: 72%;
-    height: 76%;
-  }
-
+  .ts-ten__card--1,
   .ts-ten__card--2 {
-    width: 64%;
-    height: 68%;
-    left: 170px;
-    top: 150px;
+    position: relative;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
   }
 
   .ts-ten__list {
@@ -320,19 +321,14 @@
   }
 
   .ts-ten__media {
-    min-height: 280px;
+    grid-template-columns: 1fr;
+    min-height: 0;
   }
 
-  .ts-ten__card--1 {
-    width: 78%;
-    height: 72%;
-  }
-
+  .ts-ten__card--1,
   .ts-ten__card--2 {
-    width: 70%;
-    height: 64%;
-    left: 100px;
-    top: 120px;
+    width: 100%;
+    height: auto;
   }
 
   .ts-ten__title {

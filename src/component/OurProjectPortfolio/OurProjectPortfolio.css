@@ -10,7 +10,7 @@
 .op-grid {
   position: relative;
   background: transparent;
-  padding: 80px 0;
+  padding: 140px 0 80px 0;
   overflow: hidden;
 }
 
@@ -382,10 +382,17 @@
 }
 
 /* Phone */
+@media (max-width: 768px) {
+  .op-grid { padding: 110px 0 60px 0; }
+  .op-grid__inner { padding-left: 18px; padding-right: 18px; }
+  .op-grid__title { font-size: clamp(26px, 7vw, 36px); }
+}
+
 @media (max-width: 600px) {
-  .op-grid { padding: 60px 0; }
-  .op-grid__inner { padding: 0 18px; }
+  .op-grid { padding: 110px 0 60px 0; }
+  .op-grid__inner { padding-left: 18px; padding-right: 18px; }
   .op-grid__header { margin-bottom: 36px; }
+  .op-grid__title { font-size: clamp(26px, 7vw, 36px); }
   .op-grid__filters { gap: 8px; }
   .op-grid__chip {
     height: 36px;
@@ -402,6 +409,12 @@
   .op-grid__list--standard .op-grid__card {
     aspect-ratio: 4 / 5;
   }
+}
+
+@media (max-width: 480px) {
+  .op-grid { padding: 96px 0 48px 0; }
+  .op-grid__inner { padding-left: 18px; padding-right: 18px; }
+  .op-grid__title { font-size: clamp(26px, 7vw, 36px); }
 }
 
 /* Reduce motion — honour OS preference */

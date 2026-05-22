@@ -119,6 +119,14 @@
 }
 
 @media (max-width: 768px) {
+  .ts-aloc__eyebrow {
+    width: auto !important;
+    max-width: 100%;
+    height: auto;
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
   .ts-aloc__grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px 30px;
@@ -145,8 +153,8 @@
   }
 
   .ts-aloc__eyebrow {
-    font-size: 17px;
-    padding: 9px 26px;
+    font-size: 15px;
+    padding: 10px 22px;
   }
 
   .ts-aloc__desc {
@@ -154,8 +162,9 @@
   }
 
   .ts-aloc__grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 16px 20px;
+    max-width: 320px;
   }
 
   .ts-aloc__pin svg {

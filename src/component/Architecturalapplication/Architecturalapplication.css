@@ -487,10 +487,12 @@
 
   .arcapp__grid {
     grid-template-columns: 1fr;
-
     grid-auto-rows: 240px;
+    gap: 12px;
+  }
 
-    gap: 14px;
+  .arcapp__card {
+    padding: 16px;
   }
 
   .des-app__badge {
@@ -875,10 +877,12 @@
 
   .arcapp__grid {
     grid-template-columns: 1fr;
-
     grid-auto-rows: 240px;
+    gap: 12px;
+  }
 
-    gap: 14px;
+  .arcapp__card {
+    padding: 16px;
   }
 
   .arcapp__badge {
