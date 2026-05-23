@@ -32,7 +32,7 @@ export default function Footer() {
           WATERMARK
       =================================== */}
       <div className="ts-footer__watermark">
-        TESCO STRUCTURES
+        TESCO STRUCTUREs
       </div>
 
       {/* ===================================
@@ -158,7 +158,9 @@ export default function Footer() {
               </svg>
 
               <span>
-                +91 9600652424, +91 9150050533
+                <a href="tel:+919600652424" className="ts-footer__link">+91 9600652424</a>
+                {', '}
+                <a href="tel:+919150050533" className="ts-footer__link">+91 9150050533</a>
               </span>
 
             </li>

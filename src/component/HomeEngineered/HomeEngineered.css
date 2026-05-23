@@ -386,17 +386,15 @@
 
     transform: translateX(-50%) !important;
 
-    width: calc(100% - 32px) !important;
+    width: 100% !important;
 
     text-align: center !important;
 
-    font-size: 64px !important;
+    font-size: clamp(34px, 9vw, 46px) !important;
 
     line-height: 0.9 !important;
 
-    white-space: normal !important;
-
-    overflow-wrap: break-word !important;
+    white-space: nowrap !important;
 
     opacity: 1 !important;
 
@@ -474,9 +472,9 @@
 
     height: 220px !important;
 
-    top: 90px !important;
+    top: 70px !important;
 
-    right: 0 !important;
+    right: 8px !important;
 
     left: auto !important;
 
@@ -541,7 +539,7 @@
 
     display: block !important;
 
-    font-size: 46px !important;
+    font-size: clamp(34px, 9vw, 46px) !important;
 
     top: 18px !important;
 
@@ -549,13 +547,11 @@
 
     transform: translateX(-50%) !important;
 
-    width: calc(100% - 32px) !important;
+    width: 100% !important;
 
     text-align: center !important;
 
-    white-space: normal !important;
-
-    overflow-wrap: break-word !important;
+    white-space: nowrap !important;
 
     opacity: 1 !important;
 
@@ -619,9 +615,9 @@
 
     height: 210px !important;
 
-    top: 65px !important;
+    top: 45px !important;
 
-    right: 0 !important;
+    right: 8px !important;
 
     left: auto !important;
 
