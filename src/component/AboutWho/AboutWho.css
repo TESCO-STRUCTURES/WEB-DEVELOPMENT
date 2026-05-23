@@ -498,68 +498,180 @@
 }
 
 /* ============================================
-   SMALL MOBILE
+   SMALL MOBILE — MATCH LOCALHOST
 ============================================ */
 
 @media (max-width: 480px) {
 
+  .ts-aw {
+
+    padding: 60px 0 40px;
+
+    overflow: hidden;
+  }
+
   .ts-aw__inner {
 
-    padding-left: 16px;
+    padding-left: 14px;
 
-    padding-right: 16px;
+    padding-right: 14px;
 
-    gap: 20px;
+    gap: 10px;
   }
+
+  /* ============================================
+     DIAMOND AREA
+  ============================================ */
 
   .ts-aw__diamond-grid {
 
-    max-width: 360px !important;
+    position: relative !important;
 
-    height: 360px !important;
+    width: 100% !important;
+
+    max-width: 390px !important;
+
+    height: 390px !important;
+
+    margin: -10px auto 0 !important;
+
+    overflow: visible !important;
   }
 
-  /* BIG IMAGE */
+  /* ============================================
+     BIG DIAMOND
+  ============================================ */
 
   .ts-aw__diamond--1 {
 
-    width: 250px !important;
+    position: absolute !important;
 
-    height: 250px !important;
+    width: 285px !important;
 
-    left: 0 !important;
+    height: 285px !important;
 
-    top: 35px !important;
+    left: -8px !important;
+
+    top: 30px !important;
+
+    transform: rotate(45deg) !important;
+
+    border-radius: 32px !important;
+
+    overflow: hidden !important;
+
+    z-index: 1 !important;
   }
 
-  /* OVERLAP IMAGE */
+  /* ============================================
+     SMALL OVERLAP DIAMOND
+  ============================================ */
 
   .ts-aw__diamond--2 {
 
-    width: 165px !important;
+    position: absolute !important;
 
-    height: 165px !important;
+    width: 190px !important;
 
-    right: 8px !important;
+    height: 190px !important;
 
-    top: 110px !important;
+    right: 2px !important;
+
+    top: 92px !important;
+
+    bottom: auto !important;
+
+    transform: rotate(45deg) !important;
+
+    border-radius: 28px !important;
+
+    overflow: hidden !important;
+
+    z-index: 2 !important;
   }
+
+  /* ============================================
+     KEEP IMAGE ROTATION
+  ============================================ */
+
+  .ts-aw__diamond-inner {
+
+    position: absolute !important;
+
+    top: 50% !important;
+
+    left: 50% !important;
+
+    width: 141.5% !important;
+
+    height: 141.5% !important;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-45deg) !important;
+
+    overflow: hidden !important;
+  }
+
+  .ts-aw__diamond-inner img {
+
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+    object-fit: cover !important;
+
+    display: block !important;
+  }
+
+  /* ============================================
+     OVERLAY TEXT
+  ============================================ */
 
   .ts-aw__diamond-overlay {
 
     font-size: 22px !important;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(45deg) !important;
+  }
+
+  /* ============================================
+     TEXT AREA
+  ============================================ */
+
+  .ts-aw__eyebrow {
+
+    transform: none !important;
+
+    margin-bottom: 16px;
   }
 
   .ts-aw__desc {
 
+    transform: none !important;
+
+    text-align: left;
+
     font-size: 14px;
 
-    line-height: 1.7;
+    line-height: 1.75;
   }
+
+  /* ============================================
+     BANNER
+  ============================================ */
 
   .ts-aw__banner {
 
-    padding: 16px 20px;
+    margin-top: 10px;
+
+    padding: 16px 18px;
 
     border-radius: 18px;
   }
