@@ -1206,3 +1206,172 @@ section, img, svg, iframe, video, table {
 @media (max-width: 380px) {
   .ct-map__img { height: 220px !important; }
 }
+
+/* ============================================================
+   DEFINITIVE MOBILE OVERFLOW FIX — Runs LAST in cascade.
+   Targets the actual root causes seen in screenshots:
+   - HomeTensile inner had width: 1291px hardcoded
+   - Hero title had width: max-content + white-space: nowrap
+   - Service section watermarks (TENSILE/PEB) showing through
+     cards on mobile because display:none wasn't winning
+   - Home service section copies have residual margins
+============================================================ */
+
+/* Hard cap: nothing on mobile can ever exceed viewport width.
+   This wraps the entire app shell so any rogue child gets clipped. */
+html, body, #root, .app {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+/* ── HOME SERVICE SECTION INNERS — force all 5 to 100% width.
+      HomeTensile had width:1291px hardcoded that wasn't reset. ── */
+.ts-eng__inner,
+.ts-ten__inner,
+.ts-civ__inner,
+.ts-des__inner,
+.ts-all__inner {
+  width: 100% !important;
+  max-width: 1280px !important;
+  height: auto !important;
+  min-height: 0 !important;
+  left: auto !important;
+  right: auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* ── HOME SERVICE WATERMARKS — must be invisible on mobile.
+      These were showing through the diamond/rounded cards. ── */
+@media (max-width: 768px) {
+  .ts-eng__watermark,
+  .ts-ten__watermark,
+  .ts-civ__watermark,
+  .ts-des__watermark,
+  .ts-all__watermark {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    font-size: 0 !important;
+  }
+
+  /* Copies center-aligned with no negative margin and full-width */
+  .ts-eng__copy,
+  .ts-ten__copy,
+  .ts-civ__copy,
+  .ts-des__copy,
+  .ts-all__copy {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* Inner sections collapse into single column with safe padding */
+  .ts-eng__inner,
+  .ts-ten__inner,
+  .ts-civ__inner,
+  .ts-des__inner,
+  .ts-all__inner {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    padding: 32px 16px !important;
+  }
+
+  /* Titles wrap properly */
+  .ts-eng__title,
+  .ts-ten__title,
+  .ts-civ__title,
+  .ts-des__title,
+  .ts-all__title {
+    font-size: clamp(24px, 7vw, 34px) !important;
+    line-height: 1.15 !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Subtitle + description full-width and wrapping */
+  .ts-eng__subtitle, .ts-ten__subtitle,
+  .ts-civ__subtitle, .ts-des__subtitle, .ts-all__subtitle,
+  .ts-eng__desc, .ts-ten__desc,
+  .ts-civ__desc, .ts-des__desc, .ts-all__desc {
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+  }
+}
+
+/* ── HERO TITLE — must wrap on mobile.
+      Base rule has width:max-content + white-space:nowrap. ── */
+@media (max-width: 768px) {
+  .ts-hero__title {
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    font-size: clamp(24px, 7vw, 38px) !important;
+    line-height: 1.15 !important;
+    padding-left: 14px !important;
+    padding-right: 70px !important; /* space for floating right icons */
+  }
+
+  .ts-hero__desc {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 14px !important;
+    padding-right: 70px !important;
+  }
+
+  .ts-hero__buttons {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 14px !important;
+    padding-right: 70px !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  .ts-hero__pricing-btn,
+  .ts-hero__inspection-btn {
+    max-width: 100% !important;
+    white-space: nowrap;
+  }
+
+  .ts-hero__tag-btn {
+    max-width: calc(100% - 80px) !important;
+    width: auto !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Hero content container itself needs to respect viewport width */
+  .ts-hero__content {
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .ts-hero__title {
+    font-size: clamp(20px, 7.5vw, 28px) !important;
+    padding-right: 60px !important;
+  }
+  .ts-hero__desc,
+  .ts-hero__buttons { padding-right: 60px !important; }
+}
+
+/* ── FINAL SAFETY: any direct child of body that's wider than
+      viewport gets clipped instead of breaking page layout ── */
+@media (max-width: 768px) {
+  body > * { max-width: 100vw; overflow-x: hidden; }
+}

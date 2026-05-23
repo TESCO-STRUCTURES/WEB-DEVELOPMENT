@@ -44,9 +44,13 @@
   gap: clamp(40px, 6vw, 90px);
   align-items: start;
   padding-top: 50px;
-  width: 1291px;
-  height: 694px;
-  left: 72px;
+  width: 100%;
+  max-width: 1291px;
+  height: auto;
+  min-height: 0;
+  margin: 0 auto;
+  padding-left: clamp(16px, 4vw, 72px);
+  padding-right: clamp(16px, 4vw, 72px);
 }
 
 /* ── Media ── */
