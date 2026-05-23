@@ -276,7 +276,7 @@
     z-index: 1 !important;
   }
 
-  /* IMAGE AREA */
+  /* IMAGE AREA — comes FIRST on mobile (matches PEB pattern) */
   .ts-des__media {
     position: relative !important;
     width: 100% !important;
@@ -285,6 +285,7 @@
     min-height: 430px !important;
     margin: 0 auto !important;
     overflow: visible !important;
+    order: 1 !important;
   }
 
   /* BIG IMAGE */
@@ -310,12 +311,13 @@
     z-index: 2 !important;
   }
 
-  /* CONTENT */
+  /* CONTENT — comes AFTER the image on mobile */
   .ts-des__copy {
     width: 100% !important;
     max-width: 100% !important;
     margin-left: 0 !important;
     padding: 0 22px !important;
+    order: 2 !important;
   }
 
   .ts-des__title {
