@@ -5,7 +5,7 @@
 .ts-aw {
   padding: 120px 0;
   background: transparent;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .ts-aw__inner {
@@ -37,10 +37,7 @@
   width: 169px;
   height: 51px;
 
-  padding-top: 14px;
-  padding-right: 30px;
-  padding-bottom: 14px;
-  padding-left: 30px;
+  padding: 14px 30px;
 
   gap: 10px;
 
@@ -116,6 +113,7 @@
   position: relative;
   width: 600px;
   height: 600px;
+  overflow: visible;
 }
 
 /* ============================================
@@ -151,10 +149,10 @@
 ============================================ */
 
 .ts-aw__diamond--1 {
-  width: 427.03px;
-  height: 427.03px;
+  width: 427px;
+  height: 427px;
 
-  left: 50px;
+  right: 40px;
   top: 55px;
 
   z-index: 1;
@@ -168,8 +166,8 @@
   width: 220px;
   height: 220px;
 
-  right: 100px;
-  bottom: 120px;
+  left: 70px;
+  top: 240px;
 
   z-index: 2;
 }
@@ -321,74 +319,90 @@
 }
 
 /* ============================================
-   MOBILE — exact proportional mirror of the desktop
-   600×600 grid layout. All values are percentages of
-   the desktop reference so the visual ratio stays
-   identical when the grid scales to fit any viewport.
-
-   Desktop reference values:
-     grid          → 600 × 600
-     diamond--1    → 427 × 427  at left 50  / top 55
-     diamond--2    → 220 × 220  at right 100 / bottom 120
+   MOBILE
 ============================================ */
 
 @media (max-width: 768px) {
 
   .ts-aw {
     padding: 70px 0;
-    overflow: hidden;
-  }
-
-  .ts-aw__inner {
-    padding-left: 24px;
-    padding-right: 24px;
-    gap: 40px;
-  }
-
-  /* Grid scales fluidly to viewport, keeps square aspect ratio */
-  .ts-aw__diamond-grid {
-    position: relative !important;
-    width: 100% !important;
-    max-width: 600px !important;
-    aspect-ratio: 1 / 1 !important;
-    height: auto !important;
-    margin: 0 auto !important;
     overflow: visible !important;
   }
 
-  /* BIG DIAMOND  —  427/600=71.17%   left 50/600=8.33%   top 55/600=9.17% */
+  .ts-aw__inner {
+
+    padding-left: 24px;
+    padding-right: 24px;
+
+    gap: 20px;
+  }
+
+  .ts-aw__diamond-grid {
+
+    position: relative !important;
+
+    width: 100% !important;
+
+    max-width: 430px !important;
+
+    height: 430px !important;
+
+    margin: -10px auto 0 !important;
+
+    overflow: visible !important;
+  }
+
+  /* BIG DIAMOND */
+
   .ts-aw__diamond--1 {
+
     position: absolute !important;
-    width: 71.17% !important;
-    height: 71.17% !important;
-    left: 8.33% !important;
-    top: 9.17% !important;
-    right: auto !important;
-    bottom: auto !important;
+
+    width: 300px !important;
+
+    height: 300px !important;
+
+    right: 0 !important;
+
+    left: auto !important;
+
+    top: 40px !important;
+
     transform: rotate(45deg) !important;
-    border-radius: 20px !important;
+
+    border-radius: 32px !important;
+
     overflow: hidden !important;
+
     z-index: 1 !important;
   }
 
-  /* SMALL OVERLAP DIAMOND  —  220/600=36.67%   right 100/600=16.67%   bottom 120/600=20% */
+  /* SMALL OVERLAP DIAMOND */
+
   .ts-aw__diamond--2 {
+
     position: absolute !important;
-    width: 36.67% !important;
-    height: 36.67% !important;
-    right: 16.67% !important;
-    bottom: 20% !important;
-    top: auto !important;
-    left: auto !important;
+
+    width: 190px !important;
+
+    height: 190px !important;
+
+    left: 10px !important;
+
+    right: auto !important;
+
+    top: 150px !important;
+
+    bottom: auto !important;
+
     transform: rotate(45deg) !important;
-    border-radius: 20px !important;
+
+    border-radius: 28px !important;
+
     overflow: hidden !important;
+
     z-index: 2 !important;
   }
-
-  /* ============================================
-     KEEP ORIGINAL IMAGE ROTATION
-  ============================================ */
 
   .ts-aw__diamond-inner {
 
@@ -424,28 +438,20 @@
     display: block !important;
   }
 
-  /* ============================================
-     OVERLAY TEXT
-  ============================================ */
-
   .ts-aw__diamond-overlay {
+
+    font-size: 24px !important;
 
     transform:
       translate(-50%, -50%)
       rotate(45deg) !important;
-
-    font-size: 26px !important;
   }
-
-  /* ============================================
-     TEXT
-  ============================================ */
 
   .ts-aw__eyebrow {
 
     transform: none !important;
 
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
   .ts-aw__desc {
@@ -456,16 +462,12 @@
 
     font-size: 15px;
 
-    line-height: 1.7;
+    line-height: 1.75;
   }
-
-  /* ============================================
-     BANNER
-  ============================================ */
 
   .ts-aw__banner {
 
-    margin-top: 20px;
+    margin-top: 10px;
 
     padding: 18px 22px;
 
@@ -474,66 +476,129 @@
 }
 
 /* ============================================
-   SMALL MOBILE — same desktop layout, just smaller
-   container. Diamond positions stay percentage-based
-   so the proportions stay identical to desktop.
+   SMALL MOBILE — EXACT LOCALHOST MATCH
 ============================================ */
 
 @media (max-width: 480px) {
 
   .ts-aw {
+
     padding: 60px 0 40px;
-    overflow: hidden;
+
+    overflow: visible !important;
   }
 
   .ts-aw__inner {
-    padding-left: 16px;
-    padding-right: 16px;
-    gap: 28px;
+
+    padding-left: 12px;
+
+    padding-right: 12px;
+
+    gap: 0;
   }
 
-  /* Grid scales to viewport — proportions remain via inherited % */
+  /* DIAMOND AREA */
+
   .ts-aw__diamond-grid {
-    max-width: 380px !important;
+
+    position: relative !important;
+
+    width: 100% !important;
+
+    max-width: 420px !important;
+
+    height: 420px !important;
+
+    margin: -20px auto 0 !important;
+
+    overflow: visible !important;
   }
 
-  /* Overlay text scales down */
+  /* BIG DIAMOND */
+
+  .ts-aw__diamond--1 {
+
+    position: absolute !important;
+
+    width: 300px !important;
+
+    height: 300px !important;
+
+    right: -5px !important;
+
+    left: auto !important;
+
+    top: 35px !important;
+
+    transform: rotate(45deg) !important;
+
+    border-radius: 34px !important;
+
+    overflow: hidden !important;
+
+    z-index: 1 !important;
+  }
+
+  /* SMALL OVERLAP DIAMOND */
+
+  .ts-aw__diamond--2 {
+
+    position: absolute !important;
+
+    width: 190px !important;
+
+    height: 190px !important;
+
+    left: 8px !important;
+
+    right: auto !important;
+
+    top: 150px !important;
+
+    bottom: auto !important;
+
+    transform: rotate(45deg) !important;
+
+    border-radius: 28px !important;
+
+    overflow: hidden !important;
+
+    z-index: 2 !important;
+  }
+
   .ts-aw__diamond-overlay {
-    font-size: clamp(16px, 4.5vw, 22px) !important;
+
+    font-size: 22px !important;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(45deg) !important;
   }
 
-  /* Smaller body text */
   .ts-aw__eyebrow {
+
     transform: none !important;
+
     margin-bottom: 16px;
   }
 
   .ts-aw__desc {
+
     transform: none !important;
+
     text-align: left;
+
     font-size: 14px;
+
     line-height: 1.75;
   }
 
   .ts-aw__banner {
-    margin-top: 16px;
+
+    margin-top: 10px;
+
     padding: 16px 18px;
+
     border-radius: 18px;
-  }
-}
-
-/* ============================================
-   TINY MOBILE — old Android / iPhone SE 1st gen
-============================================ */
-
-@media (max-width: 360px) {
-
-  .ts-aw__inner {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .ts-aw__diamond-grid {
-    max-width: 320px !important;
   }
 }
