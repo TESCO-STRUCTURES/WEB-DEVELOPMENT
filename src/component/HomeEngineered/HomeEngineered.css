@@ -362,14 +362,14 @@
 }
 
 /* ============================================
-   MOBILE — EXACT DESKTOP STYLE
+   MOBILE
 ============================================ */
 
 @media screen and (max-width: 768px) {
 
   .ts-eng {
     padding: 90px 0 70px;
-    overflow: visible;
+    overflow: visible !important;
   }
 
   /* WATERMARK */
@@ -398,22 +398,13 @@
 
     opacity: 1 !important;
 
-    z-index: 999 !important;
+    z-index: 9999 !important;
 
-    background: linear-gradient(
-      180deg,
-      rgba(0,0,0,0.28) 0%,
-      rgba(0,0,0,0.08) 55%,
-      rgba(0,0,0,0) 100%
-    ) !important;
+    color: rgba(0,0,0,0.12) !important;
 
-    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: rgba(0,0,0,0.12) !important;
 
-    background-clip: text !important;
-
-    -webkit-text-fill-color: transparent !important;
-
-    color: transparent !important;
+    background: none !important;
   }
 
   /* MAIN LAYOUT */
@@ -441,13 +432,15 @@
 
     width: 100% !important;
 
-    max-width: 420px !important;
+    max-width: 100% !important;
 
-    height: 420px !important;
+    height: 430px !important;
+
+    min-height: 430px !important;
 
     margin: 0 auto !important;
 
-    min-height: unset !important;
+    overflow: visible !important;
   }
 
   /* BIG IMAGE */
@@ -560,24 +553,15 @@
 
     opacity: 1 !important;
 
-    z-index: 999 !important;
+    z-index: 9999 !important;
 
     white-space: nowrap !important;
 
-    background: linear-gradient(
-      180deg,
-      rgba(0,0,0,0.28) 0%,
-      rgba(0,0,0,0.08) 55%,
-      rgba(0,0,0,0) 100%
-    ) !important;
+    color: rgba(0,0,0,0.12) !important;
 
-    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: rgba(0,0,0,0.12) !important;
 
-    background-clip: text !important;
-
-    -webkit-text-fill-color: transparent !important;
-
-    color: transparent !important;
+    background: none !important;
   }
 
   /* MAIN LAYOUT */
@@ -595,24 +579,28 @@
 
     position: relative !important;
 
-    max-width: 340px !important;
-
     width: 100% !important;
 
-    height: 360px !important;
+    max-width: 100% !important;
+
+    height: 430px !important;
+
+    min-height: 430px !important;
 
     margin: 0 auto !important;
+
+    overflow: visible !important;
   }
 
   /* BIG IMAGE */
 
   .ts-eng__card--1 {
 
-    width: 270px !important;
+    width: 300px !important;
 
-    height: 270px !important;
+    height: 300px !important;
 
-    left: -10px !important;
+    left: -5px !important;
 
     top: 0 !important;
 
@@ -623,13 +611,13 @@
 
   .ts-eng__card--2 {
 
-    width: 190px !important;
+    width: 210px !important;
 
-    height: 190px !important;
+    height: 210px !important;
 
-    top: 95px !important;
+    top: 85px !important;
 
-    right: 5px !important;
+    right: -5px !important;
 
     left: auto !important;
 
@@ -652,5 +640,36 @@
     font-size: 14px !important;
 
     line-height: 1.7 !important;
+  }
+}
+
+/* ============================================
+   FORCE WATERMARK VISIBILITY
+============================================ */
+
+@media screen and (max-width: 768px) {
+
+  .ts-eng,
+  .ts-eng__inner,
+  .ts-eng__media {
+
+    overflow: visible !important;
+  }
+
+  .ts-eng__watermark {
+
+    display: block !important;
+
+    visibility: visible !important;
+
+    opacity: 1 !important;
+
+    color: rgba(0,0,0,0.12) !important;
+
+    -webkit-text-fill-color: rgba(0,0,0,0.12) !important;
+
+    background: none !important;
+
+    z-index: 9999 !important;
   }
 }
