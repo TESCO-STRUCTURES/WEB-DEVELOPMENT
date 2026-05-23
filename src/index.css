@@ -490,9 +490,6 @@ html, body {
   /* HomeWorked marquee tightens */
   .ts-wkd__chip { width: 120px !important; height: 50px !important; }
 
-  /* About diamond grid scales down further */
-  .ts-aw__diamond-grid { transform: scale(0.85); transform-origin: top center; }
-
   /* Mission digit number won't overflow */
   .ts-ams__exp-number { font-size: clamp(72px, 18vw, 110px) !important; }
 
@@ -531,9 +528,6 @@ html, body {
   /* HomeWorked chips even smaller */
   .ts-wkd__chip { width: 110px !important; height: 46px !important; }
 
-  /* About diamond grid */
-  .ts-aw__diamond-grid { transform: scale(0.62); height: 380px; }
-
   /* Stats numbers shrink */
   .op-stats__num { font-size: clamp(32px, 9vw, 44px) !important; }
 
@@ -549,7 +543,6 @@ html, body {
   .civ-hero__collage,
   .arc-hero__collage,
   .all-hero__collage { height: 240px; }
-  .ts-aw__diamond-grid { transform: scale(0.5); height: 320px; }
 }
 
 /* Shift service about section images 65px to the right */
@@ -905,42 +898,11 @@ section, img, svg, iframe, video, table {
   .ts-ten__list  { grid-template-columns: 1fr !important; }
 }
 
-/* ── 2. ABOUT WHO — diamond grid was using transform: scale()
-        which leaves dead space below ──────────────────────── */
-@media (max-width: 900px) {
-  .ts-aw__diamond-grid {
-    transform: none !important;
-    height: auto !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    max-width: 480px;
-    margin: 0 auto;
-  }
-  .ts-aw__diamond {
-    position: relative !important;
-    inset: auto !important;
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 1 / 1;
-    transform: none !important;
-  }
-  .ts-aw__diamond-inner {
-    transform: none !important;
-    width: 100% !important;
-    height: 100% !important;
-  }
-  .ts-aw__diamond-overlay {
-    transform: none !important;
-    font-size: clamp(16px, 4vw, 22px) !important;
-  }
-}
-@media (max-width: 480px) {
-  .ts-aw__diamond-grid {
-    grid-template-columns: 1fr !important;
-    max-width: 320px;
-  }
-}
+/* ── 2. ABOUT WHO — diamond layout is now fully controlled by
+        AboutWho.css per-component CSS (preserves rotated
+        overlapping diamonds on mobile as on localhost). The
+        prior global override block was removed because it
+        flattened the diamonds. ───────────────────────────── */
 
 /* ── 3. ABOUT MISSION — the 15+ slot-machine number
         had fixed-pixel left offsets that broke on mobile.

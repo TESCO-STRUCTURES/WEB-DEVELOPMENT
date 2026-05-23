@@ -41,14 +41,32 @@ export default function BlogPortfolio() {
   const [activeTab, setActiveTab] = useState('All');
   const [search, setSearch] = useState('');
 
+  /* Map sidebar category labels → the keyword stored on the post's `cat`
+     field. Lets the user click "PEB Structures" or type "peb" and have it
+     match posts tagged "TENSILE STRUCTURES", "CIVIL ENGINEERING", etc. */
+  const CATEGORY_KEYWORDS = {
+    'PEB Structures':  'peb',
+    'Civil Works':     'civil',
+    'Roofing Systems': 'roofing',
+    'Tensile Design':  'tensile',
+  };
+
   const visible = POSTS.filter((p) => {
     const matchTab =
       activeTab === 'All' ||
       p.cat.toLowerCase().includes(activeTab.toLowerCase());
+    const q = search.trim().toLowerCase();
     const matchSearch =
-      search === '' ||
-      p.title.toLowerCase().includes(search.toLowerCase()) ||
-      p.desc.toLowerCase().includes(search.toLowerCase());
+      q === '' ||
+      p.title.toLowerCase().includes(q) ||
+      p.desc.toLowerCase().includes(q) ||
+      p.cat.toLowerCase().includes(q) ||
+      // also let the user type "PEB Structures", "Civil Works", etc.
+      Object.entries(CATEGORY_KEYWORDS).some(
+        ([label, kw]) =>
+          label.toLowerCase().includes(q) &&
+          p.cat.toLowerCase().includes(kw)
+      );
     return matchTab && matchSearch;
   });
 
@@ -124,16 +142,30 @@ export default function BlogPortfolio() {
               </div>
             </div>
 
-            {/* Categories */}
+            {/* Categories — clicking one filters the grid */}
             <div className="bp-sidebar__widget">
               <h4 className="bp-sidebar__widget-title">Categories</h4>
               <ul className="bp-sidebar__cat-list">
-                {SIDEBAR_CATEGORIES.map((c) => (
-                  <li key={c.label} className="bp-sidebar__cat-item">
-                    <span className="bp-sidebar__cat-label">{c.label}</span>
-                    <span className="bp-sidebar__cat-count">{c.count}</span>
-                  </li>
-                ))}
+                {SIDEBAR_CATEGORIES.map((c) => {
+                  const kw = CATEGORY_KEYWORDS[c.label] || '';
+                  return (
+                    <li
+                      key={c.label}
+                      className="bp-sidebar__cat-item"
+                      onClick={() => {
+                        // Type the keyword into the search box so the grid
+                        // re-filters; also reset the tab to "All" so the
+                        // category isn't double-filtered.
+                        setActiveTab('All');
+                        setSearch(kw);
+                      }}
+                      style={{ cursor: 'pointer' }}
+                    >
+                      <span className="bp-sidebar__cat-label">{c.label}</span>
+                      <span className="bp-sidebar__cat-count">{c.count}</span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 

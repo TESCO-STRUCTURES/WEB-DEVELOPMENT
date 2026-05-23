@@ -1,13 +1,55 @@
 import './ContactMap.css';
 
+/* Encoded address for the office.
+   Used for both the embedded map iframe and the "Get Directions" link. */
+const OFFICE_ADDRESS =
+  '37, 15th St, Gandhi Nagar, Ashok Nagar, Chennai, Tamil Nadu 600083';
+const ENCODED_ADDRESS = encodeURIComponent(OFFICE_ADDRESS);
+
+/* Google Maps deep link — opens the native Maps app on iOS/Android
+   or Google Maps on desktop with directions to the destination. */
+const DIRECTIONS_URL =
+  `https://www.google.com/maps/dir/?api=1&destination=${ENCODED_ADDRESS}`;
+
+/* Embed URL — renders an interactive map preview inside an iframe. */
+const EMBED_URL =
+  `https://www.google.com/maps?q=${ENCODED_ADDRESS}&output=embed`;
+
 export default function ContactMap() {
   return (
     <section id="contact-map" className="ct-map">
       <div className="container">
 
-        <div className="ct-map__card ct-map__card--info-only">
+        <div className="ct-map__card">
 
-          {/* RIGHT SIDE (now the only side — the dark left card was removed) */}
+          {/* LEFT — Interactive Google Map.
+              Wrapping anchor opens directions in a new tab when clicked.
+              Iframe is still interactive (pan/zoom) for users who want
+              to explore the area first. */}
+          <a
+            href={DIRECTIONS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Google Maps directions to Tesco Structures"
+            className="ct-map__visual"
+          >
+            <iframe
+              title="Tesco Structures location"
+              src={EMBED_URL}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+              className="ct-map__iframe"
+            />
+            <span className="ct-map__directions-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+              </svg>
+              Get Directions
+            </span>
+          </a>
+
+          {/* RIGHT */}
           <div className="ct-map__info">
 
             <span className="ct-map__eyebrow">
@@ -25,8 +67,14 @@ export default function ContactMap() {
               by appointment.
             </p>
 
-            {/* ADDRESS CARD */}
-            <div className="ct-map__address-card">
+            {/* ADDRESS CARD — also clickable */}
+            <a
+              href={DIRECTIONS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ct-map__address-card"
+              aria-label="Open Google Maps directions"
+            >
 
               <div className="ct-map__ac-icon">
                 <svg
@@ -68,14 +116,14 @@ export default function ContactMap() {
                 </h4>
 
                 <p className="ct-map__ac-text">
-                  500 Market Street, Suite 1200
+                  37, 15th St, Gandhi Nagar,
                   <br />
                   Ashok Nagar, Chennai, TN 600083
                 </p>
 
               </div>
 
-            </div>
+            </a>
 
           </div>
 
