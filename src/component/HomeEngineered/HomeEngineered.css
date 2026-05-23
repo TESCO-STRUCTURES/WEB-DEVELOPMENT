@@ -386,7 +386,7 @@
 
     transform: translateX(-50%) !important;
 
-    width: 100% !important;
+    width: calc(100% - 32px) !important;
 
     text-align: center !important;
 
@@ -394,7 +394,9 @@
 
     line-height: 0.9 !important;
 
-    white-space: nowrap !important;
+    white-space: normal !important;
+
+    overflow-wrap: break-word !important;
 
     opacity: 1 !important;
 
@@ -472,9 +474,9 @@
 
     height: 220px !important;
 
-    top: 110px !important;
+    top: 90px !important;
 
-    right: 5px !important;
+    right: 0 !important;
 
     left: auto !important;
 
@@ -547,15 +549,17 @@
 
     transform: translateX(-50%) !important;
 
-    width: 100% !important;
+    width: calc(100% - 32px) !important;
 
     text-align: center !important;
+
+    white-space: normal !important;
+
+    overflow-wrap: break-word !important;
 
     opacity: 1 !important;
 
     z-index: 9999 !important;
-
-    white-space: nowrap !important;
 
     color: rgba(0,0,0,0.12) !important;
 
@@ -615,9 +619,9 @@
 
     height: 210px !important;
 
-    top: 85px !important;
+    top: 65px !important;
 
-    right: -5px !important;
+    right: 0 !important;
 
     left: auto !important;
 
