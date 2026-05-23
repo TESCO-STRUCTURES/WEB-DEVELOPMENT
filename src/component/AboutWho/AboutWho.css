@@ -1,6 +1,7 @@
 /* ============================================
    ABOUT WHO WE ARE
 ============================================ */
+
 .ts-aw {
   padding: 120px 0;
   background: transparent;
@@ -19,12 +20,17 @@
   max-width: 600px;
 }
 
+/* ============================================
+   EYEBROW
+============================================ */
+
 .ts-aw__eyebrow {
   position: relative;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   transform: translateY(-90px);
 
   width: 169px;
@@ -52,8 +58,8 @@
   font-size: 19px;
 
   line-height: 1;
-  white-space: nowrap;
 
+  white-space: nowrap;
 
   box-sizing: border-box;
 
@@ -62,11 +68,14 @@
     0 0 24px rgba(79, 163, 30, 0.10);
 }
 
-
 .ts-aw__eyebrow-text {
   position: relative;
   z-index: 1;
 }
+
+/* ============================================
+   DESCRIPTION
+============================================ */
 
 .ts-aw__desc {
   font-family: 'Poppins', sans-serif;
@@ -77,18 +86,20 @@
 
   line-height: 1.5;
 
-  letter-spacing: 0;
-
-
   color: #475569;
 
   margin: 0;
 
   text-align: left;
+
   transform: translateY(-60px);
 
   max-width: 620px;
 }
+
+/* ============================================
+   MEDIA
+============================================ */
 
 .ts-aw__media {
   display: flex;
@@ -96,22 +107,37 @@
   align-items: center;
 }
 
+/* ============================================
+   DIAMOND GRID
+============================================ */
+
 .ts-aw__diamond-grid {
   position: relative;
   width: 600px;
   height: 600px;
 }
 
+/* ============================================
+   DIAMOND
+============================================ */
+
 .ts-aw__diamond {
   position: absolute;
+
   background: #fff;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
   transition: transform 0.3s ease;
+
   transform: rotate(45deg);
+
   border-radius: 20px;
+
   overflow: hidden;
 }
 
@@ -119,69 +145,121 @@
   transform: rotate(45deg) scale(1.02);
 }
 
+/* ============================================
+   BIG DIAMOND
+============================================ */
+
 .ts-aw__diamond--1 {
   width: 427.03px;
   height: 427.03px;
+
   left: 50px;
   top: 55px;
+
   z-index: 1;
 }
+
+/* ============================================
+   SMALL DIAMOND
+============================================ */
 
 .ts-aw__diamond--2 {
   width: 220px;
   height: 220px;
+
   right: 100px;
   bottom: 120px;
+
   z-index: 2;
 }
 
+/* ============================================
+   INNER WRAPPER
+============================================ */
+
 .ts-aw__diamond-inner {
-  /* Counter-rotated wrapper sized at sqrt(2) so it fully covers the rotated
-     diamond — no white edges remain after rotation. */
   position: absolute;
+
   top: 50%;
   left: 50%;
+
   width: 141.5%;
   height: 141.5%;
-  transform: translate(-50%, -50%) rotate(-45deg);
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-45deg);
+
   overflow: hidden;
 }
 
+/* ============================================
+   IMAGE
+============================================ */
+
 .ts-aw__diamond-inner img {
   position: absolute;
+
   inset: 0;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
+
   display: block;
 }
 
+/* ============================================
+   OVERLAY TEXT
+============================================ */
+
 .ts-aw__diamond-overlay {
   position: absolute;
+
   top: 50%;
   left: 50%;
-  /* Inner wrapper is rotated -45deg, so we rotate the text +45deg here to
-     return it to the diamond's natural (rotated) orientation, exactly like
-     it was rendering before. */
-  transform: translate(-50%, -50%) rotate(45deg);
+
+  transform:
+    translate(-50%, -50%)
+    rotate(45deg);
+
   font-family: 'Oswald', sans-serif;
+
   font-weight: 700;
+
   font-size: 32px;
+
   color: #fff;
+
   letter-spacing: 0.1em;
+
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+
   z-index: 10;
+
   pointer-events: none;
 }
 
+/* ============================================
+   BANNER
+============================================ */
+
 .ts-aw__banner {
   grid-column: 1 / -1;
+
   margin-top: 60px;
+
   background: #333333;
+
   border-radius: 100px;
+
   padding: 24px 40px;
+
   text-align: center;
+
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -189,13 +267,22 @@
 
 .ts-aw__banner p {
   font-family: 'Manrope', sans-serif;
+
   font-weight: 600;
+
   font-size: clamp(14px, 2vw, 18px);
+
   color: #ffffff;
+
   margin: 0;
 }
 
+/* ============================================
+   TABLET
+============================================ */
+
 @media (max-width: 1100px) {
+
   .ts-aw__inner {
     grid-template-columns: 1fr;
     gap: 60px;
@@ -215,19 +302,12 @@
   }
 }
 
-@media (max-width: 640px) {
-  .ts-aw__diamond-grid {
-    transform: scale(0.7);
-    transform-origin: top center;
-    height: 400px;
-  }
-}
-
-/* ===========================================================
-   Tablet additions
-   =========================================================== */
+/* ============================================
+   TABLET ADDITIONS
+============================================ */
 
 @media (max-width: 1024px) {
+
   .ts-aw {
     padding: 90px 0;
   }
@@ -239,108 +319,231 @@
   }
 }
 
+/* ============================================
+   MOBILE
+============================================ */
+
 @media (max-width: 768px) {
+
   .ts-aw {
     padding: 70px 0;
   }
 
   .ts-aw__inner {
+
     padding-left: 24px;
     padding-right: 24px;
-    gap: 40px;
+
+    gap: 10px;
   }
 
-  /* Reset the absolute-positioned diamond container to a real grid */
+  /* KEEP ORIGINAL OVERLAP LAYOUT */
+
   .ts-aw__diamond-grid {
+
     position: relative !important;
-    transform: none !important;
-    height: auto !important;
+
     width: 100% !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 14px !important;
-    max-width: 480px !important;
+
+    max-width: 360px !important;
+
+    height: 360px !important;
+
     margin: 0 auto !important;
+
+    transform: none !important;
   }
 
-  /* Remove rotation, clipping, shadow, background — let the SVG render natively */
-  .ts-aw__diamond,
-  .ts-aw__diamond--1,
+  /* BIG IMAGE */
+
+  .ts-aw__diamond--1 {
+
+    position: absolute !important;
+
+    width: 250px !important;
+
+    height: 250px !important;
+
+    left: 0 !important;
+
+    top: 20px !important;
+
+    transform: rotate(45deg) !important;
+
+    border-radius: 24px !important;
+
+    overflow: hidden !important;
+
+    z-index: 1 !important;
+  }
+
+  /* SMALL OVERLAP IMAGE */
+
   .ts-aw__diamond--2 {
-    position: relative !important;
-    inset: auto !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    width: 100% !important;
-    height: auto !important;
-    transform: none !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-    overflow: visible !important;
-    display: block !important;
+
+    position: absolute !important;
+
+    width: 160px !important;
+
+    height: 160px !important;
+
+    right: 0 !important;
+
+    bottom: 40px !important;
+
+    transform: rotate(45deg) !important;
+
+    border-radius: 24px !important;
+
+    overflow: hidden !important;
+
+    z-index: 2 !important;
   }
 
-  .ts-aw__diamond:hover {
-    transform: none !important;
-  }
+  /* KEEP IMAGE ROTATION */
 
-  /* The inner wrapper just passes through — no rotation, no oversize */
   .ts-aw__diamond-inner {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    width: 100% !important;
-    height: auto !important;
-    transform: none !important;
-    overflow: visible !important;
+
+    position: absolute !important;
+
+    top: 50% !important;
+
+    left: 50% !important;
+
+    width: 141.5% !important;
+
+    height: 141.5% !important;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-45deg) !important;
+
+    overflow: hidden !important;
   }
 
-  /* Image displays at its natural aspect ratio as a fluid <img> */
   .ts-aw__diamond-inner img {
-    position: relative !important;
-    inset: auto !important;
+
+    position: absolute !important;
+
+    inset: 0 !important;
+
     width: 100% !important;
-    height: auto !important;
-    object-fit: contain !important;
+
+    height: 100% !important;
+
+    object-fit: cover !important;
+
     display: block !important;
   }
 
   .ts-aw__diamond-overlay {
-    transform: translate(-50%, -50%) !important;
-    font-size: 26px;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(45deg) !important;
+
+    font-size: 24px !important;
   }
 
-  .ts-aw__banner {
-    margin-top: 40px;
-    padding: 20px 28px;
-  }
-}
+  /* TEXT */
 
-@media (max-width: 480px) {
-  .ts-aw__inner {
-    padding-left: 16px;
-    padding-right: 16px;
-    gap: 32px;
-  }
+  .ts-aw__eyebrow {
 
-  .ts-aw__diamond-grid {
-    grid-template-columns: 1fr !important;
-    max-width: 320px !important;
-  }
+    transform: none !important;
 
-  .ts-aw__diamond-overlay {
-    font-size: 22px;
+    margin-bottom: 20px;
   }
 
   .ts-aw__desc {
+
+    transform: none !important;
+
+    text-align: left;
+  }
+
+  /* BANNER */
+
+  .ts-aw__banner {
+
+    margin-top: 30px;
+
+    padding: 18px 22px;
+
+    border-radius: 18px;
+  }
+}
+
+/* ============================================
+   SMALL MOBILE
+============================================ */
+
+@media (max-width: 480px) {
+
+  .ts-aw__inner {
+
+    padding-left: 16px;
+
+    padding-right: 16px;
+
+    gap: 0;
+  }
+
+  .ts-aw__diamond-grid {
+
+    max-width: 320px !important;
+
+    height: 320px !important;
+  }
+
+  /* BIG IMAGE */
+
+  .ts-aw__diamond--1 {
+
+    width: 220px !important;
+
+    height: 220px !important;
+
+    left: 0 !important;
+
+    top: 10px !important;
+  }
+
+  /* OVERLAP IMAGE */
+
+  .ts-aw__diamond--2 {
+
+    width: 140px !important;
+
+    height: 140px !important;
+
+    right: 5px !important;
+
+    bottom: 45px !important;
+  }
+
+  .ts-aw__diamond-overlay {
+
+    font-size: 20px !important;
+  }
+
+  .ts-aw__desc {
+
     font-size: 14px;
+
+    transform: none !important;
+  }
+
+  .ts-aw__eyebrow {
+
+    transform: none !important;
+
+    margin-bottom: 20px;
   }
 
   .ts-aw__banner {
+
     padding: 16px 20px;
+
     border-radius: 18px;
   }
 }

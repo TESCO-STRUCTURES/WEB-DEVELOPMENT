@@ -1242,22 +1242,9 @@ html, body, #root, .app {
   box-sizing: border-box !important;
 }
 
-/* ── HOME SERVICE WATERMARKS — must be invisible on mobile.
-      These were showing through the diamond/rounded cards. ── */
+/* Watermarks remain visible on mobile per the HomeEngineered pattern.
+   Each component CSS file controls its own watermark size/position. */
 @media (max-width: 768px) {
-  .ts-eng__watermark,
-  .ts-ten__watermark,
-  .ts-civ__watermark,
-  .ts-des__watermark,
-  .ts-all__watermark {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    width: 0 !important;
-    height: 0 !important;
-    font-size: 0 !important;
-  }
-
   /* Copies center-aligned with no negative margin and full-width */
   .ts-eng__copy,
   .ts-ten__copy,
