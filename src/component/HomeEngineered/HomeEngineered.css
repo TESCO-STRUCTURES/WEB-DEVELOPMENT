@@ -9,7 +9,7 @@
 
   background: #ffffff;
 
-  overflow: visible;
+  overflow: hidden;
 
   isolation: isolate;
 }
@@ -20,26 +20,45 @@
 
 .ts-eng__watermark {
   position: absolute;
-  top: clamp(10px, 2vw, 24px);
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: 'Oswald', sans-serif;
-  font-weight: 600;
-  font-size: 128px;
-  line-height: 100%;
-  letter-spacing: 0%;
-  text-align: center;
-  text-transform: uppercase;
-  white-space: nowrap;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 24.93%, rgba(102, 102, 102, 0) 80.53%);
 
-  /* background: linear-gradient(180deg, rgba(11, 31, 58, 0.20) 0%, rgba(11, 31, 58, 0.11) 40%, rgba(11, 31, 58, 0.04) 72%, rgba(11, 31, 58, 0.00) 100%); */
+  top: clamp(10px, 2vw, 24px);
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-family: 'Oswald', sans-serif;
+
+  font-weight: 600;
+
+  font-size: 128px;
+
+  line-height: 100%;
+
+  text-align: center;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.4) 24.93%,
+    rgba(102, 102, 102, 0) 80.53%
+  );
+
   -webkit-background-clip: text;
+
   background-clip: text;
+
   -webkit-text-fill-color: transparent;
+
   color: transparent;
+
   pointer-events: none;
+
   user-select: none;
+
   z-index: 0;
 }
 
@@ -69,9 +88,10 @@
 
 .ts-eng__media {
   position: relative;
+
   width: 100%;
-  aspect-ratio: 4/ 4.6;
-  
+
+  aspect-ratio: 4 / 4.6;
 }
 
 /* ============================================
@@ -112,11 +132,15 @@
 
 .ts-eng__card--1 {
   width: 510px;
+
   height: 500px;
+
   top: 10px;
+
   left: -70px;
-  opacity: 1;
+
   border-radius: 40px;
+
   z-index: 1;
 }
 
@@ -126,11 +150,15 @@
 
 .ts-eng__card--2 {
   width: 350px;
+
   height: 368px;
+
   top: 80px;
+
   left: 250px;
-  opacity: 1;
+
   border-radius: 80px;
+
   z-index: 2;
 }
 
@@ -155,19 +183,32 @@
 }
 
 /* ============================================
-   BACKGROUND GLOW (ELLIPSE 3 IN FIGMA)
+   BACKGROUND GLOW
 ============================================ */
 
 .ts-eng__glow {
-   position: absolute;
+  position: absolute;
+
   top: -40px;
+
   right: -130px;
+
   width: 320px;
+
   height: 480px;
+
   border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(255, 106, 0, 0.28) 0%, rgba(255, 106, 0, 0) 70%);
+
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 106, 0, 0.28) 0%,
+    rgba(255, 106, 0, 0) 70%
+  );
+
   filter: blur(50px);
+
   z-index: -1;
+
   pointer-events: none;
 }
 
@@ -185,8 +226,6 @@
   font-size: 48px;
 
   line-height: 80px;
-
-  letter-spacing: 0%;
 
   text-transform: capitalize;
 
@@ -208,8 +247,6 @@
 
   line-height: 100%;
 
-  letter-spacing: 0%;
-
   color: #343C47;
 }
 
@@ -221,18 +258,14 @@
   margin: 0 0 16px;
 
   max-width: 650px;
-  /* increased width */
 
   font-family: 'Poppins', sans-serif;
 
   font-weight: 500;
-  font-style: normal;
 
   font-size: 16px;
 
   line-height: 22px;
-
-  letter-spacing: 0%;
 
   text-align: left;
 
@@ -250,13 +283,11 @@
 
   margin: 0 0 16px;
 
-
   display: grid;
 
   grid-template-columns: 1fr;
 
   row-gap: 6px;
-
 }
 
 .ts-eng__item {
@@ -268,14 +299,9 @@
 
   font-weight: 500;
 
-  font-style: normal;
-
   font-size: 16px;
 
   line-height: 100%;
-
-  letter-spacing: 0%;
-
 
   color: #343C47;
 }
@@ -349,7 +375,7 @@
 }
 
 /* ============================================
-   RESPONSIVE
+   RESPONSIVE — TABLET
 ============================================ */
 
 @media (max-width: 1100px) {
@@ -372,6 +398,8 @@
     max-width: 620px;
 
     min-height: 420px;
+
+    margin: 0 auto;
   }
 
   .ts-eng__watermark {
@@ -391,105 +419,164 @@
   }
 }
 
+/* ============================================
+   RESPONSIVE — MOBILE OVERLAP FIX
+============================================ */
+
 @media (max-width: 720px) {
 
-  .ts-eng__watermark { display: none !important; }
+  .ts-eng__watermark {
+    display: none !important;
+  }
 
   .ts-eng__inner {
-    padding-top: 24px !important;
+    grid-template-columns: 1fr !important;
+
+    gap: 40px !important;
+
+    padding-top: 20px !important;
   }
 
+  /* KEEP OVERLAP STYLE */
   .ts-eng__media {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 12px !important;
-    aspect-ratio: auto !important;
-    min-height: 0 !important;
-    height: auto !important;
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 340px;
+
+    height: 320px;
+
+    margin: 0 auto;
   }
 
-  .ts-eng__card--1,
-  .ts-eng__card--2 {
-    position: relative !important;
-    inset: auto !important;
+  /* BIG IMAGE */
+  .ts-eng__card--1 {
+
+    position: absolute !important;
+
+    width: 240px !important;
+
+    height: 240px !important;
+
     left: 0 !important;
+
     top: 0 !important;
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 1 / 1 !important;
-    border-radius: 18px !important;
-    overflow: hidden !important;
+
+    border-radius: 24px !important;
+
+    z-index: 1;
+  }
+
+  /* SMALL OVERLAP IMAGE */
+  .ts-eng__card--2 {
+
+    position: absolute !important;
+
+    width: 170px !important;
+
+    height: 180px !important;
+
+    right: 0 !important;
+
+    left: auto !important;
+
+    top: 90px !important;
+
+    border-radius: 40px !important;
+
+    z-index: 2;
   }
 
   .ts-eng__card img {
+
     width: 100% !important;
+
     height: 100% !important;
+
     object-fit: cover !important;
+
     object-position: center !important;
-    display: block !important;
-  }
 
-  .ts-eng__list {
-    grid-template-columns: 1fr 1fr;
-
-    column-gap: 16px;
+    display: block;
   }
 
   .ts-eng__title {
-    font-size: clamp(26px, 7vw, 36px) !important;
+
+    font-size: clamp(28px, 7vw, 36px) !important;
+
     line-height: 1.15 !important;
+
     text-align: left !important;
   }
 
   .ts-eng__subtitle {
-    font-size: 18px;
+
+    font-size: 17px;
+  }
+
+  .ts-eng__list {
+
+    grid-template-columns: 1fr;
   }
 }
+
+/* ============================================
+   RESPONSIVE — SMALL MOBILE
+============================================ */
 
 @media (max-width: 480px) {
 
   .ts-eng {
+
     padding: 60px 0 50px;
   }
 
-  .ts-eng__watermark {
-    font-size: 42px;
-
-    line-height: 1.05;
-
-    white-space: normal;
-
-    width: 100%;
-
-    padding: 0 16px;
-  }
-
-  .ts-eng__inner {
-    padding-top: 60px;
-  }
-
   .ts-eng__media {
-    grid-template-columns: 1fr !important;
-    min-height: 0;
+
+    max-width: 300px;
+
+    height: 280px;
   }
 
-  .ts-eng__card--1,
+  .ts-eng__card--1 {
+
+    width: 210px !important;
+
+    height: 210px !important;
+  }
+
   .ts-eng__card--2 {
-    width: 100%;
-    height: auto;
+
+    width: 150px !important;
+
+    height: 160px !important;
+
+    top: 80px !important;
   }
 
   .ts-eng__title {
-    font-size: 28px;
 
-    text-align: left;
+    font-size: 26px !important;
+
+    line-height: 1.2 !important;
   }
 
   .ts-eng__subtitle {
+
     font-size: 16px;
   }
 
+  .ts-eng__desc {
+
+    font-size: 14px;
+
+    line-height: 1.7;
+  }
+
   .ts-eng__list {
+
     grid-template-columns: 1fr;
   }
 }
