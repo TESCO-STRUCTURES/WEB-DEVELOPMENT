@@ -546,26 +546,41 @@
 
   .ts-eng__watermark {
 
-    display: block !important;
+  display: block !important;
 
-    font-size: 46px !important;
+  font-size: 46px !important;
 
-    top: 18px !important;
+  top: 18px !important;
 
-    left: 50% !important;
+  left: 50% !important;
 
-    transform: translateX(-50%) !important;
+  transform: translateX(-50%) !important;
 
-    width: 100% !important;
+  width: 100% !important;
 
-    text-align: center !important;
+  text-align: center !important;
 
-    opacity: 1 !important;
+  opacity: 1 !important;
 
-    z-index: 5 !important;
+  z-index: 5 !important;
 
-    white-space: nowrap !important;
-  }
+  white-space: nowrap !important;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.28) 0%,
+    rgba(0,0,0,0.08) 55%,
+    rgba(0,0,0,0) 100%
+  ) !important;
+
+  -webkit-background-clip: text !important;
+
+  background-clip: text !important;
+
+  -webkit-text-fill-color: transparent !important;
+
+  color: transparent !important;
+}
 
   /* MAIN LAYOUT */
 
@@ -610,18 +625,18 @@
 
   .ts-eng__card--2 {
 
-    width: 190px !important;
+  width: 190px !important;
 
-    height: 190px !important;
+  height: 190px !important;
 
-    top: 120px !important;
+  top: 95px !important;
 
-    right: -10px !important;
+  right: 5px !important;
 
-    left: auto !important;
+  left: auto !important;
 
-    border-radius: 56px !important;
-  }
+  border-radius: 56px !important;
+}
 
   /* TITLE */
 
