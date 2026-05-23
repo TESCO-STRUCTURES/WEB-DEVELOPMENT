@@ -23,6 +23,19 @@
   gap: 60px;
 
   background: #ffffff;
+}
+
+/* When only the info column is rendered (the dark left visual was removed),
+   let the info take the full card width and shrink the height to its content. */
+.ct-map__card--info-only {
+  grid-template-columns: 1fr !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+.ct-map__card--info-only .ct-map__info {
+  padding-right: 0 !important;
+  max-width: 720px;
+  margin: 0 auto;
 
   border-radius: 40px;
 

@@ -1,60 +1,13 @@
 import './ContactMap.css';
 
-import mapImg from '../../assets/contactenquiry.svg';
-import Contactap from '../../assets/contactmaplogo.svg';
-
 export default function ContactMap() {
   return (
     <section id="contact-map" className="ct-map">
       <div className="container">
 
-        <div className="ct-map__card">
+        <div className="ct-map__card ct-map__card--info-only">
 
-          {/* LEFT SIDE */}
-          <div className="ct-map__visual">
-
-            <img
-              src={mapImg}
-              alt="Tesco Location Map"
-              className="ct-map__img"
-            />
-
-            {/* FLOATING CARD */}
-            <div className="ct-map__floating-card">
-
-              <div className="ct-map__fc-brand">
-
-                <div className="ct-map__fc-brand-icon">
-                  <img
-                    src={Contactap}
-                    alt="Tesco Structure Logo"
-                    className="ct-map__fc-logo"
-                  />
-                </div>
-
-                <div className="ct-map__fc-brand-text">
-                  <span className="ct-map__fc-brand-title">
-                    TESCO
-                  </span>
-
-                  <span className="ct-map__fc-brand-sub">
-                    STRUCTURE
-                  </span>
-                </div>
-
-              </div>
-
-              <p className="ct-map__fc-addr">
-                37, 15th St, Gandhi Nagar, Ashok Nagar,
-                <br />
-                Chennai, Tamil Nadu 600083
-              </p>
-
-            </div>
-
-          </div>
-
-          {/* RIGHT SIDE */}
+          {/* RIGHT SIDE (now the only side — the dark left card was removed) */}
           <div className="ct-map__info">
 
             <span className="ct-map__eyebrow">
