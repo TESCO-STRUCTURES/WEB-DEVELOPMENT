@@ -3,10 +3,14 @@
 ───────────────────────────────────────────── */
 
 .ts-blg {
+  position: relative;
+
   background: #000000;
+
   padding: 60px 0 90px;
 
   overflow-x: hidden;
+  overflow-y: visible;
 }
 
 /* ─────────────────────────────────────────────
@@ -19,6 +23,8 @@
   max-width: 760px;
 
   margin: 0 auto 28px;
+
+  padding: 0 20px;
 }
 
 .ts-blg__eyebrow {
@@ -63,17 +69,16 @@
 ───────────────────────────────────────────── */
 
 .ts-blg__grid {
+
   position: relative;
-
-  display: block;
-
-  left: 50%;
-  transform: translateX(-50%);
 
   width: 1276.8px;
   height: 532px;
 
-  margin: 50px 0 90px;
+  margin: 50px auto 90px;
+
+  left: 50%;
+  transform: translateX(-50%);
 
   overflow-x: auto;
   overflow-y: hidden;
@@ -88,7 +93,6 @@
 
   -webkit-overflow-scrolling: touch;
 
-  /* ORIGINAL CURVED TV EFFECT */
   clip-path: path(
     'M 0 0 
      Q 638.4 160 1276.8 0 
@@ -156,29 +160,33 @@
 
 @media (max-width: 900px) {
 
+  .ts-blg {
+
+    padding: 50px 0 70px;
+  }
+
   .ts-blg__grid {
 
-    width: 960px;
-    height: 400px;
+    width: 1276.8px;
+    height: 532px;
 
-    clip-path: path(
-      'M 0 0 
-       Q 480 120 960 0 
-       L 960 400 
-       Q 480 280 0 400 
-       Z'
-    );
+    zoom: 0.75;
+
+    margin-top: 20px;
+    margin-bottom: -20px;
   }
 
   .ts-blg__screen {
-    height: 400px;
+
+    height: 532px;
   }
 
   .ts-blg__card {
-    flex: 0 0 320px;
 
-    width: 320px;
-    height: 400px;
+    flex: 0 0 425.6px;
+
+    width: 425.6px;
+    height: 532px;
   }
 }
 
@@ -190,7 +198,7 @@
 
   .ts-blg {
 
-    padding: 45px 0 65px;
+    padding: 40px 0 55px;
   }
 
   .ts-blg__head {
@@ -200,46 +208,40 @@
 
   .ts-blg__eyebrow {
 
-    font-size: 16px;
+    font-size: 14px;
 
-    padding: 9px 22px;
+    padding: 8px 20px;
   }
 
   .ts-blg__desc {
 
-    font-size: 14px;
+    font-size: 13px;
 
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
   .ts-blg__grid {
 
-    width: 780px;
-    height: 325px;
+    width: 1276.8px;
+    height: 532px;
 
-    margin-top: 35px;
-    margin-bottom: 60px;
+    zoom: 0.52;
 
-    clip-path: path(
-      'M 0 0 
-       Q 390 96 780 0 
-       L 780 325 
-       Q 390 229 0 325 
-       Z'
-    );
+    margin-top: -40px;
+    margin-bottom: -90px;
   }
 
   .ts-blg__screen {
 
-    height: 325px;
+    height: 532px;
   }
 
   .ts-blg__card {
 
-    flex: 0 0 260px;
+    flex: 0 0 425.6px;
 
-    width: 260px;
-    height: 325px;
+    width: 425.6px;
+    height: 532px;
   }
 }
 
@@ -251,29 +253,10 @@
 
   .ts-blg__grid {
 
-    width: 620px;
-    height: 260px;
+    zoom: 0.46;
 
-    clip-path: path(
-      'M 0 0 
-       Q 310 76 620 0 
-       L 620 260 
-       Q 310 184 0 260 
-       Z'
-    );
-  }
-
-  .ts-blg__screen {
-
-    height: 260px;
-  }
-
-  .ts-blg__card {
-
-    flex: 0 0 206px;
-
-    width: 206px;
-    height: 260px;
+    margin-top: -60px;
+    margin-bottom: -120px;
   }
 }
 
