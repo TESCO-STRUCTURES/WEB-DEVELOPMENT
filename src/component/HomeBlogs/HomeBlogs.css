@@ -66,8 +66,6 @@
   display: block;
 
   width: 1276.8px;
-  max-width: none;
-
   height: 532px;
 
   margin: 50px auto 90px;
@@ -153,11 +151,29 @@
 @media (max-width: 1200px) {
 
   .ts-blg__grid {
-    transform: scale(0.88);
-    transform-origin: center top;
 
-    margin-top: 0;
-    margin-bottom: -10px;
+    width: 1100px;
+    height: 458px;
+
+    margin-left: calc(50% - 550px);
+
+    clip-path: path(
+      'M 0 0 
+       Q 550 145 1100 0 
+       L 1100 458 
+       Q 550 313 0 458 
+       Z'
+    );
+  }
+
+  .ts-blg__screen {
+    height: 458px;
+  }
+
+  .ts-blg__card {
+    flex: 0 0 366px;
+    width: 366px;
+    height: 458px;
   }
 }
 
@@ -176,6 +192,8 @@
     width: 960px;
     height: 400px;
 
+    margin-left: calc(50% - 480px);
+
     clip-path: path(
       'M 0 0 
        Q 480 120 960 0 
@@ -183,12 +201,6 @@
        Q 480 280 0 400 
        Z'
     );
-
-    transform: scale(0.92);
-    transform-origin: center top;
-
-    margin-top: 0;
-    margin-bottom: 0;
   }
 
   .ts-blg__screen {
@@ -229,11 +241,13 @@
   .ts-blg__grid {
 
     width: 780px;
-    max-width: none;
-
     height: 325px;
 
-    margin: 35px auto 60px;
+    margin-left: calc(50% - 390px);
+    margin-right: 0;
+
+    margin-top: 35px;
+    margin-bottom: 60px;
 
     overflow-x: auto;
     overflow-y: hidden;
@@ -245,9 +259,6 @@
        Q 390 229 0 325 
        Z'
     );
-
-    transform: scale(0.92);
-    transform-origin: center top;
   }
 
   .ts-blg__screen {
@@ -269,20 +280,27 @@
 
   .ts-blg {
     padding: 40px 0 55px;
+    overflow: hidden;
   }
 
   .ts-blg__grid {
 
     width: 780px;
-    max-width: none;
-
     height: 325px;
 
-    transform: scale(0.72);
-    transform-origin: center top;
+    margin-left: calc(50% - 390px);
+    margin-right: 0;
 
-    margin-top: -20px;
-    margin-bottom: -10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    clip-path: path(
+      'M 0 0 
+       Q 390 96 780 0 
+       L 780 325 
+       Q 390 229 0 325 
+       Z'
+    );
   }
 
   .ts-blg__card {
@@ -309,11 +327,29 @@
 @media (max-width: 360px) {
 
   .ts-blg__grid {
-    transform: scale(0.62);
-    transform-origin: center top;
 
-    margin-top: -40px;
-    margin-bottom: -40px;
+    width: 680px;
+    height: 285px;
+
+    margin-left: calc(50% - 340px);
+
+    clip-path: path(
+      'M 0 0 
+       Q 340 82 680 0 
+       L 680 285 
+       Q 340 203 0 285 
+       Z'
+    );
+  }
+
+  .ts-blg__screen {
+    height: 285px;
+  }
+
+  .ts-blg__card {
+    flex: 0 0 226px;
+    width: 226px;
+    height: 285px;
   }
 }
 
