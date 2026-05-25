@@ -1,10 +1,16 @@
-/* ── HOME BLOGS — INFINITE-LOOP CURVED TV ── */
+/* ─────────────────────────────────────────────
+   HOME BLOGS — INFINITE-LOOP CURVED TV
+───────────────────────────────────────────── */
 
 .ts-blg {
   background: #000000;
   padding: 60px 0 90px;
   overflow: hidden;
 }
+
+/* ─────────────────────────────────────────────
+   HEADER
+───────────────────────────────────────────── */
 
 .ts-blg__head {
   text-align: center;
@@ -15,10 +21,14 @@
 
 .ts-blg__eyebrow {
   display: inline-block;
+
   padding: 10px 30px;
+
   background: transparent;
+
   border: 1px solid rgba(79, 163, 30, 0.7);
   border-radius: 100px;
+
   margin-bottom: 16px;
 
   font-family: 'Poppins', sans-serif;
@@ -46,17 +56,19 @@
   color: #CBD5E0;
 }
 
-/* ── VIEWPORT — ORIGINAL EFFECT PRESERVED ── */
+/* ─────────────────────────────────────────────
+   VIEWPORT
+───────────────────────────────────────────── */
 
 .ts-blg__grid {
   position: relative;
 
   display: block;
 
-  width: 100%;
-  max-width: 1276.8px;
+  width: 1276.8px;
+  max-width: none;
 
-  aspect-ratio: 1276.8 / 532;
+  height: 532px;
 
   margin: 50px auto 90px;
 
@@ -73,7 +85,6 @@
 
   -webkit-overflow-scrolling: touch;
 
-  /* ORIGINAL CURVED TV EFFECT */
   clip-path: path(
     'M 0 0 
      Q 638.4 160 1276.8 0 
@@ -87,31 +98,36 @@
   display: none;
 }
 
-/* ── RAIL ── */
+/* ─────────────────────────────────────────────
+   RAIL
+───────────────────────────────────────────── */
 
 .ts-blg__screen {
   display: flex;
+
   gap: 0;
 
   flex-shrink: 0;
 
   width: max-content;
-  height: 100%;
+  height: 532px;
 }
 
-/* ── CARDS ── */
+/* ─────────────────────────────────────────────
+   CARDS
+───────────────────────────────────────────── */
 
 .ts-blg__card {
   flex: 0 0 425.6px;
 
   width: 425.6px;
-  height: 100%;
+  height: 532px;
 
   margin: 0;
 
   overflow: hidden;
 
-  background: #111;
+  background: #111111;
 
   border: none;
   border-radius: 0;
@@ -130,38 +146,35 @@
   pointer-events: none;
 }
 
-/* ─────────────────────────────
+/* ─────────────────────────────────────────────
    LARGE TABLETS
-───────────────────────────── */
+───────────────────────────────────────────── */
 
 @media (max-width: 1200px) {
 
   .ts-blg__grid {
-    max-width: 1100px;
+    transform: scale(0.88);
+    transform-origin: center top;
 
-    clip-path: path(
-      'M 0 0 
-       Q 550 145 1100 0 
-       L 1100 458 
-       Q 550 313 0 458 
-       Z'
-    );
-  }
-
-  .ts-blg__card {
-    flex: 0 0 366px;
-    width: 366px;
+    margin-top: 0;
+    margin-bottom: -10px;
   }
 }
 
-/* ─────────────────────────────
+/* ─────────────────────────────────────────────
    TABLETS
-───────────────────────────── */
+───────────────────────────────────────────── */
 
 @media (max-width: 992px) {
 
+  .ts-blg {
+    padding: 50px 0 70px;
+  }
+
   .ts-blg__grid {
-    max-width: 960px;
+
+    width: 960px;
+    height: 400px;
 
     clip-path: path(
       'M 0 0 
@@ -170,17 +183,28 @@
        Q 480 280 0 400 
        Z'
     );
+
+    transform: scale(0.92);
+    transform-origin: center top;
+
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .ts-blg__screen {
+    height: 400px;
   }
 
   .ts-blg__card {
     flex: 0 0 320px;
     width: 320px;
+    height: 400px;
   }
 }
 
-/* ─────────────────────────────
+/* ─────────────────────────────────────────────
    MOBILE
-───────────────────────────── */
+───────────────────────────────────────────── */
 
 @media (max-width: 768px) {
 
@@ -203,9 +227,16 @@
   }
 
   .ts-blg__grid {
-    max-width: 780px;
+
+    width: 780px;
+    max-width: none;
+
+    height: 325px;
 
     margin: 35px auto 60px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
 
     clip-path: path(
       'M 0 0 
@@ -214,17 +245,25 @@
        Q 390 229 0 325 
        Z'
     );
+
+    transform: scale(0.92);
+    transform-origin: center top;
+  }
+
+  .ts-blg__screen {
+    height: 325px;
   }
 
   .ts-blg__card {
     flex: 0 0 260px;
     width: 260px;
+    height: 325px;
   }
 }
 
-/* ─────────────────────────────
+/* ─────────────────────────────────────────────
    SMALL MOBILE
-───────────────────────────── */
+───────────────────────────────────────────── */
 
 @media (max-width: 480px) {
 
@@ -233,22 +272,23 @@
   }
 
   .ts-blg__grid {
-    max-width: 620px;
 
-    margin: 30px auto 50px;
+    width: 780px;
+    max-width: none;
 
-    clip-path: path(
-      'M 0 0 
-       Q 310 76 620 0 
-       L 620 260 
-       Q 310 184 0 260 
-       Z'
-    );
+    height: 325px;
+
+    transform: scale(0.72);
+    transform-origin: center top;
+
+    margin-top: -20px;
+    margin-bottom: -10px;
   }
 
   .ts-blg__card {
-    flex: 0 0 220px;
-    width: 220px;
+    flex: 0 0 260px;
+    width: 260px;
+    height: 325px;
   }
 
   .ts-blg__eyebrow {
@@ -258,36 +298,28 @@
 
   .ts-blg__desc {
     font-size: 13px;
+    line-height: 1.5;
   }
 }
 
-/* ─────────────────────────────
+/* ─────────────────────────────────────────────
    EXTRA SMALL DEVICES
-───────────────────────────── */
+───────────────────────────────────────────── */
 
 @media (max-width: 360px) {
 
   .ts-blg__grid {
-    max-width: 540px;
+    transform: scale(0.62);
+    transform-origin: center top;
 
-    clip-path: path(
-      'M 0 0 
-       Q 270 65 540 0 
-       L 540 225 
-       Q 270 160 0 225 
-       Z'
-    );
-  }
-
-  .ts-blg__card {
-    flex: 0 0 180px;
-    width: 180px;
+    margin-top: -40px;
+    margin-bottom: -40px;
   }
 }
 
-/* ─────────────────────────────
+/* ─────────────────────────────────────────────
    GLOBAL FIX
-───────────────────────────── */
+───────────────────────────────────────────── */
 
 html,
 body {
