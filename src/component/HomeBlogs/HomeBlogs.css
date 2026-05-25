@@ -1,115 +1,294 @@
-/* ── HOME BLOGS — INFINITE-LOOP CURVED TV ── */
+/* ─────────────────────────────────────────────
+   HOME BLOGS — RESPONSIVE CURVED TV SECTION
+───────────────────────────────────────────── */
+
 .ts-blg {
   background: #000000;
   padding: 60px 0 90px;
+  overflow: hidden;
 }
+
+/* ─────────────────────────────────────────────
+   HEADER
+───────────────────────────────────────────── */
 
 .ts-blg__head {
   text-align: center;
   max-width: 760px;
   margin: 0 auto 28px;
+  padding: 0 20px;
 }
 
 .ts-blg__eyebrow {
   display: inline-block;
+
   padding: 10px 30px;
+
   background: transparent;
+
   border: 1px solid rgba(79, 163, 30, 0.7);
   border-radius: 100px;
+
   margin-bottom: 16px;
+
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
-  font-size: 20px;
+  font-size: clamp(14px, 2vw, 20px);
   line-height: 100%;
+
   color: #FFFFFF;
+
   letter-spacing: 0.2px;
   text-transform: capitalize;
-  box-shadow: 0 0 28px rgba(79, 163, 30, 0.55),
-              inset 0 0 14px rgba(79, 163, 30, 0.20);
+
+  box-shadow:
+    0 0 28px rgba(79, 163, 30, 0.55),
+    inset 0 0 14px rgba(79, 163, 30, 0.20);
 }
 
 .ts-blg__desc {
   margin: 0;
+
   font-family: 'Poppins', sans-serif;
-  font-size: 15px;
+  font-size: clamp(13px, 1.6vw, 15px);
   line-height: 1.7;
+
   color: #CBD5E0;
+
+  padding: 0 12px;
 }
 
-/* ── VIEWPORT — fixed size, holds the curve clip-path ── */
+/* ─────────────────────────────────────────────
+   VIEWPORT
+───────────────────────────────────────────── */
+
 .ts-blg__grid {
   position: relative;
-  display: block;
-  width: 1276.8px;
-  max-width: 100%;
-  height: 532px;
+
+  width: 100%;
+  max-width: 1280px;
+
+  height: clamp(280px, 42vw, 532px);
+
   margin: 50px auto 90px;
+
   overflow-x: auto;
   overflow-y: hidden;
+
   scrollbar-width: none;
   -ms-overflow-style: none;
+
   cursor: grab;
+
   user-select: none;
   -webkit-user-select: none;
-  /* Inward curve fixed on the viewport — content scrolls behind it */
-  clip-path: path('M 0 0 Q 638.4 160 1276.8 0 L 1276.8 532 Q 638.4 372 0 532 Z');
+
+  -webkit-overflow-scrolling: touch;
+
+  clip-path: ellipse(85% 100% at 50% 50%);
 }
 
-.ts-blg__grid::-webkit-scrollbar { display: none; }
+.ts-blg__grid::-webkit-scrollbar {
+  display: none;
+}
 
-/* ── RAIL ── */
+/* ─────────────────────────────────────────────
+   RAIL
+───────────────────────────────────────────── */
+
 .ts-blg__screen {
   display: flex;
-  gap: 0;
-  flex-shrink: 0;
+
   width: max-content;
-  height: 532px;
+  height: 100%;
+
+  flex-shrink: 0;
 }
 
-/* ── CARDS ── */
+/* ─────────────────────────────────────────────
+   CARDS
+───────────────────────────────────────────── */
+
 .ts-blg__card {
-  flex: 0 0 425.6px;
-  width: 425.6px;
-  height: 532px;
-  margin: 0;
+  flex: 0 0 33.333%;
+
+  width: min(33.333vw, 426px);
+
+  height: 100%;
+
   overflow: hidden;
-  background: #111;
+
+  background: #111111;
+
   border: none;
   border-radius: 0;
+
   box-shadow: none;
 }
 
 .ts-blg__card img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
+
   display: block;
+
   pointer-events: none;
 }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 1300px) {
+/* ─────────────────────────────────────────────
+   LARGE TABLETS
+───────────────────────────────────────────── */
+
+@media (max-width: 1200px) {
+
+  .ts-blg {
+    padding: 55px 0 80px;
+  }
+
   .ts-blg__grid {
-    width: 100%;
+    height: 460px;
+
+    margin: 45px auto 80px;
+
+    clip-path: ellipse(88% 100% at 50% 50%);
+  }
+
+  .ts-blg__card {
+    flex: 0 0 360px;
+    width: 360px;
   }
 }
 
-@media (max-width: 900px) {
+/* ─────────────────────────────────────────────
+   TABLETS
+───────────────────────────────────────────── */
+
+@media (max-width: 992px) {
+
+  .ts-blg {
+    padding: 50px 0 70px;
+  }
+
   .ts-blg__grid {
-    width: 960px;
     height: 400px;
-    clip-path: path('M 0 0 Q 480 120 960 0 L 960 400 Q 480 280 0 400 Z');
+
+    margin: 40px auto 70px;
+
+    clip-path: ellipse(90% 100% at 50% 50%);
   }
-  .ts-blg__screen { height: 400px; }
-  .ts-blg__card { flex: 0 0 320px; width: 320px; height: 400px; }
+
+  .ts-blg__card {
+    flex: 0 0 320px;
+    width: 320px;
+  }
+
+  .ts-blg__desc {
+    line-height: 1.6;
+  }
 }
 
-@media (max-width: 560px) {
-  .ts-blg__grid {
-    width: 780px;
-    height: 325px;
-    clip-path: path('M 0 0 Q 390 96 780 0 L 780 325 Q 390 229 0 325 Z');
+/* ─────────────────────────────────────────────
+   MOBILE
+───────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+
+  .ts-blg {
+    padding: 45px 0 65px;
   }
-  .ts-blg__screen { height: 325px; }
-  .ts-blg__card { flex: 0 0 260px; width: 260px; height: 325px; }
+
+  .ts-blg__head {
+    margin-bottom: 20px;
+  }
+
+  .ts-blg__grid {
+    height: 320px;
+
+    margin: 35px auto 60px;
+
+    clip-path: ellipse(95% 100% at 50% 50%);
+  }
+
+  .ts-blg__screen {
+    height: 100%;
+  }
+
+  .ts-blg__card {
+    flex: 0 0 260px;
+    width: 260px;
+  }
+
+  .ts-blg__eyebrow {
+    padding: 9px 24px;
+  }
+
+  .ts-blg__desc {
+    font-size: 14px;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   SMALL MOBILE
+───────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+
+  .ts-blg {
+    padding: 40px 0 55px;
+  }
+
+  .ts-blg__head {
+    padding: 0 16px;
+  }
+
+  .ts-blg__grid {
+    height: 260px;
+
+    margin: 30px auto 50px;
+
+    clip-path: ellipse(100% 100% at 50% 50%);
+  }
+
+  .ts-blg__card {
+    flex: 0 0 220px;
+    width: 220px;
+  }
+
+  .ts-blg__eyebrow {
+    padding: 8px 20px;
+
+    font-size: 13px;
+  }
+
+  .ts-blg__desc {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   EXTRA SMALL DEVICES
+───────────────────────────────────────────── */
+
+@media (max-width: 360px) {
+
+  .ts-blg__grid {
+    height: 230px;
+  }
+
+  .ts-blg__card {
+    flex: 0 0 190px;
+    width: 190px;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   GLOBAL OVERFLOW FIX
+───────────────────────────────────────────── */
+
+html,
+body {
+  overflow-x: hidden;
 }

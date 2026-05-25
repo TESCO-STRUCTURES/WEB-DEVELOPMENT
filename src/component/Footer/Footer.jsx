@@ -32,7 +32,7 @@ export default function Footer() {
           WATERMARK
       =================================== */}
       <div className="ts-footer__watermark">
-        TESCO STRUCTUREs
+        TESCO STRUCTURES
       </div>
 
       {/* ===================================
